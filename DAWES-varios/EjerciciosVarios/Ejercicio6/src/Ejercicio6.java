@@ -32,6 +32,14 @@ public class Ejercicio6 {
         } else {
             System.out.println("Entrada no válida. Por favor, elige piedra, papel o tijera.");
         }
+<<<<<<< HEAD
+
+        sc.close();
+    }
+
+			
+		}
+=======
 
         sc.close();
     }
@@ -40,3 +48,4 @@ public class Ejercicio6 {
 		}
 
 
+>>>>>>> 62feaaabcd7b5686109a95d5c88c31d9c8b04bf1
