@@ -8,7 +8,7 @@ public class Ejercicio10 {
 		 
 		 int numeroInicial = scanner.nextInt();
 		 
-		 int numero = 10;
+		 int numero = 12;
 		 int a = numeroInicial;
 		 int b = numeroInicial;
 		 
