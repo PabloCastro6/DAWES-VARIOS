@@ -49,8 +49,8 @@ public class PacienteModelo {
 	public Integer insertarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergia, String HistoriaMedica)throws ClassNotFoundException, SQLException {
 		
-		String sql = "INSERT INTO cliente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono,\r\n"
-				+ "	 correo,  alergia, HistoriaMedica ) VALUES (? ? ? ? ? ? ? ? )";
+		String sql = "INSERT INTO paciente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono,\r\n"
+				+ "	 correo,  alergia, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -76,7 +76,8 @@ public class PacienteModelo {
 	
 	
 	
-	public Integer actualizarPaciente (Integer id, String nombrePaciente) throws SQLException, ClassNotFoundException {
+	public Integer actualizarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
+			String correo, Integer alergia, String HistoriaMedica) throws SQLException, ClassNotFoundException {
 		
 		String sql = "UPDATE paciente SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
 		+ "WHERE ID = ?";
@@ -88,9 +89,17 @@ public class PacienteModelo {
 		
 		ps = connection.prepareStatement(sql);		
 
-		ps.setString(1, nombrePaciente);
-		ps.setString(2, nombrePaciente);
-		ps.setInt(3, id);
+		ps.setString(1, nombre);
+		ps.setString(2, apellido);
+		ps.setString(3, FechaDeNacimiento);
+		ps.setString(4, DNI);
+		ps.setString(5, direccion);
+		ps.setString(6, telefono);
+		ps.setString(7, correo);
+		ps.setInt(8, alergia);
+		ps.setString(9, HistoriaMedica);
+		
+		
 		
 		resultado = ps.executeUpdate();
 		

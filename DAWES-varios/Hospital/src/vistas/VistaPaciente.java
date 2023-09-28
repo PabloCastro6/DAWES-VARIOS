@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
+import controllers.AlergiasController;
 import controllers.PacientesController;
 import dtos.PacienteDTO;
 import utils.MiScanner;
@@ -58,7 +59,7 @@ public class VistaPaciente {
 
 	private void menuBuscarPaciente() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		System.out.println("Introduzca por favo el id del paciente");
+		System.out.println("Introduzca por favor el id del paciente");
 		String id = sc.nextLine();
 		
 		System.out.println("Introduzca por favor el nombre del paciente");
@@ -107,7 +108,8 @@ public class VistaPaciente {
 		String nombrePaciente = sc.nextLine();
 		
 		PacientesController controladorPaciente = new PacientesController();
-		int resultado = controladorPaciente.insertarPaciente(nombrePaciente);
+		int resultado = controladorPaciente.insertarPaciente( nombre, FechaDeNacimiento,  DNI, direccion,  telefono,correo,  alergia, HistoriaMedica);
+		
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
@@ -115,8 +117,27 @@ public class VistaPaciente {
 		}
 	}
 	
-	public void menuActualizarPaciente() {
+	
+	
+	public void menuActualizarPaciente() throws ClassNotFoundException, SQLException {
+		Scanner sc = MiScanner.getInstance();
 		
+		System.out.println("Introduzca por favor el nombre del paciente a actualizar: ");
+		int  nombre = Integer.parseInt(sc.nextLine());		
+		System.out.println("Introduzca por favor el nuevo nombre del paciente: ");
+		String nombreAlergia = sc.nextLine();	 	
+
+		
+		PacientesController controladorPaciente = new PacientesController();
+		int resultado = controladorPaciente.actualizarPaciente(nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
+				 correo,  alergia,  HistoriaMedica);
+		
+		if (resultado == 1) {
+			System.out.println("Se ha actualizado el paciente con el número: " + nombre +" con éxito");
+			
+		} else {
+			System.out.println("Se ha producido un error al actualizar el paciente con el nombre: "+ nombre);
+		}
 	}
 }
 

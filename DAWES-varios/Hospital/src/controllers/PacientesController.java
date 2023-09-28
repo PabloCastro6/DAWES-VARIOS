@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import dtos.PacienteDTO;
+import model.AlergiasModelo;
 import model.PacienteModelo;
 
 public class PacientesController {
@@ -15,11 +16,20 @@ public class PacientesController {
 				 correo,  alergia, HistoriaMedica);
 	}
 	
-	public Integer insertarPaciente (String nombrePaciente) throws ClassNotFoundException, SQLException {
+	public Integer insertarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
+			String correo, Integer alergia, String HistoriaMedica) throws ClassNotFoundException, SQLException {
 		PacienteModelo cm = new PacienteModelo();
-		return cm.insertarPaciente(nombrePaciente);
+		return cm.insertarPaciente(nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
+				 correo,  alergia,  HistoriaMedica);
 	}
 	
+public Integer actualizarPaciente(String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
+		String correo, Integer alergia, String HistoriaMedica) throws ClassNotFoundException, SQLException {
+		
+		PacienteModelo pm = new PacienteModelo();
+		return pm.actualizarPaciente(nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
+				 correo,  alergia,  HistoriaMedica);
+	}
 	
 	
 }
