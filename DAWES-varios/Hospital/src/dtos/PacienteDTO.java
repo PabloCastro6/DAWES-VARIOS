@@ -4,29 +4,29 @@ public class PacienteDTO {
 	private Integer id;
 	private String Nombre;
 	private String Apellido;
+	private String FechaDeNacimiento;
 	private String DNI;
 	private String Direccion;
 	private String Telefono;
 	private String Correo;
 	private Integer Alergia;
+	private String HistoriaMedica;
 	
 	// constructor, getters y setters 
 	
-	public PacienteDTO(Integer id, String nombre, String apellido, String dNI, String direccion, String telefono,
-			String correo, Integer alergia) {
+	public PacienteDTO(Integer id, String nombre, String apellido,String FechaDeNacimiento, String dNI, String direccion, String telefono,
+			String correo, Integer alergia, String HistoriaMedica) {
 		super();
 		this.id = id;
 		Nombre = nombre;
 		Apellido = apellido;
+		FechaDeNacimiento = FechaDeNacimiento;
 		DNI = dNI;
 		Direccion = direccion;
 		Telefono = telefono;
 		Correo = correo;
 		Alergia = alergia;
-	}
-
-	public PacienteDTO() {
-		super();
+		HistoriaMedica = HistoriaMedica;
 	}
 
 	public Integer getId() {
@@ -51,6 +51,14 @@ public class PacienteDTO {
 
 	public void setApellido(String apellido) {
 		Apellido = apellido;
+	}
+
+	public String getFechaDeNacimiento() {
+		return FechaDeNacimiento;
+	}
+
+	public void setFechaDeNacimiento(String fechaDeNacimiento) {
+		FechaDeNacimiento = fechaDeNacimiento;
 	}
 
 	public String getDNI() {
@@ -92,6 +100,16 @@ public class PacienteDTO {
 	public void setAlergia(Integer alergia) {
 		Alergia = alergia;
 	}
+
+	public String getHistoriaMedica() {
+		return HistoriaMedica;
+	}
+
+	public void setHistoriaMedica(String historiaMedica) {
+		HistoriaMedica = historiaMedica;
+	}
+
+	
 	
 	
 }

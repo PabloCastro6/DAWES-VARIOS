@@ -43,7 +43,7 @@ public class VistaPaciente {
 			}
 
 			if (n == 2) {
-				menuInsertaPaciente();
+				menuInsertarPaciente();
 				continue;
 			}
 
@@ -58,14 +58,41 @@ public class VistaPaciente {
 
 	private void menuBuscarPaciente() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		System.out.println("Introduzca por favo el id del cliente");
+		System.out.println("Introduzca por favo el id del paciente");
 		String id = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el nombre del cliente");
-		String nombrePaciente = sc.nextLine();
+		System.out.println("Introduzca por favor el nombre del paciente");
+		String nombre = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el apellido del paciente");
+		String apellido = sc.nextLine();
+		
+		System.out.println("Introduzca por favor la fecha de nacimiento del paciente");
+		String FechaDeNacimiento = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el DNI");
+		String DNI = sc.nextLine();
+		
+		System.out.println("Introduzca por favor la direccion del paciente");
+		String direccion = sc.nextLine();
+		
+		System.out.println("Introduzca por favor la telefono del paciente");
+		String telefono = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el correo del paciente");
+		String correo = sc.nextLine();
+		
+		System.out.println("Introduzca por favor la alergia del paciente");
+		Integer alergia = sc.nextInt();
+		
+		System.out.println("Introduzca por favor la historia Medica del paciente");
+		String HistoriaMedica = sc.nextLine();
+		
+		
 		
 		PacientesController controladorPaciente = new PacientesController();
-		List <PacienteDTO> listaPaciente = controladorPaciente.buscarPaciente(id,nombrePaciente);
+		List <PacienteDTO> listaPaciente = controladorPaciente.buscarPaciente(id,  nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono,
+				 correo,  alergia, HistoriaMedica);
 		
 		for (PacienteDTO paciente : listaPaciente) {
 			System.out.println();
@@ -73,11 +100,22 @@ public class VistaPaciente {
 
 	}
 	
-	public void menuInsertarPaciente() {
+	public void menuInsertarPaciente() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
+		
+		System.out.println("Introduzca por favor el nombre del paciente");
+		String nombrePaciente = sc.nextLine();
+		
+		PacientesController controladorPaciente = new PacientesController();
+		int resultado = controladorPaciente.insertarPaciente(nombrePaciente);
+		if (resultado == 1) {
+			System.out.println("Se ha introducido el registro con éxito");
+		} else {
+			System.out.println("Se ha producido un error al introducir el registro");
+		}
 	}
 	
-	public void menuActualizarAlergio() {
+	public void menuActualizarPaciente() {
 		
 	}
 }
