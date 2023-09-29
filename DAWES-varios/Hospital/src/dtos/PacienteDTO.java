@@ -1,135 +1,144 @@
 package dtos;
 
 public class PacienteDTO {
-	private Integer id;
-	private String Nombre;
-	private String Apellido;
-	private String FechaDeNacimiento;
-	private String DNI;
-	private String Direccion;
-	private String Telefono;
-	private String CorreoElectronico;
-	private Integer Alergia;
-	private String HistoriaMedica;
+	private Integer iD;
+	private String nombre;
+	private String apellido;
+	private String fechaDeNacimiento;
+	private String dNI;
+	private String direccion;
+	private String telefono;
+	private String correoElectronico;
+	private Integer alergia;
+	private String historiaMedica;
 	
 	
 	public PacienteDTO(Integer id, String nombre, String apellido, String fechaDeNacimiento, String dNI,
 			String direccion, String telefono, String correoElectronico, Integer alergia, String historiaMedica) {
 		super();
-		this.id = id;
-		Nombre = nombre;
-		Apellido = apellido;
-		FechaDeNacimiento = fechaDeNacimiento;
-		DNI = dNI;
-		Direccion = direccion;
-		Telefono = telefono;
-		CorreoElectronico = correoElectronico;
-		Alergia = alergia;
-		HistoriaMedica = historiaMedica;
+		this.iD = iD;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fechaDeNacimiento = fechaDeNacimiento;
+		this.dNI = dNI;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.correoElectronico = correoElectronico;
+		this.alergia = alergia;
+		this.historiaMedica = historiaMedica;
 	}
 
 	// constructor, getters y setters 
-		  
-
-	public Integer getId() {
-		return id;
+	public Integer getiD() {
+		return iD;
 	}
 
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setiD(Integer iD) {
+		this.iD = iD;
 	}
 
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
 
 	public String getApellido() {
-		return Apellido;
+		return apellido;
 	}
 
 
 	public void setApellido(String apellido) {
-		Apellido = apellido;
+		this.apellido = apellido;
 	}
 
 
 	public String getFechaDeNacimiento() {
-		return FechaDeNacimiento;
+		return fechaDeNacimiento;
 	}
 
 
 	public void setFechaDeNacimiento(String fechaDeNacimiento) {
-		FechaDeNacimiento = fechaDeNacimiento;
+		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
 
-	public String getDNI() {
-		return DNI;
+	public String getdNI() {
+		return dNI;
 	}
 
 
-	public void setDNI(String dNI) {
-		DNI = dNI;
+	public void setdNI(String dNI) {
+		this.dNI = dNI;
 	}
 
 
 	public String getDireccion() {
-		return Direccion;
+		return direccion;
 	}
 
 
 	public void setDireccion(String direccion) {
-		Direccion = direccion;
+		this.direccion = direccion;
 	}
 
 
 	public String getTelefono() {
-		return Telefono;
+		return telefono;
 	}
 
 
 	public void setTelefono(String telefono) {
-		Telefono = telefono;
+		this.telefono = telefono;
 	}
 
 
 	public String getCorreoElectronico() {
-		return CorreoElectronico;
+		return correoElectronico;
 	}
 
 
 	public void setCorreoElectronico(String correoElectronico) {
-		CorreoElectronico = correoElectronico;
+		this.correoElectronico = correoElectronico;
 	}
 
 
 	public Integer getAlergia() {
-		return Alergia;
+		return alergia;
 	}
 
 
 	public void setAlergia(Integer alergia) {
-		Alergia = alergia;
+		this.alergia = alergia;
 	}
 
 
 	public String getHistoriaMedica() {
-		return HistoriaMedica;
+		return historiaMedica;
 	}
 
 
 	public void setHistoriaMedica(String historiaMedica) {
-		HistoriaMedica = historiaMedica;
+		this.historiaMedica = historiaMedica;
 	}
+
+	@Override
+	public String toString() {
+		return "PacienteDTO [iD=" + iD + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento="
+				+ fechaDeNacimiento + ", dNI=" + dNI + ", direccion=" + direccion + ", telefono=" + telefono
+				+ ", correoElectronico=" + correoElectronico + ", alergia=" + alergia + ", historiaMedica="
+				+ historiaMedica + "]";
+	}
+
 	
+		  
+
 	
 	
 

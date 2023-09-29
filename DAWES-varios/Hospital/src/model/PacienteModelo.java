@@ -79,6 +79,7 @@ public class PacienteModelo {
 	public Integer actualizarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergia, String HistoriaMedica) throws SQLException, ClassNotFoundException {
 		
+	// Hacer la sentenia de actualizar 
 		String sql = "UPDATE paciente SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
 		+ "WHERE ID = ?";
 		

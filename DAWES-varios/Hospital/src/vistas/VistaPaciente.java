@@ -48,10 +48,10 @@ public class VistaPaciente {
 				continue;
 			}
 
-			if (n == 3) {
-				menuActualizarPaciente();
-				continue;
-			}
+//			if (n == 3) {
+//				menuActualizarPaciente();
+//				continue;
+//			}
 
 		} while (n != 6);
 
@@ -105,10 +105,28 @@ public class VistaPaciente {
 		Scanner sc = MiScanner.getInstance();
 		
 		System.out.println("Introduzca por favor el nombre del paciente");
-		String nombrePaciente = sc.nextLine();
+		String nombre = sc.nextLine();
+		System.out.println("Introduzca por favor el apellido del paciente");
+		String apellido = sc.nextLine();
+		System.out.println("Introduzca por favor el FechaDeNacimiento del paciente");
+		String FechaDeNacimiento = sc.nextLine();
+		System.out.println("Introduzca por favor el DNI del paciente");
+		String DNI = sc.nextLine();
+		System.out.println("Introduzca por favor el direccion del paciente");
+		String direccion = sc.nextLine();
+		System.out.println("Introduzca por favor el telefono del paciente");
+		String telefono = sc.nextLine();
+		System.out.println("Introduzca por favor el correo del paciente");
+		String correo = sc.nextLine();
+		System.out.println("Introduzca por favor el alergia del paciente");
+		Integer alergia = sc.nextInt();
+		System.out.println("Introduzca por favor la HistoriaMedica del paciente");
+		String HistoriaMedica = sc.nextLine();
+		
 		
 		PacientesController controladorPaciente = new PacientesController();
-		int resultado = controladorPaciente.insertarPaciente( nombre, FechaDeNacimiento,  DNI, direccion,  telefono,correo,  alergia, HistoriaMedica);
+		int resultado = controladorPaciente.insertarPaciente( nombre,apellido,FechaDeNacimiento,  DNI,  direccion,  telefono,
+				 correo,  alergia,  HistoriaMedica);
 		
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
@@ -119,25 +137,26 @@ public class VistaPaciente {
 	
 	
 	
-	public void menuActualizarPaciente() throws ClassNotFoundException, SQLException {
-		Scanner sc = MiScanner.getInstance();
-		
-		System.out.println("Introduzca por favor el nombre del paciente a actualizar: ");
-		int  nombre = Integer.parseInt(sc.nextLine());		
-		System.out.println("Introduzca por favor el nuevo nombre del paciente: ");
-		String nombreAlergia = sc.nextLine();	 	
-
-		
-		PacientesController controladorPaciente = new PacientesController();
-		int resultado = controladorPaciente.actualizarPaciente(nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
-				 correo,  alergia,  HistoriaMedica);
-		
-		if (resultado == 1) {
-			System.out.println("Se ha actualizado el paciente con el número: " + nombre +" con éxito");
-			
-		} else {
-			System.out.println("Se ha producido un error al actualizar el paciente con el nombre: "+ nombre);
-		}
-	}
+//	public void menuActualizarPaciente() throws ClassNotFoundException, SQLException {
+//		Scanner sc = MiScanner.getInstance();
+//		
+//		System.out.println("Introduzca por favor el nombre del paciente a actualizar: ");
+//		int  nombre = Integer.parseInt(sc.nextLine());		
+//		System.out.println("Introduzca por favor el nuevo nombre del paciente: ");
+//		String nombreAlergia = sc.nextLine();	 	
+//
+//		
+//		PacientesController controladorPaciente = new PacientesController();
+//		int resultado = controladorPaciente.actualizarPaciente( id,  nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
+//				 correo,  alergia,  HistoriaMedica);
+//		
+//		if (resultado == 1) {
+//			
+//			System.out.println("Se ha actualizado el paciente con el número: " + nombre +" con éxito");
+//			
+//		} else {
+//			System.out.println("Se ha producido un error al actualizar el paciente con el nombre: "+ nombre);
+//		}
+//	}
 }
 
