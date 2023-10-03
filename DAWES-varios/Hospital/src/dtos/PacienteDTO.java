@@ -9,12 +9,12 @@ public class PacienteDTO {
 	private String direccion;
 	private String telefono;
 	private String correoElectronico;
-	private Integer alergia;
+	private String alergia;
 	private String historiaMedica;
 	
 	
 	public PacienteDTO(Integer id, String nombre, String apellido, String fechaDeNacimiento, String dNI,
-			String direccion, String telefono, String correoElectronico, Integer alergia, String historiaMedica) {
+			String direccion, String telefono, String correoElectronico, String alergia, String historiaMedica) {
 		super();
 		this.iD = iD;
 		this.nombre = nombre;
@@ -109,12 +109,12 @@ public class PacienteDTO {
 	}
 
 
-	public Integer getAlergia() {
+	public String getAlergia() {
 		return alergia;
 	}
 
 
-	public void setAlergia(Integer alergia) {
+	public void setAlergia(String alergia) {
 		this.alergia = alergia;
 	}
 
