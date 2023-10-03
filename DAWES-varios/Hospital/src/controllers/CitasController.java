@@ -8,25 +8,25 @@ import model.AlergiasModelo;
 import model.CitasModelo;
 
 public class CitasController {
-public List<CitasDTO>buscarCita(Integer citaID, Integer pacienteID, Integer medicoID, Integer fecha, String hora, String estado) {
+public List<CitasDTO>buscarCita(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estado) {
 	CitasModelo cm = new CitasModelo();
-	return cm.buscarCita( citaID,  pacienteID,  medicoID,  fecha,  hora,  estado);
+	return cm.buscarCita( iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
 }
 
-public Integer insertarCita (Integer citaID, Integer pacienteID, Integer medicoID, Integer fecha, String hora, String estado) {
+public Integer insertarCita (Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estado) {
 	CitasModelo cm = new CitasModelo();
-	return cm.insertarCita( citaID,  pacienteID,  medicoID,  fecha,  hora,  estado);
+	return cm.insertarCita( iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
 }
-public Integer actualizarCita(Integer citaID, Integer pacienteID, Integer medicoID, Integer fecha, String hora, String estado) throws ClassNotFoundException, SQLException {
+public Integer actualizarCita(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estado) throws ClassNotFoundException, SQLException {
 	
 	CitasModelo cm = new CitasModelo();
-	return cm.actualizarCita(citaID,  pacienteID,  medicoID,  fecha,  hora,  estado);
+	return cm.actualizarCita(iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
 }
 
-public Integer borrarCliente(Integer citaID, Integer pacienteID, Integer medicoID, Integer fecha, String hora, String estado) throws ClassNotFoundException, SQLException {
+public Integer borrarCliente(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estado) throws ClassNotFoundException, SQLException {
 	
 	CitasModelo cm = new CitasModelo();
-	return cm.borrarCliente(citaID,  pacienteID,  medicoID,  fecha,  hora,  estado);
+	return cm.borrarCliente(iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
 }
 
 }
