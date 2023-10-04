@@ -40,6 +40,12 @@ public class MenuPrincipal {
             	System.out.println("ahora ejecutaría la gestión de Médicos");
             	continue;
             }
+            if (n == 3) {
+            	System.out.println("Ahora ejecutaría la gestión citas");
+            	VistaCitas vc = new VistaCitas();
+            	vc.menuGeneralCita();
+            	continue;
+            }
             
             if ( n == 11) {
             	VistaAlergias vc = new VistaAlergias();
@@ -47,7 +53,7 @@ public class MenuPrincipal {
             	continue;
             }
 
-	    } while(n!=7);
+	    } while(n!=14);
 	}
 
 }

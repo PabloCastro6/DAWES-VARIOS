@@ -47,10 +47,10 @@ public void menuGeneralFarmacia() throws ClassNotFoundException, SQLException {
             	continue;
             }
             
-            if ( n == 3) {
-            	menuActualizarFarmacia();
-            	continue;
-            }
+////            if ( n == 3) {
+//            	menuActualizarFarmacia();
+//            	continue;
+//            }
 	    	
 	    } while(n!=6);
 	

@@ -19,7 +19,7 @@ public class VistaCitas {
 		do {
 			System.out.println("Introduzca la operación que desee realizar: ");
 
-			System.out.println("       MENÚ PRINCIPAL PARA LA CREACION DE PACIENTES");
+			System.out.println("       MENÚ PRINCIPAL PARA LA CREACION DE CITAS");
 			System.out.println("===========================================================");
 			System.out.println("1. Buscar cita");
 			System.out.println("2. Insertar cita");
@@ -48,33 +48,33 @@ public class VistaCitas {
 				continue;
 			}
 
-//			if (n == 3) {
-//				menuActualizarPaciente();
-//				continue;
-//			}
+			if (n == 3) {
+				menuActualizarCita();
+				continue;
+		}
 
 		} while (n != 6);
 
 	}
 	
-	public void menuBuscarCita() throws ClassNotFoundException, SQLException {
+	private void menuBuscarCita() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 		System.out.println("Introduzca por favor el id de la cita: ");
 		String id = sc.nextLine();
 
-		System.out.println("Introduzca por favor el nombre de la cita: ");
+		System.out.println("Introduzca por favor el id del paciente de la cita: ");
 		String pacienteID = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el nombre de la cita: ");
+		System.out.println("Introduzca por favor el id del medico de la cita: ");
 		String medicoID = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el nombre de la cita: ");
+		System.out.println("Introduzca por favor la fecha de la cita: ");
 		String fecha = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el nombre de la cita: ");
+		System.out.println("Introduzca por favor la hora de la cita: ");
 		String hora = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el nombre de la cita: ");
+		System.out.println("Introduzca por favor el estado de la cita: ");
 		String estado = sc.nextLine();
 		
 		CitasController controladorCitas = new CitasController();
@@ -87,33 +87,68 @@ public class VistaCitas {
 	
 	}
 	
-	public void menuInsertarCita() throws ClassNotFoundException, SQLException {
+	private void menuInsertarCita() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 		
 
-		System.out.println("Introduzca por favor el id de la cita: ");
-		String iD = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el id de la cita: ");
+		System.out.println("Introduzca por favor el id del paciente: ");
 		String pacienteID = sc.nextLine();
 		
-		System.out.println("Introduzca por favor el medico de la cita: ");
+		System.out.println("Introduzca por favor el Id del medico : ");
 		String medicoID = sc.nextLine();
 		
 		
 		System.out.println("Introduzca por favor la fecha de la cita: ");
 		String fecha = sc.nextLine();
 		
-		System.out.println("Introduzca por favor la fecha de la cita: ");
+		System.out.println("Introduzca por favor la hora de la cita: ");
 		String hora = sc.nextLine();
 		
-		System.out.println("Introduzca por favor la fecha de la cita: ");
+		System.out.println("Introduzca por favor el estado de la cita: ");
 		String estado = sc.nextLine();
 
 
 		
 		CitasController controladorCitas = new CitasController();
-		int resultado = controladorCitas.insertarCita( iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
+		int resultado = controladorCitas.insertarCita( pacienteID,  medicoID,  fecha,  hora,  estado);
+		if (resultado == 1) {
+			System.out.println("Se ha introducido el registro con éxito");
+		} else {
+			System.out.println("Se ha producido un error al introducir el registro");
+		}
+
+	}
+	
+	private void menuActualizarCita() throws ClassNotFoundException, SQLException {
+		Scanner sc = MiScanner.getInstance();
+		
+
+		System.out.println("Introduzca por favor el id de la cita: ");
+		Integer iD = Integer.parseInt(sc.nextLine());
+		
+		
+
+		System.out.println("Introduzca por favor el id del paciente: ");
+		String pacienteID =sc.nextLine();
+		
+		System.out.println("Introduzca por favor el Id del medico : ");
+		String medicoID = sc.nextLine();
+		
+		
+		System.out.println("Introduzca por favor la fecha de la cita: ");
+		String fecha = sc.nextLine();
+		
+		System.out.println("Introduzca por favor la hora de la cita: ");
+		String hora = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el estado de la cita: ");
+		String estado = sc.nextLine();
+
+
+		
+		CitasController controladorCitas = new CitasController();
+		int resultado = controladorCitas.actualizarCita( iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {

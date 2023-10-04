@@ -25,11 +25,6 @@ public class AlergiasController {
 		return cm.actualizarAlergia(id, nombreAlergia);
 	}
 	
-	public Integer borrarCliente(int numerocliente) throws ClassNotFoundException, SQLException {
-		
-		AlergiasModelo cm = new AlergiasModelo();
-		return cm.borrarCliente(numerocliente);
-	}
-
+	
 }
 

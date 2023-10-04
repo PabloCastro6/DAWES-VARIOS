@@ -83,26 +83,6 @@ public List<AlergiaDTO> buscaAlergia (String id, String nombre) throws ClassNotF
 		return resultado;
 		}
 	
-	public Integer borrarCliente(int customerNumber) throws ClassNotFoundException, SQLException {
-		
-		String sql = "DELETE FROM customers where customerNumber = ?";
-		
-		Connection connection = DBUtils.conexionBBDD();
-		PreparedStatement ps = null;
-		Integer resultado = null;
-		
-		
-		ps = connection.prepareStatement(sql);		
-
-		ps.setInt(1, customerNumber);
 	
-		resultado = ps.executeUpdate();
-		
-		connection.close();
-		
-		return resultado;
-		
-		
-	}
 }
 
