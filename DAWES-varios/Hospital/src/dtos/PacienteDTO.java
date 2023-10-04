@@ -14,7 +14,7 @@ public class PacienteDTO {
 	
 	
 	public PacienteDTO(Integer id, String nombre, String apellido, String fechaDeNacimiento, String dNI,
-			String direccion, String telefono, String correoElectronico, String alergia, String historiaMedica) {
+			String direccion, String telefono, String correoElectronico, int i, String historiaMedica) {
 		super();
 		this.iD = iD;
 		this.nombre = nombre;
@@ -27,6 +27,19 @@ public class PacienteDTO {
 		this.alergia = alergia;
 		this.historiaMedica = historiaMedica;
 	}
+
+	
+
+
+
+	public PacienteDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 
 	// constructor, getters y setters 
 	public Integer getiD() {

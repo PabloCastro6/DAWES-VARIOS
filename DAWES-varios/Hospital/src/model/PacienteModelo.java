@@ -15,7 +15,8 @@ public class PacienteModelo {
 	
 	public List<PacienteDTO> buscarPaciente (String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergia, String HistoriaMedica)throws ClassNotFoundException, SQLException {
-		String query = "\"SELECT * from pacientes INNER JOIN alergias ON paciente.AlergiaID=alergias.ID where ID = ? OR nombre  LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR direccion LIKE ? OR telefono LIKE ? OR correo LIKE ? OR alergia LIKE ? OR historiaMedia LIKE ? OR ; \"";
+		String query = "SELECT * FROM pacientes INNER JOIN alergias ON pacientes.AlergiaID=alergias.ID where ID = ? or Nombre LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR Direccion LIKE ? "
+				+ "OR Telefono LIKE ? OR CorreoElectronico LIKE ? OR Alergia.descripcion LIKE ? OR HistoriaMedica LIKE ?;";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
@@ -37,7 +38,8 @@ public class PacienteModelo {
 		
 		
 		while(pacienteRS.next()) {
-			PacienteDTO p = new PacienteDTO (pacienteRS.getInt("ID"), pacienteRS.getString("nombre"), pacienteRS.getString("apellido"), pacienteRS.getString("FechaDeNacimiento"), pacienteRS.getString("DNI") , pacienteRS.getString("direccion"), pacienteRS.getString("telefono"), pacienteRS.getString("correoElectronico"), pacienteRS.getInt("AlergiaID"), pacienteRS.getString("HistoriaMedica"));
+			PacienteDTO p = new PacienteDTO (pacienteRS.getInt("ID"), pacienteRS.getString("nombre"), pacienteRS.getString("apellido"), pacienteRS.getString("FechaDeNacimiento"), pacienteRS.getString("DNI") , pacienteRS.getString("direccion"),
+					pacienteRS.getString("telefono"), pacienteRS.getString("correoElectronico"), pacienteRS.getInt("AlergiaID"), pacienteRS.getString("HistoriaMedica"));
 			listaPacientes.add(p);
 		}
 		
@@ -79,9 +81,17 @@ public class PacienteModelo {
 	public Integer actualizarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergia, String HistoriaMedica) throws SQLException, ClassNotFoundException {
 		
-	// Hacer la sentenia de actualizar 
-		String sql = "UPDATE paciente SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
-		+ "WHERE ID = ?";
+		String sql = "UPDATE pacientes SET Nombre = case when ? ='' then Nombre else ? END, \"\r\n"
+				+ "				+ \"Apellido = case when ? ='' then Apellido else ? END, \"\r\n"
+				+ "				+ \"FechaDeNacimiento = case when ? ='' then FechaDeNacimiento else ? END, \"\r\n"
+				+ "				+ \"DNI = case when ? ='' then DNI else ? END, \"\r\n"
+				+ "				+ \"Direccion = case when ? ='' then Direccion else ? END, \"\r\n"
+				+ "				+ \"Telefono = case when ? ='' then Telefono else ? END, \"\r\n"
+				+ "				+ \"CorreoElectronico = case when ? ='' then CorreoElectronico else ? END, \"\r\n"
+				+ "				+ \"AlergiaID = case when ? ='' then AlergiaID else ? END,\"\r\n"
+				+ "				+ \"HistoriaMedica = case when ? ='' then HistoriaMedica else ?\"\r\n"
+				+ "				+ \"END \"\r\n"
+				+ "				+ \"WHERE ID = ?";
 		
 				Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
