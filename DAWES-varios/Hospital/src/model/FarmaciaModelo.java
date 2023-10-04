@@ -63,4 +63,42 @@ public class FarmaciaModelo {
 		return resultado;
 	}
 
+	public Integer actualizarFarmacia(Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws SQLException, ClassNotFoundException {
+
+		String sql = "UPDATE farmacia SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
+				+ "WHERE ID = ?";
+		
+		Connection connection = DBUtils.conexionBBDD();
+		PreparedStatement ps = null;
+		Integer resultado = null;
+		
+		
+		ps = connection.prepareStatement(sql);		
+
+		ps.setInt(1, medicamento);
+		ps.setInt(2, medicamento);
+		
+		ps.setString(3, nombre);
+		ps.setString(4, nombre);
+		
+		ps.setString(5, descripcion);
+		ps.setString(6, descripcion);
+		
+		ps.setInt(7, cantidadDisponible);
+		ps.setInt(8, cantidadDisponible);
+		
+		ps.setInt(9, cantidadDisponible);
+		ps.setInt(10, cantidadDisponible);
+		
+		ps.setFloat(11, precio);
+		ps.setFloat(12, precio);
+	
+		
+		resultado = ps.executeUpdate();
+		
+		connection.close();
+		
+		return resultado;
+		}
+
 }
