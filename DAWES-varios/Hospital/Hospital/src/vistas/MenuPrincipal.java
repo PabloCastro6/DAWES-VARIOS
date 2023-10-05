@@ -12,7 +12,6 @@ public class MenuPrincipal {
 		do {
 	    System.out.println("       MENÚ PRINCIPAL PARA LA GESTIÓN DE HOSPITAL");
 	    System.out.println("===============================================");
-
         System.out.println("1- Gestión de  Pacientes");
         System.out.println("2- Gestión de Médicos");
         System.out.println("3- Gestión de Citas");
@@ -37,7 +36,7 @@ public class MenuPrincipal {
                 continue;
             }
             if ( n == 2) {
-            	System.out.println("ahora ejecutaría la gestión de Médicos");
+            	System.out.println("Ahora ejecutaría la gestión de Médicos");
             	continue;
             }
             if (n == 3) {
@@ -46,16 +45,74 @@ public class MenuPrincipal {
             	vc.menuGeneralCita();
             	continue;
             }
-            
-            if ( n == 11) {
-            	VistaAlergias vc = new VistaAlergias();
-            	vc.menuGeneralAlergias();
+            if (n == 4) {
+            	System.out.println("Ahora ejecutaría la gestión Departamentos");
+            	
             	continue;
             }
+            
+            if(n==5) {
+            	System.out.println("Ahora ejecutaria la gestion de Historial Medico");
+            	
+            	continue;
+            }
+            
+            if(n==6) {
+            	System.out.println("Ahora ejecutaria la gestion de Facturacion");
+            	
+            	continue;
+            }
+            
+            if(n==7) {
+            	System.out.println("Ahora ejecutaria la gestion de Farmacia");
+            	
+            	continue;
+            }
+            
+            if(n==8) {
+            	System.out.println("Ahora ejecutaria la gestion de Recetas Medicas");
+            	
+            	continue;
+            }
+            
+            if(n==9) {
+            	System.out.println("Ahora ejecutaria la gestion de Habitaciones ");
+            	
+            	continue;
+            	
+            }
+            if(n==10) {
+            	System.out.println("Ahora ejecutaria la gestion de Admisiones ");
+            	
+            	continue;
+            	
+            }
+            
+            if(n==11) {
+            	System.out.println("Ahora ejecutaria la gestion de Alergias ");
+            	VistaAlergias vc = new VistaAlergias();
+            	vc.menuGeneralAlergias();
+            	
+            	continue;
+            	
+            }
+            
+            if(n==12) {
+            	System.out.println("Ahora ejecutaria la gestion de Citas ");
+            	
+            	continue;
+            	
+            }
+            
+            if(n==13) {
+            	System.out.println("Ahora ejecutaria la gestion de Facturación ");
+            	
+            	continue;
+            	
+            }
+            
 
 	    } while(n!=14);
 	}
 
 }
-
-

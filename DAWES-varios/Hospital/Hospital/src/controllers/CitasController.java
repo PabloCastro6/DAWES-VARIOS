@@ -7,15 +7,15 @@ import model.CitasModelo;
 
 public class CitasController {
 	
-    public List<CitasDTO> buscarCita(String id, String pacienteID, String medicoID, String fecha, String hora, String estado)
+    public List<CitasDTO> buscarCita(String id, String pacienteID, String medicoID, String fecha, String hora, String estadoID)
             throws ClassNotFoundException, SQLException {
         CitasModelo cm = new CitasModelo();
-        return cm.buscaCita(id, pacienteID, medicoID, fecha, hora, estado);
+        return cm.buscaCita(id, pacienteID, medicoID, fecha, hora, estadoID);
     }
 
-    public Integer insertarCita( String pacienteID, String medicoID, String fecha, String hora, String estado) throws ClassNotFoundException, SQLException {
+    public Integer insertarCita( String pacienteID, String medicoID, String fecha, String hora, String estadoID) throws ClassNotFoundException, SQLException {
         CitasModelo cm = new CitasModelo();
-        return cm.insertarCita ( pacienteID, medicoID, fecha, hora, estado);
+        return cm.insertarCita ( pacienteID, medicoID, fecha, hora, estadoID);
     }
 
     public Integer actualizarCita(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID)

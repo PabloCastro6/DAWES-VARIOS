@@ -12,13 +12,8 @@ import utils.DBUtils;
 
 public class FarmaciaModelo {
 	
-	public List<FarmaciaDTO> buscaFarmacia(String medicamento, String nombre, String descripcion, String cantidadDisponible, String precio) throws SQLException, ClassNotFoundException {
-		String query = "\"SELECT * FROM farmacia WHERE \" +\r\n"
-				+ " \"Medicamento LIKE ? AND \" +\r\n"
-				+ " \"Nombre LIKE ? AND \" +\r\n"
-				+ "   \"Descripcion LIKE ? AND \" +\r\n"
-				+  "\"CantidadDisponible LIKE ? AND \" +\r\n"
-				+ "  \"Precio LIKE ?\"; ";
+	public List<FarmaciaDTO> buscaFarmacia(Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws SQLException, ClassNotFoundException {
+		String query = "SELECT * FROM farmacia ";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps  = conexionBD.prepareStatement(query);
@@ -42,9 +37,9 @@ public class FarmaciaModelo {
 		return listaFarmacia;
 	}
 	
-	public Integer insertarFarmacia (String medicamento, String nombre, String descripcion, String cantidadDisponible, String precio) throws ClassNotFoundException, SQLException {
+	public Integer insertarFarmacia (Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws ClassNotFoundException, SQLException {
 		
-		String sql = "\"INSERT INTO farmacia (Medicamento, Nombre, Descripcion, CantidadDisponible, Precio) \" + VALUES (?, ?, ?, ?, ?)\"";
+		String sql = "INSERT INTO farmacias (Descripcion) VALUES (?)";
 		
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -52,11 +47,11 @@ public class FarmaciaModelo {
 		
 		ps = connection.prepareStatement(sql);
 		
-		ps.setString(1,medicamento);
+		ps.setInt(1,medicamento);
 		ps.setString(2,nombre);
 		ps.setString(3,descripcion);
-		ps.setString(4,cantidadDisponible);
-		ps.setString(5,precio);
+		ps.setInt(4,cantidadDisponible);
+		ps.setFloat(5,precio);
 		
 		resultado = ps.executeUpdate();
 		
@@ -70,8 +65,8 @@ public class FarmaciaModelo {
 
 	public Integer actualizarFarmacia(Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws SQLException, ClassNotFoundException {
 
-		String sql = "UPDATE farmacia SET Medicamento = ?, Nombre = ?, Descripcion = ?, CantidadDisponible = ?, Precio = ? \" +\r\n"
-				+ "                 \"WHERE ID = ?\"";  
+		String sql = "UPDATE farmacia SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
+				+ "WHERE ID = ?";
 		
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;

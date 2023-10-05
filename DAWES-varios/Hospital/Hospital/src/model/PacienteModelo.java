@@ -51,7 +51,7 @@ public class PacienteModelo {
 	public Integer insertarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergia, String HistoriaMedica)throws ClassNotFoundException, SQLException {
 		
-		String sql = "INSERT INTO paciente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono,\r\n"
+		String sql = "INSERT INTO paciente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
 				+ "	 correo,  alergia, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();

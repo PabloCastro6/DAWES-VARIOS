@@ -6,17 +6,17 @@ public class CitasDTO {
 	private String medicoID;
 	private String fecha;
 	private String hora;
-	private String estado;
+	private String estadoID;
 	
 	
-	public CitasDTO(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estado) {
+	public CitasDTO(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID) {
 		super();
 		ID = iD;
 		this.pacienteID = pacienteID;
 		this.medicoID = medicoID;
 		this.fecha = fecha;
 		this.hora = hora;
-		this.estado = estado;
+		this.estadoID = estadoID;
 		
 		
 		
@@ -74,12 +74,12 @@ public class CitasDTO {
 
 
 	public String getEstado() {
-		return estado;
+		return estadoID;
 	}
 
 
 	public void setEstado(String estado) {
-		this.estado = estado;
+		this.estadoID = estado;
 	}
 	
 	

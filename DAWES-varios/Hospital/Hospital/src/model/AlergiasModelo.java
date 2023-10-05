@@ -85,4 +85,3 @@ public List<AlergiaDTO> buscaAlergia (String id, String nombre) throws ClassNotF
 	
 	
 }
-

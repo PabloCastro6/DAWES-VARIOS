@@ -10,7 +10,7 @@ public class DBUtils {
 		Class.forName("com.mysql.cj.jdbc.Driver"); 
 		String servidor = "jdbc:mysql://localhost:3306/hospital?serverTimezone=UTC";
 		String username = "root"; 
-		String password = "1234"; 
+		String password = "PracticaRoot"; 
 		Connection conexionBD = DriverManager.getConnection(servidor, username, password);
 		return conexionBD;
 	}

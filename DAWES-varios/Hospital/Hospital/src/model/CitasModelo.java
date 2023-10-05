@@ -15,7 +15,7 @@ public class CitasModelo {
 	
 	public List<CitasDTO> buscaCita(String id, String pacienteID, String medicoID, String fecha, String hora, String estado) throws SQLException, ClassNotFoundException {
 		
-		String query = "SELECT * FROM Citas WHERE ID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND PacienteID LIKE ? AND MedicoID LIKE ? AND Fecha LIKE ? AND Hora LIKE ? AND Estado LIKE ? " ;
+		String query = "SELECT * FROM Citas WHERE ID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND PacienteID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND MedicoID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END)AND Fecha LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND Hora LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND Estado LIKE ? " ;
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
@@ -103,5 +103,3 @@ public class CitasModelo {
 		}
 
 	
-
-
