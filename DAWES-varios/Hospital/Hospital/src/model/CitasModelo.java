@@ -22,6 +22,17 @@ public class CitasModelo {
 		PreparedStatement ps = conexionBD.prepareStatement(query);
 		ps.setString(1,  id );
 		ps.setString(2, '%' + id + '%' );
+		ps.setString(3,  pacienteID );
+		ps.setString(4, '%' + pacienteID + '%' );
+		ps.setString(5,  medicoID );
+		ps.setString(6, '%' + medicoID + '%' );
+		ps.setString(7,  fecha );
+		ps.setString(8, '%' + fecha + '%' );
+		ps.setString(9,  hora );
+		ps.setString(10, '%' + hora + '%' );
+		ps.setString(11,  estado );
+		ps.setString(12, '%' + estado + '%' );
+		
 		
 		
 		

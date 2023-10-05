@@ -13,7 +13,7 @@ import utils.DBUtils;
 public class EstadoCitasModelo {
 	
 	public List<EstadoCitasDTO> buscarEstadoCitas (String iD, String estado) throws ClassNotFoundException, SQLException {
-		String query = "";
+		String query = "SELECT * FROM estadocitas WHERE ? lIKE ?";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
@@ -39,7 +39,7 @@ public class EstadoCitasModelo {
 
 	public Integer insertarEstadoCitas( String iD, String estado) throws SQLException, ClassNotFoundException {
 
-		String sql = "INSERT INTO estadocitas (Descripcion ) VALUES (?)";
+		String sql = "INSERT INTO estadocitas (Descripcion ) VALUES (?, ?)";
 		
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
