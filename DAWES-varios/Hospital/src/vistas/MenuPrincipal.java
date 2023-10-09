@@ -37,6 +37,8 @@ public class MenuPrincipal {
             }
             if ( n == 2) {
             	System.out.println("Ahora ejecutaría la gestión de Médicos");
+            	VistaMedico vm = new VistaMedico();
+            	vc.menuGeneralMedico();
             	continue;
             }
             if (n == 3) {
@@ -53,7 +55,8 @@ public class MenuPrincipal {
             
             if(n==5) {
             	System.out.println("Ahora ejecutaria la gestion de Historial Medico");
-            	
+            	VistaHistorialMedico hm = new VistaHistorialMedico();
+            	hm.menuGeneralHistorialMedico();
             	continue;
             }
             
