@@ -22,7 +22,7 @@ public class AlergiasController {
 	public Integer actualizarAlergia(Integer id, String nombreAlergia) throws ClassNotFoundException, SQLException {
 		
 		AlergiasModelo cm = new AlergiasModelo();
-		return cm.actualizarAlergia(id, nombreAlergia);
+		return cm.actualizarAlergia(id, nombreAlergia); 
 	}
 	
 	

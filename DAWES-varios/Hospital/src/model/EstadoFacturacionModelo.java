@@ -25,7 +25,7 @@ public class EstadoFacturacionModelo {
 		List<EstadoFacturacionDTO> listaEstadoFacturacion = new ArrayList<>();
 		
 		while (EstadoFacturacionRS.next()) {
-			EstadoFacturacionDTO e = new EstadoFacturacionDTO (EstadoFacturacionRS.getInt("iD"), EstadoFacturacionRS.getString("estado"));
+			EstadoFacturacionDTO e = new EstadoFacturacionDTO (EstadoFacturacionRS.getString("iD"), EstadoFacturacionRS.getString("estado"));
 			
 			listaEstadoFacturacion.add(e);
 			 
@@ -37,7 +37,7 @@ public class EstadoFacturacionModelo {
 		return listaEstadoFacturacion;
 	}
 	
-	public Integer insertarEstadoFacturacion ( String estado) {
+	public Integer insertarEstadoFacturacion ( String estado) throws ClassNotFoundException, SQLException {
 		
 		String sql = "INSERT INTO EstadoFacturacion (Estado) VALUES (?);";
 		
@@ -57,7 +57,7 @@ public class EstadoFacturacionModelo {
 		return resultado;
 	}
 		
-	public Integer actualizarCita(String iD, String estado) throws SQLException, ClassNotFoundException {
+	public Integer actualizarEstadoFacturacion(String iD, String estado) throws SQLException, ClassNotFoundException {
 		
 	    String sql = "UPDATE estadofacturacion " +
 	                 "SET " +
@@ -72,7 +72,7 @@ public class EstadoFacturacionModelo {
 
 	  
 	    ps.setString(1, estado);
-	    ps.setInt(2, ID);
+	    ps.setString(2, iD);
 	    
 
 	    resultado = ps.executeUpdate();
@@ -81,6 +81,8 @@ public class EstadoFacturacionModelo {
 
 	    return resultado;
 	}
+
+
 	}
 
-}
+

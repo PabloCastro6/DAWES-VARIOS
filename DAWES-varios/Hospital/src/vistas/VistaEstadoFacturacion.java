@@ -1,6 +1,12 @@
+package vistas;
+
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
+
+import controllers.EstadoFacturacionController;
+import dtos.EstadoFacturacionDTO;
+import utils.MiScanner;
 
 public class VistaEstadoFacturacion {
 
@@ -62,16 +68,51 @@ public void menuBuscaEstadoFacturacion() throws ClassNotFoundException, SQLExcep
 	EstadoFacturacionController controlarEstadoFacturacion = new EstadoFacturacionController();
 	List <EstadoFacturacionDTO> listaEstadoFacturacion = controlarEstadoFacturacion.buscarEstadoFacturacion(id, estado);
 	
-	for (EstadoFacturacionDTO estado : listaEstadoFacturacion) {
-		System.out.println(estado.getId() + " " + estado.getestado());
+	for (EstadoFacturacionDTO estado1 : listaEstadoFacturacion) {
+		System.out.println(estado1.getID() + " " + estado1.getEstado());
 
 	}
 	
 }
 
+public void menuInsertaEstadoFacturacion() throws ClassNotFoundException, SQLException {
+	Scanner sc  = MiScanner.getInstance();
+	
+	System.out.println("Introduza por favor el id del paciente");
+	String id = sc.nextLine();
+	
+	System.out.println("Introduzca por favor el estado de facturacion");
+	String estado = sc.nextLine();
+	
+	EstadoFacturacionController controladorFacturacion = new EstadoFacturacionController();
+	int resultado = controladorFacturacion.insertarEstadoFacturacion(id, estado);
+	if(resultado == 1 ) {
+		System.out.println("Se ha introducido el registro con éxito");
+	}else {
+		System.out.println("Se ha producido un error al introducir el registro");
+	}
+	
+}
 
-
-
-
+private void menuActualizarEstadoFacturacion() throws ClassNotFoundException, SQLException {
+	Scanner sc = MiScanner.getInstance();
+	
+	System.out.println("Introduzca por favor el id de Estado de facturacion");
+	String iD = sc.nextLine();
+	
+	System.out.println("Introduzca por favor el estado de facturacion");
+	String estado = sc.nextLine();
+	
+	
+	EstadoFacturacionController controladorFacturacion = new EstadoFacturacionController();
+	int resultado = controladorFacturacion.insertarEstadoFacturacion(iD, estado);
+	if(resultado == 1 ) {
+		System.out.println("Se ha introducido el registro con éxito");
+	}else {
+		System.out.println("Se ha producido un error al introducir el registro");
+	}
+	
 }
 }
+
+

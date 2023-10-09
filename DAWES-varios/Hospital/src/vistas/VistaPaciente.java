@@ -48,10 +48,10 @@ public class VistaPaciente {
 				continue;
 			}
 
-//			if (n == 3) {
-//				menuActualizarPaciente();
-//				continue;
-//			}
+			if (n == 3) {
+				menuActualizarPaciente();
+			continue;
+	}
 
 		} while (n != 6);
 
@@ -137,26 +137,51 @@ public class VistaPaciente {
 	
 	
 	
-//	public void menuActualizarPaciente() throws ClassNotFoundException, SQLException {
-//		Scanner sc = MiScanner.getInstance();
-//		
-//		System.out.println("Introduzca por favor el nombre del paciente a actualizar: ");
-//		int  nombre = Integer.parseInt(sc.nextLine());		
-//		System.out.println("Introduzca por favor el nuevo nombre del paciente: ");
-//		String nombreAlergia = sc.nextLine();	 	
-//
-//		
-//		PacientesController controladorPaciente = new PacientesController();
-//		int resultado = controladorPaciente.actualizarPaciente( id,  nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
-//				 correo,  alergia,  HistoriaMedica);
-//		
-//		if (resultado == 1) {
-//			
-//			System.out.println("Se ha actualizado el paciente con el número: " + nombre +" con éxito");
-//			
-//		} else {
-//			System.out.println("Se ha producido un error al actualizar el paciente con el nombre: "+ nombre);
-//		}
-//	}
+	public void menuActualizarPaciente() throws ClassNotFoundException, SQLException {
+		Scanner sc = MiScanner.getInstance();
+		
+		System.out.println("Introduzca por favor el id del paciente a actualizar: ");
+		String  id = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el nombre del paciente a actualizar: ");
+		String  nombre = sc.nextLine();
+		
+		System.out.println("Introduzca por favor el apellido del paciente a actualizar: ");
+		String apellido = sc.nextLine();	 	
+		
+		System.out.println("Introduzca por favor la fecha de nacimiento del paciente a actualizar: ");
+		String FechaDeNacimiento = sc.nextLine();	
+		
+		System.out.println("Introduzca por favor el DNI del paciente a actualizar: ");
+		String DNI = sc.nextLine();	
+		
+		System.out.println("Introduzca por favor la direccion del paciente a actualizar: ");
+		String direccion = sc.nextLine();	
+		
+		System.out.println("Introduzca por favor el telefono del paciente a actualizar: ");
+		String telefono = sc.nextLine();	
+		
+		System.out.println("Introduzca por favor el correo del paciente a actualizar: ");
+		String correo = sc.nextLine();	
+		
+		System.out.println("Introduzca por favor la alergia del paciente a actualizar: ");
+		Integer alergia = Integer.parseInt(sc.nextLine());	
+		
+		System.out.println("Introduzca por favor la historia medica del paciente a actualizar: ");
+		String HistoriaMedica = sc.nextLine();	
+		
+		
+		
+		PacientesController controladorPaciente = new PacientesController();
+		int resultado = controladorPaciente.actualizarPaciente(id, nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
+				 correo,  alergia,  HistoriaMedica);
+		
+		if (resultado == 1) {
+			System.out.println("Se ha introducido el registro con éxito");
+		} else {
+			System.out.println("Se ha producido un error al introducir el registro");
+		}
+
+	}
 }
 

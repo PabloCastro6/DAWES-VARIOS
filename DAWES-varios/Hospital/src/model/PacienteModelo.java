@@ -14,9 +14,10 @@ import utils.DBUtils;
 public class PacienteModelo {
 	
 	public List<PacienteDTO> buscarPaciente (String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
-			String correo, Integer alergia, String HistoriaMedica)throws ClassNotFoundException, SQLException {
-		String query = "SELECT * FROM pacientes INNER JOIN alergias ON pacientes.AlergiaID=alergias.ID where ID = ? or Nombre LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR Direccion LIKE ? "
-				+ "OR Telefono LIKE ? OR CorreoElectronico LIKE ? OR Alergia.descripcion LIKE ? OR HistoriaMedica LIKE ?;";
+			String correo, Integer alergiaID, String HistoriaMedica)throws ClassNotFoundException, SQLException {
+		
+		String query = "SELECT * FROM pacientes INNER JOIN alergias ON pacientes.AlergiaID=alergias.ID where (ID = ? or Nombre LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR Direccion LIKE ? "
+				+ "OR Telefono LIKE ? OR CorreoElectronico LIKE ? OR AlergiaID.descripcion LIKE ? OR HistoriaMedica LIKE ?)";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
@@ -29,7 +30,7 @@ public class PacienteModelo {
 		ps.setString(6, "%" + direccion + "%");
 		ps.setString(7, "%" + telefono + "%");
 		ps.setString(8, "%" + correo + "%");
-		ps.setString(9, "%" + alergia + "%");
+		ps.setString(9, "%" + alergiaID + "%");
 		ps.setString(10, "%" + HistoriaMedica + "%");
 		
 		
@@ -49,7 +50,7 @@ public class PacienteModelo {
 
 	
 	public Integer insertarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
-			String correo, Integer alergia, String HistoriaMedica)throws ClassNotFoundException, SQLException {
+			String correo, Integer alergiaID, String HistoriaMedica)throws ClassNotFoundException, SQLException {
 		
 		String sql = "INSERT INTO paciente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
 				+ "	 correo,  alergia, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -67,31 +68,33 @@ public class PacienteModelo {
 		ps.setString(5, direccion);
 		ps.setString(6, telefono);
 		ps.setString(7,correo);
-		ps.setInt(8, alergia);
+		ps.setInt(8, alergiaID);
 		ps.setString(9, HistoriaMedica);
 		
+		 resultado = ps.executeUpdate();
 		
+		conexionBD.close();
 		
-		return 0;
+		return resultado;
 	}
 	
 	
 	
 	
 	public Integer actualizarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
-			String correo, Integer alergia, String HistoriaMedica) throws SQLException, ClassNotFoundException {
+			String correo, Integer alergiaID, String HistoriaMedica) throws SQLException, ClassNotFoundException {
 		
-		String sql = "UPDATE pacientes SET Nombre = case when ? ='' then Nombre else ? END, \"\r\n"
-				+ "				+ \"Apellido = case when ? ='' then Apellido else ? END, \"\r\n"
-				+ "				+ \"FechaDeNacimiento = case when ? ='' then FechaDeNacimiento else ? END, \"\r\n"
-				+ "				+ \"DNI = case when ? ='' then DNI else ? END, \"\r\n"
-				+ "				+ \"Direccion = case when ? ='' then Direccion else ? END, \"\r\n"
-				+ "				+ \"Telefono = case when ? ='' then Telefono else ? END, \"\r\n"
-				+ "				+ \"CorreoElectronico = case when ? ='' then CorreoElectronico else ? END, \"\r\n"
-				+ "				+ \"AlergiaID = case when ? ='' then AlergiaID else ? END,\"\r\n"
-				+ "				+ \"HistoriaMedica = case when ? ='' then HistoriaMedica else ?\"\r\n"
-				+ "				+ \"END \"\r\n"
-				+ "				+ \"WHERE ID = ?";
+		String sql = " UPDATE pacientes SET Nombre = CASE WHEN ? = '' THEN Nombre ELSE ? END," +
+			  "  Apellido = CASE WHEN ? = '' THEN Apellido ELSE ? END," +
+			    	 "   FechaDeNacimiento = CASE WHEN ? = '' THEN FechaDeNacimiento ELSE ? END," +
+			    	  "  DNI = CASE WHEN ? = '' THEN DNI ELSE ? END," + 
+			    	 "   Direccion = CASE WHEN ? = '' THEN Direccion ELSE ? END," +
+			    	   " Telefono = CASE WHEN ? = '' THEN Telefono ELSE ? END," + 
+			    	   " CorreoElectronico = CASE WHEN ? = '' THEN CorreoElectronico ELSE ? END," +
+			    	   " AlergiaID = CASE WHEN ? = '' THEN AlergiaID ELSE ? END," + 
+			    	  "  HistoriaMedica = CASE WHEN ? = '' THEN HistoriaMedica ELSE ? END " +
+			    	   "WHERE ID = ?;";
+
 		
 				Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -107,7 +110,7 @@ public class PacienteModelo {
 		ps.setString(5, direccion);
 		ps.setString(6, telefono);
 		ps.setString(7, correo);
-		ps.setInt(8, alergia);
+		ps.setInt(8, alergiaID);
 		ps.setString(9, HistoriaMedica);
 		
 		
