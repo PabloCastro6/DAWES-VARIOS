@@ -43,7 +43,7 @@ public class CitasModelo {
 			CitasDTO c = new CitasDTO (citasRS.getInt("iD"), citasRS.getString("pacienteID"), citasRS.getString("medicoID"), citasRS.getString("fecha"),
 					citasRS.getString("hora"), citasRS.getString("estado"));
 			listaCitas.add(c); 
-			listaCitas.add(c);
+			
 		}
 		
 		conexionBD.close(); 

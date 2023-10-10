@@ -8,7 +8,7 @@ import model.MedicosModelo;
 
 public class MedicosController {
 	
-	public List<MedicosDTO> buscarMedico (Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
+	public  List<MedicosDTO>buscarMedico (Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
 			String telefono, String correoElectronico) throws ClassNotFoundException, SQLException {
 		MedicosModelo cm = new MedicosModelo();
 		return cm.buscarMedico( iD,  nombre,  apellido,  especialidad,  licenciaMedica,

@@ -170,7 +170,7 @@ public class VistaPaciente {
 		System.out.println("Introduzca por favor la historia medica del paciente a actualizar: ");
 		String HistoriaMedica = sc.nextLine();	
 		
-		
+		    
 		
 		PacientesController controladorPaciente = new PacientesController();
 		int resultado = controladorPaciente.actualizarPaciente(id, nombre,  apellido, FechaDeNacimiento,  DNI,  direccion,  telefono,
