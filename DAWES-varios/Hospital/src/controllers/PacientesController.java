@@ -23,7 +23,7 @@ public class PacientesController {
 				 correo,  alergia,  HistoriaMedica);
 	}
 	
-public Integer actualizarPaciente(String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
+	public Integer actualizarPaciente(String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 		String correo, Integer alergia, String HistoriaMedica) throws ClassNotFoundException, SQLException {
 		
 		PacienteModelo pm = new PacienteModelo();
