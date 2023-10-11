@@ -16,12 +16,12 @@ public class HabitacionesController {
 	}
 	
 	public Integer insertarHabitacion (Integer iD, String tipo, String estado, Float costoPorDia) {
-		HabitacionModelo hm = new HabitacionModelo();
+		HabitacionesModelo hm = new HabitacionesModelo();
 		return hm.insertarHabitacion( iD,  tipo,  estado,  costoPorDia);
 	}
 	
 	public Integer actualizarHabitacion (Integer iD, String tipo, String estado, Float costoPorDia) {
-		HabitacionModelo hm = new HabitacionModelo();
+		HabitacionesModelo hm = new HabitacionesModelo();
 		return hm.actualizarHabitacion( iD,  tipo,  estado,  costoPorDia);
 	}
 
