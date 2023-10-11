@@ -1,4 +1,4 @@
-package utils;
+package com.pablo.hospital.utils;
 
 import java.util.Scanner;
 
