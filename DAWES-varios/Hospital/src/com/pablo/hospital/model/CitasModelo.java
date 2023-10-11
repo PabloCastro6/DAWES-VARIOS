@@ -9,8 +9,9 @@ import java.util.List;
 
 import com.pablo.hospital.dtos.CitasDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
+import com.pablo.hospital.utils.DBUtils;
 
-import utils.DBUtils;
+
 
 public class CitasModelo {
 	

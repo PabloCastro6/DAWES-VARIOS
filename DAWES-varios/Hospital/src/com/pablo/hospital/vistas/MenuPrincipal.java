@@ -3,7 +3,8 @@ package com.pablo.hospital.vistas;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import utils.MiScanner;
+import com.pablo.hospital.utils.MiScanner;
+
 
 public class MenuPrincipal {
 	public void menuPrincipal() throws ClassNotFoundException, SQLException {

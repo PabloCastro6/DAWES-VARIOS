@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 import com.pablo.hospital.controllers.HistorialMedicoController;
 import com.pablo.hospital.dtos.HistorialMedicoDTO;
+import com.pablo.hospital.utils.MiScanner;
 
 
-import utils.MiScanner;
+
 
 public class VistaHistorialMedico {
 	

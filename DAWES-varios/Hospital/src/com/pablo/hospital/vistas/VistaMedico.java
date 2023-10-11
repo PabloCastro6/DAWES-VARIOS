@@ -7,9 +7,9 @@ import java.util.Scanner;
 import com.pablo.hospital.controllers.MedicosController;
 import com.pablo.hospital.dtos.MedicosDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
+import com.pablo.hospital.utils.MiScanner;
 
 
-import utils.MiScanner;
 
 public class VistaMedico {
 	

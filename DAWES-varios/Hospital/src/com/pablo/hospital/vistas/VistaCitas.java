@@ -7,9 +7,10 @@ import java.util.Scanner;
 import com.pablo.hospital.controllers.CitasController;
 import com.pablo.hospital.dtos.AlergiaDTO;
 import com.pablo.hospital.dtos.CitasDTO;
+import com.pablo.hospital.utils.MiScanner;
 
 
-import utils.MiScanner;
+
 
 public class VistaCitas {
 	public void menuGeneralCita() throws ClassNotFoundException, SQLException {

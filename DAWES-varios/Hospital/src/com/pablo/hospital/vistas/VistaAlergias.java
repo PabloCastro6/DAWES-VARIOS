@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 import com.pablo.hospital.controllers.AlergiasController;
 import com.pablo.hospital.dtos.AlergiaDTO;
+import com.pablo.hospital.utils.MiScanner;
 
 
-import utils.MiScanner;
+
 
 public class VistaAlergias {
 	public void menuGeneralAlergias() throws ClassNotFoundException, SQLException {

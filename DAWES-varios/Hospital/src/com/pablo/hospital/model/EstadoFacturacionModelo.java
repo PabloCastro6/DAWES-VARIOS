@@ -7,8 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pablo.hospital.dtos.EstadoFacturacionDTO;
+import com.pablo.hospital.utils.DBUtils;
 
-import utils.DBUtils;
+
 
 public class EstadoFacturacionModelo {
 	
