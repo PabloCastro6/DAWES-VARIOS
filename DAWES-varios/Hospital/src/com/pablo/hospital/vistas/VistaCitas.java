@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import com.pablo.hospital.controllers.CitasController;
 import com.pablo.hospital.dtos.AlergiaDTO;
-import com.pablo.hospital.dtos.CitasDTO;
+import com.pablo.hospital.dtos.CitaDTO;
 import com.pablo.hospital.utils.MiScanner;
 
 
@@ -80,9 +80,9 @@ public class VistaCitas {
 		String estado = sc.nextLine();
 		
 		CitasController controladorCitas = new CitasController();
-		List <CitasDTO> listaCita = controladorCitas.buscarCita(id,  pacienteID,  medicoID,  fecha,  hora,  estado);
+		List <CitaDTO> listaCita = controladorCitas.buscarCita(id,  pacienteID,  medicoID,  fecha,  hora,  estado);
 		
-		for (CitasDTO cita : listaCita) {
+		for (CitaDTO cita : listaCita) {
 			System.out.println();
 
 		}

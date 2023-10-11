@@ -1,6 +1,6 @@
 package com.pablo.hospital.dtos;
 
-public class CitasDTO {
+public class CitaDTO {
 	private Integer ID;
 	private String pacienteID;
 	private String medicoID;
@@ -9,7 +9,7 @@ public class CitasDTO {
 	private String estadoID;
 	
 	
-	public CitasDTO(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID) {
+	public CitaDTO(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID) {
 		super();
 		ID = iD;
 		this.pacienteID = pacienteID;

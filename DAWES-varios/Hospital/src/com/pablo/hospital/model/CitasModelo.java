@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pablo.hospital.dtos.CitasDTO;
+import com.pablo.hospital.dtos.CitaDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.DBUtils;
 
@@ -15,11 +15,11 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class CitasModelo {
 	
-	public List<CitasDTO> buscaCita(String id, String pacienteID, String medicoID, String fecha, String hora, String estado) throws SQLException, ClassNotFoundException {
+	public List<CitaDTO> buscaCita(String id, String pacienteID, String medicoID, String fecha, String hora, String estado) throws SQLException, ClassNotFoundException {
 		
-		String query = "SELECT * FROM Citas WHERE ID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND PacienteID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) "
-				+ "AND MedicoID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END)AND Fecha LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) "
-				+ "AND Hora LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND Estado LIKE ? " ;
+		String query = "SELECT * FROM Citas WHERE ID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND PacienteID LIKE (CASE WHEN ? = '' THEN PacienteID ELSE ? END) "
+				+ "AND MedicoID LIKE (CASE WHEN ? = '' THEN MedicoID ELSE ? END) AND Fecha LIKE (CASE WHEN ? = '' THEN Fecha ELSE ? END) "
+				+ "AND Hora LIKE (CASE WHEN ? = '' THEN Hora ELSE ? END) AND Estado LIKE (CASE WHEN ? = '' THEN Estado ELSE ? END) " ;
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
@@ -41,10 +41,10 @@ public class CitasModelo {
 		
 		
 		ResultSet citasRS = ps.executeQuery();
-		List<CitasDTO> listaCitas = new ArrayList<>();
+		List<CitaDTO> listaCitas = new ArrayList<>();
 		
 		while(citasRS.next()) {
-			CitasDTO c = new CitasDTO (citasRS.getInt("iD"), citasRS.getString("pacienteID"), citasRS.getString("medicoID"), citasRS.getString("fecha"),
+			CitaDTO c = new CitaDTO (citasRS.getInt("iD"), citasRS.getString("pacienteID"), citasRS.getString("medicoID"), citasRS.getString("fecha"),
 					citasRS.getString("hora"), citasRS.getString("estado"));
 			listaCitas.add(c); 
 			

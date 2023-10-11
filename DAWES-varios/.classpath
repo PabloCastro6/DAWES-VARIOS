@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio1/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio10/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio11/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio2/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio3/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio4/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio5/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio6/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio7/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio8/src"/>
+	<classpathentry kind="src" path="EjerciciosVarios/Ejercicio9/src"/>
+	<classpathentry kind="src" path="Hospital/src"/>
+	<classpathentry kind="output" path="EjerciciosVarios/bin"/>
+</classpath>

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pablo.hospital.dtos.MedicosDTO;
+import com.pablo.hospital.dtos.MedicoDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.DBUtils;
 
@@ -15,7 +15,7 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class MedicosModelo {
 	
-	public List<MedicosDTO> buscarMedico (Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
+	public List<MedicoDTO> buscarMedico (Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
 			String telefono, String correoElectronico) throws SQLException, ClassNotFoundException {
 		
 		String query = "SELECT * FROM Medicos " +
@@ -40,10 +40,10 @@ public class MedicosModelo {
 		ps.setString(7, "%" + correoElectronico + "%");
 		
 		ResultSet medicoRS = ps.executeQuery();
-		List<MedicosDTO> listaMedicos = new ArrayList<>();
+		List<MedicoDTO> listaMedicos = new ArrayList<>();
 		
 		while(medicoRS.next()) {
-			MedicosDTO m = new MedicosDTO (medicoRS.getInt("ID"), medicoRS.getString("nombre"), medicoRS.getString("apellido"), medicoRS.getString("especialidad"), medicoRS.getString("licenciaMedica") , medicoRS.getString("telefono"),
+			MedicoDTO m = new MedicoDTO (medicoRS.getInt("ID"), medicoRS.getString("nombre"), medicoRS.getString("apellido"), medicoRS.getString("especialidad"), medicoRS.getString("licenciaMedica") , medicoRS.getString("telefono"),
 					medicoRS.getString("correoElectronico"));
 			listaMedicos.add(m);
 		}

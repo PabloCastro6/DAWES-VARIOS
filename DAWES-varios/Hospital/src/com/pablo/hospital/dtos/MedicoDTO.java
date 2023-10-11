@@ -1,6 +1,6 @@
 package com.pablo.hospital.dtos;
 
-public class MedicosDTO {
+public class MedicoDTO {
 	
 	private Integer ID;
 	private String nombre;
@@ -16,7 +16,7 @@ public class MedicosDTO {
 
 
 
-	public MedicosDTO(Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
+	public MedicoDTO(Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
 			String telefono, String correoElectronico) {
 		super();
 		ID = iD;

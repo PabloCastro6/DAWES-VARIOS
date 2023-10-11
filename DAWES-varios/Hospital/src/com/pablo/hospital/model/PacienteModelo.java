@@ -16,24 +16,24 @@ import com.pablo.hospital.utils.DBUtils;
 public class PacienteModelo {
 	
 	public List<PacienteDTO> buscarPaciente (String id, String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
-			String correo, Integer alergiaID, String HistoriaMedica)throws ClassNotFoundException, SQLException {
+			String correo, String alergiaID, String HistoriaMedica)throws ClassNotFoundException, SQLException {
 		
-		String query = "SELECT * FROM pacientes INNER JOIN alergias ON pacientes.AlergiaID=alergias.ID where (ID = ? or Nombre LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR Direccion LIKE ? "
-				+ "OR Telefono LIKE ? OR CorreoElectronico LIKE ? OR AlergiaID.descripcion LIKE ? OR HistoriaMedica LIKE ?)";
+		String query = "SELECT pacientes.* , alergias.ID AS alergia_ID, alergias.Descripcion FROM pacientes INNER JOIN alergias ON pacientes.AlergiaID=alergias.ID where (pacientes.ID LIKE ? or Nombre LIKE ? OR Apellido LIKE ? OR FechaDeNacimiento LIKE ? OR DNI LIKE ? OR Direccion LIKE ? "
+				+ "OR Telefono LIKE ? OR CorreoElectronico LIKE ? OR alergias.ID LIKE ? OR HistoriaMedica LIKE ?)";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();
 		
 		PreparedStatement ps = conexionBD.prepareStatement(query);
-		ps.setString(1, "%" + id + "%");
-		ps.setString(2, "%" + nombre + "%");
-		ps.setString(3, "%" + apellido + "%");
-		ps.setString(4, "%" + FechaDeNacimiento + "%");
-		ps.setString(5, "%" + DNI + "%");
-		ps.setString(6, "%" + direccion + "%");
-		ps.setString(7, "%" + telefono + "%");
-		ps.setString(8, "%" + correo + "%");
-		ps.setString(9, "%" + alergiaID + "%");
-		ps.setString(10, "%" + HistoriaMedica + "%");
+		ps.setString(1,  id );
+		ps.setString(2,  nombre );
+		ps.setString(3,  apellido );
+		ps.setString(4,  FechaDeNacimiento);
+		ps.setString(5,  DNI );
+		ps.setString(6,  direccion );
+		ps.setString(7,  telefono );
+		ps.setString(8,  correo );
+		ps.setString(9,  alergiaID );
+		ps.setString(10,  HistoriaMedica );
 		
 		
 		ResultSet pacienteRS = ps.executeQuery();
@@ -41,8 +41,8 @@ public class PacienteModelo {
 		
 		
 		while(pacienteRS.next()) {
-			PacienteDTO p = new PacienteDTO (pacienteRS.getInt("ID"), pacienteRS.getString("nombre"), pacienteRS.getString("apellido"), pacienteRS.getString("FechaDeNacimiento"), pacienteRS.getString("DNI") , pacienteRS.getString("direccion"),
-					pacienteRS.getString("telefono"), pacienteRS.getString("correoElectronico"), pacienteRS.getInt("AlergiaID"), pacienteRS.getString("HistoriaMedica"));
+			PacienteDTO p = new PacienteDTO (pacienteRS.getInt("Id"), pacienteRS.getString("nombre"), pacienteRS.getString("apellido"), pacienteRS.getString("FechaDeNacimiento"), pacienteRS.getString("DNI") , pacienteRS.getString("direccion"),
+					pacienteRS.getString("telefono"), pacienteRS.getString("correoElectronico"), pacienteRS.getString("descripcion"), pacienteRS.getString("HistoriaMedica"));
 			listaPacientes.add(p);
 		}
 		
@@ -54,7 +54,7 @@ public class PacienteModelo {
 	public Integer insertarPaciente (String nombre, String apellido,String FechaDeNacimiento, String DNI, String direccion, String telefono,
 			String correo, Integer alergiaID, String HistoriaMedica)throws ClassNotFoundException, SQLException {
 		
-		String sql = "INSERT INTO paciente (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
+		String sql = "INSERT INTO pacientes (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
 				+ "	 correo,  alergia, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		
 		Connection conexionBD = DBUtils.conexionBBDD();

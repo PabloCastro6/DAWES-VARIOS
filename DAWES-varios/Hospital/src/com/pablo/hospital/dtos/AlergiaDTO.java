@@ -4,15 +4,24 @@ public class AlergiaDTO {
 	private Integer id;
 	private String descripcion;
 	
+	
 	//constructor, getters y setters
 
 	public AlergiaDTO(Integer id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
+		
 	}
 	
 	
+
+	public AlergiaDTO(String descripcion) {
+		super();
+		this.descripcion = descripcion;
+	}
+
+
 
 	public AlergiaDTO() {
 		super();

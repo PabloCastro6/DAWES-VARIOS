@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.pablo.hospital.controllers.MedicosController;
-import com.pablo.hospital.dtos.MedicosDTO;
+import com.pablo.hospital.dtos.MedicoDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.MiScanner;
 
@@ -88,10 +88,10 @@ public class VistaMedico {
 	
 	
 	MedicosController controladorMedico = new MedicosController();
-	List <MedicosDTO> listaMedico = controladorMedico.buscarMedico( iD,  nombre,  apellido,  especialidad,  licenciaMedica,
+	List <MedicoDTO> listaMedico = controladorMedico.buscarMedico( iD,  nombre,  apellido,  especialidad,  licenciaMedica,
 			 telefono,  correoElectronico);
 	
-	for (MedicosDTO medico : listaMedico) {
+	for (MedicoDTO medico : listaMedico) {
 		System.out.println();
 	}
 

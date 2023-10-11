@@ -36,6 +36,14 @@ public class MenuPrincipal {
                 System.out.print("Elección invalida, inténtalo otra vez...");
                 continue;
             }
+            if ( n == 1) {
+            	System.out.println("Ahora ejecutaría la gestión de Pacientes");
+            	VistaPaciente vm = new VistaPaciente();
+            	vm.menuGeneralPaciente();
+            	continue;
+            }
+            
+            
             if ( n == 2) {
             	System.out.println("Ahora ejecutaría la gestión de Médicos");
             	VistaMedico vm = new VistaMedico();

@@ -85,8 +85,8 @@ public class VistaPaciente {
 		System.out.println("Introduzca por favor el correo del paciente");
 		String correo = sc.nextLine();
 		
-		System.out.println("Introduzca por favor la alergia del paciente");
-		Integer alergia = sc.nextInt();
+		System.out.println("Introduzca por favor el ID de la alergia del paciente");
+		String alergia = sc.nextLine();
 		
 		System.out.println("Introduzca por favor la historia Medica del paciente");
 		String HistoriaMedica = sc.nextLine();
@@ -98,7 +98,7 @@ public class VistaPaciente {
 				 correo,  alergia, HistoriaMedica);
 		
 		for (PacienteDTO paciente : listaPaciente) {
-			System.out.println();
+			System.out.println(paciente);
 		}
 
 	}

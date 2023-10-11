@@ -9,12 +9,12 @@ public class PacienteDTO {
 	private String direccion;
 	private String telefono;
 	private String correoElectronico;
-	private String alergia;
+	private AlergiaDTO alergiaDTO;
 	private String historiaMedica;
 	
 	
-	public PacienteDTO(Integer id, String nombre, String apellido, String fechaDeNacimiento, String dNI,
-			String direccion, String telefono, String correoElectronico, int i, String historiaMedica) {
+	public PacienteDTO(Integer iD, String nombre, String apellido, String fechaDeNacimiento, String dNI,
+			String direccion, String telefono, String correoElectronico, String descripcionAlergia, String historiaMedica) {
 		super();
 		this.iD = iD;
 		this.nombre = nombre;
@@ -24,7 +24,7 @@ public class PacienteDTO {
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.correoElectronico = correoElectronico;
-		this.alergia = alergia;
+		this.alergiaDTO = new AlergiaDTO(descripcionAlergia);
 		this.historiaMedica = historiaMedica;
 	}
 
@@ -32,10 +32,33 @@ public class PacienteDTO {
 
 
 
+	public PacienteDTO(String nombre, String apellido, String fechaDeNacimiento, String dNI, String direccion,
+			String telefono, String correoElectronico, String descripcionAlergia, String historiaMedica) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.fechaDeNacimiento = fechaDeNacimiento;
+		this.dNI = dNI;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.correoElectronico = correoElectronico;
+		this.alergiaDTO = new AlergiaDTO(descripcionAlergia);
+		this.historiaMedica = historiaMedica;
+	}
+
+
+
+
+
 	public PacienteDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+
+
+
+
 
 
 
@@ -122,14 +145,22 @@ public class PacienteDTO {
 	}
 
 
-	public String getAlergia() {
-		return alergia;
+	
+
+	public AlergiaDTO getAlergiaDTO() {
+		return alergiaDTO;
 	}
 
 
-	public void setAlergia(String alergia) {
-		this.alergia = alergia;
+
+
+
+	public void setAlergiaDTO(AlergiaDTO alergiaDTO) {
+		this.alergiaDTO = alergiaDTO;
 	}
+
+
+
 
 
 	public String getHistoriaMedica() {
@@ -141,13 +172,20 @@ public class PacienteDTO {
 		this.historiaMedica = historiaMedica;
 	}
 
+
+
+
+
 	@Override
 	public String toString() {
 		return "PacienteDTO [iD=" + iD + ", nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento="
 				+ fechaDeNacimiento + ", dNI=" + dNI + ", direccion=" + direccion + ", telefono=" + telefono
-				+ ", correoElectronico=" + correoElectronico + ", alergia=" + alergia + ", historiaMedica="
+				+ ", correoElectronico=" + correoElectronico + ", alergiaDTO=" + alergiaDTO + ", historiaMedica="
 				+ historiaMedica + "]";
 	}
+
+
+	
 
 	
 		  
