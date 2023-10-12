@@ -4,7 +4,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
+import com.pablo.hospital.controllers.DepartamentosController;
 import com.pablo.hospital.controllers.PacientesController;
+import com.pablo.hospital.dtos.DepartamentoDTO;
 import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.MiScanner;
 
@@ -125,7 +127,7 @@ public class VistaDepartamentos {
 		}
 	}
 	
-	public void menuBorrarDepartamento() {
+	public void menuBorrarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 		
 		System.out.println("Introduzca por favor el ID del departamento");
