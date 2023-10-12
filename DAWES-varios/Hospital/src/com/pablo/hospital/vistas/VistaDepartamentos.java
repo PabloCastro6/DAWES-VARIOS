@@ -58,16 +58,17 @@ public class VistaDepartamentos {
 
 	private void menuBuscarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		System.out.println("Introduzca por favor el id del paciente");
+		
+		System.out.println("Introduzca por favor el id del departamento");
 		String id = sc.nextLine();
 
-		System.out.println("Introduzca por favor el nombre del paciente");
+		System.out.println("Introduzca por favor el nombre del departamento");
 		String nombre = sc.nextLine();
 
-		System.out.println("Introduzca por favor el apellido del paciente");
+		System.out.println("Introduzca por favor la descripcion del departamento");
 		String descripcion = sc.nextLine();
 
-		System.out.println("Introduzca por favor la fecha de nacimiento del paciente");
+		System.out.println("Introduzca por favor el activo del departamento");
 		String activo = sc.nextLine();
 
 		DepartamentosController controladorDepartamentos = new DepartamentosController();
@@ -83,13 +84,13 @@ public class VistaDepartamentos {
 	public void menuInsertarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor el nombre del paciente");
+		System.out.println("Introduzca por favor el nombre del departamento");
 		String nombre = sc.nextLine();
 
-		System.out.println("Introduzca por favor el apellido del paciente");
+		System.out.println("Introduzca por favor la descripcion del departamento");
 		String descripcion = sc.nextLine();
 
-		System.out.println("Introduzca por favor la fecha de nacimiento del paciente");
+		System.out.println("Introduzca por favor el activo del departamento");
 		String activo = sc.nextLine();
 
 		DepartamentosController controladorDepartamentos = new DepartamentosController();
@@ -105,16 +106,16 @@ public class VistaDepartamentos {
 	public void menuActualizarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 		
-		System.out.println("Introduzca por favor el id del paciente");
+		System.out.println("Introduzca por favor el id del departamento");
 		String id = sc.nextLine();
 
-		System.out.println("Introduzca por favor el nombre del paciente");
+		System.out.println("Introduzca por favor el nombre del departamento");
 		String nombre = sc.nextLine();
 
-		System.out.println("Introduzca por favor el apellido del paciente");
+		System.out.println("Introduzca por favor la descripcion del departamento");
 		String descripcion = sc.nextLine();
 
-		System.out.println("Introduzca por favor la fecha de nacimiento del paciente");
+		System.out.println("Introduzca por favor el activo del departamento");
 		String activo = sc.nextLine();
 
 		DepartamentosController controladorDepartamentos = new DepartamentosController();

@@ -15,6 +15,21 @@ public class HabitacionesDTO {
 		this.estado = estado;
 		this.costoPorDia = costoPorDia;
 	}
+	
+	
+	
+
+
+
+	public HabitacionesDTO(String tipo, String estado, Float costoPorDia) {
+		super();
+		this.tipo = tipo;
+		this.estado = estado;
+		this.costoPorDia = costoPorDia;
+	}
+
+
+
 
 
 
