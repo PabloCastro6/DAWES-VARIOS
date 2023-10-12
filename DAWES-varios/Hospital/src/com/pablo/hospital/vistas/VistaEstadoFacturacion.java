@@ -13,7 +13,7 @@ import com.pablo.hospital.utils.MiScanner;
 
 public class VistaEstadoFacturacion {
 
-public void menuEstadoFacturacion() throws ClassNotFoundException, SQLException {
+public void menuGeneralEstadoFacturacion() throws ClassNotFoundException, SQLException {
 		
 		Scanner sc = MiScanner.getInstance();
 		int n=0;

@@ -51,14 +51,15 @@ public class MenuPrincipal {
             	continue;
             }
             if (n == 3) {
-            	System.out.println("Ahora ejecutaría la gestión citas");
+            	System.out.println("Ahora ejecutaría la gestión Citas");
             	VistaCitas vc = new VistaCitas();
             	vc.menuGeneralCita();
             	continue;
             }
             if (n == 4) {
             	System.out.println("Ahora ejecutaría la gestión Departamentos");
-            	
+            	VistaDepartamentos vm = new VistaDepartamentos();
+            	vm.menuGeneralDepartamentos();
             	continue;
             }
             
@@ -77,7 +78,8 @@ public class MenuPrincipal {
             
             if(n==7) {
             	System.out.println("Ahora ejecutaria la gestion de Farmacia");
-            	
+            	VistaFarmacia vm = new VistaFarmacia();
+            	vm.menuGeneralFarmacia();
             	continue;
             }
             
@@ -89,7 +91,8 @@ public class MenuPrincipal {
             
             if(n==9) {
             	System.out.println("Ahora ejecutaria la gestion de Habitaciones ");
-            	
+            	VistaHabitaciones vm = new VistaHabitaciones();
+            	vm.menuGeneralHabitacion();
             	continue;
             	
             }
@@ -110,14 +113,17 @@ public class MenuPrincipal {
             }
             
             if(n==12) {
-            	System.out.println("Ahora ejecutaria la gestion de Citas ");
-            	
+            	System.out.println("Ahora ejecutaria la gestion de Estado Citas ");
+            	VistaCitas vc = new VistaCitas();
+            	vc.menuGeneralCita();
             	continue;
             	
             }
             
             if(n==13) {
-            	System.out.println("Ahora ejecutaria la gestion de Facturación ");
+            	System.out.println("Ahora ejecutaria la gestion de Estado de Facturación ");
+            	VistaEstadoFacturacion vc = new VistaEstadoFacturacion();
+            	vc.menuGeneralEstadoFacturacion();
             	
             	continue;
             	
