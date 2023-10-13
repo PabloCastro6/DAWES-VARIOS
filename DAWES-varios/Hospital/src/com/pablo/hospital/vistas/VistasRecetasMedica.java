@@ -4,9 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.pablo.hospital.controllers.DepartamentosController;
+
 import com.pablo.hospital.controllers.RecetasMedicasController;
-import com.pablo.hospital.dtos.DepartamentoDTO;
 import com.pablo.hospital.dtos.RecetasMedicasDTO;
 import com.pablo.hospital.utils.MiScanner;
 
@@ -44,7 +43,7 @@ public class VistasRecetasMedica {
 			}
 
 			if (n == 3) {
-				menuActualizarRecetaMedica();
+				menuActualizarRecetasMedica();
 				continue;
 			}
 
@@ -55,22 +54,22 @@ public class VistasRecetasMedica {
 	private void menuBuscarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor el id del departamento");
+		System.out.println("Introduzca por favor el id de las recetas medicas");
 		Integer iD = sc.nextInt();
 
-		System.out.println("Introduzca por favor el nombre del departamento");
+		System.out.println("Introduzca por favor el nombre  de las recetas medicas");
 		Integer pacienteID = sc.nextInt();
 
-		System.out.println("Introduzca por favor la descripcion del departamento");
+		System.out.println("Introduzca por favor la descripcion  de las recetas medicas");
 		Integer medicoID = sc.nextInt();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el activo  de las recetas medicas");
 		Integer medicamentoID = sc.nextInt();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor la fecha de las recetas medicas");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el la cantidad prescrita de las recetas medicas");
 		Integer cantidadPrescrita = sc.nextInt();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
@@ -86,27 +85,15 @@ public class VistasRecetasMedica {
 	public void menuInsertarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor el id del departamento");
-		Integer iD = sc.nextInt();
 
-		System.out.println("Introduzca por favor el nombre del departamento");
-		Integer pacienteID = sc.nextInt();
-
-		System.out.println("Introduzca por favor la descripcion del departamento");
-		Integer medicoID = sc.nextInt();
-
-		System.out.println("Introduzca por favor el activo del departamento");
-		Integer medicamentoID = sc.nextInt();
-
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor la fecha de las recetas medicas");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor la cantidad prescrita de las recetas medicas");
 		Integer cantidadPrescrita = sc.nextInt();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
-		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,
-				cantidadPrescrita);
+		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(fecha,cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
@@ -115,30 +102,29 @@ public class VistasRecetasMedica {
 		}
 	}
 
-	public void menuActualizarRecetaMedica() throws ClassNotFoundException, SQLException {
+	public void menuActualizarRecetasMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor el id del departamento");
+		System.out.println("Introduzca por favor el id  de las recetas medicas ");
 		Integer iD = sc.nextInt();
 
-		System.out.println("Introduzca por favor el nombre del departamento");
+		System.out.println("Introduzca por favor el nombre  de las recetas medicas");
 		Integer pacienteID = sc.nextInt();
 
-		System.out.println("Introduzca por favor la descripcion del departamento");
+		System.out.println("Introduzca por favor la descripcion  de las recetas medicas");
 		Integer medicoID = sc.nextInt();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el ID del medicamento  de las recetas medicas");
 		Integer medicamentoID = sc.nextInt();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor la fecha de las recetas medicas");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor la cantidad prescrita de las recetas medicas");
 		Integer cantidadPrescrita = sc.nextInt();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
-		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,
-				cantidadPrescrita);
+		int resultado = controladorRecetasMedicas.actualizarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");

@@ -85,6 +85,8 @@ public class MenuPrincipal {
             
             if(n==8) {
             	System.out.println("Ahora ejecutaria la gestion de Recetas Medicas");
+            	VistasRecetasMedica rm = new VistasRecetasMedica();
+            	rm.menuGeneralRecetasMedicas();
             	
             	continue;
             }

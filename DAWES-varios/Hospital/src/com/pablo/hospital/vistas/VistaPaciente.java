@@ -121,14 +121,14 @@ public class VistaPaciente {
 		System.out.println("Introduzca por favor el correo del paciente");
 		String correo = sc.nextLine();
 		System.out.println("Introduzca por favor el alergia del paciente");
-		Integer alergia = sc.nextInt();
+		Integer alergiaID = sc.nextInt();
 		System.out.println("Introduzca por favor la HistoriaMedica del paciente");
 		String HistoriaMedica = sc.nextLine();
 		
 		
 		PacientesController controladorPaciente = new PacientesController();
 		int resultado = controladorPaciente.insertarPaciente( nombre,apellido,FechaDeNacimiento,  DNI,  direccion,  telefono,
-				 correo,  alergia,  HistoriaMedica);
+				 correo,  alergiaID ,  HistoriaMedica);
 		
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");

@@ -47,10 +47,9 @@ public class RecetasMedicasModelo {
 		return listaRecetasMedicas;
 	}
 
-	public Integer insertarRecetasMedicas(Integer iD, Integer pacienteID, Integer medicoID, Integer medicamentoID,
-			String fecha, Integer cantidadPrescrita) throws ClassNotFoundException, SQLException {
+	public Integer insertarRecetasMedicas(String fecha, Integer cantidadPrescrita) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO recetasMedicas ( iD, pacienteID, medicoID, medicamentoID, fecha, cantidadPrescrita) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO recetasMedicas ( fecha, cantidadPrescrita) VALUES (?, ?)";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -58,11 +57,8 @@ public class RecetasMedicasModelo {
 
 		ps = conexionBD.prepareStatement(sql);
 
-		ps.setInt(1, iD);
-		ps.setInt(2, pacienteID);
-		ps.setInt(3, medicoID);
-		ps.setInt(2, medicamentoID);
-		ps.setString(3, fecha);
+		
+		ps.setString(1, fecha);
 		ps.setInt(2, cantidadPrescrita);
 
 		resultado = ps.executeUpdate();
