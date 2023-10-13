@@ -60,7 +60,7 @@ public class VistaDepartamentos {
 		Scanner sc = MiScanner.getInstance();
 		
 		System.out.println("Introduzca por favor el id del departamento");
-		String id = sc.nextLine();
+		Integer id = sc.nextInt();
 
 		System.out.println("Introduzca por favor el nombre del departamento");
 		String nombre = sc.nextLine();
@@ -69,7 +69,7 @@ public class VistaDepartamentos {
 		String descripcion = sc.nextLine();
 
 		System.out.println("Introduzca por favor el activo del departamento");
-		String activo = sc.nextLine();
+		Integer activo = sc.nextInt();
 
 		DepartamentosController controladorDepartamentos = new DepartamentosController();
 		List<DepartamentoDTO> listaDepartamento = controladorDepartamentos.buscarDepartamento(id, nombre, descripcion,

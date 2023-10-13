@@ -8,10 +8,11 @@ import com.pablo.hospital.model.DepartamentosModelo;
 
 
 
+
 public class DepartamentosController {
-	public List<DepartamentoDTO> buscarDepartamento(String id, String nombre, String descripcion,String activo)  throws ClassNotFoundException, SQLException {
+	public List<DepartamentoDTO> buscarDepartamento(Integer iD, String nombre, String descripcion,Integer activo)  throws ClassNotFoundException, SQLException {
 		DepartamentosModelo cm = new DepartamentosModelo();
-		return cm.buscarDepartamento( id,  nombre,  descripcion, activo);
+		return cm.buscarDepartamento( iD,  nombre,  descripcion, activo);
 	}
 	
 	public Integer insertarDepartamento ( String nombre, String descripcion,String activo) throws ClassNotFoundException, SQLException {
