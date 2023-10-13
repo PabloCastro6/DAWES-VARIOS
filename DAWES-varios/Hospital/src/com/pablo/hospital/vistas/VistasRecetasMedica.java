@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.pablo.hospital.controllers.DepartamentosController;
+import com.pablo.hospital.controllers.RecetasMedicasController;
 import com.pablo.hospital.dtos.DepartamentoDTO;
+import com.pablo.hospital.dtos.RecetasMedicasDTO;
 import com.pablo.hospital.utils.MiScanner;
 
 public class VistasRecetasMedica {
@@ -37,7 +39,7 @@ public class VistasRecetasMedica {
 			}
 
 			if (n == 2) {
-				menuRecetaMedica();
+				menuInsertarRecetaMedica();
 				continue;
 			}
 
@@ -50,45 +52,61 @@ public class VistasRecetasMedica {
 
 	}
 
-	private void menuBuscarDepartamento() throws ClassNotFoundException, SQLException {
+	private void menuBuscarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id del departamento");
-		Integer id = sc.nextInt();
+		Integer iD = sc.nextInt();
 
 		System.out.println("Introduzca por favor el nombre del departamento");
-		String nombre = sc.nextLine();
+		Integer pacienteID = sc.nextInt();
 
 		System.out.println("Introduzca por favor la descripcion del departamento");
-		String descripcion = sc.nextLine();
+		Integer medicoID = sc.nextInt();
 
 		System.out.println("Introduzca por favor el activo del departamento");
-		Integer activo = sc.nextInt();
+		Integer medicamentoID = sc.nextInt();
 
-		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		List<DepartamentoDTO> listaDepartamento = controladorDepartamentos.buscarDepartamento(id, nombre, descripcion,
-				activo);
+		System.out.println("Introduzca por favor el activo del departamento");
+		String fecha = sc.nextLine();
 
-		for (DepartamentoDTO departamento : listaDepartamento) {
-			System.out.println(departamento);
+		System.out.println("Introduzca por favor el activo del departamento");
+		Integer cantidadPrescrita = sc.nextInt();
+
+		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
+		List<RecetasMedicasDTO> listaRecetasMedicas = controladorRecetasMedicas.buscarRecetaMedica(iD, pacienteID,
+				medicoID, medicamentoID, fecha, cantidadPrescrita);
+
+		for (RecetasMedicasDTO recetas : listaRecetasMedicas) {
+			System.out.println(recetas);
 		}
 
 	}
 
-	public void menuInsertarDepartamento() throws ClassNotFoundException, SQLException {
+	public void menuInsertarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
+		System.out.println("Introduzca por favor el id del departamento");
+		Integer iD = sc.nextInt();
+
 		System.out.println("Introduzca por favor el nombre del departamento");
-		String nombre = sc.nextLine();
+		Integer pacienteID = sc.nextInt();
 
 		System.out.println("Introduzca por favor la descripcion del departamento");
-		String descripcion = sc.nextLine();
+		Integer medicoID = sc.nextInt();
 
 		System.out.println("Introduzca por favor el activo del departamento");
-		String activo = sc.nextLine();
+		Integer medicamentoID = sc.nextInt();
 
-		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		int resultado = controladorDepartamentos.insertarDepartamento(nombre, descripcion, activo);
+		System.out.println("Introduzca por favor el activo del departamento");
+		String fecha = sc.nextLine();
+
+		System.out.println("Introduzca por favor el activo del departamento");
+		Integer cantidadPrescrita = sc.nextInt();
+
+		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
+		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,
+				cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
@@ -97,48 +115,36 @@ public class VistasRecetasMedica {
 		}
 	}
 
-	public void menuActualizarDepartamento() throws ClassNotFoundException, SQLException {
+	public void menuActualizarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id del departamento");
-		String id = sc.nextLine();
+		Integer iD = sc.nextInt();
 
 		System.out.println("Introduzca por favor el nombre del departamento");
-		String nombre = sc.nextLine();
+		Integer pacienteID = sc.nextInt();
 
 		System.out.println("Introduzca por favor la descripcion del departamento");
-		String descripcion = sc.nextLine();
+		Integer medicoID = sc.nextInt();
 
 		System.out.println("Introduzca por favor el activo del departamento");
-		String activo = sc.nextLine();
+		Integer medicamentoID = sc.nextInt();
 
-		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		int resultado = controladorDepartamentos.actualizarDepartamento(id,nombre, descripcion, activo);
+		System.out.println("Introduzca por favor el activo del departamento");
+		String fecha = sc.nextLine();
+
+		System.out.println("Introduzca por favor el activo del departamento");
+		Integer cantidadPrescrita = sc.nextInt();
+
+		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
+		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,
+				cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
 			System.out.println("Se ha producido un error al introducir el registro");
 		}
-	}
-	
-	public void menuBorrarDepartamento() throws ClassNotFoundException, SQLException {
-		Scanner sc = MiScanner.getInstance();
-		
-		System.out.println("Introduzca por favor el ID del departamento");
-		String id = sc.nextLine();
-		
-		
-		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		int resultado = controladorDepartamentos.borrarDepartamento (id);
-		
-		if (resultado == 1) {
-			System.out.println("Se ha borrado el registro con éxito");
-		} else {
-			System.out.println("Se ha producido un error al introducir el registro");
-		}
-		
 	}
 
 }
-
