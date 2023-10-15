@@ -14,7 +14,8 @@ public class FarmaciaModelo {
 
 	public List<FarmaciaDTO> buscaFarmacia(String ID, String nombre, String descripcion, Integer cantidadDisponible,
 			Float precio) throws SQLException, ClassNotFoundException {
-		String query = "SELECT * FROM farmacia WHERE id LIKE ? OR nombre LIKE ? OR descripcion LIKE ? OR cantidadDisponible LIKE ? OR precio LIKE ?;  ";
+		
+		String query = "SELECT * FROM farmacia WHERE ID LIKE ? OR Nombre LIKE ? OR Descripcion LIKE ? OR CantidadDisponible LIKE ? OR Precio LIKE ?;  ";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = conexionBD.prepareStatement(query);

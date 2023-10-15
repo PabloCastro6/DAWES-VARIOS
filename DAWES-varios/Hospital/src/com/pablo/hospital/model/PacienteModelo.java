@@ -1,4 +1,4 @@
-package com.pablo.hospital.model;
+ package com.pablo.hospital.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

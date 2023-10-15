@@ -17,7 +17,7 @@ public class MedicosModelo {
 			String licenciaMedica, String telefono, String correoElectronico)
 			throws SQLException, ClassNotFoundException {
 
-		String query = "SELECT * from medicos where ID LIKE ? AND Nombre LIKE ? AND Apellido LIKE ? AND "
+		String query = "SELECT * from medicos where ID LIKE ? AND Nombre LIKE ? AND Apellido LIKE ? AND"
 				+ "Especialidad LIKE ? AND LicenciaMedica LIKE ? AND Telefono LIKE ? AND CorreoElectronico LIKE ?";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
@@ -50,8 +50,8 @@ public class MedicosModelo {
 			String licenciaMedica, String telefono, String correoElectronico)
 			throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO medico (  nombre,  apellido,  especialidad,  licenciaMedica"
-				+ " telefono,  correoElectronico) VALUES (?, ?, ?, ?, ?, ?); ";
+		String sql = "INSERT INTO medico (nombre,  apellido,  especialidad,  licenciaMedica"
+				+ " telefono,  correoElectronico) VALUES (?, ?, ?, ?, ?, ?);";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
