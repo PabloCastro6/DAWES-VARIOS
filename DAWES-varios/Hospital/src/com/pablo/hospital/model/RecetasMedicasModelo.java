@@ -12,7 +12,7 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class RecetasMedicasModelo {
 
-	public List<RecetasMedicasDTO> buscarRecetasMedicas(Integer iD, Integer pacienteID, Integer medicoID,
+	public List<RecetasMedicasDTO> buscarRecetasMedicas(String iD, Integer pacienteID, Integer medicoID,
 			Integer medicamentoID, String fecha, Integer cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 
@@ -25,7 +25,7 @@ public class RecetasMedicasModelo {
 		Connection conexionBD = DBUtils.conexionBBDD();
 
 		PreparedStatement ps = conexionBD.prepareStatement(query);
-		ps.setInt(1, iD);
+		ps.setString(1, iD);
 		ps.setInt(2, pacienteID);
 		ps.setInt(3, medicoID);
 		ps.setInt(4, medicamentoID);
@@ -47,7 +47,8 @@ public class RecetasMedicasModelo {
 		return listaRecetasMedicas;
 	}
 
-	public Integer insertarRecetasMedicas(String fecha, Integer cantidadPrescrita) throws ClassNotFoundException, SQLException {
+	public Integer insertarRecetasMedicas(String fecha, Integer cantidadPrescrita)
+			throws ClassNotFoundException, SQLException {
 
 		String sql = "INSERT INTO recetasMedicas ( fecha, cantidadPrescrita) VALUES (?, ?)";
 
@@ -57,7 +58,6 @@ public class RecetasMedicasModelo {
 
 		ps = conexionBD.prepareStatement(sql);
 
-		
 		ps.setString(1, fecha);
 		ps.setInt(2, cantidadPrescrita);
 
@@ -68,14 +68,14 @@ public class RecetasMedicasModelo {
 		return resultado;
 	}
 
-	public Integer actualizarRecetasMedicas(Integer iD, Integer pacienteID, Integer medicoID, Integer medicamentoID,String fecha, Integer cantidadPrescrita)throws SQLException, ClassNotFoundException {
+	public Integer actualizarRecetasMedicas(String iD, Integer pacienteID, Integer medicoID, Integer medicamentoID,
+			String fecha, Integer cantidadPrescrita) throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE recetasMedicas SET pacienteID = CASE WHEN ? = '' THEN pacienteID ELSE ? END,"
 				+ "  medicoID = CASE WHEN ? = '' THEN medicoID ELSE ? END,"
-				+ " medicamentoID = CASE WHEN ? = '' THEN medicamentoID ELSE ? END," 
+				+ " medicamentoID = CASE WHEN ? = '' THEN medicamentoID ELSE ? END,"
 				+ "  fecha = CASE WHEN ? = '' THEN fecha ELSE ? END,"
-				+ "  cantidadPrescrita = CASE WHEN ? = '' THEN cantidadPrescrita ELSE ? END,"
-				+ " WHERE ID = ?;";
+				+ "  cantidadPrescrita = CASE WHEN ? = '' THEN cantidadPrescrita ELSE ? END," + " WHERE ID = ?;";
 
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -93,7 +93,7 @@ public class RecetasMedicasModelo {
 		ps.setString(8, fecha);
 		ps.setInt(9, cantidadPrescrita);
 		ps.setInt(10, cantidadPrescrita);
-		ps.setInt(11, iD);
+		ps.setString(11, iD);
 
 		resultado = ps.executeUpdate();
 

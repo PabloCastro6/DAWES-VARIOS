@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.DBUtils;
 
@@ -55,7 +54,7 @@ public class PacienteModelo {
 			throws ClassNotFoundException, SQLException {
 
 		String sql = "INSERT INTO pacientes (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
-				+ "	 correo,  alergia, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				+ "	 correo,  alergiaID, HistoriaMedica ) VALUES (?, ?, ?, ?, ?, ?, ?,(SELECT a.id FROM alergias a WHERE a.descripcion = ?), ?)";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -91,7 +90,7 @@ public class PacienteModelo {
 				+ "   Direccion = CASE WHEN ? = '' THEN Direccion ELSE ? END,"
 				+ " Telefono = CASE WHEN ? = '' THEN Telefono ELSE ? END,"
 				+ " CorreoElectronico = CASE WHEN ? = '' THEN CorreoElectronico ELSE ? END,"
-				+ " AlergiaID = CASE WHEN ? = '' THEN AlergiaID ELSE ? END,"
+				+ " AlergiaID = (SELECT a.id FROM alergias a WHERE a.descripcion = ?) "
 				+ "  HistoriaMedica = CASE WHEN ? = '' THEN HistoriaMedica ELSE ? END " + "WHERE ID = ?;";
 
 		Connection connection = DBUtils.conexionBBDD();

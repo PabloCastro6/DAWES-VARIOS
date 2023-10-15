@@ -58,9 +58,9 @@ public class VistaDepartamentos {
 
 	private void menuBuscarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id del departamento");
-		Integer id = sc.nextInt();
+		String id = sc.nextLine();;
 
 		System.out.println("Introduzca por favor el nombre del departamento");
 		String nombre = sc.nextLine();
@@ -105,7 +105,7 @@ public class VistaDepartamentos {
 
 	public void menuActualizarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id del departamento");
 		String id = sc.nextLine();
 
@@ -119,7 +119,7 @@ public class VistaDepartamentos {
 		String activo = sc.nextLine();
 
 		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		int resultado = controladorDepartamentos.actualizarDepartamento(id,nombre, descripcion, activo);
+		int resultado = controladorDepartamentos.actualizarDepartamento(id, nombre, descripcion, activo);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
@@ -127,23 +127,22 @@ public class VistaDepartamentos {
 			System.out.println("Se ha producido un error al introducir el registro");
 		}
 	}
-	
+
 	public void menuBorrarDepartamento() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el ID del departamento");
 		String id = sc.nextLine();
-		
-		
+
 		DepartamentosController controladorDepartamentos = new DepartamentosController();
-		int resultado = controladorDepartamentos.borrarDepartamento (id);
-		
+		int resultado = controladorDepartamentos.borrarDepartamento(id);
+
 		if (resultado == 1) {
 			System.out.println("Se ha borrado el registro con éxito");
 		} else {
 			System.out.println("Se ha producido un error al introducir el registro");
 		}
-		
+
 	}
 
 }

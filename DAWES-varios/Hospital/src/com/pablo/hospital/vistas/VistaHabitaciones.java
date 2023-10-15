@@ -9,7 +9,7 @@ import com.pablo.hospital.dtos.HabitacionesDTO;
 import com.pablo.hospital.utils.MiScanner;
 
 public class VistaHabitaciones {
-	
+
 	public void menuGeneralHabitacion() throws ClassNotFoundException, SQLException {
 
 		Scanner sc = MiScanner.getInstance();
@@ -49,86 +49,79 @@ public class VistaHabitaciones {
 
 			if (n == 3) {
 				menuActualizarHabitacion();
-			continue;
-	}
+				continue;
+			}
+			if (n == 4) {
+				return;
+			}
 
-		} while (n != 6);
+		} while (n != 4);
 
+	
 	}
 
 	private void menuBuscarHabitacion() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id de la habitacion");
-		Integer iD = sc.nextInt();
-		
+		String iD = sc.nextLine();
+
 		System.out.println("Introduzca por favor el tipo de la habitacion");
 		String tipo = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el estado  de la habitacion");
 		String estado = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el costo por dia de la habitacion");
 		Float costoPorDia = sc.nextFloat();
-		
 
-		
-		
-		
 		HabitacionesController controladorHabitacion = new HabitacionesController();
-		List <HabitacionesDTO> listaHabitaciones = controladorHabitacion.buscarHabitacion( iD,  tipo,  estado,  costoPorDia);
-		
+		List<HabitacionesDTO> listaHabitaciones = controladorHabitacion.buscarHabitacion(iD, tipo, estado, costoPorDia);
+
 		for (HabitacionesDTO habitacion : listaHabitaciones) {
 			System.out.println(habitacion);
 		}
 
 	}
-	
+
 	public void menuInsertarHabitacion() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el tipo de la habitacion");
 		String tipo = sc.nextLine();
 		System.out.println("Introduzca por favor el estado de la habitacion");
 		String estado = sc.nextLine();
 		System.out.println("Introduzca por favor el costo por dia de la habitacion");
 		Float costoPorDia = sc.nextFloat();
-		
-		
+
 		HabitacionesController controladorHabitaciones = new HabitacionesController();
-		int resultado = controladorHabitaciones.insertarHabitacion( tipo, estado, costoPorDia);
-		
+		int resultado = controladorHabitaciones.insertarHabitacion(tipo, estado, costoPorDia);
+
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
 			System.out.println("Se ha producido un error al introducir el registro");
 		}
 	}
-	
-	
-	
+
 	public void menuActualizarHabitacion() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id de la habitacion a actualizar: ");
-		Integer  iD = sc.nextInt();
-		
+		String iD = sc.nextLine();
+
 		System.out.println("Introduzca por favor el tipo de la habitacion a actualizar: ");
-		String  tipo = sc.nextLine();
-		
+		String tipo = sc.nextLine();
+
 		System.out.println("Introduzca por favor el estado de la habitacion a actualizar: ");
-		String estado = sc.nextLine();	 	
-		
+		String estado = sc.nextLine();
+
 		System.out.println("Introduzca por favor el costo por dia de la habitacion a actualizar: ");
-		Float costoPorDia = sc.nextFloat();	
-		
-	
-		
-		    
-		
+		Float costoPorDia = sc.nextFloat();
+
 		HabitacionesController controladorHabitaciones = new HabitacionesController();
-		int resultado = controladorHabitaciones.actualizarHabitacion(iD,  tipo,  estado,  costoPorDia);
-		
+		int resultado = controladorHabitaciones.actualizarHabitacion(iD, tipo, estado, costoPorDia);
+
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
@@ -137,9 +130,3 @@ public class VistaHabitaciones {
 
 	}
 }
-
-
-
-  
-
-

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-
 import com.pablo.hospital.controllers.RecetasMedicasController;
 import com.pablo.hospital.dtos.RecetasMedicasDTO;
 import com.pablo.hospital.utils.MiScanner;
@@ -47,15 +46,20 @@ public class VistasRecetasMedica {
 				continue;
 			}
 
+			if (n == 4) {
+				return;
+			}
+
 		} while (n != 4);
 
 	}
+		
 
 	private void menuBuscarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
 		System.out.println("Introduzca por favor el id de las recetas medicas");
-		Integer iD = sc.nextInt();
+		String iD = sc.nextLine();
 
 		System.out.println("Introduzca por favor el nombre  de las recetas medicas");
 		Integer pacienteID = sc.nextInt();
@@ -85,7 +89,6 @@ public class VistasRecetasMedica {
 	public void menuInsertarRecetaMedica() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
-
 		System.out.println("Introduzca por favor la fecha de las recetas medicas");
 		String fecha = sc.nextLine();
 
@@ -93,7 +96,7 @@ public class VistasRecetasMedica {
 		Integer cantidadPrescrita = sc.nextInt();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
-		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(fecha,cantidadPrescrita);
+		int resultado = controladorRecetasMedicas.insertarRecetasMedicas(fecha, cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
@@ -106,8 +109,7 @@ public class VistasRecetasMedica {
 		Scanner sc = MiScanner.getInstance();
 
 		System.out.println("Introduzca por favor el id  de las recetas medicas ");
-		Integer iD = sc.nextInt();
-
+		String iD = sc.nextLine();
 		System.out.println("Introduzca por favor el nombre  de las recetas medicas");
 		Integer pacienteID = sc.nextInt();
 
@@ -124,7 +126,8 @@ public class VistasRecetasMedica {
 		Integer cantidadPrescrita = sc.nextInt();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
-		int resultado = controladorRecetasMedicas.actualizarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha,cantidadPrescrita);
+		int resultado = controladorRecetasMedicas.actualizarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID,
+				fecha, cantidadPrescrita);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");

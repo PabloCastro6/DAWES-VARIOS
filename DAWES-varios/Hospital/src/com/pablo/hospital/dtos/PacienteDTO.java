@@ -11,10 +11,10 @@ public class PacienteDTO {
 	private String correoElectronico;
 	private AlergiaDTO alergiaDTO;
 	private String historiaMedica;
-	
-	
+
 	public PacienteDTO(Integer iD, String nombre, String apellido, String fechaDeNacimiento, String dNI,
-			String direccion, String telefono, String correoElectronico, String descripcionAlergia, String historiaMedica) {
+			String direccion, String telefono, String correoElectronico, String descripcionAlergia,
+			String historiaMedica) {
 		super();
 		this.iD = iD;
 		this.nombre = nombre;
@@ -27,10 +27,6 @@ public class PacienteDTO {
 		this.alergiaDTO = new AlergiaDTO(descripcionAlergia);
 		this.historiaMedica = historiaMedica;
 	}
-
-	
-
-
 
 	public PacienteDTO(String nombre, String apellido, String fechaDeNacimiento, String dNI, String direccion,
 			String telefono, String correoElectronico, String descripcionAlergia, String historiaMedica) {
@@ -46,135 +42,91 @@ public class PacienteDTO {
 		this.historiaMedica = historiaMedica;
 	}
 
-
-
-
-
 	public PacienteDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-
-
-
-
-
-
-
-	// constructor, getters y setters 
+	// constructor, getters y setters
 	public Integer getiD() {
 		return iD;
 	}
-
 
 	public void setiD(Integer iD) {
 		this.iD = iD;
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
 	public String getApellido() {
 		return apellido;
 	}
-
 
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 
-
 	public String getFechaDeNacimiento() {
 		return fechaDeNacimiento;
 	}
-
 
 	public void setFechaDeNacimiento(String fechaDeNacimiento) {
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
 
-
 	public String getdNI() {
 		return dNI;
 	}
-
 
 	public void setdNI(String dNI) {
 		this.dNI = dNI;
 	}
 
-
 	public String getDireccion() {
 		return direccion;
 	}
-
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
-
 	public String getTelefono() {
 		return telefono;
 	}
-
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 
-
 	public String getCorreoElectronico() {
 		return correoElectronico;
 	}
-
 
 	public void setCorreoElectronico(String correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
 
-
-	
-
 	public AlergiaDTO getAlergiaDTO() {
 		return alergiaDTO;
 	}
-
-
-
-
 
 	public void setAlergiaDTO(AlergiaDTO alergiaDTO) {
 		this.alergiaDTO = alergiaDTO;
 	}
 
-
-
-
-
 	public String getHistoriaMedica() {
 		return historiaMedica;
 	}
 
-
 	public void setHistoriaMedica(String historiaMedica) {
 		this.historiaMedica = historiaMedica;
 	}
-
-
-
-
 
 	@Override
 	public String toString() {
@@ -184,14 +136,4 @@ public class PacienteDTO {
 				+ historiaMedica + "]";
 	}
 
-
-	
-
-	
-		  
-
-	
-	
-
-	
 }

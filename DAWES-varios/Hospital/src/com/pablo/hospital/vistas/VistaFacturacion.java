@@ -11,7 +11,7 @@ import com.pablo.hospital.dtos.FacturacionDTO;
 import com.pablo.hospital.utils.MiScanner;
 
 public class VistaFacturacion {
-	
+
 	public void menuGeneralFacturacion() throws ClassNotFoundException, SQLException {
 
 		Scanner sc = MiScanner.getInstance();
@@ -48,31 +48,36 @@ public class VistaFacturacion {
 				menuActualizarFacturacion();
 				continue;
 			}
+			if (n == 4) {
+				return;
+			}
 
-		} while (n != 5);
+		} while (n != 4);
 
 	}
 
+
 	private void menuBuscarFacturacion() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
-		System.out.println("Introduzca por favor el id del departamento");
-		Integer id = sc.nextInt();
 
-		System.out.println("Introduzca por favor el nombre del departamento");
+		System.out.println("Introduzca por favor el id de la facturacion");
+		String id = sc.nextLine();
+
+		System.out.println("Introduzca por favor el nombre de la facturacion");
 		Integer pacienteID = sc.nextInt();
 
-		System.out.println("Introduzca por favor la descripcion del departamento");
+		System.out.println("Introduzca por favor la descripcion de la facturacion");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el monto de la facturacion");
 		Float monto = sc.nextFloat();
-		
-		System.out.println("Introduzca por favor el activo del departamento");
+
+		System.out.println("Introduzca por favor el estadoID de la facturacion");
 		Integer estadoID = sc.nextInt();
 
 		FacturacionController controladorFacturacion = new FacturacionController();
-		List<FacturacionDTO> listaFacturacion = controladorFacturacion.buscarfacturacion( id,  pacienteID,  fecha,  monto,  estadoID);
+		List<FacturacionDTO> listaFacturacion = controladorFacturacion.buscarfacturacion(id, pacienteID, fecha, monto,
+				estadoID);
 
 		for (FacturacionDTO facturacion : listaFacturacion) {
 			System.out.println(facturacion);
@@ -81,17 +86,13 @@ public class VistaFacturacion {
 	}
 
 	public void menuInsertarFacturacion() throws ClassNotFoundException, SQLException {
-Scanner sc = MiScanner.getInstance();
-		
-	
+		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor la descripcion del departamento");
+		System.out.println("Introduzca por favor la descripcion de la facturacion");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el monto de la facturacion");
 		Float monto = sc.nextFloat();
-		
-		
 
 		FacturacionController controladorFacturacion = new FacturacionController();
 		int resultado = controladorFacturacion.insertarFacturacion(fecha, monto);
@@ -104,21 +105,22 @@ Scanner sc = MiScanner.getInstance();
 	}
 
 	public void menuActualizarFacturacion() throws ClassNotFoundException, SQLException {
-Scanner sc = MiScanner.getInstance();
-		
-		System.out.println("Introduzca por favor el id del departamento");
-		Integer id = sc.nextInt();
+		Scanner sc = MiScanner.getInstance();
 
-		System.out.println("Introduzca por favor el nombre del departamento");
+		System.out.println("Introduzca por favor el id de la facturacion");
+		String id = sc.nextLine();
+
+
+		System.out.println("Introduzca por favor el nombre de la facturacion");
 		Integer pacienteID = sc.nextInt();
 
-		System.out.println("Introduzca por favor la descripcion del departamento");
+		System.out.println("Introduzca por favor la descripcion de la facturacion");
 		String fecha = sc.nextLine();
 
-		System.out.println("Introduzca por favor el activo del departamento");
+		System.out.println("Introduzca por favor el monto de la facturacion");
 		Float monto = sc.nextFloat();
-		
-		System.out.println("Introduzca por favor el activo del departamento");
+
+		System.out.println("Introduzca por favor el estadoID de la facturacion");
 		Integer estadoID = sc.nextInt();
 
 		FacturacionController controladorFacturacion = new FacturacionController();

@@ -12,31 +12,34 @@ import com.pablo.hospital.dtos.PacienteDTO;
 import com.pablo.hospital.utils.DBUtils;
 
 public class HabitacionesModelo {
-	
-	public List<HabitacionesDTO> buscarHabitacion (Integer iD, String tipo, String estado, Float costoPorDia) throws SQLException, ClassNotFoundException {
-		
+
+	public List<HabitacionesDTO> buscarHabitacion(String iD, String tipo, String estado, Float costoPorDia)
+			throws SQLException, ClassNotFoundException {
+
 		String query = "SELECT * FROM habitaciones WHERE iD LIKE ? OR tipo LIKE ? OR estado LIKE ? OR costoPorDia LIKE ?;";
-		
+
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = conexionBD.prepareStatement(query);
-		ps.setInt(1,  iD );
-		ps.setString(2,  tipo );
-		ps.setString(3,  estado );
-		ps.setFloat(4,  costoPorDia);
-		
+		ps.setString(1, iD);
+		ps.setString(2, tipo);
+		ps.setString(3, estado);
+		ps.setFloat(4, costoPorDia);
+
 		ResultSet habitacionesRS = ps.executeQuery();
 		List<HabitacionesDTO> listaHabitaciones = new ArrayList<>();
-		
-		while(habitacionesRS.next()) {
-			HabitacionesDTO p = new HabitacionesDTO (habitacionesRS.getInt("iD"), habitacionesRS.getString("tipo"), habitacionesRS.getString("estado"), habitacionesRS.getFloat("costoPorDia"));
+
+		while (habitacionesRS.next()) {
+			HabitacionesDTO p = new HabitacionesDTO(habitacionesRS.getInt("iD"), habitacionesRS.getString("tipo"),
+					habitacionesRS.getString("estado"), habitacionesRS.getFloat("costoPorDia"));
 			listaHabitaciones.add(p);
 		}
-		
+
 		conexionBD.close();
 		return listaHabitaciones;
 	}
-	
-	public Integer insertarHabitaciones( String tipo, String estado, Float costoPorDia) throws ClassNotFoundException, SQLException {
+
+	public Integer insertarHabitaciones(String tipo, String estado, Float costoPorDia)
+			throws ClassNotFoundException, SQLException {
 
 		String sql = "INSERT INTO habitaciones ( tipo, estado, costoPorDia) VALUES (?, ?, ?)";
 
@@ -56,8 +59,9 @@ public class HabitacionesModelo {
 
 		return resultado;
 	}
-	
-	public Integer actualizarHabitacion(Integer iD, String tipo, String estado, Float costoPorDia) throws SQLException, ClassNotFoundException {
+
+	public Integer actualizarHabitacion(String iD, String tipo, String estado, Float costoPorDia)
+			throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE habitaciones SET tipo = CASE WHEN ? = '' THEN tipo ELSE ? END,"
 				+ "  estado = CASE WHEN ? = '' THEN estado ELSE ? END,"
@@ -75,7 +79,7 @@ public class HabitacionesModelo {
 		ps.setString(4, estado);
 		ps.setFloat(5, costoPorDia);
 		ps.setFloat(6, costoPorDia);
-		ps.setInt(7, iD);
+		ps.setString(7, iD);
 
 		resultado = ps.executeUpdate();
 
@@ -84,7 +88,5 @@ public class HabitacionesModelo {
 		return resultado;
 
 	}
-		
-	}
 
-
+}

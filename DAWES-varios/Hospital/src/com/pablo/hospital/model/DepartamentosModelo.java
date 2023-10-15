@@ -12,7 +12,7 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class DepartamentosModelo {
 
-	public List<DepartamentoDTO> buscarDepartamento(Integer id, String nombre, String descripcion, Integer activo)
+	public List<DepartamentoDTO> buscarDepartamento(String id, String nombre, String descripcion, Integer activo)
 			throws ClassNotFoundException, SQLException {
 
 		String query = "SELECT * FROM departamentos WHERE id LIKE ? OR nombre LIKE ? OR descripcion LIKE ? OR activo LIKE ?;";
@@ -20,7 +20,7 @@ public class DepartamentosModelo {
 		Connection conexionBD = DBUtils.conexionBBDD();
 
 		PreparedStatement ps = conexionBD.prepareStatement(query);
-		ps.setInt(1, id);
+		ps.setString(1, id);
 		ps.setString(2, nombre);
 		ps.setString(3, descripcion);
 		ps.setInt(4, activo);

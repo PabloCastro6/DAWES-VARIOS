@@ -49,16 +49,20 @@ public class VistaFarmacia {
 				menuActualizarFarmacia();
 				continue;
 			}
+			if (n == 4) {
+				return;
+			}
 
-		} while (n != 6);
+		} while (n != 4);
 
 	}
 
+	
 	public void menuBuscaFarmacia() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
 
 		System.out.println("Introduzca por favor el id de la Farmacia: ");
-		Integer id = sc.nextInt();
+		String id = sc.nextLine();
 
 		System.out.println("Introduzca por favor el nombre de la farmacia: ");
 		String nombre = sc.nextLine();
