@@ -74,16 +74,16 @@ public class VistaMedico {
 		System.out.println("Introduzca por favor el apellido del medico");
 		String apellido = sc.nextLine();
 
-		System.out.println("Introduzca por favor la fecha de nacimiento del medico");
+		System.out.println("Introduzca por favor la especialidad del medico");
 		String especialidad = sc.nextLine();
 
-		System.out.println("Introduzca por favor el DNI del medico");
+		System.out.println("Introduzca por favor la licencia medica del medico");
 		String licenciaMedica = sc.nextLine();
 
-		System.out.println("Introduzca por favor la direccion del medico");
+		System.out.println("Introduzca por favor el telefono del medico");
 		String telefono = sc.nextLine();
 
-		System.out.println("Introduzca por favor la telefono del medico");
+		System.out.println("Introduzca por favor el correo electronico del medico");
 		String correoElectronico = sc.nextLine();
 
 		MedicosController controladorMedico = new MedicosController();

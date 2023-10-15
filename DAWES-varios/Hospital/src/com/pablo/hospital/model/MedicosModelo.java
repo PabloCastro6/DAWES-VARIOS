@@ -17,10 +17,8 @@ public class MedicosModelo {
 			String licenciaMedica, String telefono, String correoElectronico)
 			throws SQLException, ClassNotFoundException {
 
-		String query = "SELECT * FROM Medicos " + "WHERE " + "    (ID = ? OR ? = '') AND "
-				+ "    (Nombre LIKE ? OR ? = '') AND " + "    (Apellido LIKE ? OR ? = '') AND "
-				+ "    (Especialidad LIKE ? OR ? = '') AND " + "    (LicenciaMedica LIKE ? OR ? = '') AND "
-				+ "    (Telefono LIKE ? OR ? = '') AND " + "    (CorreoElectronico LIKE ? OR ? = '');";
+		String query = "SELECT * from medicos where ID LIKE ? AND Nombre LIKE ? AND Apellido LIKE ? AND "
+				+ "Especialidad LIKE ? AND LicenciaMedica LIKE ? AND Telefono LIKE ? AND CorreoElectronico LIKE ?";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 
