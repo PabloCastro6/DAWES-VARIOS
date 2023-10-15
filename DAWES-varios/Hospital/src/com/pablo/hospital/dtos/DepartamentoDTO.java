@@ -1,12 +1,12 @@
 package com.pablo.hospital.dtos;
 
 public class DepartamentoDTO {
-	private Integer iD;
+	private String iD;
 	private String nombre;
 	private String descripcion;
 	private Integer activo;
 
-	public DepartamentoDTO(Integer iD, String nombre, String descripcion, Integer activo) {
+	public DepartamentoDTO(String iD, String nombre, String descripcion, Integer activo) {
 		super();
 		this.iD = iD;
 		this.nombre = nombre;
@@ -21,11 +21,11 @@ public class DepartamentoDTO {
 		this.activo = activo;
 	}
 
-	public Integer getiD() {
+	public String getiD() {
 		return iD;
 	}
 
-	public void setiD(Integer iD) {
+	public void setiD(String iD) {
 		this.iD = iD;
 	}
 

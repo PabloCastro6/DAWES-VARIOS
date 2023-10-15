@@ -8,8 +8,8 @@ import com.pablo.hospital.model.FacturacionModelo;
 
 public class FacturacionController {
 
-	public List<FacturacionDTO> buscarfacturacion(String id, Integer pacienteID, String fecha, Float monto,
-			Integer estadoID) throws ClassNotFoundException, SQLException {
+	public List<FacturacionDTO> buscarfacturacion(String id, String pacienteID, String fecha, Float monto,
+			String estadoID) throws ClassNotFoundException, SQLException {
 		FacturacionModelo cm = new FacturacionModelo();
 		return cm.buscarFacturacion(id, pacienteID, fecha, monto, estadoID);
 	}
@@ -19,7 +19,7 @@ public class FacturacionController {
 		return cm.insertarFacturacion(fecha, monto);
 	}
 
-	public Integer actualizarFacturacion(String id, Integer pacienteID, String fecha, Float monto, Integer estadoID)
+	public Integer actualizarFacturacion(String id, String pacienteID, String fecha, Float monto, String estadoID)
 			throws ClassNotFoundException, SQLException {
 
 		FacturacionModelo cm = new FacturacionModelo();

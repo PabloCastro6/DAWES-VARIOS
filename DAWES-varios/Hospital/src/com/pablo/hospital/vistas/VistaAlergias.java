@@ -95,7 +95,7 @@ public class VistaAlergias {
 		Scanner sc = MiScanner.getInstance();
 
 		System.out.println("Introduzca por favor el ID de alergia a actualizar: ");
-		int id = Integer.parseInt(sc.nextLine());
+		String id = sc.nextLine();
 		System.out.println("Introduzca por favor el nuevo nombre de la alergia: ");
 		String nombreAlergia = sc.nextLine();
 

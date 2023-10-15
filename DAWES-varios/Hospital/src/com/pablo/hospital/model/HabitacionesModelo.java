@@ -29,7 +29,7 @@ public class HabitacionesModelo {
 		List<HabitacionesDTO> listaHabitaciones = new ArrayList<>();
 
 		while (habitacionesRS.next()) {
-			HabitacionesDTO p = new HabitacionesDTO(habitacionesRS.getInt("iD"), habitacionesRS.getString("tipo"),
+			HabitacionesDTO p = new HabitacionesDTO(habitacionesRS.getString("iD"), habitacionesRS.getString("tipo"),
 					habitacionesRS.getString("estado"), habitacionesRS.getFloat("costoPorDia"));
 			listaHabitaciones.add(p);
 		}

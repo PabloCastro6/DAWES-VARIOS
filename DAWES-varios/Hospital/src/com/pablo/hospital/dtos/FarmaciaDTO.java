@@ -1,13 +1,13 @@
 package com.pablo.hospital.dtos;
 
 public class FarmaciaDTO {
-	private Integer ID;
+	private String ID;
 	private String nombre;
 	private String descripcion;
 	private Integer cantidadDisponible;
 	private Float precio;
 
-	public FarmaciaDTO(Integer ID, String nombre, String descripcion, Integer cantidadDisponible, Float precio) {
+	public FarmaciaDTO(String ID, String nombre, String descripcion, Integer cantidadDisponible, Float precio) {
 		super();
 		this.ID = ID;
 		this.nombre = nombre;
@@ -24,11 +24,11 @@ public class FarmaciaDTO {
 		this.precio = precio;
 	}
 
-	public Integer getMedicamento() {
+	public String getMedicamento() {
 		return ID;
 	}
 
-	public void setMedicamento(Integer medicamento) {
+	public void setMedicamento(String medicamento) {
 		this.ID = medicamento;
 	}
 

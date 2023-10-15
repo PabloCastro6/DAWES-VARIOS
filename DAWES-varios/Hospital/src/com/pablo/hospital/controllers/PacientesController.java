@@ -17,19 +17,19 @@ public class PacientesController {
 	}
 
 	public Integer insertarPaciente(String nombre, String apellido, String FechaDeNacimiento, String DNI,
-			String direccion, String telefono, String correo, Integer alergia, String HistoriaMedica)
+			String direccion, String telefono, String correo, String alergiaID, String HistoriaMedica)
 			throws ClassNotFoundException, SQLException {
 		PacienteModelo cm = new PacienteModelo();
-		return cm.insertarPaciente(nombre, apellido, FechaDeNacimiento, DNI, direccion, telefono, correo, alergia,
+		return cm.insertarPaciente(nombre, apellido, FechaDeNacimiento, DNI, direccion, telefono, correo, alergiaID,
 				HistoriaMedica);
 	}
 
 	public Integer actualizarPaciente(String id, String nombre, String apellido, String FechaDeNacimiento, String DNI,
-			String direccion, String telefono, String correo, Integer alergia, String HistoriaMedica)
+			String direccion, String telefono, String correo, String alergiaID, String HistoriaMedica)
 			throws ClassNotFoundException, SQLException {
 
 		PacienteModelo pm = new PacienteModelo();
-		return pm.actualizarPaciente(nombre, apellido, FechaDeNacimiento, DNI, direccion, telefono, correo, alergia,
+		return pm.actualizarPaciente(nombre, apellido, FechaDeNacimiento, DNI, direccion, telefono, correo, alergiaID,
 				HistoriaMedica);
 	}
 

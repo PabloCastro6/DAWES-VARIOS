@@ -2,7 +2,7 @@ package com.pablo.hospital.dtos;
 
 public class MedicoDTO {
 
-	private Integer ID;
+	private String ID;
 	private String nombre;
 	private String apellido;
 	private String especialidad;
@@ -10,7 +10,7 @@ public class MedicoDTO {
 	private String telefono;
 	private String correoElectronico;
 
-	public MedicoDTO(Integer iD, String nombre, String apellido, String especialidad, String licenciaMedica,
+	public MedicoDTO(String iD, String nombre, String apellido, String especialidad, String licenciaMedica,
 			String telefono, String correoElectronico) {
 		super();
 		ID = iD;
@@ -22,11 +22,11 @@ public class MedicoDTO {
 		this.correoElectronico = correoElectronico;
 	}
 
-	public Integer getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

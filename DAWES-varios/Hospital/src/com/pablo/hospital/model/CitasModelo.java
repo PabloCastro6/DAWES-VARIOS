@@ -40,7 +40,7 @@ public class CitasModelo {
 		List<CitaDTO> listaCitas = new ArrayList<>();
 
 		while (citasRS.next()) {
-			CitaDTO c = new CitaDTO(citasRS.getInt("iD"), citasRS.getString("pacienteID"),
+			CitaDTO c = new CitaDTO(citasRS.getString("iD"), citasRS.getString("pacienteID"),
 					citasRS.getString("medicoID"), citasRS.getString("fecha"), citasRS.getString("hora"),
 					citasRS.getString("estado"));
 			listaCitas.add(c);

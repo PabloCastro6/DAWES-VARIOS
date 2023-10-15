@@ -8,7 +8,7 @@ import com.pablo.hospital.model.HistorialMedicoModelo;
 
 public class HistorialMedicoController {
 
-	public List<HistorialMedicoDTO> buscarHistorialMedico(String iD, Integer pacienteID, Integer medicoID,
+	public List<HistorialMedicoDTO> buscarHistorialMedico(String iD, String pacienteID, String medicoID,
 			String fecha, String diagnostico, String tratamiento) throws ClassNotFoundException, SQLException {
 		HistorialMedicoModelo hm = new HistorialMedicoModelo();
 		return hm.buscaHistorialMedico(iD, pacienteID, medicoID, fecha, diagnostico, tratamiento);

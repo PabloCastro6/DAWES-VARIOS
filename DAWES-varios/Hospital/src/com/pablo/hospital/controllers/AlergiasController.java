@@ -18,7 +18,7 @@ public class AlergiasController {
 		return cm.insertarAlergia(nombreAlergia);
 	}
 
-	public Integer actualizarAlergia(Integer id, String nombreAlergia) throws ClassNotFoundException, SQLException {
+	public Integer actualizarAlergia(String id, String nombreAlergia) throws ClassNotFoundException, SQLException {
 
 		AlergiasModelo cm = new AlergiasModelo();
 		return cm.actualizarAlergia(id, nombreAlergia);

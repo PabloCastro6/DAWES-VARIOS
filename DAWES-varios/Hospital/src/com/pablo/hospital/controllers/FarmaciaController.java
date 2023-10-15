@@ -21,7 +21,7 @@ public class FarmaciaController {
 		return fm.insertarFarmacia(nombre, descripcion, cantidadDisponible, precio);
 	}
 
-	public Integer actualizarFarmacia(Integer ID, String nombre, String descripcion, Integer cantidadDisponible,
+	public Integer actualizarFarmacia(String ID, String nombre, String descripcion, Integer cantidadDisponible,
 			Float precio) throws ClassNotFoundException, SQLException {
 
 		FarmaciaModelo fm = new FarmaciaModelo();

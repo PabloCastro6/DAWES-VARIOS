@@ -37,7 +37,7 @@ public class MedicosModelo {
 		List<MedicoDTO> listaMedicos = new ArrayList<>();
 
 		while (medicoRS.next()) {
-			MedicoDTO m = new MedicoDTO(medicoRS.getInt("ID"), medicoRS.getString("nombre"),
+			MedicoDTO m = new MedicoDTO(medicoRS.getString("ID"), medicoRS.getString("nombre"),
 					medicoRS.getString("apellido"), medicoRS.getString("especialidad"),
 					medicoRS.getString("licenciaMedica"), medicoRS.getString("telefono"),
 					medicoRS.getString("correoElectronico"));

@@ -12,7 +12,7 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class HistorialMedicoModelo {
 
-	public List<HistorialMedicoDTO> buscaHistorialMedico(String iD, Integer pacienteID, Integer medicoID, String fecha,
+	public List<HistorialMedicoDTO> buscaHistorialMedico(String iD, String pacienteID, String medicoID, String fecha,
 			String diagnostico, String tratamiento) throws SQLException, ClassNotFoundException {
 
 		String query = "SELECT * FROM HistorialMedico " + "WHERE "
@@ -28,10 +28,10 @@ public class HistorialMedicoModelo {
 
 		ps.setString(1, iD);
 		ps.setString(2, '%' + iD + '%');
-		ps.setInt(3, pacienteID);
-		ps.setInt(4, '%' + pacienteID + '%');
-		ps.setInt(5, medicoID);
-		ps.setInt(6, '%' + medicoID + '%');
+		ps.setString(3, pacienteID);
+		ps.setString(4, '%' + pacienteID + '%');
+		ps.setString(5, medicoID);
+		ps.setString(6, '%' + medicoID + '%');
 		ps.setString(7, fecha);
 		ps.setString(8, '%' + fecha + '%');
 		ps.setString(9, diagnostico);
@@ -43,8 +43,8 @@ public class HistorialMedicoModelo {
 		List<HistorialMedicoDTO> listaHistorial = new ArrayList<>();
 
 		while (historialRS.next()) {
-			HistorialMedicoDTO h = new HistorialMedicoDTO(historialRS.getString("iD"), historialRS.getInt("pacienteID"),
-					historialRS.getInt("medicoID"), historialRS.getString("fecha"),
+			HistorialMedicoDTO h = new HistorialMedicoDTO(historialRS.getString("iD"), historialRS.getString("pacienteID"),
+					historialRS.getString("medicoID"), historialRS.getString("fecha"),
 					historialRS.getString("diagnostico"), historialRS.getString("tratamiento"));
 			listaHistorial.add(h);
 		}

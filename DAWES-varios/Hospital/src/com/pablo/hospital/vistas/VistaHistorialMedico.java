@@ -68,10 +68,10 @@ public class VistaHistorialMedico {
 		String iD = sc.nextLine();
 
 		System.out.println("Introduzca por favor el pacienteID para el historial medico");
-		Integer pacienteID = sc.nextInt();
+		String pacienteID = sc.nextLine();
 
 		System.out.println("Introduzca por favor el medicoID para el historial medico");
-		Integer medicoID = sc.nextInt();
+		String medicoID = sc.nextLine();
 
 		System.out.println("Introduzca por favor la fecha para el historial medico");
 		String fecha = sc.nextLine();

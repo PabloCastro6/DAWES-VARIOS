@@ -37,7 +37,7 @@ public class PacienteModelo {
 		List<PacienteDTO> listaPacientes = new ArrayList<>();
 
 		while (pacienteRS.next()) {
-			PacienteDTO p = new PacienteDTO(pacienteRS.getInt("Id"), pacienteRS.getString("nombre"),
+			PacienteDTO p = new PacienteDTO(pacienteRS.getString("Id"), pacienteRS.getString("nombre"),
 					pacienteRS.getString("apellido"), pacienteRS.getString("FechaDeNacimiento"),
 					pacienteRS.getString("DNI"), pacienteRS.getString("direccion"), pacienteRS.getString("telefono"),
 					pacienteRS.getString("correoElectronico"), pacienteRS.getString("descripcion"),
@@ -50,7 +50,7 @@ public class PacienteModelo {
 	}
 
 	public Integer insertarPaciente(String nombre, String apellido, String FechaDeNacimiento, String DNI,
-			String direccion, String telefono, String correo, Integer alergiaID, String HistoriaMedica)
+			String direccion, String telefono, String correo, String alergiaID, String HistoriaMedica)
 			throws ClassNotFoundException, SQLException {
 
 		String sql = "INSERT INTO pacientes (nombre,  apellido, FechaDeNacimiento,  DNI, direccion,  telefono"
@@ -69,7 +69,7 @@ public class PacienteModelo {
 		ps.setString(5, direccion);
 		ps.setString(6, telefono);
 		ps.setString(7, correo);
-		ps.setInt(8, alergiaID);
+		ps.setString(8, alergiaID);
 		ps.setString(9, HistoriaMedica);
 
 		resultado = ps.executeUpdate();
@@ -80,7 +80,7 @@ public class PacienteModelo {
 	}
 
 	public Integer actualizarPaciente(String nombre, String apellido, String FechaDeNacimiento, String DNI,
-			String direccion, String telefono, String correo, Integer alergiaID, String HistoriaMedica)
+			String direccion, String telefono, String correo, String alergiaID, String HistoriaMedica)
 			throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE pacientes SET Nombre = CASE WHEN ? = '' THEN Nombre ELSE ? END,"
@@ -106,7 +106,7 @@ public class PacienteModelo {
 		ps.setString(5, direccion);
 		ps.setString(6, telefono);
 		ps.setString(7, correo);
-		ps.setInt(8, alergiaID);
+		ps.setString(8, alergiaID);
 		ps.setString(9, HistoriaMedica);
 
 		resultado = ps.executeUpdate();

@@ -2,13 +2,13 @@ package com.pablo.hospital.dtos;
 
 public class FacturacionDTO {
 
-	private Integer id;
-	private Integer pacienteID;
+	private String id;
+	private String pacienteID;
 	private String fecha;
 	private Float monto;
-	private Integer estadoID;
+	private String estadoID;
 
-	public FacturacionDTO(Integer id, Integer pacienteID, String fecha, Float monto, Integer estadoID) {
+	public FacturacionDTO(String id, String pacienteID, String fecha, Float monto, String estadoID) {
 		super();
 		this.id = id;
 		this.pacienteID = pacienteID;
@@ -23,19 +23,19 @@ public class FacturacionDTO {
 		this.monto = monto;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public Integer getPacienteID() {
+	public String getPacienteID() {
 		return pacienteID;
 	}
 
-	public void setPacienteID(Integer pacienteID) {
+	public void setPacienteID(String pacienteID) {
 		this.pacienteID = pacienteID;
 	}
 
@@ -55,11 +55,11 @@ public class FacturacionDTO {
 		this.monto = monto;
 	}
 
-	public Integer getEstadoID() {
+	public String getEstadoID() {
 		return estadoID;
 	}
 
-	public void setEstadoID(Integer estadoID) {
+	public void setEstadoID(String estadoID) {
 		this.estadoID = estadoID;
 	}
 

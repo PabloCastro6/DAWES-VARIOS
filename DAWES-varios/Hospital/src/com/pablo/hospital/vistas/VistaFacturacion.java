@@ -64,7 +64,7 @@ public class VistaFacturacion {
 		String id = sc.nextLine();
 
 		System.out.println("Introduzca por favor el nombre de la facturacion");
-		Integer pacienteID = sc.nextInt();
+		String pacienteID = sc.nextLine();
 
 		System.out.println("Introduzca por favor la descripcion de la facturacion");
 		String fecha = sc.nextLine();
@@ -73,7 +73,7 @@ public class VistaFacturacion {
 		Float monto = sc.nextFloat();
 
 		System.out.println("Introduzca por favor el estadoID de la facturacion");
-		Integer estadoID = sc.nextInt();
+		String estadoID = sc.nextLine();
 
 		FacturacionController controladorFacturacion = new FacturacionController();
 		List<FacturacionDTO> listaFacturacion = controladorFacturacion.buscarfacturacion(id, pacienteID, fecha, monto,
@@ -112,7 +112,7 @@ public class VistaFacturacion {
 
 
 		System.out.println("Introduzca por favor el nombre de la facturacion");
-		Integer pacienteID = sc.nextInt();
+		String pacienteID = sc.nextLine();
 
 		System.out.println("Introduzca por favor la descripcion de la facturacion");
 		String fecha = sc.nextLine();
@@ -121,7 +121,7 @@ public class VistaFacturacion {
 		Float monto = sc.nextFloat();
 
 		System.out.println("Introduzca por favor el estadoID de la facturacion");
-		Integer estadoID = sc.nextInt();
+		String estadoID = sc.nextLine();
 
 		FacturacionController controladorFacturacion = new FacturacionController();
 		int resultado = controladorFacturacion.actualizarFacturacion(id, pacienteID, fecha, monto, estadoID);

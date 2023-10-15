@@ -27,7 +27,7 @@ public class EstadoCitasModelo {
 		List<EstadoCitasDTO> listaEstadoCitas = new ArrayList<>();
 
 		while (EstadoCitasRS.next()) {
-			EstadoCitasDTO e = new EstadoCitasDTO(EstadoCitasRS.getInt("iD"), EstadoCitasRS.getString("estado"));
+			EstadoCitasDTO e = new EstadoCitasDTO(EstadoCitasRS.getString("iD"), EstadoCitasRS.getString("estado"));
 			listaEstadoCitas.add(e);
 		}
 

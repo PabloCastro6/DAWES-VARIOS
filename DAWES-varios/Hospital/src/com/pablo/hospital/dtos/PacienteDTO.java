@@ -1,7 +1,7 @@
 package com.pablo.hospital.dtos;
 
 public class PacienteDTO {
-	private Integer iD;
+	private String iD;
 	private String nombre;
 	private String apellido;
 	private String fechaDeNacimiento;
@@ -12,7 +12,7 @@ public class PacienteDTO {
 	private AlergiaDTO alergiaDTO;
 	private String historiaMedica;
 
-	public PacienteDTO(Integer iD, String nombre, String apellido, String fechaDeNacimiento, String dNI,
+	public PacienteDTO(String iD, String nombre, String apellido, String fechaDeNacimiento, String dNI,
 			String direccion, String telefono, String correoElectronico, String descripcionAlergia,
 			String historiaMedica) {
 		super();
@@ -47,12 +47,12 @@ public class PacienteDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	// constructor, getters y setters
-	public Integer getiD() {
+	
+	public String getiD() {
 		return iD;
 	}
 
-	public void setiD(Integer iD) {
+	public void setiD(String iD) {
 		this.iD = iD;
 	}
 

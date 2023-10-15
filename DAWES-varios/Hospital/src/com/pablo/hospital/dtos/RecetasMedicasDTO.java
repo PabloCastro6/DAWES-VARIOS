@@ -2,15 +2,15 @@ package com.pablo.hospital.dtos;
 
 public class RecetasMedicasDTO {
 
-	private Integer ID;
-	private Integer pacienteID;
-	private Integer MedicoID;
-	private Integer MedicamentoID;
+	private String ID;
+	private String pacienteID;
+	private String MedicoID;
+	private String MedicamentoID;
 	private String fecha;
-	private Integer cantidadPrescrita;
+	private String cantidadPrescrita;
 
-	public RecetasMedicasDTO(Integer iD, Integer pacienteID, Integer medicoID, Integer medicamentoID, String fecha,
-			Integer cantidadPrescrita) {
+	public RecetasMedicasDTO(String iD, String pacienteID, String medicoID, String medicamentoID, String fecha,
+			String cantidadPrescrita) {
 		super();
 		ID = iD;
 		this.pacienteID = pacienteID;
@@ -20,35 +20,35 @@ public class RecetasMedicasDTO {
 		this.cantidadPrescrita = cantidadPrescrita;
 	}
 
-	public Integer getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 
-	public Integer getPacienteID() {
+	public String getPacienteID() {
 		return pacienteID;
 	}
 
-	public void setPacienteID(Integer pacienteID) {
+	public void setPacienteID(String pacienteID) {
 		this.pacienteID = pacienteID;
 	}
 
-	public Integer getMedicoID() {
+	public String getMedicoID() {
 		return MedicoID;
 	}
 
-	public void setMedicoID(Integer medicoID) {
+	public void setMedicoID(String medicoID) {
 		MedicoID = medicoID;
 	}
 
-	public Integer getMedicamentoID() {
+	public String getMedicamentoID() {
 		return MedicamentoID;
 	}
 
-	public void setMedicamentoID(Integer medicamentoID) {
+	public void setMedicamentoID(String medicamentoID) {
 		MedicamentoID = medicamentoID;
 	}
 
@@ -60,11 +60,11 @@ public class RecetasMedicasDTO {
 		this.fecha = fecha;
 	}
 
-	public Integer getCantidadPrescrita() {
+	public String getCantidadPrescrita() {
 		return cantidadPrescrita;
 	}
 
-	public void setCantidadPrescrita(Integer cantidadPrescrita) {
+	public void setCantidadPrescrita(String cantidadPrescrita) {
 		this.cantidadPrescrita = cantidadPrescrita;
 	}
 

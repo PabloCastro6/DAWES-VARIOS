@@ -62,19 +62,19 @@ public class VistasRecetasMedica {
 		String iD = sc.nextLine();
 
 		System.out.println("Introduzca por favor el nombre  de las recetas medicas");
-		Integer pacienteID = sc.nextInt();
+		String pacienteID = sc.nextLine();
 
 		System.out.println("Introduzca por favor la descripcion  de las recetas medicas");
-		Integer medicoID = sc.nextInt();
+		String medicoID = sc.nextLine();
 
 		System.out.println("Introduzca por favor el activo  de las recetas medicas");
-		Integer medicamentoID = sc.nextInt();
+		String medicamentoID = sc.nextLine();
 
 		System.out.println("Introduzca por favor la fecha de las recetas medicas");
 		String fecha = sc.nextLine();
 
 		System.out.println("Introduzca por favor el la cantidad prescrita de las recetas medicas");
-		Integer cantidadPrescrita = sc.nextInt();
+		String cantidadPrescrita = sc.nextLine();
 
 		RecetasMedicasController controladorRecetasMedicas = new RecetasMedicasController();
 		List<RecetasMedicasDTO> listaRecetasMedicas = controladorRecetasMedicas.buscarRecetaMedica(iD, pacienteID,

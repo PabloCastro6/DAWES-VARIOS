@@ -29,7 +29,7 @@ public class DepartamentosModelo {
 		List<DepartamentoDTO> listaDepartamentos = new ArrayList<>();
 
 		while (departamentoRS.next()) {
-			DepartamentoDTO p = new DepartamentoDTO(departamentoRS.getInt("Id"), departamentoRS.getString("nombre"),
+			DepartamentoDTO p = new DepartamentoDTO(departamentoRS.getString("Id"), departamentoRS.getString("nombre"),
 					departamentoRS.getString("descripcion"), departamentoRS.getInt("activo"));
 			listaDepartamentos.add(p);
 		}

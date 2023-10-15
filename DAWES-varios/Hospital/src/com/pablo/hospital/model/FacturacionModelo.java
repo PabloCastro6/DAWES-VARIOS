@@ -12,8 +12,8 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class FacturacionModelo {
 
-	public List<FacturacionDTO> buscarFacturacion(String id, Integer pacienteID, String fecha, Float monto,
-			Integer estadoID) throws ClassNotFoundException, SQLException {
+	public List<FacturacionDTO> buscarFacturacion(String id, String pacienteID, String fecha, Float monto,
+			String estadoID) throws ClassNotFoundException, SQLException {
 
 		String query = "SELECT * FROM facturacion WHERE iD LIKE ? OR PacienteID LIKE ? OR Fecha LIKE ? OR Monto LIKE ? OR EstadoID LIKE ?;";
 
@@ -21,18 +21,18 @@ public class FacturacionModelo {
 
 		PreparedStatement ps = conexionBD.prepareStatement(query);
 		ps.setString(1, id);
-		ps.setInt(2, pacienteID);
+		ps.setString(2, pacienteID);
 		ps.setString(3, fecha);
 		ps.setFloat(4, monto);
-		ps.setInt(1, estadoID);
+		ps.setString(1, estadoID);
 
 		ResultSet facturacionRS = ps.executeQuery();
 		List<FacturacionDTO> listaFacturacion = new ArrayList<>();
 
 		while (facturacionRS.next()) {
-			FacturacionDTO p = new FacturacionDTO(facturacionRS.getInt("Id"), facturacionRS.getInt("pacienteID"),
+			FacturacionDTO p = new FacturacionDTO(facturacionRS.getString("Id"), facturacionRS.getString("pacienteID"),
 					facturacionRS.getString("fecha"), facturacionRS.getFloat("monto"),
-					facturacionRS.getInt("estadoID"));
+					facturacionRS.getString("estadoID"));
 			listaFacturacion.add(p);
 		}
 
@@ -60,7 +60,7 @@ public class FacturacionModelo {
 		return resultado;
 	}
 
-	public Integer actualizarFacturacion(String id, Integer pacienteID, String fecha, Float monto, Integer estadoID)
+	public Integer actualizarFacturacion(String id, String pacienteID, String fecha, Float monto, String estadoID)
 			throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE facturacion SET pacienteID = CASE WHEN ? = '' THEN pacienteID ELSE ? END,"
@@ -74,14 +74,14 @@ public class FacturacionModelo {
 
 		ps = connection.prepareStatement(sql);
 
-		ps.setInt(1, pacienteID);
-		ps.setInt(2, pacienteID);
+		ps.setString(1, pacienteID);
+		ps.setString(2, pacienteID);
 		ps.setString(3, fecha);
 		ps.setString(4, fecha);
 		ps.setFloat(5, monto);
 		ps.setFloat(6, monto);
-		ps.setInt(7, estadoID);
-		ps.setInt(8, estadoID);
+		ps.setString(7, estadoID);
+		ps.setString(8, estadoID);
 		ps.setString(9, id);
 
 		resultado = ps.executeUpdate();

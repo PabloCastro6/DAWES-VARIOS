@@ -1,14 +1,14 @@
 package com.pablo.hospital.dtos;
 
 public class CitaDTO {
-	private Integer ID;
+	private String ID;
 	private String pacienteID;
 	private String medicoID;
 	private String fecha;
 	private String hora;
 	private String estadoID;
 
-	public CitaDTO(Integer iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID) {
+	public CitaDTO(String iD, String pacienteID, String medicoID, String fecha, String hora, String estadoID) {
 		super();
 		ID = iD;
 		this.pacienteID = pacienteID;
@@ -19,11 +19,11 @@ public class CitaDTO {
 
 	}
 
-	public Integer getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

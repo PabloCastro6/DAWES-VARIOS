@@ -1,12 +1,12 @@
 package com.pablo.hospital.dtos;
 
 public class AlergiaDTO {
-	private Integer id;
+	private String id;
 	private String descripcion;
 
 	// constructor, getters y setters
 
-	public AlergiaDTO(Integer id, String descripcion) {
+	public AlergiaDTO(String id, String descripcion) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -22,11 +22,11 @@ public class AlergiaDTO {
 		super();
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

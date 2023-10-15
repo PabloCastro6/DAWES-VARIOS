@@ -12,8 +12,8 @@ import com.pablo.hospital.utils.DBUtils;
 
 public class RecetasMedicasModelo {
 
-	public List<RecetasMedicasDTO> buscarRecetasMedicas(String iD, Integer pacienteID, Integer medicoID,
-			Integer medicamentoID, String fecha, Integer cantidadPrescrita)
+	public List<RecetasMedicasDTO> buscarRecetasMedicas(String iD, String pacienteID, String medicoID,
+			String medicamentoID, String fecha, String cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 
 		String query = "SELECT *" + "FROM recetasMedicas rm" + "INNER JOIN pacientes pa ON rm.pacienteID = pa.id"
@@ -26,20 +26,20 @@ public class RecetasMedicasModelo {
 
 		PreparedStatement ps = conexionBD.prepareStatement(query);
 		ps.setString(1, iD);
-		ps.setInt(2, pacienteID);
-		ps.setInt(3, medicoID);
-		ps.setInt(4, medicamentoID);
+		ps.setString(2, pacienteID);
+		ps.setString(3, medicoID);
+		ps.setString(4, medicamentoID);
 		ps.setString(5, fecha);
-		ps.setInt(6, cantidadPrescrita);
+		ps.setString(6, cantidadPrescrita);
 
 		ResultSet recetasMedicasRS = ps.executeQuery();
 		List<RecetasMedicasDTO> listaRecetasMedicas = new ArrayList<>();
 
 		while (recetasMedicasRS.next()) {
-			RecetasMedicasDTO p = new RecetasMedicasDTO(recetasMedicasRS.getInt("ID"),
-					recetasMedicasRS.getInt("pacienteID"), recetasMedicasRS.getInt("medicoID"),
-					recetasMedicasRS.getInt("medicamentoID"), recetasMedicasRS.getString("fecha"),
-					recetasMedicasRS.getInt("cantidadPrescrita"));
+			RecetasMedicasDTO p = new RecetasMedicasDTO(recetasMedicasRS.getString("ID"),
+					recetasMedicasRS.getString("pacienteID"), recetasMedicasRS.getString("medicoID"),
+					recetasMedicasRS.getString("medicamentoID"), recetasMedicasRS.getString("fecha"),
+					recetasMedicasRS.getString("cantidadPrescrita"));
 			listaRecetasMedicas.add(p);
 		}
 

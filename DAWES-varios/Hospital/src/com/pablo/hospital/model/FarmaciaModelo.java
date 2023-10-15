@@ -28,7 +28,7 @@ public class FarmaciaModelo {
 		List<FarmaciaDTO> listaFarmacia = new ArrayList<>();
 
 		while (farmaciasRS.next()) {
-			FarmaciaDTO f = new FarmaciaDTO(farmaciasRS.getInt("ID"), farmaciasRS.getString("nombre"),
+			FarmaciaDTO f = new FarmaciaDTO(farmaciasRS.getString("ID"), farmaciasRS.getString("nombre"),
 					farmaciasRS.getString("descripcion"), farmaciasRS.getInt("cantidadDisponible"),
 					farmaciasRS.getFloat("precio"));
 			listaFarmacia.add(f);
@@ -62,7 +62,7 @@ public class FarmaciaModelo {
 		return resultado;
 	}
 
-	public Integer actualizarFarmacia(Integer ID, String nombre, String descripcion, Integer cantidadDisponible,
+	public Integer actualizarFarmacia(String ID, String nombre, String descripcion, Integer cantidadDisponible,
 			Float precio) throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE farmacia SET Nombre = CASE WHEN ? = '' THEN Nombre ELSE ? END,"
@@ -84,7 +84,7 @@ public class FarmaciaModelo {
 		ps.setInt(6, cantidadDisponible);
 		ps.setFloat(7, precio);
 		ps.setFloat(8, precio);
-		ps.setInt(9, ID);
+		ps.setString(9, ID);
 
 		resultado = ps.executeUpdate();
 

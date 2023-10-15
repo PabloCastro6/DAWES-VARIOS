@@ -8,8 +8,8 @@ import com.pablo.hospital.model.RecetasMedicasModelo;
 
 public class RecetasMedicasController {
 
-	public List<RecetasMedicasDTO> buscarRecetaMedica(String iD, Integer pacienteID, Integer medicoID,
-			Integer medicamentoID, String fecha, Integer cantidadPrescrita)
+	public List<RecetasMedicasDTO> buscarRecetaMedica(String iD, String pacienteID, String medicoID,
+			String medicamentoID, String fecha, String cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 		RecetasMedicasModelo cm = new RecetasMedicasModelo();
 		return cm.buscarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha, cantidadPrescrita);

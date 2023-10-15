@@ -2,20 +2,20 @@ package com.pablo.hospital.dtos;
 
 public class EstadoCitasDTO {
 
-	private Integer ID;
+	private String ID;
 	private String estado;
 
-	public EstadoCitasDTO(Integer iD, String estado) {
+	public EstadoCitasDTO(String iD, String estado) {
 		super();
 		this.ID = iD;
 		this.estado = estado;
 	}
 
-	public Integer getID() {
+	public String getID() {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
+	public void setID(String iD) {
 		ID = iD;
 	}
 

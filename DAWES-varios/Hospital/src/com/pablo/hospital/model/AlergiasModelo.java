@@ -27,7 +27,7 @@ public class AlergiasModelo {
 		List<AlergiaDTO> listaAlergias = new ArrayList<>();
 
 		while (alergiasRS.next()) {
-			AlergiaDTO c = new AlergiaDTO(alergiasRS.getInt("ID"), alergiasRS.getString("Descripcion"));
+			AlergiaDTO c = new AlergiaDTO(alergiasRS.getString("ID"), alergiasRS.getString("Descripcion"));
 			listaAlergias.add(c);
 		}
 		conexionBD.close();
@@ -54,7 +54,7 @@ public class AlergiasModelo {
 		return resultado;
 	}
 
-	public Integer actualizarAlergia(Integer id, String nombreAlergia) throws SQLException, ClassNotFoundException {
+	public Integer actualizarAlergia(String id, String nombreAlergia) throws SQLException, ClassNotFoundException {
 
 		String sql = "UPDATE alergias SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END " + "WHERE ID = ?";
 
@@ -66,7 +66,7 @@ public class AlergiasModelo {
 
 		ps.setString(1, nombreAlergia);
 		ps.setString(2, nombreAlergia);
-		ps.setInt(3, id);
+		ps.setString(3, id);
 
 		resultado = ps.executeUpdate();
 
