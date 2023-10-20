@@ -6,23 +6,23 @@ import java.util.List;
 import com.pablo.hospital.dtos.EstadoCitasDTO;
 import com.pablo.hospital.model.EstadoCitasModelo;
 
-
 public class EstadoCitasController {
-	
-	public List<EstadoCitasDTO> buscarEstadoCitas(String id, String estado) throws ClassNotFoundException, SQLException {
+
+	public List<EstadoCitasDTO> buscarEstadoCitas(String id, String estado)
+			throws ClassNotFoundException, SQLException {
 		EstadoCitasModelo cm = new EstadoCitasModelo();
 		return cm.buscarEstadoCitas(id, estado);
 	}
-	
-	public Integer insertarEstadoCitas(String id, String estado) throws ClassNotFoundException, SQLException {
+
+	public Integer insertarEstadoCitas( String estado) throws ClassNotFoundException, SQLException {
 		EstadoCitasModelo cm = new EstadoCitasModelo();
-		return cm.insertarEstadoCitas(id, estado);
+		return cm.insertarEstadoCitas( estado);
 	}
-	
+
 	public Integer actualizarEstadoCitas(String id, String estado) throws ClassNotFoundException, SQLException {
 		EstadoCitasModelo cm = new EstadoCitasModelo();
 		return cm.actualizarEstadoCitas(id, estado);
-		
+
 	}
 
 }

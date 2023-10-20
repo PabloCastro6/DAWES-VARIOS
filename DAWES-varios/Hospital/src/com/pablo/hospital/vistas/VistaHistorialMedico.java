@@ -8,147 +8,150 @@ import com.pablo.hospital.controllers.HistorialMedicoController;
 import com.pablo.hospital.dtos.HistorialMedicoDTO;
 import com.pablo.hospital.utils.MiScanner;
 
-
-
-
 public class VistaHistorialMedico {
-	
+
 	public void menuGeneralHistorialMedico() throws ClassNotFoundException, SQLException {
-	
-	Scanner sc = MiScanner.getInstance();
-	int n = 0;
 
-	do {
-		System.out.println("Introduzca la operación que desee realizar: ");
+		Scanner sc = MiScanner.getInstance();
+		int n = 0;
 
-		System.out.println("       MENÚ PRINCIPAL PARA LA CREACION DE HISTORIAL MEDICO");
-		System.out.println("===========================================================");
-		System.out.println("1. Buscar historial medico");
-		System.out.println("2. Insertar historial medico");
-		System.out.println("3. Actualizar historial medico ");
-		System.out.println("4. Volver al menú principal");
-		System.out.println("===============================================");
+		do {
+			System.out.println("Introduzca la operación que desee realizar: ");
 
-		n = Integer.parseInt(sc.nextLine());
+			System.out.println("       MENÚ PRINCIPAL PARA LA CREACION DE HISTORIAL MEDICO");
+			System.out.println("===========================================================");
+			System.out.println("1. Buscar historial medico");
+			System.out.println("2. Insertar historial medico");
+			System.out.println("3. Actualizar historial medico ");
+			System.out.println("4. Volver al menú principal");
+			System.out.println("===============================================");
 
-		if (n == 6) {
+			n = Integer.parseInt(sc.nextLine());
 
-			return;
-		}
+			if (n == 6) {
 
-		if (n > 4 || n < 1) {
-			System.out.print("Elección inválida, inténtalo otra vez...");
-			continue;
-		}
-		if (n == 1) {
-			menuBuscarHistorialMedico();
-			continue;
-		}
+				return;
+			}
 
-		if (n == 2) {
-			menuInsertarHistorialMedico();
-			continue;
-		}
+			if (n > 4 || n < 1) {
+				System.out.print("Elección inválida, inténtalo otra vez...");
+				continue;
+			}
+			if (n == 1) {
+				menuBuscarHistorialMedico();
+				continue;
+			}
 
-		if (n == 3) {
-			menuActualizarHistorialMedico();
-		continue;
-}
+			if (n == 2) {
+				menuInsertarHistorialMedico();
+				continue;
+			}
 
-	} while (n != 6);
+			if (n == 3) {
+				menuActualizarHistorialMedico();
+				continue;
+			}
+			if (n == 4) {
+				return;
+			}
 
-}
-	
+		} while (n != 4);
+
+	}
+
+		
+
 	private void menuBuscarHistorialMedico() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id para el historial medico");
-		Integer iD = sc.nextInt();
-		
+		String iD = sc.nextLine();
+
 		System.out.println("Introduzca por favor el pacienteID para el historial medico");
-		Integer pacienteID = sc.nextInt();
-		
+		String pacienteID = sc.nextLine();
+
 		System.out.println("Introduzca por favor el medicoID para el historial medico");
-		Integer medicoID = sc.nextInt();
-		
+		String medicoID = sc.nextLine();
+
 		System.out.println("Introduzca por favor la fecha para el historial medico");
 		String fecha = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el diagnostico para el historial medico");
 		String diagnostico = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el tratamiento para el historial medico");
 		String tratamiento = sc.nextLine();
-		
-		
+
 		HistorialMedicoController controladorHistorial = new HistorialMedicoController();
-		List<HistorialMedicoDTO> listaHistorial = controladorHistorial.buscarHistorialMedico( iD,  pacienteID,  medicoID,  fecha,  diagnostico,
-			 tratamiento);
-		
+		List<HistorialMedicoDTO> listaHistorial = controladorHistorial.buscarHistorialMedico(iD, pacienteID, medicoID,
+				fecha, diagnostico, tratamiento);
+
 		for (HistorialMedicoDTO historial : listaHistorial) {
 			System.out.println();
 		}
-		
+
 	}
+
+	public void menuInsertarHistorialMedico() throws ClassNotFoundException, SQLException {
+		Scanner sc = MiScanner.getInstance();
+
+		System.out.println("Introduzca por favor el id del historial medico");
+		String iD = sc.nextLine();
+		System.out.println("Introduzca por favor el id del historial medico");
+		Integer pacienteID = sc.nextInt();
+		System.out.println("Introduzca por favor el medicoID del historial medico");
+		Integer medicoID = sc.nextInt();
+		System.out.println("Introduzca por favor la fecha para el historial medico");
+		String fecha = sc.nextLine();
+
+		System.out.println("Introduzca por favor el diagnostico para el historial medico");
+		String diagnostico = sc.nextLine();
+
+		System.out.println("Introduzca por favor el tratamiento para el historial medico");
+		String tratamiento = sc.nextLine();
+
+		HistorialMedicoController controladorHistorial = new HistorialMedicoController();
+		int resultado = controladorHistorial.insertarHistorialPaciente( pacienteID, medicoID, fecha, diagnostico,
+				tratamiento);
+
+		if (resultado == 1) {
+			System.out.println("Se ha introducido el registro con éxito");
+		} else {
+			System.out.println("Se ha producido un error al introducir el registro");
+		}
+	}
+	
+
 	
 	public void menuActualizarHistorialMedico() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
+
 		System.out.println("Introduzca por favor el id del historial medico");
-		Integer iD = sc.nextInt();
+		String iD = sc.nextLine();
 		System.out.println("Introduzca por favor el id del historial medico");
 		Integer pacienteID = sc.nextInt();
 		System.out.println("Introduzca por favor el medicoID del historial medico");
 		Integer medicoID = sc.nextInt();
 		System.out.println("Introduzca por favor la fecha para el historial medico");
 		String fecha = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el diagnostico para el historial medico");
 		String diagnostico = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el tratamiento para el historial medico");
 		String tratamiento = sc.nextLine();
-		
-		
+
 		HistorialMedicoController controladorHistorial = new HistorialMedicoController();
-		int resultado = controladorHistorial.insertarHistorialPaciente(iD, pacienteID, medicoID, fecha, diagnostico, tratamiento);
-		
+		int resultado = controladorHistorial.actualizarHistorialMedico(iD, pacienteID, medicoID, fecha, diagnostico,
+				tratamiento);
 
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
 			System.out.println("Se ha producido un error al introducir el registro");
 		}
-			
-		}
-	
-	public void menuInsertarHistorialMedico() throws ClassNotFoundException, SQLException {
-		Scanner sc = MiScanner.getInstance();
-		
-		System.out.println("Introduzca por favor el id del historial medico");
-		Integer iD = sc.nextInt();
-		System.out.println("Introduzca por favor el id del historial medico");
-		Integer pacienteID = sc.nextInt();
-		System.out.println("Introduzca por favor el medicoID del historial medico");
-		Integer medicoID = sc.nextInt();
-		System.out.println("Introduzca por favor la fecha para el historial medico");
-		String fecha = sc.nextLine();
-		
-		System.out.println("Introduzca por favor el diagnostico para el historial medico");
-		String diagnostico = sc.nextLine();
-		
-		System.out.println("Introduzca por favor el tratamiento para el historial medico");
-		String tratamiento = sc.nextLine();
-		
-		HistorialMedicoController controladorHistorial = new HistorialMedicoController();
-		int resultado = controladorHistorial.insertarHistorialPaciente(iD, pacienteID, medicoID, fecha, diagnostico, tratamiento);
-		
 
-		if (resultado == 1) {
-			System.out.println("Se ha introducido el registro con éxito");
-		} else {
-			System.out.println("Se ha producido un error al introducir el registro");
-		}
 	}
-}
 
+	
+}

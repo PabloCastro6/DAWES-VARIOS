@@ -10,97 +10,88 @@ import java.util.List;
 import com.pablo.hospital.dtos.FarmaciaDTO;
 import com.pablo.hospital.utils.DBUtils;
 
-
-
 public class FarmaciaModelo {
-	
-	public List<FarmaciaDTO> buscaFarmacia(Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws SQLException, ClassNotFoundException {
-		String query = "SELECT * FROM farmacia ";
+
+	public List<FarmaciaDTO> buscaFarmacia(String ID, String nombre, String descripcion, Integer cantidadDisponible,
+			Float precio) throws SQLException, ClassNotFoundException {
 		
+		String query = "SELECT * FROM farmacia WHERE ID LIKE ? OR Nombre LIKE ? OR Descripcion LIKE ? OR CantidadDisponible LIKE ? OR Precio LIKE ?;  ";
+
 		Connection conexionBD = DBUtils.conexionBBDD();
-		PreparedStatement ps  = conexionBD.prepareStatement(query);
-		ps.setString(1, "%" + medicamento + "%"); 
-		ps.setString(2, "%" + nombre + "%"); 
-		ps.setString(3, "%" + descripcion + "%"); 
-		ps.setString(4, "%" + cantidadDisponible + "%"); 
-		ps.setString(5, "%" + precio + "%"); 
-		
+		PreparedStatement ps = conexionBD.prepareStatement(query);
+		ps.setString(1, "%" + ID + "%");
+		ps.setString(2, "%" + nombre + "%");
+		ps.setString(3, "%" + descripcion + "%");
+		ps.setString(4, "%" + cantidadDisponible + "%");
+		ps.setString(5, "%" + precio + "%");
+
 		ResultSet farmaciasRS = ps.executeQuery();
 		List<FarmaciaDTO> listaFarmacia = new ArrayList<>();
-		
-		
+
 		while (farmaciasRS.next()) {
-			FarmaciaDTO f = new FarmaciaDTO(farmaciasRS.getInt("medicamento"), farmaciasRS.getString("nombre"), farmaciasRS.getString("descripcion"), farmaciasRS.getInt("cantidadDisponible"), farmaciasRS.getFloat("precio"));
+			FarmaciaDTO f = new FarmaciaDTO(farmaciasRS.getString("ID"), farmaciasRS.getString("nombre"),
+					farmaciasRS.getString("descripcion"), farmaciasRS.getInt("cantidadDisponible"),
+					farmaciasRS.getFloat("precio"));
 			listaFarmacia.add(f);
 		}
-		
+
 		conexionBD.close();
-		
+
 		return listaFarmacia;
 	}
-	
-	public Integer insertarFarmacia (Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws ClassNotFoundException, SQLException {
-		
-		String sql = "INSERT INTO farmacias (Descripcion) VALUES (?)";
-		
+
+	public Integer insertarFarmacia(String nombre, String descripcion, Integer cantidadDisponible, Float precio)
+			throws ClassNotFoundException, SQLException {
+
+		String sql = "INSERT INTO farmacias (nombre,descripcion, cantidadDisponible, precio) VALUES (?, ?, ?, ?)";
+
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
 		Integer resultado = null;
-		
+
 		ps = connection.prepareStatement(sql);
-		
-		ps.setInt(1,medicamento);
-		ps.setString(2,nombre);
-		ps.setString(3,descripcion);
-		ps.setInt(4,cantidadDisponible);
-		ps.setFloat(5,precio);
-		
+
+		ps.setString(1, nombre);
+		ps.setString(2, descripcion);
+		ps.setInt(3, cantidadDisponible);
+		ps.setFloat(4, precio);
+
 		resultado = ps.executeUpdate();
-		
+
 		connection.close();
-		
-		
-		
-		
+
 		return resultado;
 	}
 
-	public Integer actualizarFarmacia(Integer medicamento, String nombre, String descripcion, Integer cantidadDisponible, Float precio) throws SQLException, ClassNotFoundException {
+	public Integer actualizarFarmacia(String ID, String nombre, String descripcion, Integer cantidadDisponible,
+			Float precio) throws SQLException, ClassNotFoundException {
 
-		String sql = "UPDATE farmacia SET Descripcion = CASE WHEN ? = '' THEN Descripcion ELSE ? END "
-				+ "WHERE ID = ?";
-		
+		String sql = " UPDATE farmacia SET Nombre = CASE WHEN ? = '' THEN Nombre ELSE ? END,"
+				+ "  descripcion = CASE WHEN ? = '' THEN descripcion ELSE ? END,"
+				+ " cantidadDisponible = CASE WHEN ? = '' THEN cantidadDisponible ELSE ? END,"
+				+ "precio = CASE WHEN ? = '' THEN precio ELSE ? END, " + " WHERE ID = ?;";
+
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
 		Integer resultado = null;
-		
-		
-		ps = connection.prepareStatement(sql);		
 
-		ps.setInt(1, medicamento);
-		ps.setInt(2, medicamento);
-		
-		ps.setString(3, nombre);
-		ps.setString(4, nombre);
-		
-		ps.setString(5, descripcion);
-		ps.setString(6, descripcion);
-		
-		ps.setInt(7, cantidadDisponible);
-		ps.setInt(8, cantidadDisponible);
-		
-		ps.setInt(9, cantidadDisponible);
-		ps.setInt(10, cantidadDisponible);
-		
-		ps.setFloat(11, precio);
-		ps.setFloat(12, precio);
-	
-		
+		ps = connection.prepareStatement(sql);
+
+		ps.setString(1, nombre);
+		ps.setString(2, nombre);
+		ps.setString(3, descripcion);
+		ps.setString(4, descripcion);
+		ps.setInt(5, cantidadDisponible);
+		ps.setInt(6, cantidadDisponible);
+		ps.setFloat(7, precio);
+		ps.setFloat(8, precio);
+		ps.setString(9, ID);
+
 		resultado = ps.executeUpdate();
-		
+
 		connection.close();
-		
+
 		return resultado;
-		}
+	}
 
 }

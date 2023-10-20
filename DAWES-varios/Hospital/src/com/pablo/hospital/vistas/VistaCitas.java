@@ -6,11 +6,8 @@ import java.util.Scanner;
 
 import com.pablo.hospital.controllers.CitasController;
 import com.pablo.hospital.dtos.AlergiaDTO;
-import com.pablo.hospital.dtos.CitasDTO;
+import com.pablo.hospital.dtos.CitaDTO;
 import com.pablo.hospital.utils.MiScanner;
-
-
-
 
 public class VistaCitas {
 	public void menuGeneralCita() throws ClassNotFoundException, SQLException {
@@ -53,67 +50,66 @@ public class VistaCitas {
 			if (n == 3) {
 				menuActualizarCita();
 				continue;
-		}
+			}
+			if (n == 4) {
+				return;
+			}
 
-		} while (n != 6);
+		} while (n != 4);
 
 	}
-	
+
 	private void menuBuscarCita() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
+		
 		System.out.println("Introduzca por favor el id de la cita: ");
 		String id = sc.nextLine();
 
 		System.out.println("Introduzca por favor el id del paciente de la cita: ");
 		String pacienteID = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el id del medico de la cita: ");
 		String medicoID = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor la fecha de la cita: ");
 		String fecha = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor la hora de la cita: ");
 		String hora = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el estado de la cita: ");
 		String estado = sc.nextLine();
-		
+
 		CitasController controladorCitas = new CitasController();
-		List <CitasDTO> listaCita = controladorCitas.buscarCita(id,  pacienteID,  medicoID,  fecha,  hora,  estado);
-		
-		for (CitasDTO cita : listaCita) {
+		List<CitaDTO> listaCita = controladorCitas.buscarCita(id, pacienteID, medicoID, fecha, hora, estado);
+
+		for (CitaDTO cita : listaCita) {
 			System.out.println();
 
 		}
-	
+
 	}
-	
+
 	private void menuInsertarCita() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
 
-		
 		System.out.println("Introduzca por favor el id del paciente: ");
 		String pacienteID = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el Id del medico : ");
 		String medicoID = sc.nextLine();
-		
-		
+
 		System.out.println("Introduzca por favor la fecha de la cita: ");
 		String fecha = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor la hora de la cita: ");
 		String hora = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el estado de la cita: ");
 		String estado = sc.nextLine();
 
-
-		
 		CitasController controladorCitas = new CitasController();
-		int resultado = controladorCitas.insertarCita( pacienteID,  medicoID,  fecha,  hora,  estado);
+		int resultado = controladorCitas.insertarCita(pacienteID, medicoID, fecha, hora, estado);
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
@@ -121,36 +117,30 @@ public class VistaCitas {
 		}
 
 	}
-	
+
 	private void menuActualizarCita() throws ClassNotFoundException, SQLException {
 		Scanner sc = MiScanner.getInstance();
-		
 
 		System.out.println("Introduzca por favor el id de la cita: ");
-		Integer iD = Integer.parseInt(sc.nextLine());
-		
-		
+		String iD =  sc.nextLine();;
 
 		System.out.println("Introduzca por favor el id del paciente: ");
-		String pacienteID =sc.nextLine();
-		
+		String pacienteID = sc.nextLine();
+
 		System.out.println("Introduzca por favor el Id del medico : ");
 		String medicoID = sc.nextLine();
-		
-		
+
 		System.out.println("Introduzca por favor la fecha de la cita: ");
 		String fecha = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor la hora de la cita: ");
 		String hora = sc.nextLine();
-		
+
 		System.out.println("Introduzca por favor el estado de la cita: ");
 		String estado = sc.nextLine();
 
-
-		
 		CitasController controladorCitas = new CitasController();
-		int resultado = controladorCitas.actualizarCita( iD,  pacienteID,  medicoID,  fecha,  hora,  estado);
+		int resultado = controladorCitas.actualizarCita(iD, pacienteID, medicoID, fecha, hora, estado);
 		if (resultado == 1) {
 			System.out.println("Se ha introducido el registro con éxito");
 		} else {
