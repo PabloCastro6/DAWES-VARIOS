@@ -15,17 +15,20 @@ public class RecetasMedicasController {
 		return cm.buscarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha, cantidadPrescrita);
 	}
 
-	public Integer insertarRecetasMedicas(String fecha, Integer cantidadPrescrita)
+	public Integer insertarRecetasMedicas(String pacienteID, String medicoID, String medicamentoID, String fecha,
+			String cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 		RecetasMedicasModelo cm = new RecetasMedicasModelo();
-		return cm.insertarRecetasMedicas(fecha, cantidadPrescrita);
+		return cm.insertarRecetasMedicas(pacienteID, medicoID, medicamentoID,fecha, cantidadPrescrita);
 	}
 
-	public Integer actualizarRecetasMedicas(String iD, Integer pacienteID, Integer medicoID, Integer medicamentoID,
-			String fecha, Integer cantidadPrescrita) throws ClassNotFoundException, SQLException {
+	public Integer actualizarRecetasMedicas(String iD, String pacienteID, String medicoID, String medicamentoID,
+			String fecha, String cantidadPrescrita) throws ClassNotFoundException, SQLException {
 
 		RecetasMedicasModelo pm = new RecetasMedicasModelo();
 		return pm.actualizarRecetasMedicas(iD, pacienteID, medicoID, medicamentoID, fecha, cantidadPrescrita);
 	}
+
+	
 
 }

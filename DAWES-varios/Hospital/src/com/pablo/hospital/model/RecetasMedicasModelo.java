@@ -16,11 +16,11 @@ public class RecetasMedicasModelo {
 			String medicamentoID, String fecha, String cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 
-		String query = "SELECT *" + "FROM recetasMedicas rm" + "INNER JOIN pacientes pa ON rm.pacienteID = pa.id"
-				+ "INNER JOIN medicos me ON rm.medicoID = me.id"
-				+ "INNER JOIN medicamento met ON rm.medicamentoID = met.id" + "WHERE rm.id LIKE ?"
-				+ "OR rm.pacienteID LIKE ?" + "OR rm.medicoID LIKE ?" + "OR rm.medicamentoID LIKE ?"
-				+ "OR rm.fecha LIKE ?" + "OR r.cantidadPrescrita LIKE ?";
+		String query = "SELECT * FROM recetasMedicas rm INNER JOIN pacientes pa ON rm.pacienteID = pa.id"
+				+ " INNER JOIN medicos me ON rm.medicoID = me.id"
+				+ " INNER JOIN farmacia far ON rm.medicamentoID = far.id" + " WHERE rm.id LIKE ? "
+				+ " OR rm.pacienteID LIKE ?" + " OR rm.medicoID LIKE ?" + " OR rm.medicamentoID LIKE ?"
+				+ " OR rm.fecha LIKE ?" + " OR rm.cantidadPrescrita LIKE ?";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 
@@ -47,10 +47,11 @@ public class RecetasMedicasModelo {
 		return listaRecetasMedicas;
 	}
 
-	public Integer insertarRecetasMedicas(String fecha, Integer cantidadPrescrita)
+	public Integer insertarRecetasMedicas(String pacienteID, String medicoID, String medicamentoID, String fecha,
+			String cantidadPrescrita)
 			throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO recetasMedicas ( fecha, cantidadPrescrita) VALUES (?, ?)";
+		String sql = "INSERT INTO recetasMedicas (pacienteID, medicoID, medicamentoID, fecha, cantidadPrescrita) VALUES (?, ?, ?, ?, ?)";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -58,8 +59,12 @@ public class RecetasMedicasModelo {
 
 		ps = conexionBD.prepareStatement(sql);
 
-		ps.setString(1, fecha);
-		ps.setInt(2, cantidadPrescrita);
+		ps.setString(1, pacienteID);
+		ps.setString(2, medicoID);
+		ps.setString(3, medicamentoID);
+		ps.setString(4, fecha);
+		ps.setString(5, cantidadPrescrita);
+		
 
 		resultado = ps.executeUpdate();
 
@@ -68,14 +73,14 @@ public class RecetasMedicasModelo {
 		return resultado;
 	}
 
-	public Integer actualizarRecetasMedicas(String iD, Integer pacienteID, Integer medicoID, Integer medicamentoID,
-			String fecha, Integer cantidadPrescrita) throws SQLException, ClassNotFoundException {
+	public Integer actualizarRecetasMedicas(String iD, String pacienteID, String medicoID, String medicamentoID,
+			String fecha, String cantidadPrescrita) throws SQLException, ClassNotFoundException {
 
 		String sql = " UPDATE recetasMedicas SET pacienteID = CASE WHEN ? = '' THEN pacienteID ELSE ? END,"
 				+ "  medicoID = CASE WHEN ? = '' THEN medicoID ELSE ? END,"
 				+ " medicamentoID = CASE WHEN ? = '' THEN medicamentoID ELSE ? END,"
 				+ "  fecha = CASE WHEN ? = '' THEN fecha ELSE ? END,"
-				+ "  cantidadPrescrita = CASE WHEN ? = '' THEN cantidadPrescrita ELSE ? END," + " WHERE ID = ?;";
+				+ "  cantidadPrescrita = CASE WHEN ? = '' THEN cantidadPrescrita ELSE ? END " + " WHERE ID = ?;";
 
 		Connection connection = DBUtils.conexionBBDD();
 		PreparedStatement ps = null;
@@ -83,16 +88,16 @@ public class RecetasMedicasModelo {
 
 		ps = connection.prepareStatement(sql);
 
-		ps.setInt(1, pacienteID);
-		ps.setInt(2, pacienteID);
-		ps.setInt(3, medicoID);
-		ps.setInt(4, medicoID);
-		ps.setInt(5, medicamentoID);
-		ps.setInt(6, medicamentoID);
+		ps.setString(1, pacienteID);
+		ps.setString(2, pacienteID);
+		ps.setString(3, medicoID);
+		ps.setString(4, medicoID);
+		ps.setString(5, medicamentoID);
+		ps.setString(6, medicamentoID);
 		ps.setString(7, fecha);
 		ps.setString(8, fecha);
-		ps.setInt(9, cantidadPrescrita);
-		ps.setInt(10, cantidadPrescrita);
+		ps.setString(9, cantidadPrescrita);
+		ps.setString(10, cantidadPrescrita);
 		ps.setString(11, iD);
 
 		resultado = ps.executeUpdate();

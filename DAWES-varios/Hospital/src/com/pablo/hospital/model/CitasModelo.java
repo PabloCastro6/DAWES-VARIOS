@@ -18,7 +18,7 @@ public class CitasModelo {
 
 		String query = "SELECT * FROM Citas WHERE ID LIKE (CASE WHEN ? = '' THEN ID ELSE ? END) AND PacienteID LIKE (CASE WHEN ? = '' THEN PacienteID ELSE ? END) "
 				+ "AND MedicoID LIKE (CASE WHEN ? = '' THEN MedicoID ELSE ? END) AND Fecha LIKE (CASE WHEN ? = '' THEN Fecha ELSE ? END) "
-				+ "AND Hora LIKE (CASE WHEN ? = '' THEN Hora ELSE ? END) AND Estado LIKE (CASE WHEN ? = '' THEN Estado ELSE ? END) ";
+				+ "AND Hora LIKE (CASE WHEN ? = '' THEN Hora ELSE ? END) AND EstadoID LIKE (CASE WHEN ? = '' THEN EstadoID ELSE ? END) ";
 
 		Connection conexionBD = DBUtils.conexionBBDD();
 
@@ -35,6 +35,8 @@ public class CitasModelo {
 		ps.setString(10, '%' + hora + '%');
 		ps.setString(11, estado);
 		ps.setString(12, '%' + estado + '%');
+		
+		
 
 		ResultSet citasRS = ps.executeQuery();
 		List<CitaDTO> listaCitas = new ArrayList<>();
@@ -42,7 +44,7 @@ public class CitasModelo {
 		while (citasRS.next()) {
 			CitaDTO c = new CitaDTO(citasRS.getString("iD"), citasRS.getString("pacienteID"),
 					citasRS.getString("medicoID"), citasRS.getString("fecha"), citasRS.getString("hora"),
-					citasRS.getString("estado"));
+					citasRS.getString("estadoID"));
 			listaCitas.add(c);
 
 		}

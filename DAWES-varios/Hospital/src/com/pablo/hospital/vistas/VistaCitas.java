@@ -84,7 +84,7 @@ public class VistaCitas {
 		List<CitaDTO> listaCita = controladorCitas.buscarCita(id, pacienteID, medicoID, fecha, hora, estado);
 
 		for (CitaDTO cita : listaCita) {
-			System.out.println();
+			System.out.println(cita);
 
 		}
 

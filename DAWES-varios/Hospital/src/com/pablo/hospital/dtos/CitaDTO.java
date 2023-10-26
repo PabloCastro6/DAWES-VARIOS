@@ -67,4 +67,12 @@ public class CitaDTO {
 		this.estadoID = estado;
 	}
 
+	@Override
+	public String toString() {
+		return "CitaDTO [ID=" + ID + ", pacienteID=" + pacienteID + ", medicoID=" + medicoID + ", fecha=" + fecha
+				+ ", hora=" + hora + ", estadoID=" + estadoID + "]";
+	}
+
+	
+	
 }

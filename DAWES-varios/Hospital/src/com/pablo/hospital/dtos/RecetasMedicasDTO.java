@@ -67,5 +67,14 @@ public class RecetasMedicasDTO {
 	public void setCantidadPrescrita(String cantidadPrescrita) {
 		this.cantidadPrescrita = cantidadPrescrita;
 	}
+	
 
+	@Override
+	public String toString() {
+		return "RecetasMedicasDTO [ID=" + ID + ", pacienteID=" + pacienteID + ", MedicoID=" + MedicoID
+				+ ", MedicamentoID=" + MedicamentoID + ", fecha=" + fecha + ", cantidadPrescrita=" + cantidadPrescrita
+				+ "]";
+	}
+
+	
 }
