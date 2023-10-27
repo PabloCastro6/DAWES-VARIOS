@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 /**
  * Servlet implementation class fecha
  */
+
 public class fecha extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,7 +47,7 @@ public class fecha extends HttpServlet {
 		out.print("</head>");
 		out.print("<body>");
 		out.print("<h2>Hola amigo</h2>");
-		out.print("La fecha es:" + fecha2.recuperarHora());
+		out.print("La fecha es:" + fecha2.recuperarFecha());
 		out.print("</body> </html>");
 	}
 
