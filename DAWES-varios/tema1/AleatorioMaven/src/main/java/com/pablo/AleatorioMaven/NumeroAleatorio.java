@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/AleatorioMaven")
+@WebServlet("/AleatorioController")
 /**
  * Servlet implementation class NumeroAleatorio
  */

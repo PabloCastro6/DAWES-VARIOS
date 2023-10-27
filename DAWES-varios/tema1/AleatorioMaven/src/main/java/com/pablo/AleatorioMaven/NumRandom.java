@@ -2,8 +2,8 @@ package com.pablo.AleatorioMaven;
 
 public class NumRandom {
 
-	public double numRandom() {
+	public int numRandom() {
 
-		return (int) Math.random() * 10 + 1;
+		return (int) (Math.random() * 100) + 1;
 	}
 }
