@@ -5,9 +5,13 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ConsultaDatos {
+import org.springframework.stereotype.Component;
 
-	public Integer consultaEdad(String nombre) throws IOException {
+
+@Component 
+public class ConsultaDatos implements IConsultaDatos{
+
+	public Integer consultaEdad(String nombre)  throws IOException {
 
 		File f = new File("C:\\Users\\alumnofp\\Documents\\fichero.txt");
 		BufferedReader lector = new BufferedReader(new FileReader(f));;
