@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.springframework.stereotype.Component;
 
 
-@Component 
+@Component ("consultaFichero")
 public class ConsultaDatos implements IConsultaDatos{
 
 	public Integer consultaEdad(String nombre)  throws IOException {
@@ -18,8 +18,6 @@ public class ConsultaDatos implements IConsultaDatos{
 		String linea;
 		
 	   
-		
-		
 
 		while ((linea = lector.readLine()) != null) {
 			if (linea.contains(nombre)) {
