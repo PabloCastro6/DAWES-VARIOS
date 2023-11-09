@@ -8,7 +8,7 @@
 </head>
 <body>
 
-la persona ${nombre} tiene ${numCoches} ;
+<p>La persona ${nombre} tiene ${numCoches} coches.</p> ;
 
 </body>
 </html>

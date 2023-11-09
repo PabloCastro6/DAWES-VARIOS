@@ -1,24 +1,23 @@
 package com.pablo.negocio;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+
 import java.io.IOException;
 
 import com.pablo.modelo.ConsultaDatos;
 
 public class CalculoCoche {
 	
-	public Integer calculoDescuento(String nombre)throws IOException {
-		
-		
-		ConsultaDatos consultaDaros = new CosnultaDatos();
-		BufferedReader lector = consultaDatos.accesoDatos(nombre);
-		
-		String linea;
-		
-		
-		return null;
-		
-	}
+	 public int numeroDeCoches(String nombre) throws IOException {
+	        ConsultaDatos consulta = new ConsultaDatos();
+	        String[] datos = consulta.consultaCochesPorNombre(nombre).split("-");
+	        int numeroDeCoches = 0;
 
-}
+	        for (String dato : datos) {
+	            if (dato.equals(nombre)) {
+	                numeroDeCoches++;
+	            }
+	        }
+
+	        return numeroDeCoches;
+	    }
+	}
