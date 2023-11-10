@@ -20,7 +20,7 @@ public class ConsultaDatos {
 		while ((linea = lector.readLine()) != null) {
 			if (linea.contains(nombre)) {
 				String[] arrayPersona = linea.split("-");
-				return Integer.parseInt(arrayPersona[1]);
+				return Integer.parseInt(arrayPersona[0]);
 			}
 
 		}

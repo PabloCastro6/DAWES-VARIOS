@@ -4,11 +4,10 @@
 <title>CocheServlet</title>
 </head>
 <body>
-<h2>Coche Servlet</h2>
-<form action="" method="post">
+<form action="http://localhost:8080/CochesServlet/numeroDeCoches" method ="POST">
 	<label for="nombre">Nombre de la persona:</label>
 	<input type="text" id="nombre">
-	<buttom type="submit">Enviar</button>
+	<button type="submit">Enviar</button>
 </form>
 </body>
 </html>
