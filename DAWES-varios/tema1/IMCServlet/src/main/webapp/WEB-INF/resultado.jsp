@@ -8,6 +8,6 @@
 </head>
 <body>
 	<h2>CochesServlet</h2>
-	<p>La persona con este nombre: ${nombre}, tiene esta : ${cantidad} de coches.</p>
+	<p>La persona con nombre: ${nombre}, tiene un IMC de ${imc}.</p>
 </body>
 </html>
