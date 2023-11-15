@@ -1,5 +1,6 @@
 package com.pablo.foreachapp.controladores;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -28,7 +29,7 @@ public class Controlador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Persona> listaPersonas = new ArrayList<>();
+		List<Persona> listaPersonas = new ArrayList<Persona>();
 		
 		listaPersonas.add( new Persona("Pepe", 2000));
 		listaPersonas.add(new Persona("kike",100000));
@@ -36,6 +37,9 @@ public class Controlador extends HttpServlet {
 		listaPersonas.add(new Persona("Pablo",3000));
 		
 		request.setAttribute("personas", listaPersonas);
+		
+		RequestDispatcher dispachador = getServletContext().getRequestDispatcher("/WEB-INF/vistas/lista.jsp");
+		dispachador.forward(request, response);
 	}
 
 	/**
