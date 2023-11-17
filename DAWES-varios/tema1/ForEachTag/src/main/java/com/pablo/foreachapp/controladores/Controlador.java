@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pablo.foreachapp.bean.ComboDTO;
 import com.pablo.foreachapp.bean.Persona;
 
 @WebServlet("/obtenpersonas")
@@ -37,6 +38,18 @@ public class Controlador extends HttpServlet {
 		listaPersonas.add(new Persona("Pablo",3000));
 		
 		request.setAttribute("personas", listaPersonas);
+		
+		
+		List<ComboDTO> listaProvincias = new ArrayList<ComboDTO>();
+		ComboDTO c1 = new ComboDTO(1, "Alicante");
+		ComboDTO c2 = new ComboDTO(2, "Bizkaia");
+		ComboDTO c3 = new ComboDTO(3, "Salamanca");
+		
+		listaProvincias.add(c1);
+		listaProvincias.add(c2);
+		listaProvincias.add(c3);
+		
+		request.setAttribute("listaProvincias", listaProvincias);
 		
 		RequestDispatcher dispachador = getServletContext().getRequestDispatcher("/WEB-INF/vistas/lista.jsp");
 		dispachador.forward(request, response);
