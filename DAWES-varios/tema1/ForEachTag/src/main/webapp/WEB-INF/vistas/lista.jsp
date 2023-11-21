@@ -28,6 +28,13 @@
 <li>${p.id} - ${p.descripcion} </li>
 </c:forEach>
 </ul>
+
+<!-- <form action="" method="POST">
+<input name="provincia" value="Leon">
+<button type="submit">Enviar</button>
+
+</form> -->
+
 </body>
 
 <!--   <script type="text/javascript"> 
