@@ -25,7 +25,7 @@ import com.pablo.colegio.dtos.AlumnoDTO;
 import com.pablo.colegio.negocio.impl.AlumnosService;
 import com.pablo.colegio.utils.DBUtils;
 
-@WebServlet("/obtenertodosalumnos")
+@WebServlet("/alumnos/obtenertodosalumnos")
 public class ControladorPruebaConexionBBDD extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = LoggerFactory.getLogger(ControladorPruebaConexionBBDD.class);
@@ -44,12 +44,17 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		
-			List<AlumnoDTO> listaAlumnos = new AlumnosService().obtenerTodosAlumnos();
+			List<AlumnoDTO> listaAlumnos = null;
 			
 	
 			
-			request.setAttribute("litaAlumnos", listaAlumnos);
-			
+			try {
+				listaAlumnos = new AlumnosService().obtenerTodosAlumnos();
+				
+			}catch(ClassNotFoundException | SQLException | NamingException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("listaAlumnos", listaAlumnos);
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/alumnos.jsp");
 			d.forward(request, response);
 			
@@ -62,7 +67,7 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
