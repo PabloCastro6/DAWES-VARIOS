@@ -15,12 +15,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.NamingException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import javax.sql.DataSource;
 
 import com.pablo.colegio.dtos.AlumnoDTO;
+import com.pablo.colegio.negocio.impl.AlumnosService;
+import com.pablo.colegio.utils.DBUtils;
 
-@WebServlet("/pruebaconexion")
+@WebServlet("/obtenertodosalumnos")
 public class ControladorPruebaConexionBBDD extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = LoggerFactory.getLogger(ControladorPruebaConexionBBDD.class);
@@ -38,23 +43,10 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		ResultSet alumnosResultSet = null;
-		List<AlumnoDTO> listaAlumnos = new ArrayList<AlumnoDTO>();
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			String urlDB= "jdbc:mysql://localhost:3306/colegio?serverTimezone=UTC";
-			String user = "root";
-			String pass = "PracticaRoot";
-			Connection connection = DriverManager.getConnection(urlDB, user, pass);
-			logger.info("Establecida la conexion a la BBDD");
+		
+			List<AlumnoDTO> listaAlumnos = new AlumnosService().obtenerTodosAlumnos();
 			
-			Statement st = connection.createStatement();
-			alumnosResultSet = st.executeQuery("SELECT * FROM alumnos");
-			
-			while(alumnosResultSet.next()) {
-				listaAlumnos.add(new AlumnoDTO(alumnosResultSet.getInt(0), alumnosResultSet.getString(1)));
-				logger.info("añadido alumno" + alumnosResultSet.getInt(0) + " " + alumnosResultSet.getString(1));
-			}
+	
 			
 			request.setAttribute("litaAlumnos", listaAlumnos);
 			
@@ -62,11 +54,9 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 			d.forward(request, response);
 			
 			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
+
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
