@@ -1,0 +1,11 @@
+<Context>
+<ResourceLink name="jdbc/miBBDD" global="jdbc/miBBDD"
+auth="Container" type="javax.sql.DataSource">
+
+
+
+
+</ResourceLink>
+
+
+</Context>

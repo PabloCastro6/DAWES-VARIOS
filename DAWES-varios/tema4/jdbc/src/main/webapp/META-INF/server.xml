@@ -1,0 +1,16 @@
+<GlobalNamingResources>
+<Resource auth="Container"
+driverClassName="com.mysql.cj.jbdc.Driver"
+global="jdbc/miBBDD"
+name="jdbc/miBBDD"
+password="1234"
+username="root"
+url="jdbc:mysql://localhost:3306/colegio?serverTimezone=UTC"
+type="javax.sql.DataSource">
+</Resource>
+
+<Resource auth="Container" description="Db">
+
+
+</Resource>
+</GlobalNamingResources>

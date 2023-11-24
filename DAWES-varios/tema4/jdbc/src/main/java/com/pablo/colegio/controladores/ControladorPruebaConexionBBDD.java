@@ -22,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import javax.sql.DataSource;
 
 import com.pablo.colegio.dtos.AlumnoDTO;
+import com.pablo.colegio.negocio.*;
 import com.pablo.colegio.negocio.impl.AlumnosService;
 import com.pablo.colegio.utils.DBUtils;
 
@@ -45,11 +46,11 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 	
 		
 			List<AlumnoDTO> listaAlumnos = null;
-			
+			IAlumnosService alumnosService = new AlumnosService();
 	
 			
 			try {
-				listaAlumnos = new AlumnosService().obtenerTodosAlumnos();
+				listaAlumnos = alumnosService.obtenerTodosAlumnos();
 				
 			}catch(ClassNotFoundException | SQLException | NamingException e) {
 				e.printStackTrace();
