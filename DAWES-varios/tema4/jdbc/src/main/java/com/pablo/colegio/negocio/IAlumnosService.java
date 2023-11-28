@@ -9,11 +9,7 @@ import com.pablo.colegio.dtos.AlumnoDTO;
 
 public interface IAlumnosService {
 	
-	public List<AlumnoDTO> obtenerTodosAlumnos() throws ClassNotFoundException, SQLException, NamingException  ;
-		
-	}
-	
-		
-	
+	public List<AlumnoDTO> obtenerTodosAlummnos() throws ClassNotFoundException, SQLException, NamingException;
 
+}
 

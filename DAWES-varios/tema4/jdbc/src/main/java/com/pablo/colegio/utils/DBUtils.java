@@ -18,11 +18,11 @@ public class DBUtils {
 	
 	private static Logger logger = LoggerFactory.getLogger(DBUtils.class);
 	
-	// public static Connection conectaBDD() throws ClassNotFoundException, SQLException {
+//	public static Connection conectaBDD() throws ClassNotFoundException, SQLException {
 //		Class.forName("com.mysql.cj.jdbc.Driver");
 //		String urlDB= "jdbc:mysql://localhost:3306/colegio?serverTimezone=UTC";
 //		String user = "root";
-//		String pass = "1234";
+//		String pass = "PracticaRoot";
 //		Connection connection = DriverManager.getConnection(urlDB, user, pass);
 //		logger.info("Establecida la conexion a la BBDD");
 //		return connection;
@@ -30,7 +30,7 @@ public class DBUtils {
 	
 	public static Connection conectaBDD() throws ClassNotFoundException, SQLException, NamingException {
 		Context ctx = new InitialContext();
-		DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/miBBDD");
+		DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/MyDB");
 		
 		Connection con = ds.getConnection();
 		return con;

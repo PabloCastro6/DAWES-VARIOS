@@ -19,17 +19,19 @@ import javax.naming.NamingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.sql.DataSource;
 
 import com.pablo.colegio.dtos.AlumnoDTO;
-import com.pablo.colegio.negocio.*;
 import com.pablo.colegio.negocio.impl.AlumnosService;
 import com.pablo.colegio.utils.DBUtils;
+
+
+
+
 
 @WebServlet("/alumnos/obtenertodosalumnos")
 public class ControladorPruebaConexionBBDD extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger logger = LoggerFactory.getLogger(ControladorPruebaConexionBBDD.class);
+	private static final Logger logger = LoggerFactory.getLogger(ControladorPruebaConexionBBDD.class) ; 
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -43,32 +45,30 @@ public class ControladorPruebaConexionBBDD extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		
-			List<AlumnoDTO> listaAlumnos = null;
-			IAlumnosService alumnosService = new AlumnosService();
-	
-			
-			try {
-				listaAlumnos = alumnosService.obtenerTodosAlumnos();
-				
-			}catch(ClassNotFoundException | SQLException | NamingException e) {
-				e.printStackTrace();
-			}
-			request.setAttribute("listaAlumnos", listaAlumnos);
-			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/alumnos.jsp");
-			d.forward(request, response);
-			
-			
-	}
+		
 
 	
+			try {
+				request.setAttribute("listaAlumnos", new AlumnosService().obtenerTodosAlummnos());
+			} catch (ClassNotFoundException | SQLException | NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/alumnos.jsp");
+			d.forward(request, response);		
+		
+	
+	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
