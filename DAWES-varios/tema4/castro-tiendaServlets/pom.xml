@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.pablo</groupId>
-  <artifactId>tienda</artifactId>
+  <groupId>com.pablo.tienda</groupId>
+  <artifactId>castro-tiendaServlets</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>tienda Maven Webapp</name>
+  <name>castro-tiendaServlets Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -68,7 +68,9 @@
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.4.7</version>
-		</dependency> 
+		</dependency>
+
+
   </dependencies>
 
   <build>

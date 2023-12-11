@@ -10,9 +10,12 @@
 </head>
 <body>
 <header>
-<h2>Gestión de Tienda</h2>
+<h2>Panel de control Tienda de componentes infórmaticos</h2>
 </header>
 <%@include file="menu.html" %>
+
+
+
 
 
 </body>
