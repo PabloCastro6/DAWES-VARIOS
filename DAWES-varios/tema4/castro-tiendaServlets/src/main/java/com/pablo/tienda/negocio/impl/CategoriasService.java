@@ -20,7 +20,7 @@ public class CategoriasService implements ICategoriasService{
 	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().buscarCategoria(id, nombre, descripcion, activo);
+		return new CategoriasDAOImplTnd().buscarCategorias(id, nombre, descripcion, activo);
 	}
 
 	@Override
@@ -34,8 +34,16 @@ public class CategoriasService implements ICategoriasService{
 	public Integer modificarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().modificarCategoria(id, nombre, descripcion, activo);
+		return new CategoriasDAOImplTnd().actualizarCategoria(id, nombre, descripcion, activo);
 	}
+
+	@Override
+	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
+		// TODO Auto-generated method stub
+		return new CategoriasDAOImplTnd().borrarCategoria(id);
+	}
+	
+	
 
 }
 

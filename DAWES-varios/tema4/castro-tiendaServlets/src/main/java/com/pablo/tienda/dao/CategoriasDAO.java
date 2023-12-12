@@ -12,9 +12,12 @@ public interface CategoriasDAO {
 
 public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException;
 	
-	public List<CategoriasDTO> buscarCategorias(Integer id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 
-	public Integer insertarCategoria(Integer id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 	
-	public Integer actualizarCategoria(Integer id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+
+	public Integer borrarCategoria(String id)throws ClassNotFoundException, SQLException, NamingException;
 }
+

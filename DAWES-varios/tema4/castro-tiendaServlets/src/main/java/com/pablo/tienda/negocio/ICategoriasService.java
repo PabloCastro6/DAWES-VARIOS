@@ -18,4 +18,6 @@ public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundExceptio
 	
 	public Integer modificarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 
+	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException;
 }
+

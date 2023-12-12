@@ -6,9 +6,9 @@
 <%@ page isELIgnored="false"%>
 <html>
 <head>
-<link rel="stylesheet" href="/tienda/css/index.css">
-<link rel="stylesheet" href="/tienda/css/formularios.css">
-<link rel="stylesheet" href="/tienda/css/tablas.css">
+<link rel="stylesheet" href="/castro-tiendaServlets/css/index.css">
+<link rel="stylesheet" href="/castro-tiendaServlets/css/formularios.css">
+<link rel="stylesheet" href="/castro-tiendaServlets/css/tablas.css">
 </head>
 <body>
 	<header>
@@ -17,7 +17,7 @@
 	<%@include file="/menu.html"%>
 <div class="container">
 	<div class="form">
-		<form action="http://localhost:8080/tienda/categorias/insertarcategorias" method="POST" id="formulario">
+		<form action="http://localhost:8080/castro-tiendaServlets/categorias/insertarcategorias" method="POST" id="formulario">
 			<label for="nombre"> Nombre Categoria</label>
 						<br>
 			<input type ="text" id="nombre" name="nombre">

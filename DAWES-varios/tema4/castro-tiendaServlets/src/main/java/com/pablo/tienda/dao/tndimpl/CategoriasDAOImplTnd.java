@@ -13,11 +13,12 @@ import javax.naming.NamingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.pablo.tienda.dao.CategoriasDAO;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.utils.DBUtils;
 
 
-public class CategoriasDAOImplTnd {
+public class CategoriasDAOImplTnd implements CategoriasDAO {
 
 	private static final Logger logger = LoggerFactory.getLogger(CategoriasDAOImplTnd.class) ; 
 
@@ -38,7 +39,7 @@ public class CategoriasDAOImplTnd {
 		return listaCategorias;
 	}
 
-	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
 		
 		String sql = "SELECT c.id_categoria, c.nombre, c.descripcion, c.activo " 
 					+ " FROM categorias c  " + 
@@ -85,7 +86,7 @@ public class CategoriasDAOImplTnd {
 	}
 
 	
-	public Integer modificarCategoria(String id,String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+	public Integer actualizarCategoria(String id,String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
 		String sql = "UPDATE categorias set nombre = ?, descripcion = ?, activo = ? "
 					+ "WHERE id_categoria = ? ";
 		
@@ -102,6 +103,25 @@ public class CategoriasDAOImplTnd {
 		connection.close();
 		return resultado;
 	}
+
+
+	@Override
+	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
+		
+		String sql = "UPDATE categorias set activo = 0 WHERE id_categoria LIKE ?  ";
+		Connection connection = DBUtils.conectaBBDD();
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setString(1, id);
+
+		Integer resultado = ps.executeUpdate();
+		connection.close();
+	
+		return resultado;
+	}
+
+
+	
 
 }
 
