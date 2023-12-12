@@ -40,8 +40,10 @@ public class CategoriasDAOImplTnd {
 
 	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
 		
-		String sql = "SELECT c.id, c.nombre, c.descripcion,c.activo "
-					+ " FROM categoria c  " ;
+		String sql = "SELECT c.id_categoria, c.nombre, c.descripcion, c.activo " 
+					+ " FROM categorias c  " + 
+				" WHERE c.id_categoria LIKE ? AND c.nombre LIKE ? AND c.descripcion LIKE ? "
+				+ " AND c.activo = ? ";
 		
 		Connection connection = DBUtils.conectaBBDD();
 		List<CategoriasDTO> listaCategorias = new ArrayList<>();
@@ -56,7 +58,7 @@ public class CategoriasDAOImplTnd {
 		ResultSet rs  = ps.executeQuery();
 	
 		while (rs.next()) {
-			listaCategorias.add(new CategoriasDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+			listaCategorias.add(new CategoriasDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
 		}
 		connection.close();
 		return listaCategorias;
@@ -66,8 +68,8 @@ public class CategoriasDAOImplTnd {
 
 	
 	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-		String sql = "INSERT INTO alumnos (id, nombre, descripcion, activo) "
-					+ "  VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO categorias (id_categoria, nombre, descripcion, activo) "
+					+ "  VALUES (?, ?, ?, ? ) ";
 		
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
@@ -83,9 +85,9 @@ public class CategoriasDAOImplTnd {
 	}
 
 	
-	public Integer actualizarCategoria(String id,String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-		String sql = "UPDATE categoria set nombre = ?, descripcion = ?, activo = ? "
-					+ "WHERE id = ? ";
+	public Integer modificarCategoria(String id,String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+		String sql = "UPDATE categorias set nombre = ?, descripcion = ?, activo = ? "
+					+ "WHERE id_categoria = ? ";
 		
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
@@ -94,7 +96,7 @@ public class CategoriasDAOImplTnd {
 		ps.setString(1, nombre);
 		ps.setString(2, descripcion);
 		ps.setString(3, activo);
-		ps.setString(6, id);
+		ps.setString(4, id);
 		
 		Integer resultado = ps.executeUpdate();
 		connection.close();

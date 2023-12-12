@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-<h2>Gestión de Tienda</h2>
+<h2>Panel de control Tienda de componentes infórmaticos</h2>
 </header>
 <%@include file="/menu.html" %>
 
@@ -21,14 +21,21 @@
 	<div class= "form">
 		<form action="http://localhost:8080/tienda/categorias/listarcategorias" method ="POST">
 			<label for="id"> ID Categoria</label>
+						<br>
 			<input type ="text" id="id" name="id">
+						<br>
 			<label for="nombre"> Nombre Categoria</label>
+						<br>
 			<input type ="text" id="nombre" name="nombre">
+						<br>
 			<label for="descripcion">Descripcion</label>
-			<input type ="text" id="descripcion" name="apellido">
+						<br>
+			<input type ="text" id="descripcion" name="descripcion">
 			<br>
 			<label for="activo">Activo</label>
+						<br>
 			<input type="checkbox" id="activo" name="activo">
+						<br>
 			<input type ="submit" value="Enviar">
 		
 		</form>
@@ -36,7 +43,7 @@
 	
 	</div>
 
-<c:if test="${not empty lista }">
+<c:if test="${not empty lista}">
 	<table>
 		<tr>
 			<th>ID</th>
@@ -49,8 +56,7 @@
 			<tr>
 				<td> ${categoria.id} </td>
 				<td> ${categoria.nombre} </td>
-				<td> ${categoria.apellido} </td>
-				<td> ${categoria.municipio} </td>
+				<td> ${categoria.descripcion} </td>
 			</tr>
 		
 		</c:forEach>

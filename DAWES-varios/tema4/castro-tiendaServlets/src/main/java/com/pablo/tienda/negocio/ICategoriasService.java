@@ -16,6 +16,6 @@ public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundExceptio
 
 	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 	
-	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public Integer modificarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 
 }

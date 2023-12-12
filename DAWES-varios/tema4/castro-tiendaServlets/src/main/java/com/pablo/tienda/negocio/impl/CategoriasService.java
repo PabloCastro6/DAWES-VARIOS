@@ -1,4 +1,4 @@
-package com.pablo.negocio.impl;
+package com.pablo.tienda.negocio.impl;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -27,14 +27,14 @@ public class CategoriasService implements ICategoriasService{
 	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return null;
+		return new CategoriasDAOImplTnd().insertarCategoria(id, nombre, descripcion, activo);
 	}
 
 	@Override
-	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)
+	public Integer modificarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return null;
+		return new CategoriasDAOImplTnd().modificarCategoria(id, nombre, descripcion, activo);
 	}
 
 }

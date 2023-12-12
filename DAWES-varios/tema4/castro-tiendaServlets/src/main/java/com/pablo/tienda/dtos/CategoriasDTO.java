@@ -4,16 +4,18 @@ public class CategoriasDTO {
 	
 	private Integer id;
 	private String nombre;
-	private String Descripcion;
-	private String Activo;
+	private String descripcion;
+	private Integer activo;
 	
 	
-	public CategoriasDTO(Integer id, String nombre, String descripcion, String activo) {
+
+
+	public CategoriasDTO(Integer id, String nombre, String descripcion, Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		Descripcion = descripcion;
-		Activo = activo;
+		this.descripcion = descripcion;
+		this.activo = activo;
 	}
 
 
@@ -45,22 +47,22 @@ public class CategoriasDTO {
 
 
 	public String getDescripcion() {
-		return Descripcion;
+		return descripcion;
 	}
 
 
 	public void setDescripcion(String descripcion) {
-		Descripcion = descripcion;
+		descripcion = descripcion;
 	}
 
 
-	public String getActivo() {
-		return Activo;
+	public Integer getActivo() {
+		return activo;
 	}
 
 
-	public void setActivo(String activo) {
-		Activo = activo;
+	public void setActivo(Integer activo) {
+		activo = activo;
 	}
 	
 	

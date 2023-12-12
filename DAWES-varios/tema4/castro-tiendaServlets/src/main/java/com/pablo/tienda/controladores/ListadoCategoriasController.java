@@ -16,14 +16,15 @@ import javax.naming.NamingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pablo.negocio.impl.CategoriasService;
+
 import com.pablo.tienda.dtos.CategoriasDTO;
+import com.pablo.tienda.negocio.impl.CategoriasService;
 
 
 /**
  * Servlet implementation class ListadoCategoriasController
  */
-@WebServlet("/tienda/listarcategorias")
+@WebServlet("/categorias/listarcategorias")
 public class ListadoCategoriasController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = LoggerFactory.getLogger(ListadoCategoriasController.class) ; 
