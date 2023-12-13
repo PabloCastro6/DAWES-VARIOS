@@ -53,7 +53,7 @@ public class CategoriasDTO {
 
 
 	public void setDescripcion(String descripcion) {
-		descripcion = descripcion;
+		this.descripcion = descripcion;
 	}
 
 
@@ -63,7 +63,7 @@ public class CategoriasDTO {
 
 
 	public void setActivo(Integer activo) {
-		activo = activo;
+		this.activo = activo;
 	}
 	
 	
