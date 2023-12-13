@@ -6,9 +6,9 @@
 <%@ page isELIgnored="false"%>
 <html>
 <head>
-<link rel="stylesheet" href="/castro-tiendaServlets/css/index.css">
-<link rel="stylesheet" href="/castro-tiendaServlets/css/formularios.css">
-<link rel="stylesheet" href="/castro-tiendaServlets/css/tablas.css">
+<link rel="stylesheet" href="/tienda/css/index.css">
+<link rel="stylesheet" href="/tienda/css/formularios.css">
+<link rel="stylesheet" href="/tienda/css/tablas.css">
 </head>
 <body>
 	<header>
@@ -22,7 +22,7 @@
 		<h3>Borrado de categorias</h3>
 		<div class="form">
 			<form
-				action="http://localhost:8080/castro-tiendaServlets/categorias/formularioborrarcategorias"
+				action="http://localhost:8080/tienda/categorias/formularioborrarcategorias"
 				method="POST">
 				<label for="id"> ID Categoria</label>
 						<br>
@@ -47,7 +47,7 @@
 
 			<div class="form">
 				<form
-					action="http://localhost:8080/castro-tiendaServlets/categorias/borrarcategorias"
+					action="http://localhost:8080/tienda/categorias/borrarcategorias"
 					method="POST">
 
 					<label for="id"> ID Categoria</label> <br> <input type="text"
