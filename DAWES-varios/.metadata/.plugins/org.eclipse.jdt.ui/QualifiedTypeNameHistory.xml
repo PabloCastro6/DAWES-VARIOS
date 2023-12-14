@@ -2,4 +2,5 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.ICategoriasService"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.CategoriasDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>

@@ -16,6 +16,7 @@
 	</header>
 	<%@include file="/menu.html"%>
 <div class="container">
+	<h3>Insertado categorias</h3>
 	<div class="form">
 		<form action="http://localhost:8080/tienda/categorias/insertarcategorias" method="POST" id="formulario">
 			<label for="nombre"> Nombre Categoria</label>

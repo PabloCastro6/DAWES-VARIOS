@@ -18,6 +18,7 @@
 
 
 <div class="container">
+<h3>Listado de categorias</h3>
 	<div class= "form">
 		<form action="http://localhost:8080/tienda/categorias/listarcategorias" method ="POST">
 			<label for="id"> ID Categoria</label>
