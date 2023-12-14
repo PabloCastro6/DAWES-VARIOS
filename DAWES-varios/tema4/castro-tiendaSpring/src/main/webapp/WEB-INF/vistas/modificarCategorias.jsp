@@ -47,7 +47,7 @@
 
 			<div class="form">
 				<form
-					action="http://localhost:8080/castro-tiendaServlets/categorias/modificarcategorias"
+					action="http://localhost:8080/tienda/categorias/modificarcategorias"
 					method="POST">
 
 					<label for="id"> ID Categoria</label> <br> <input type="text"

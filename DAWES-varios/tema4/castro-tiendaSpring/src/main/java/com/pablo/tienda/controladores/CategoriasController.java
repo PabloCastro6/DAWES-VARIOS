@@ -51,26 +51,26 @@ public class CategoriasController {
 	}
 	
 	@PostMapping("insertarcategorias")
-	public String insertarCategoria(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+	public String insertarCategoria(@RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		activo = (activo != null) ? "1" : "0";
 
-		Integer resultado = categoriasService.insertarCategoria(id, nombre, descripcion, activo);
+		Integer resultado = categoriasService.insertarCategoria( nombre, descripcion, activo);
 		model.addAttribute("resultado", resultado);
 
 		return "insertarCategorias";
 	}
 
 	
-	@GetMapping("formulariomodificarcategoria")
+	@GetMapping("formulariomodificarcategorias")
 	public String getFormularioModificarCategoria() {
-		return "formulariomodificarCategorias";
+		return "modificarCategorias";
 	}
 
-	@PostMapping("formulariomodificarcategoria")
+	@PostMapping("formulariomodificarcategorias")
 	public String getFormulariosModificarCategorias(@RequestParam("id") String id,
 			@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
@@ -81,7 +81,7 @@ public class CategoriasController {
 		List<CategoriasDTO> listaCategoria = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		model.addAttribute("lista", listaCategoria);
 
-		return "actualizarCategorias";
+		return "modificarCategorias";
 	}
 	
 	
@@ -91,7 +91,7 @@ public class CategoriasController {
 		return "modificarCategorias";
 	}
 
-	@PostMapping("moidificarcategoria")
+	@PostMapping("modificarcategorias")
 	public String modificarCategoria(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
@@ -104,14 +104,14 @@ public class CategoriasController {
 		return "modificarCategorias";
 	}
 
-	@GetMapping("formularioborrarcategoria")
+	@GetMapping("formularioborrarcategorias")
 	public String formularioBorrarCategoria() {
 
 		return "borrarCategorias";
 
 	}
 
-	@PostMapping("formularioborrarcategoria")
+	@PostMapping("formularioborrarcategorias")
 	public String getFormulariosBorrarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
@@ -125,12 +125,12 @@ public class CategoriasController {
 		return "borrarCategorias";
 	}
 
-	@PostMapping("borrarcategoria")
+	@PostMapping("borrarcategorias")
 	public String borrarCategoria(@RequestParam("id") String id)
 			throws ClassNotFoundException, SQLException, NamingException {
 		categoriasService.borrarCategoria(id);
 
-		return "borrarCategoria";
+		return "borrarCategorias";
 	}
 
 }

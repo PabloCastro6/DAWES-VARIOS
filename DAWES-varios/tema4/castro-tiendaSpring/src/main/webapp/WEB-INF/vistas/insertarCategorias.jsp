@@ -20,7 +20,7 @@
 		<form action="http://localhost:8080/tienda/categorias/insertarcategorias" method="POST" id="formulario">
 			<label for="nombre"> Nombre Categoria</label>
 						<br>
-			<input type ="text" id="nombre" name="nombre">
+			<input type ="text" id="nombre" name="nombre" required>
 						<br>
 			<label for="descripcion">Descripcion</label>
 						<br>

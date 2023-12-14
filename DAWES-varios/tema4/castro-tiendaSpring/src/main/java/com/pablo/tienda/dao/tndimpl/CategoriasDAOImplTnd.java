@@ -12,14 +12,15 @@ import javax.naming.NamingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import com.pablo.tienda.dao.CategoriasDAO;
+import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.utils.DBUtils;
 
-@Service
-public class CategoriasDAOImplTnd implements CategoriasDAO {
+@Component
+public class CategoriasDAOImplTnd implements ICategoriasDAO {
 
 	private static final Logger logger = LoggerFactory.getLogger(CategoriasDAOImplTnd.class) ; 
 
@@ -71,17 +72,17 @@ public class CategoriasDAOImplTnd implements CategoriasDAO {
 
 	
 	@Override
-	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-		String sql = "INSERT INTO categorias (id_categoria, nombre, descripcion, activo) "
-					+ "  VALUES (?, ?, ?, ? ) ";
+	public Integer insertarCategoria(String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+		String sql = "INSERT INTO categorias (nombre, descripcion, activo) "
+					+ "  VALUES (?, ?, ? ) ";
 		
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
-		ps.setString(1, id);
-		ps.setString(2, nombre);
-		ps.setString(3, descripcion);
-		ps.setString(4, activo);
+		
+		ps.setString(1, nombre);
+		ps.setString(2, descripcion);
+		ps.setString(3, activo);
 		
 		Integer resultado = ps.executeUpdate();
 		connection.close();
