@@ -5,11 +5,14 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
+import org.springframework.stereotype.Service;
+
 import com.pablo.tienda.dao.CategoriasDAO;
 import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.ICategoriasService;
 
+@Service
 public class CategoriasService implements ICategoriasService{
 	
 	

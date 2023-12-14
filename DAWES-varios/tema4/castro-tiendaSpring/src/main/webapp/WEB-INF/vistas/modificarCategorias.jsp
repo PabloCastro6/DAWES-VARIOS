@@ -50,8 +50,8 @@
 					action="http://localhost:8080/castro-tiendaServlets/categorias/modificarcategorias"
 					method="POST">
 
-					<label for="id"> ID Categoria</label> <br> 
-					<input type="text" id="id" name="id" value="${categoria.id}" readonly> <br>
+					<label for="id"> ID Categoria</label> <br> <input type="text"
+						id="id" name="id" value="${categoria.id}" readonly> <br>
 					<label for="nombre"> Nombre Categoria</label> <br> <input
 						type="text" id="nombre" name="nombre" value="${categoria.nombre}">
 					<label for="descripcion">Descripcion</label> <br> <input

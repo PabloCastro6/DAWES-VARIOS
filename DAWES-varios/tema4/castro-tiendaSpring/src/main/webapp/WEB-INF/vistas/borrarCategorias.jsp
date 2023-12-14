@@ -19,10 +19,10 @@
 
 
 	<div class="container">
-		<h3>Modificación de categorias</h3>
+		<h3>Borrado de categorias</h3>
 		<div class="form">
 			<form
-				action="http://localhost:8080/tienda/categorias/formulariomodificarcategorias"
+				action="http://localhost:8080/tienda/categorias/formularioborrarcategorias"
 				method="POST">
 				<label for="id"> ID Categoria</label>
 						<br>
@@ -47,29 +47,29 @@
 
 			<div class="form">
 				<form
-					action="http://localhost:8080/castro-tiendaServlets/categorias/modificarcategorias"
+					action="http://localhost:8080/tienda/categorias/borrarcategorias"
 					method="POST">
 
-					<label for="id"> ID Categoria</label> <br> 
-					<input type="text" id="id" name="id" value="${categoria.id}" readonly> <br>
+					<label for="id"> ID Categoria</label> <br> <input type="text"
+						id="id" name="id" value="${categoria.id}" readonly> <br>
 					<label for="nombre"> Nombre Categoria</label> <br> <input
-						type="text" id="nombre" name="nombre" value="${categoria.nombre}">
+						type="text" id="nombre" name="nombre" value="${categoria.nombre}" readonly>
 					<label for="descripcion">Descripcion</label> <br> <input
 						type="text" id="descripcion" name="descripcion"
-						value="${categoria.descripcion}">
+						value="${categoria.descripcion}" readonly>
 			<br>
 	 	<label for="activo">Activo</label>
 			
 			<c:if test="${categoria.activo == 1}">
-				<input type="checkbox" id="activo" name="activo" checked>
+				<input type="checkbox" id="activo" name="activo" checked disabled>
 			</c:if>
 			<c:if test="${categoria.activo == 0}">
-				<input type="checkbox" id="activo" name="activo">
+				<input type="checkbox" id="activo" name="activo" disabled>
 			</c:if>
 			
 			
 			
-			<input type ="submit" value="Modificar">
+			<input type ="submit" value="Borrar">
 			
 	 	
 

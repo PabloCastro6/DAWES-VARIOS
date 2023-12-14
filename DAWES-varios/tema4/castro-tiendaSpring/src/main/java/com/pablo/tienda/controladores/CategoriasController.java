@@ -16,121 +16,120 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.ICategoriasService;
 
-
 @Controller
 @RequestMapping("/categorias/")
 public class CategoriasController {
-	
+
 	@Autowired
 	ICategoriasService categoriasService;
-	
-	
+
 	@GetMapping("listarcategorias")
 	public String getListadoCategorias() {
 		return "listadoCategorias";
 	}
-	
-	@PostMapping("listarCategorias")
-	public String buscarCategorias(@RequestParam("id_categoria") String id, @RequestParam("nombre") String nombre,
-								@RequestParam("descripcion")String descripcion,
-								@RequestParam(value="activo", required = false)String activo, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
-		
-		activo = (activo != null)? "1": "0";
-		
-		
+
+	@PostMapping("listarcategorias")
+	public String buscarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		activo = (activo != null) ? "1" : "0";
+
 		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
-		
+
 		model.addAttribute("lista", listaCategorias);
-		
+
 		return "listadoCategorias";
-		
+
 	}
+
 	
-	
-	@PostMapping("insertaralumnos")
-	public String insertarAlumno(@RequestParam("id_categoria") String id, @RequestParam("nombre") String nombre,
-								@RequestParam("descripcion")String descripcion,
-								@RequestParam(value="activo", required = false)String activo,
-								ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
-		
-		
-		
-		activo = (activo != null)? "1": "0";
-		
-		Integer resultado = categoriasService.insertarCategoria(id, nombre, descripcion, activo);
-		model.addAttribute("resultado", resultado);
-		
-		
-		
-		
+	@GetMapping("insertarcategorias")
+	public String getInsertarCategorias() {
 		return "insertarCategorias";
 	}
 	
-	@GetMapping("formularioactualizarcategoria")
-	public String getFormularioActualizarCategoria() {
-		return "actualizarCategorias";
+	@PostMapping("insertarcategorias")
+	public String insertarCategoria(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		activo = (activo != null) ? "1" : "0";
+
+		Integer resultado = categoriasService.insertarCategoria(id, nombre, descripcion, activo);
+		model.addAttribute("resultado", resultado);
+
+		return "insertarCategorias";
 	}
+
 	
-	@PostMapping("formularioactualizarcategoria")
-	public String getFormulariosActualizarAlumnos(@RequestParam("id_categoria") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("descripcion")String descripcion,
-			@RequestParam(value="activo", required = false)String activo, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
-		
-		activo = (activo != null)? "1": "0";
-		
-		
-		
-		List<CategoriasDTO> listaCategoria = categoriasService.buscarCategoria(id, nombre, descripcion, activo);		
+	@GetMapping("formulariomodificarcategoria")
+	public String getFormularioModificarCategoria() {
+		return "formulariomodificarCategorias";
+	}
+
+	@PostMapping("formulariomodificarcategoria")
+	public String getFormulariosModificarCategorias(@RequestParam("id") String id,
+			@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
+			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		activo = (activo != null) ? "1" : "0";
+
+		List<CategoriasDTO> listaCategoria = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		model.addAttribute("lista", listaCategoria);
-		
+
 		return "actualizarCategorias";
 	}
 	
-	@PostMapping("actualizarcategoria")
-	public String actualizarCategoria(@RequestParam("id_categoria") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("descripcion")String descripcion,
-			@RequestParam(value="activo", required = false)String activo, 
-			ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
-		
-		activo = (activo != null)? "1": "0";
-		
+	
+	
+	@GetMapping("modificarcategorias")
+	public String getModificarCategorias() {
+		return "modificarCategorias";
+	}
+
+	@PostMapping("moidificarcategoria")
+	public String modificarCategoria(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		activo = (activo != null) ? "1" : "0";
+
 		categoriasService.modificarCategoria(id, nombre, descripcion, activo);
-		
-		return "actualizarCategorias";
+
+		return "modificarCategorias";
 	}
-	
+
 	@GetMapping("formularioborrarcategoria")
-		public String formularioBorrarCategoria() {
-			
-			return "borrarCategorias";
-			
-		
+	public String formularioBorrarCategoria() {
+
+		return "borrarCategorias";
+
 	}
-	
+
 	@PostMapping("formularioborrarcategoria")
-	public String getFormulariosBorrarCategorias(@RequestParam("id_categoria") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("descripcion")String descripcion, 
-			@RequestParam(value="activo", required = false)String activo, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
-		
-		activo = (activo != null)? "1": "0";
-		
-		
-		
-		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);		
+	public String getFormulariosBorrarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
+			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		activo = (activo != null) ? "1" : "0";
+
+		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		model.addAttribute("lista", listaCategorias);
-		
+
 		return "borrarCategorias";
 	}
-	
+
 	@PostMapping("borrarcategoria")
-	public String borrarCategoria(@RequestParam("id_categoria") String id) throws ClassNotFoundException, SQLException, NamingException {
+	public String borrarCategoria(@RequestParam("id") String id)
+			throws ClassNotFoundException, SQLException, NamingException {
 		categoriasService.borrarCategoria(id);
-		
+
 		return "borrarCategoria";
 	}
 

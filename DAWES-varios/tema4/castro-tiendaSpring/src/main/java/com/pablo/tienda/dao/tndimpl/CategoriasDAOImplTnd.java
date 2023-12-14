@@ -12,13 +12,13 @@ import javax.naming.NamingException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.pablo.tienda.dao.CategoriasDAO;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.utils.DBUtils;
 
-@Component
+@Service
 public class CategoriasDAOImplTnd implements CategoriasDAO {
 
 	private static final Logger logger = LoggerFactory.getLogger(CategoriasDAOImplTnd.class) ; 
