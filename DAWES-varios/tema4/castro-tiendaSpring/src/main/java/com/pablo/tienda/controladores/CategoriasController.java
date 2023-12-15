@@ -44,12 +44,11 @@ public class CategoriasController {
 
 	}
 
-	
 	@GetMapping("insertarcategorias")
 	public String getInsertarCategorias() {
 		return "insertarCategorias";
 	}
-	
+
 	@PostMapping("insertarcategorias")
 	public String insertarCategoria(@RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
@@ -58,21 +57,20 @@ public class CategoriasController {
 
 		activo = (activo != null) ? "1" : "0";
 
-		Integer resultado = categoriasService.insertarCategoria( nombre, descripcion, activo);
+		Integer resultado = categoriasService.insertarCategoria(nombre, descripcion, activo);
 		model.addAttribute("resultado", resultado);
 
 		return "insertarCategorias";
 	}
 
-	
 	@GetMapping("formulariomodificarcategorias")
 	public String getFormularioModificarCategoria() {
 		return "modificarCategorias";
 	}
 
 	@PostMapping("formulariomodificarcategorias")
-	public String getFormulariosModificarCategorias(@RequestParam("id") String id,
-			@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
+	public String FormulariosModificarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
+			@RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
@@ -83,9 +81,7 @@ public class CategoriasController {
 
 		return "modificarCategorias";
 	}
-	
-	
-	
+
 	@GetMapping("modificarcategorias")
 	public String getModificarCategorias() {
 		return "modificarCategorias";
