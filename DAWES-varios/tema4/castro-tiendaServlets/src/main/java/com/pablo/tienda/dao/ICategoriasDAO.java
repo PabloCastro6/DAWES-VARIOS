@@ -8,7 +8,7 @@ import javax.naming.NamingException;
 import com.pablo.tienda.dtos.CategoriasDTO;
 
 
-public interface CategoriasDAO {
+public interface ICategoriasDAO {
 
 public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException;
 	

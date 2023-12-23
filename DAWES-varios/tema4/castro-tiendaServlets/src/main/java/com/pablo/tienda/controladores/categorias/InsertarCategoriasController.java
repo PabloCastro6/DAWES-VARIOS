@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores;
+package com.pablo.tienda.controladores.categorias;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -34,7 +34,7 @@ public class InsertarCategoriasController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/insertarCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/insertarCategorias.jsp");
 		d.forward(request, response);
 		
 	}

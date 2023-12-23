@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores;
+package com.pablo.tienda.controladores.categorias;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,7 +26,7 @@ public class BorrarCategoriasController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/borrarCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/borrarCategorias.jsp");
 		d.forward(request, response);
 	}
 
@@ -42,7 +42,7 @@ public class BorrarCategoriasController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/borrarCategorias.jsp");
+			RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/borrarCategorias.jsp");
 			d.forward(request, response);
 		}
 

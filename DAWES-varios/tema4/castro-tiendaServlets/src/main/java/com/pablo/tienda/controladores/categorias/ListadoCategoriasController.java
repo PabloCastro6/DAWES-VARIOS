@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores;
+package com.pablo.tienda.controladores.categorias;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -41,7 +41,7 @@ public class ListadoCategoriasController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/listadoCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/listadoCategorias.jsp");
 		d.forward(request, response);
 	}
 
@@ -71,7 +71,7 @@ public class ListadoCategoriasController extends HttpServlet {
 		
 		request.setAttribute("lista", listadoCategorias);
 		
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/listadoCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/listadoCategorias.jsp");
 		d.forward(request, response);
 		
 	}

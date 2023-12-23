@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores;
+package com.pablo.tienda.controladores.categorias;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,20 +8,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.NamingException;
 
-import com.pablo.tienda.negocio.ICategoriasService;
+import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.impl.CategoriasService;
 
-@WebServlet("/categorias/modificarcategorias")
-public class ModificarCategoriaController extends HttpServlet {
+@WebServlet("/categorias/formularioborrarcategorias")
+public class FormularioBorrarCategoriasController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ModificarCategoriaController() {
+	public FormularioBorrarCategoriasController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,7 +35,8 @@ public class ModificarCategoriaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/borrarCategorias.jsp");
+		d.forward(request, response);
 	}
 
 	/**
@@ -42,6 +45,9 @@ public class ModificarCategoriaController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		List<CategoriasDTO> listadoCategorias = new ArrayList<>();
+
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
@@ -50,17 +56,19 @@ public class ModificarCategoriaController extends HttpServlet {
 
 		activo = (activo != null) ? "1" : "0";
 
-		
-		ICategoriasService categoriasService = new CategoriasService();
-
+		CategoriasService categoriasService = new CategoriasService();
 		try {
-			categoriasService.modificarCategoria(id, nombre, descripcion, activo);
+			listadoCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/modificarCategorias.jsp");
+
+		request.setAttribute("lista", listadoCategorias);
+
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/borrarCategorias.jsp");
 		d.forward(request, response);
+
 	}
 
 }

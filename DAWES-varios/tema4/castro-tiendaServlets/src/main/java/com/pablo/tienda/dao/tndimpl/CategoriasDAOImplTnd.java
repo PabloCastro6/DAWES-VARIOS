@@ -13,12 +13,12 @@ import javax.naming.NamingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pablo.tienda.dao.CategoriasDAO;
+import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.utils.DBUtils;
 
 
-public class CategoriasDAOImplTnd implements CategoriasDAO {
+public class CategoriasDAOImplTnd implements ICategoriasDAO {
 
 	private static final Logger logger = LoggerFactory.getLogger(CategoriasDAOImplTnd.class) ; 
 

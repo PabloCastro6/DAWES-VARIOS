@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores;
+package com.pablo.tienda.controladores.categorias;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,14 +16,14 @@ import javax.naming.NamingException;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.impl.CategoriasService;
 
-@WebServlet("/categorias/formularioborrarcategorias")
-public class FormularioBorrarCategoriasController extends HttpServlet {
+@WebServlet("/categorias/formulariomodificarcategorias")
+public class FormularioModificarCategoriasController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public FormularioBorrarCategoriasController() {
+	public FormularioModificarCategoriasController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,7 +35,7 @@ public class FormularioBorrarCategoriasController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/borrarCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/modificarCategorias.jsp");
 		d.forward(request, response);
 	}
 
@@ -66,7 +66,7 @@ public class FormularioBorrarCategoriasController extends HttpServlet {
 
 		request.setAttribute("lista", listadoCategorias);
 
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/borrarCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/modificarCategorias.jsp");
 		d.forward(request, response);
 
 	}
