@@ -120,7 +120,25 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 		return resultado;
 	}
 
+	
+	public List<CategoriasDTO> RecuperarCategoria() throws ClassNotFoundException, SQLException {
+		String sql = "SELECT id_Categoria, nombre FROM categorias";
+		List<CategoriasDTO> listaCategorias = new ArrayList<CategoriasDTO>();
+		Connection connection = DBUtils.conectaBBDD();
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		while(rs.next()) {
+			listaCategorias.add(new CategoriasDTO(rs.getInt(1), rs.getString(2)));
+			logger.info("añadida categoria " + rs.getInt(1)+ " " + rs.getString(2)  );
+		
+		}
+		return listaCategorias;
+		
+			}
 
+		
 	
 
 }

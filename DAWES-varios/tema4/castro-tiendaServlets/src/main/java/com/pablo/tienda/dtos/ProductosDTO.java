@@ -6,19 +6,11 @@ public class ProductosDTO {
 	private String nombre;
 	private String descripcion;
 	private double precio;
-	private Integer CantidadEnStock;
+	private Integer cantidadEnStock;
 	private Integer idCategoria;
 	private Integer idProveedor;
 	
 	
-	public ProductosDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		CantidadEnStock = cantidadEnStock;
-	}
 
 
 	public ProductosDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock,
@@ -28,7 +20,7 @@ public class ProductosDTO {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
-		CantidadEnStock = cantidadEnStock;
+		this.cantidadEnStock = cantidadEnStock;
 		this.idCategoria = idCategoria;
 		this.idProveedor = idProveedor;
 	}
@@ -75,12 +67,12 @@ public class ProductosDTO {
 
 
 	public Integer getCantidadEnStock() {
-		return CantidadEnStock;
+		return cantidadEnStock;
 	}
 
 
 	public void setCantidadEnStock(Integer cantidadEnStock) {
-		CantidadEnStock = cantidadEnStock;
+		this.cantidadEnStock = cantidadEnStock;
 	}
 
 

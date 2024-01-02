@@ -6,34 +6,39 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
+import com.pablo.tienda.dao.tndimpl.ProductosDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
+import com.pablo.tienda.dtos.ProductosDTO;
+import com.pablo.tienda.negocio.ICategoriasService;
+import com.pablo.tienda.negocio.IProductosService;
 
-public class ProductosService {
+
+public class ProductosService implements IProductosService {   
 	
+	
+
 	@Override
-	public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {
-		return new CategoriasDAOImplTnd().obtenerTodasCategorias();
+	public List<ProductosDTO> buscarProducto(String id, String nombre, String descripcion, String precio,
+			String CantidadStock,String idCategoria, String idProveedor)
+			throws ClassNotFoundException, SQLException, NamingException {
+		// TODO Auto-generated method stub
+		return new ProductosDAOImplTnd().buscarProductos(id, nombre, descripcion,precio,CantidadStock,idCategoria,idProveedor);
 	}
 
 	@Override
-	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, String activo)
+	public Integer insertarProducto( String nombre, String descripcion, String precio,
+			String CantidadStock,String idCategoria, String idProveedor)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().buscarCategorias(id, nombre, descripcion, activo);
+		return new ProductosDAOImplTnd().insertarProducto( nombre, descripcion,precio,CantidadStock,idCategoria,idProveedor);
 	}
 
 	@Override
-	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)
+	public Integer modificarProducto(String id, String nombre, String descripcion, String precio,
+			String CantidadStock,String idCategoria, String idProveedor)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().insertarCategoria(id, nombre, descripcion, activo);
-	}
-
-	@Override
-	public Integer modificarCategoria(String id, String nombre, String descripcion, String activo)
-			throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().actualizarCategoria(id, nombre, descripcion, activo);
+		return new ProductosDAOImplTnd().actualizarProducto(id, nombre, descripcion,precio,CantidadStock,idCategoria,idProveedor );
 	}
 
 }
