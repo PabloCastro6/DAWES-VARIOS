@@ -1,4 +1,4 @@
-package com.pablo.tienda.controladores.productos;
+ package com.pablo.tienda.controladores.productos;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -49,13 +49,18 @@ public class ListadoProductosController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
+	
+	//RECUPERACION DE COMBOS
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		List<CategoriasDTO> listaCategorias = new ArrayList<CategoriasDTO>();
 		ICategoriasDAO comboCategoria = new CategoriasDAOImplTnd();
+		
 		List<ProveedorDTO> listaProveedores = new ArrayList<ProveedorDTO>();
 		IProveedorDAO comboProveedores = new ProveedorDAOImplTnd();
+		
 		try {
 			listaCategorias = comboCategoria.RecuperarCategoria();
 			listaProveedores = comboProveedores.RecuperarProveedor();
@@ -64,25 +69,16 @@ public class ListadoProductosController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		
-//		
-//	
-//		
-//		try {
-//			listaProveedores =	comboProveedor.RecuperarProveedor();
-//				
-//			} catch (ClassNotFoundException | SQLException | NamingException e) {
-//				e.printStackTrace();
-//			}
-//		
-//		
+		
 
 		request.setAttribute("comboCategoria", listaCategorias);
 		System.out.println("1");
+		
 		request.setAttribute("comboProveedores", listaProveedores);
 		System.out.println("2");
-		RequestDispatcher d = getServletContext()
-				.getRequestDispatcher("/WEB-INF/vistas/productos/listadoProductos.jsp");
+		
+		
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/productos/listadoProductos.jsp");
 		d.forward(request, response);
 	}
 
@@ -90,16 +86,23 @@ public class ListadoProductosController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		String precio = request.getParameter("precio");
 		String stock = request.getParameter("cantidadStock");
-		String idCategoria = request.getParameter("categorias");
-		String idProveedor = request.getParameter("proveedores");
+		String idCategoria = request.getParameter("idcategorias");
+		String idProveedor = request.getParameter("idproveedores");
 
+		precio = (precio == "") ? "0" : precio;
+		stock = (stock == "") ? "0" : stock;
+		
+		
 		List<ProductosDTO> listadoProductos = new ArrayList<>();
 		ProductosService productoService = new ProductosService();
 
@@ -113,21 +116,67 @@ public class ListadoProductosController extends HttpServlet {
 
 		request.setAttribute("lista", listadoProductos);
 
-		List<CategoriasDTO> comboCategorias;
+		
+		
+		
+		
+		//RECUPERACION DE COMBOS
+
+		List<CategoriasDTO> listaCategorias = new ArrayList<CategoriasDTO>();
+		ICategoriasDAO comboCategoria = new CategoriasDAOImplTnd();
+		
+		List<ProveedorDTO> listaProveedores = new ArrayList<ProveedorDTO>();
+		IProveedorDAO comboProveedores = new ProveedorDAOImplTnd();
+		
 		try {
+			listaCategorias = comboCategoria.RecuperarCategoria();
+			listaProveedores = comboProveedores.RecuperarProveedor();
 
-			comboCategorias = new CategoriasService().obtenerTodasCategorias();
-
-			request.setAttribute("comboCategorias", comboCategorias);
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
 
+		request.setAttribute("comboCategoria", listaCategorias);
+		System.out.println("1");
+		
+		request.setAttribute("comboProveedores", listaProveedores);
+		System.out.println("2");
+		
 		RequestDispatcher d = getServletContext()
 				.getRequestDispatcher("/WEB-INF/vistas/productos/listadoProductos.jsp");
 		d.forward(request, response);
-
 	}
-
+	
 }
+	
+	
+	
+	
+//	private void recuperarCombos (HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		
+//		List<ComboDTO> listaCategoria = new ArrayList();
+//		IComboDAO combosCategorias = new ComboDAOImpl();
+//
+//		List<ComboDTO> listaProveedores = new ArrayList();
+//		IComboDAO combosProveedores = new ComboDAOImpl();
+//
+//		try {
+//			listaCategoria = combosCategorias.recuperaCombosCategorias();
+//			listaProveedores = combosProveedores.recuperaCombosProveedores();
+//
+//		} catch (ClassNotFoundException | SQLException | NamingException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		request.setAttribute("comboCategorias", listaCategoria);
+//		request.setAttribute("comboProveedores", listaProveedores);
+//				
+//			}
+
+

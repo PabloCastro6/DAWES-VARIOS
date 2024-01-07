@@ -24,10 +24,10 @@ public class CategoriasService implements ICategoriasService{
 	}
 
 	@Override
-	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)
+	public Integer insertarCategoria( String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return new CategoriasDAOImplTnd().insertarCategoria(id, nombre, descripcion, activo);
+		return new CategoriasDAOImplTnd().insertarCategoria(nombre, descripcion, activo);
 	}
 
 	@Override

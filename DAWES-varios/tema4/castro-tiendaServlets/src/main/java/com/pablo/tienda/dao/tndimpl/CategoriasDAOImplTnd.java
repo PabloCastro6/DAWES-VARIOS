@@ -47,6 +47,7 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 				+ " AND c.activo = ? ";
 		
 		Connection connection = DBUtils.conectaBBDD();
+		
 		List<CategoriasDTO> listaCategorias = new ArrayList<>();
 		
 		PreparedStatement ps = connection.prepareStatement(sql);
@@ -56,7 +57,10 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 		ps.setString(3, "%" + descripcion + "%");
 		ps.setString(4, activo );
 
+		System.out.print(ps.toString());
+		
 		ResultSet rs  = ps.executeQuery();
+		ps.toString();
 	
 		while (rs.next()) {
 			listaCategorias.add(new CategoriasDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
@@ -68,17 +72,17 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 	}
 
 	
-	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-		String sql = "INSERT INTO categorias (id_categoria, nombre, descripcion, activo) "
-					+ "  VALUES (?, ?, ?, ? ) ";
+	public Integer insertarCategoria(String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+		String sql = "INSERT INTO categorias (nombre, descripcion, activo) "
+					+ "  VALUES (?, ?, ? ) ";
 		
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
-		ps.setString(1, id);
-		ps.setString(2, nombre);
-		ps.setString(3, descripcion);
-		ps.setString(4, activo);
+		
+		ps.setString(1, nombre);
+		ps.setString(2, descripcion);
+		ps.setString(3, activo);
 		
 		Integer resultado = ps.executeUpdate();
 		connection.close();
@@ -87,7 +91,7 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 
 	
 	public Integer actualizarCategoria(String id,String nombre, String descripcion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-		String sql = "UPDATE categorias set nombre = ?, descripcion = ?, activo = ? "
+		String sql = "UPDATE categorias SET nombre = ?, descripcion = ?, activo = ? "
 					+ "WHERE id_categoria = ? ";
 		
 		Connection connection = DBUtils.conectaBBDD();
@@ -108,22 +112,28 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 	@Override
 	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
 		
-		String sql = "UPDATE categorias set activo = 0 WHERE id_categoria LIKE ?  ";
+		String sql = "UPDATE categorias SET activo = 0 WHERE ID_Categoria = ?  ";
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
 		ps.setString(1, id);
 
 		Integer resultado = ps.executeUpdate();
+		ps.toString();
 		connection.close();
 	
 		return resultado;
 	}
 
 	
+	
+	
+	
+	
 	public List<CategoriasDTO> RecuperarCategoria() throws ClassNotFoundException, SQLException {
-		String sql = "SELECT id_Categoria, nombre FROM categorias";
-		List<CategoriasDTO> listaCategorias = new ArrayList<CategoriasDTO>();
+		String sql = "SELECT id_Categoria, nombre FROM categorias ORDER BY ID_Categoria";
+		
+		List<CategoriasDTO> listaCategorias = new ArrayList<>();
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
@@ -134,6 +144,8 @@ public class CategoriasDAOImplTnd implements ICategoriasDAO {
 			logger.info("añadida categoria " + rs.getInt(1)+ " " + rs.getString(2)  );
 		
 		}
+		
+		connection.close();
 		return listaCategorias;
 		
 			}

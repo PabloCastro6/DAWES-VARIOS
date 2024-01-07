@@ -24,7 +24,8 @@ public class ProveedorDAOImplTnd implements IProveedorDAO {
 	public List<ProveedorDTO> RecuperarProveedor() throws ClassNotFoundException, SQLException, NamingException {
 		
 		String sql = "SELECT ID_Proveedor, Nombre FROM Proveedores ORDER BY ID_Proveedor ";
-		List<ProveedorDTO> listaProveedores = new ArrayList<ProveedorDTO>();
+		
+		List<ProveedorDTO> listaProveedores = new ArrayList<>();
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
@@ -35,6 +36,7 @@ public class ProveedorDAOImplTnd implements IProveedorDAO {
 			logger.info("añadida categoria " + rs.getInt(1)+ " " + rs.getString(2)  );
 		
 		}
+		connection.close();
 		return listaProveedores;
 	
 	}

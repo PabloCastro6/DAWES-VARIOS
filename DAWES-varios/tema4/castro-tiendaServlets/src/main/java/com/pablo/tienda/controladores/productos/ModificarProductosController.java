@@ -59,7 +59,7 @@ public class ModificarProductosController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/categorias/modificarCategorias.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/productos/modificarProductos.jsp");
 		d.forward(request, response);
 	}
 

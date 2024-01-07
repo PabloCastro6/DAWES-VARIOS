@@ -27,12 +27,12 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 	public List<ProductosDTO> buscarProductos(String id, String nombre, String descripcion, String precio,
 			String CantidadStock, String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
 
-		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock, "
-				+ " p.ID_Categoria, p.ID_Proveedor " + " FROM Productos p " + " INNER JOIN Categorias c "
-				+ " ON p.ID_Categoria = c.ID_Categoria " + " INNER JOIN Proveedores pr "
-				+ " ON p.ID_Proveedor = pr.ID_Proveedor "
-				+ " WHERE p.ID_Producto LIKE ? AND p.Nombre LIKE ? AND p.Descripcion LIKE ? AND p.Precio >= ? AND p.CantidadEnStock >= ? "
-				+ " AND p.ID_Categoria LIKE ? " + " AND p.ID_Proveedor LIKE ? ";
+		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock, p.ID_Categoria, p. ID_Proveedor, "
+				+ " c.Nombre , pv.Nombre " + " FROM productos p "
+				+ " INNER JOIN categorias c ON p.ID_Categoria = c.ID_Categoria "
+				+ " INNER JOIN proveedores pv ON p.ID_Proveedor = pv.ID_Proveedor "
+				+ " WHERE p.ID_Producto LIKE ? AND p.Nombre LIKE ? AND p.Descripcion LIKE ? AND if(p.Precio = '' , p.Precio>=0, p.Precio>=?) "
+				+ " AND if(p.CantidadEnStock = '' ,p.CantidadEnStock >=0, p.CantidadEnStock >=?) AND c.ID_Categoria LIKE ? AND pv.ID_Proveedor LIKE ?;";
 
 		Connection connection = DBUtils.conectaBBDD();
 		List<ProductosDTO> listaProductos = new ArrayList<>();
@@ -44,8 +44,8 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 		ps.setString(3, "%" + descripcion + "%");
 		ps.setString(4, precio);
 		ps.setString(5, CantidadStock);
-		ps.setString(6, idCategoria);
-		ps.setString(7, idProveedor);
+		ps.setString(6,"%" +  idCategoria + "%");
+		ps.setString(7, "%" + idProveedor + "%");
 
 		ResultSet rs = ps.executeQuery();
 
@@ -102,6 +102,7 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 		ps.setString(7, id);
 
 		Integer resultado = ps.executeUpdate();
+		ps.toString();
 		connection.close();
 		return resultado;
 	}
