@@ -14,7 +14,7 @@ public interface ICategoriasDAO {
 	
 	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 
-	public Integer insertarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public Integer insertarCategoria(String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 	
 	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)throws ClassNotFoundException, SQLException, NamingException;
 

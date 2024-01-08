@@ -118,6 +118,7 @@ public class ListadoProductosController extends HttpServlet {
 
 		
 		
+		System.out.println("productso" + listadoProductos);
 		
 		
 		//RECUPERACION DE COMBOS

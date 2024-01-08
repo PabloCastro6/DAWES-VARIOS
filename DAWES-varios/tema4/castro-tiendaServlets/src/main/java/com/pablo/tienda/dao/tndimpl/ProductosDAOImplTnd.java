@@ -27,31 +27,32 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 	public List<ProductosDTO> buscarProductos(String id, String nombre, String descripcion, String precio,
 			String CantidadStock, String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
 
-		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock, p.ID_Categoria, p. ID_Proveedor, "
+		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock,"
 				+ " c.Nombre , pv.Nombre " + " FROM productos p "
 				+ " INNER JOIN categorias c ON p.ID_Categoria = c.ID_Categoria "
 				+ " INNER JOIN proveedores pv ON p.ID_Proveedor = pv.ID_Proveedor "
-				+ " WHERE p.ID_Producto LIKE ? AND p.Nombre LIKE ? AND p.Descripcion LIKE ? AND if(p.Precio = '' , p.Precio>=0, p.Precio>=?) "
-				+ " AND if(p.CantidadEnStock = '' ,p.CantidadEnStock >=0, p.CantidadEnStock >=?) AND c.ID_Categoria LIKE ? AND pv.ID_Proveedor LIKE ?;";
+				+ " WHERE p.ID_Producto = ? AND p.Nombre LIKE ? AND p.Descripcion LIKE ? AND  p.Precio>=? "
+				+ " AND  p.CantidadEnStock >=? AND c.ID_Categoria = ? AND pv.ID_Proveedor = ?;";
 
 		Connection connection = DBUtils.conectaBBDD();
 		List<ProductosDTO> listaProductos = new ArrayList<>();
 
 		PreparedStatement ps = connection.prepareStatement(sql);
 
-		ps.setString(1, "%" + id + "%");
+		ps.setString(1, id );
 		ps.setString(2, "%" + nombre + "%");
 		ps.setString(3, "%" + descripcion + "%");
 		ps.setString(4, precio);
 		ps.setString(5, CantidadStock);
-		ps.setString(6,"%" +  idCategoria + "%");
-		ps.setString(7, "%" + idProveedor + "%");
+		ps.setString(6,  idCategoria);
+		ps.setString(7, idProveedor);
 
+		System.out.println(ps.toString());
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
 			listaProductos.add(new ProductosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-					rs.getInt(5),rs.getInt(6),rs.getInt(7)));
+					rs.getInt(5),rs.getString(6),rs.getString(7)));
 		}
 		connection.close();
 		return listaProductos;

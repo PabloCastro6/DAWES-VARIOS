@@ -44,7 +44,6 @@ public class InsertarCategoriasController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Integer resultado = 0;
-		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String descripcion = request.getParameter("descripcion");
 		
@@ -54,7 +53,7 @@ public class InsertarCategoriasController extends HttpServlet {
 		activo = (activo != null) ? "1" : "0";
 		
 		try {
-			resultado = new CategoriasService().insertarCategoria(id, nombre, descripcion, activo)	;
+			resultado = new CategoriasService().insertarCategoria(nombre, descripcion, activo)	;
 			
 					} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block

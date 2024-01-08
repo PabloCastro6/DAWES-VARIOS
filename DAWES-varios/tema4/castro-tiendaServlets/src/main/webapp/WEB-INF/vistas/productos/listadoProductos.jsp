@@ -21,24 +21,24 @@
 			<form action="http://localhost:8080/tienda/productos/listarproductos"
 				method="POST" id="formulario">
 				<label for="IdProducto"> Id Producto</label> <input type="text" id="idProducto"
-					name="IdProducto">
+					name="id">
 				
 				<label for="nombre"> Nombre</label> <input type="text" id="nombre"
 					name="nombre"> <label for="descripcion">
 					Descripcion</label> <input type="text" id="descripcion" name="descripcion">
-				<br> <label for="precio">Precio</label> <input type="text"
-					id="precio" name="precio"> <label for="cantidadStock">Cantidad
-					en Stock</label> <input type="text" id="cantidadStock" name="cantidadStock">
+				<br> <label for="precio">Precio</label> <input type="number"
+					id="precio" name="precio" min="0"> <label for="cantidadStock">Cantidad
+					en Stock</label> <input type="number" id="cantidadStock" name="cantidadStock" min="0">
 					
 					
 				<label for="categorias">Categoria</label> <br> 
 				<select
-					name="categorias" id="categorias" form="formulario">
+					name="idcategorias" id="categorias" form="formulario">
 
 					<br>
 
 
-					<c:forEach items="${comboCategorias}" var="categoria">
+					<c:forEach items="${comboCategoria}" var="categoria">
 						<option value="${categoria.id}">${categoria.nombre}</option>
 					</c:forEach>
 
@@ -47,7 +47,7 @@
 				
 				<label for="proveedores">Proveedor</label> <br>
 				<select
-					name="proveedores" id="proveedores" form="formulario">
+					name="idproveedores" id="proveedores" form="formulario">
 					
 					<br>
 
@@ -60,6 +60,7 @@
 				<input type="submit" value="Enviar">
 			</form>
 		</div>
+		
 		<c:if test="${not empty lista}">
 			<table>
 				<tr>
@@ -68,6 +69,9 @@
 					<th>Descripcion</th>
 					<th>Precio</th>
 					<th>stock</th>
+					<th>Categoria</th>
+					<th>Proveedor</th>
+					
 
 
 				</tr>
@@ -78,6 +82,8 @@
 						<td>${producto.descripcion}</td>
 						<td>${producto.precio}</td>
 						<td>${producto.cantidadEnStock}</td>
+						<td>${producto.categoria}</td>
+						<td>${producto.proveedor}</td>
 					</tr>
 				</c:forEach>
 			</table>

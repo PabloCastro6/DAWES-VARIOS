@@ -20,6 +20,7 @@ import com.pablo.tienda.dao.tndimpl.ProveedorDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.impl.CategoriasService;
+import com.pablo.tienda.negocio.impl.ProductosService;
 
 
 
@@ -83,7 +84,7 @@ public class InsertarProductosController extends HttpServlet {
         String idProveedor = request.getParameter("idProveedor");
 		
 		try {
-			resultado = new CategoriasService().insertarCategoria(nombre, descripcion, precio,cantidadStock,idCategoria,idProveedor);
+			resultado = new ProductosService().insertarProducto(nombre, descripcion, precio,cantidadStock,idCategoria,idProveedor);
 			
 					} catch (ClassNotFoundException | SQLException | NamingException e) {
 			
@@ -128,4 +129,4 @@ public class InsertarProductosController extends HttpServlet {
 		
 
 	}
-}
+
