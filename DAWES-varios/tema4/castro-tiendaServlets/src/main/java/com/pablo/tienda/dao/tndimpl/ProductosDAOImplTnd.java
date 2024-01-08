@@ -27,7 +27,7 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 	public List<ProductosDTO> buscarProductos(String id, String nombre, String descripcion, String precio,
 			String CantidadStock, String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
 
-		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock,"
+		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock,p.ID_Categoria,p.ID_Proveedor,"
 				+ " c.Nombre , pv.Nombre " + " FROM productos p "
 				+ " INNER JOIN categorias c ON p.ID_Categoria = c.ID_Categoria "
 				+ " INNER JOIN proveedores pv ON p.ID_Proveedor = pv.ID_Proveedor "
@@ -52,7 +52,7 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 
 		while (rs.next()) {
 			listaProductos.add(new ProductosDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
-					rs.getInt(5),rs.getString(6),rs.getString(7)));
+					rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getString(8),rs.getString(9)));
 		}
 		connection.close();
 		return listaProductos;

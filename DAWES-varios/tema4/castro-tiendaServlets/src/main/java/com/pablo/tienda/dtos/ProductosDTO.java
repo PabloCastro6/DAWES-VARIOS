@@ -15,8 +15,11 @@ public class ProductosDTO {
 	
 
 
+	
+
+
 	public ProductosDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock,
-			Integer idCategoria, Integer idProveedor) {
+			Integer idCategoria, Integer idProveedor, String categoria, String proveedor) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -25,24 +28,9 @@ public class ProductosDTO {
 		this.cantidadEnStock = cantidadEnStock;
 		this.idCategoria = idCategoria;
 		this.idProveedor = idProveedor;
-	}
-	
-	
-
-
-	public ProductosDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock,
-			String categoria, String proveedor) {
-		super();
-		this.id = id;
-		this.nombre = nombre;
-		this.descripcion = descripcion;
-		this.precio = precio;
-		this.cantidadEnStock = cantidadEnStock;
 		this.categoria = categoria;
 		this.proveedor = proveedor;
 	}
-
-
 
 
 	public Integer getId() {
