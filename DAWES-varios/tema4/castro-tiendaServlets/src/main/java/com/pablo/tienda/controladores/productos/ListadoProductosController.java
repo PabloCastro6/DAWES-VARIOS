@@ -157,27 +157,5 @@ public class ListadoProductosController extends HttpServlet {
 	
 	
 	
-//	private void recuperarCombos (HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		
-//		List<ComboDTO> listaCategoria = new ArrayList();
-//		IComboDAO combosCategorias = new ComboDAOImpl();
-//
-//		List<ComboDTO> listaProveedores = new ArrayList();
-//		IComboDAO combosProveedores = new ComboDAOImpl();
-//
-//		try {
-//			listaCategoria = combosCategorias.recuperaCombosCategorias();
-//			listaProveedores = combosProveedores.recuperaCombosProveedores();
-//
-//		} catch (ClassNotFoundException | SQLException | NamingException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//		request.setAttribute("comboCategorias", listaCategoria);
-//		request.setAttribute("comboProveedores", listaProveedores);
-//				
-//			}
 
 

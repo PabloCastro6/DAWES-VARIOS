@@ -22,21 +22,27 @@
 				action="http://localhost:8080/tienda/productos/insertarproductos"
 				method="POST" id="formulario">
 				<label for="nombre"> Nombre</label> <input type="text" id="nombre"
-					name="nombre"> <label for="descripcion">
+					name="nombre" required> <label for="descripcion">
 					Descripcion</label> <input type="text" id="descripcion" name="descripcion">
-				<br> <label for="precio">Precio</label> <input type="checkbox"
-					id="precio" name="precio"> <label for="cantidadStock">Cantidad
-					en Stock</label> <input type="checkbox" id="cantidadStock"
-					name="cantidadStock"> <select name="categoria"
+				<br> <label for="precio">Precio</label> <input type="number"
+					id="precio" name="precio" min="0" required> <label for="cantidadStock">Cantidad
+					en Stock</label> <input type="number" id="cantidadStock"
+					name="cantidadStock" min="0" required> 
+					
+					 <br>
+					 <label for="categoria">Categoria:</label>
+					  <br>
+					<select name="idcategoria"
 					id="categoria" form="formulario">
 
 
-					<c:forEach items="${comboCategorias}" var="categoria">
+					<c:forEach items="${comboCategoria}" var="categoria">
 						<option value="${categoria.id}">${categoria.nombre}</option>
 					</c:forEach>
 
-				</select> <label for="precio">Proveedor:</label> <br> <select
-					name="idProvedor" id="idProvedor" form="formulario">
+ 		
+				</select>  <br> <label for="idProveedor">Proveedor:</label> <br> <select
+					name="idproveedor" id="idProveedor" form="formulario">
 
 					<c:forEach items="${comboProveedores}" var="proveedor">
 						<option value="${proveedor.id}">${proveedor.nombre}</option>

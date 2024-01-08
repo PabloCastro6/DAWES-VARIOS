@@ -65,7 +65,7 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		String sql = "INSERT INTO productos (Nombre,Descripcion,Precio,CantidadEnStock,"
-				+ " ID_Categoria,ID_Proveedor " + "  VALUES (?, ?, ?, ?, ?, ?) ";
+				+ " ID_Categoria,ID_Proveedor) VALUES (?, ?, ?, ?, ?, ?) ";
 
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
