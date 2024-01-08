@@ -9,6 +9,7 @@
 	 <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
 <header>
 <h2>Gestión de Tienda</h2>
 </header>

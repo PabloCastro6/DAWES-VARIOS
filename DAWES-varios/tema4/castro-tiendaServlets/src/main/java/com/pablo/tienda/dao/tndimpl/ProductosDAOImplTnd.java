@@ -47,7 +47,7 @@ public class ProductosDAOImplTnd implements IProductosDAO {
 		ps.setString(6,  idCategoria);
 		ps.setString(7, idProveedor);
 
-		System.out.println(ps.toString());
+		
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
