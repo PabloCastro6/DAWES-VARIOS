@@ -14,6 +14,7 @@ import com.pablo.tienda.dao.IProveedorDAO;
 import com.pablo.tienda.dao.tndimpl.ProveedorDAOImplTnd;
 import com.pablo.tienda.dtos.ClientesDTO;
 import com.pablo.tienda.dtos.PoblacionDTO;
+import com.pablo.tienda.negocio.impl.ClientesService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
