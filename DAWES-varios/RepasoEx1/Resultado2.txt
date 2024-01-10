@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings
+bin
+Resultado.txt
+src
+bjhfgjhfjhvbjg
+lkñljkj

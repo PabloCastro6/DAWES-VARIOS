@@ -2,5 +2,29 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.ICategoriasService"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.CategoriasDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductosDAO"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductosDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProveedorDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.ICategoriasDAO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProveedorDAO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.ProveedorDAOImplTnd"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.negocio.impl.ProductosService"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.negocio.impl.ProductoService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductoDAO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.negocio.IProductosService"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IComboDAO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ComboDTO"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="javax.naming.NamingException"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductoDTO"/>
 </qualifiedTypeNameHistroy>
