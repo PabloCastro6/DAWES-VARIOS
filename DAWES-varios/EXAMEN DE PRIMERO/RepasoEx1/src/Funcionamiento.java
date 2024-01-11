@@ -10,7 +10,7 @@ public class Funcionamiento {
 	private Scanner sc = new Scanner(System.in); //Crear un Scanner general de la consola 
 	
 	
-	public void flujoPrincipal() throws IOException {
+	public  void flujoPrincipal() throws IOException {
 		System.out.println("Dame una ruta:");
 		String ruta = sc.nextLine(); // Funcion para leer de la consola
 		 // String ruta = "C:\\Users\\Usuario\\Desktop\\1DAW\\PROGRAMACION\\programacion Jesus\\programacion\\Tema 5\\SuperGrep\\src\\com\\jesus\\superGrep";

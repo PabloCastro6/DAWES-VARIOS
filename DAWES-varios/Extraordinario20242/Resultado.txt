@@ -1,0 +1,3 @@
+fichero.txt
+fichero1.txt
+ficheroBuscar.txt

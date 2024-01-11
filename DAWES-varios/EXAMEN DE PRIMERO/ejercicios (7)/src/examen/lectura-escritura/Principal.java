@@ -13,6 +13,7 @@ public class Principal {
 		String ficheroBusqueda = sc.nextLine();
 		System.out.print("Introduce el fichero en el que escribir los resultados: ");
 		String ficheroResultados = sc.nextLine();
+		
 		try {
 			buscarPalabra(ficheroBusqueda, palabra, ficheroResultados);
 		} catch (IOException exception) {
