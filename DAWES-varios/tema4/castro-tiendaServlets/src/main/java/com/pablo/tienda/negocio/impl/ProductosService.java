@@ -5,11 +5,9 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
-import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
+
 import com.pablo.tienda.dao.tndimpl.ProductosDAOImplTnd;
-import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ProductosDTO;
-import com.pablo.tienda.negocio.ICategoriasService;
 import com.pablo.tienda.negocio.IProductosService;
 
 

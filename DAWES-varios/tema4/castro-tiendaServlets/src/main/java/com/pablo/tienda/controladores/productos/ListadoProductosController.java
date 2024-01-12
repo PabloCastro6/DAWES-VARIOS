@@ -7,9 +7,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,6 @@ import com.pablo.tienda.dao.tndimpl.ProveedorDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ProductosDTO;
 import com.pablo.tienda.dtos.ProveedorDTO;
-import com.pablo.tienda.negocio.impl.CategoriasService;
 import com.pablo.tienda.negocio.impl.ProductosService;
 
 /**

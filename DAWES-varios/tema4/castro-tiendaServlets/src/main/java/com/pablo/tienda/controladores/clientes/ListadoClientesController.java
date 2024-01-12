@@ -10,10 +10,10 @@ import javax.naming.NamingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.pablo.tienda.dao.IProveedorDAO;
-import com.pablo.tienda.dao.tndimpl.ProveedorDAOImplTnd;
+import com.pablo.tienda.dao.IPoblacionDAO;
+import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
 import com.pablo.tienda.dtos.ClientesDTO;
-import com.pablo.tienda.dtos.PoblacionDTO;
+import com.pablo.tienda.dtos.ClientesDTO;
 import com.pablo.tienda.negocio.impl.ClientesService;
 
 import jakarta.servlet.RequestDispatcher;
@@ -48,25 +48,35 @@ public class ListadoClientesController extends HttpServlet {
 	// RECUPERACION DE COMBOS
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
-
+		
+		String id = request.getParameter("id");
+		String nombre = request.getParameter("nombre");
+		String correo = request.getParameter("correo");
+		String poblacion = request.getParameter("poblaciones");
+		poblacion = (poblacion == null || poblacion.isEmpty() ? null : poblacion);
+		String activo = request.getParameter("activo");
+		
+		activo = (activo != null) ? "1" : "0";
+		
+		ClientesService clientesService = new ClientesService();
+		
 		try {
-			listaPoblacion = comboPoblacion.RecuperarPoblacion();
-
+			if(poblacion  != null) {
+				listadoClientes = clientesService.buscarClientes(id, nombre, correo, poblacion);
+			}else {
+				listadoClientes = clientesService.obtenerTodosClientes();
+			}
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		request.setAttribute("comboPoblacion", listaPoblacion);
-		System.out.println("1");
 
 		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/listadoClientes.jsp");
 		d.forward(request, response);
 	}
 
+	
+	
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -101,7 +111,7 @@ public class ListadoClientesController extends HttpServlet {
 		// RECUPERACION DE COMBOS
 
 		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new ProveedorDAOImplTnd();
+		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
 
 		try {
 			listaPoblacion = comboPoblacion.RecuperarPoblacion();

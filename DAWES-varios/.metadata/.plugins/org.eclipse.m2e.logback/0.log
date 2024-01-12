@@ -3427,3 +3427,5 @@ org.eclipse.jdt.core.JavaModelException: src/examen/lectura-escritura [in ejerci
 2024-01-09 00:41:33,053 [Worker-847: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-01-09 00:41:33,057 [Worker-847: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\Repo DAWES\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
 2024-01-09 17:49:38,252 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-01-11 09:29:31,246 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-01-12 10:21:00,850 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

@@ -27,4 +27,15 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductoDTO"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.pablo.model.ClientesModelo"/>
+    <fullyQualifiedTypeName name="model.ClienteDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.dto.ClienteDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.utils.DBUtils"/>
 </qualifiedTypeNameHistroy>
