@@ -19,36 +19,45 @@
 		<div class="form">
 			<form action="http://localhost:8080/tienda/clientes/listarclientes"
 				method="POST" id="formulario">
-				<label for="IdCliente"> Id Cliente</label> <input type="text" id="idCliente"
-					name="id">
 				
-				<label for="nombre"> Nombre</label> <input type="text" id="nombre"
-					name="nombre"> 
-					
-				<label for="correoElectronico">
-					Correo Electronico</label> <input type="text" id="correo" name="correo">
 				<br>
-				
-					
-					
-				<label for="Poblacion">Poblacion</label> <br> 
-				<select
-					name="idpoblacion" id="poblacion" form="formulario">
-
-					<br>
-
-
+				<label for="IdCliente"> Id Cliente</label> 
+				<br>
+				<input type="text" id="idCliente" name="id">
+				<br>
+				<label for="nombre"> Nombre</label>
+				<br> 
+				<input type="text" id="nombre" name="nombre"> 
+				<br>
+				<label for="correoElectronico">Correo Electronico</label> 
+				<br>
+				<input type="text" id="correo" name="correo">
+				<br>	
+				<label for="Poblacion">Poblacion</label>
+				 <br> 
+				 
+				 <select name="poblacion" var="poblacion"
+					form="formulario">
+					<option value="#" disabled selected>--Seleccione una poblacion--</option>
 					<c:forEach items="${comboPoblacion}" var="poblacion">
 						<option value="${poblacion.id}">${poblacion.nombre}</option>
 					</c:forEach>
 
+					<option value="${poblacion.idPoblacion}">${poblacion.poblacion}
+					</option>
 				</select> 
-		
-					
-				<br><br> 
-				<input type="submit" value="Buscar">
+				<br>
+				<br> 
+				<label for="activo"> Activo:</label>
+				<br>
+				<input type="checkbox" id="activo" name="activo">
+				<br>
+				<input type="submit" value="Enviar">
 			</form>
 		</div>
+		
+		
+		
 		
 		<c:if test="${not empty lista}">
 			<table>

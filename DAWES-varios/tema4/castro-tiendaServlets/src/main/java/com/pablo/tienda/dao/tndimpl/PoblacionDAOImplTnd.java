@@ -22,6 +22,7 @@ public class PoblacionDAOImplTnd implements IPoblacionDAO {
 	
 	private static final Logger logger = LoggerFactory.getLogger(ProveedorDAOImplTnd.class) ; 
 
+	@Override
 	public List<PoblacionDTO> RecuperarPoblacion() throws ClassNotFoundException, SQLException, NamingException {
 		
 		String sql = "SELECT ID, Nombre FROM Poblacion ORDER BY ID ";

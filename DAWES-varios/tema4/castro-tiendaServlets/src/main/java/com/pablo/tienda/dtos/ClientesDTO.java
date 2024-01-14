@@ -4,16 +4,16 @@ public class ClientesDTO {
 	
 	private Integer id_cliente;
 	private String nombre;
-	private String correoElectronico;
+	private String correo;
 	private Integer id_poblacion;
 	private Integer activo;
 	
 	
-	public ClientesDTO(Integer id_cliente, String nombre, String correoElectronico,  Integer id_poblacion, Integer activo) {
+	public ClientesDTO(Integer id_cliente, String nombre, String correo,  Integer id_poblacion, Integer activo) {
 		super();
 		this.id_cliente = id_cliente;
 		this.nombre = nombre;
-		this.correoElectronico = correoElectronico;
+		this.correo = correo;
 		this.id_poblacion = id_poblacion;
 		this.activo = activo;
 	}
@@ -40,12 +40,12 @@ public class ClientesDTO {
 
 
 	public String getCorreoElectronico() {
-		return correoElectronico;
+		return correo;
 	}
 
 
 	public void setCorreoElectronico(String correoElectronico) {
-		this.correoElectronico = correoElectronico;
+		this.correo = correoElectronico;
 	}
 
 
