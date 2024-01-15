@@ -43,8 +43,8 @@
 						<option value="${poblacion.id}">${poblacion.nombre}</option>
 					</c:forEach>
 
-					<option value="${poblacion.idPoblacion}">${poblacion.poblacion}
-					</option>
+					<option value="${cliente.idPoblacion}">${cliente.poblacion}</option>
+					
 				</select> 
 				<br>
 				<br> 
@@ -65,10 +65,8 @@
 					<th>ID</th>
 					<th>Nombre</th>
 					<th>CorreoElectronico</th>
-					<th>Contraseña</th>
-					<th>FechaRegistro</th>
-					<th>Id_Poblacion</th>
-					<th>activo</th>
+					<th>Poblacion</th>
+					<th>Activo</th>
 					
 
 
@@ -78,9 +76,7 @@
 						<td>${cliente.id}</td>
 						<td>${cliente.nombre}</td>
 						<td>${cliente.CorreoElectronico}</td>
-						<td>${cliente.Contraseña}</td>
-						<td>${cliente.FechaRegistro}</td>
-						<td>${cliente.Id_Poblacion}</td>
+						<td>${cliente.nombrePoblacion}</td>
 						<td>${cliente.activo}</td>
 					</tr>
 				</c:forEach>

@@ -47,7 +47,7 @@ public class FormularioModificarClientesController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<PoblacionDTO> listaPoblacion = new ArrayList();
-		IPoblacionDAO combosClientes = new PoblacionDAOImpl();
+		IPoblacionDAO combosClientes = new PoblacionDAOImplTnd();
 		
 		try {
 			listaPoblacion = combosClientes.recuperaComboMunicipios();

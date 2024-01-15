@@ -88,11 +88,8 @@ public class ListadoClientesController extends HttpServlet {
 		
 		
 		try {
-			 if(poblacion  != null) {
 				listadoClientes = clientesService.buscarCliente(id,nombre, correo, poblacion,activo);
-			}else {
-		 listadoClientes = clientesService.obtenerTodosClientes();
-		}
+			
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			e.printStackTrace();
 		}
@@ -111,110 +108,43 @@ public class ListadoClientesController extends HttpServlet {
 	 *      response)
 	 */
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String idPoblacion = request.getParameter("poblacion");
+		String idPoblacion = request.getParameter("idPoblacion");
 		String activo = request.getParameter("activo");
+		activo = (activo != null) ? "1":"0";
 
+	
+		
 		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clienteService = new ClientesService();
-
-		try {
-			listadoClientes = clienteService.buscarCliente(id, nombre, correo, idPoblacion, activo);
-
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			logger.error("Error al buscar cliente");
-			e.printStackTrace();
-		}
-
-		request.setAttribute("lista", listadoClientes);
-
-		System.out.println("clientes" + listadoClientes);
-
 		
-		
-		
-		
-		// RECUPERACION DE COMBOS
-
-		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
-
-
 		ClientesService clientesService = new ClientesService();
-		
-
 		try {
-			if(poblacion  != null) {
-				listadoClientes = clientesService.buscarClientes(id, nombre, correo, poblacion);
-			}else {
-				listadoClientes = clientesService.obtenerTodosClientes();
-			}
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			e.printStackTrace();
-		}
-
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/listadoClientes.jsp");
-		d.forward(request, response);
-	}
-
-	
-	
-	
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		String id = request.getParameter("id");
-		String nombre = request.getParameter("nombre");
-		String correoElectronico = request.getParameter("correoElectronico");
-		String idPoblacion = request.getParameter("idpoblacion");
-		String activo = request.getParameter("activo");
-
-		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clienteService = new ClientesService();
-
-		try {
-			listadoClientes = clienteService.buscarCliente(id, nombre, correoElectronico, idPoblacion, activo);
-
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			logger.error("Error al buscar cliente");
-			e.printStackTrace();
-		}
-
-		request.setAttribute("lista", listadoClientes);
-
-		System.out.println("clientes" + listadoClientes);
-
-		
-		
-		// RECUPERACION DE COMBOS
-
-		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
-
-		try {
-			listaPoblacion = comboPoblacion.RecuperarPoblacion();
-
+			listadoClientes = clientesService.buscarCliente(id, nombre, correo, idPoblacion, activo);
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		List<PoblacionDTO> listadoPoblaciones= new ArrayList<>();
+		
+		IPoblacionDAO comboCliente = new PoblacionDAOImplTnd();
+		
+		try {
 
-		request.setAttribute("comboPoblacion", listaPoblacion);
-		System.out.println("1");
-
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/listadoClientes.jsp");
+			listadoPoblaciones = comboCliente.RecuperarPoblacion();
+		} catch (ClassNotFoundException | SQLException | NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("comboMunicipio", listadoPoblaciones);
+		request.setAttribute("lista", listadoClientes);
+		
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/listadoClientes.jsp");
 		d.forward(request, response);
 	}
-
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
 }

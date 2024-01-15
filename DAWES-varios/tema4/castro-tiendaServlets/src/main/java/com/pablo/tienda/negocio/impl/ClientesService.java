@@ -5,14 +5,20 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
-
+import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
 import com.pablo.tienda.dao.tndimpl.ClientesDAOImplTnd;
+import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ClientesDTO;
 import com.pablo.tienda.negocio.IClientesService;
 
 public class ClientesService implements IClientesService {
 
-
+//
+//	@Override
+//	public List<CategoriasDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 	
 	@Override
 	public List<ClientesDTO> buscarCliente(String id, String nombre,String correo, String Poblacion, String activo)
@@ -40,6 +46,8 @@ public class ClientesService implements IClientesService {
 
 		return new ClientesDAOImplTnd().borrarClientes(id);
 	}
+
+	
 
 
 }

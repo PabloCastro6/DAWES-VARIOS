@@ -5,13 +5,15 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
-
+import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ClientesDTO;
 
 
 public interface IClientesService {
 	
 
+	List<CategoriasDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException;
+	
 	List<ClientesDTO> buscarCliente(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException;
 	
@@ -22,5 +24,6 @@ public interface IClientesService {
 			String activo) throws ClassNotFoundException, SQLException;
 	
 	public Integer borrarClientes(String id)throws ClassNotFoundException, SQLException;
+
 
 }

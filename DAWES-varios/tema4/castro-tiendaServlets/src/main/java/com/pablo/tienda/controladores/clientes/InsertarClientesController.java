@@ -100,7 +100,7 @@ public class InsertarClientesController  extends HttpServlet{
 		activo = (activo != null) ? "1":"0";
 
 		try {
-			resultado = new ClientesService().insertarCliente(nombre, correo, idPoblacion, activo);
+			resultado = new ClientesService().insertarClientes(nombre, correo, idPoblacion, activo);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -37,7 +37,7 @@
 						<option value="${poblacion.id}">${poblacion.nombre}</option>
 					</c:forEach>
 
- 		
+ 					<option value="${cliente.idPoblacion}">${cliente.poblacion} </option>
 				</select>
 			<br>
 			<label for="activo">Activo</label>
