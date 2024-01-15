@@ -12,14 +12,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.IPoblacionDAO;
-import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
 import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
-import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.dtos.ClientesDTO;
 import com.pablo.tienda.dtos.PoblacionDTO;
 import com.pablo.tienda.negocio.impl.ClientesService;
+import com.pablo.tienda.negocio.impl.PoblacionService;
+import com.pablo.tienda.negocio.IPoblacionService;
+
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -58,10 +58,11 @@ public class ListadoClientesController extends HttpServlet {
 		
 
 		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
+		IPoblacionService comboPoblaciones = new PoblacionService();
 		
 		try {
-			listaPoblaciones = comboPoblacion.RecuperarPoblacion();
+
+			listaPoblaciones = comboPoblaciones.recuperarPoblaciones();
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -71,31 +72,7 @@ public class ListadoClientesController extends HttpServlet {
 			
 		
 
-		String id = request.getParameter("id");
-		String nombre = request.getParameter("nombre");
-		String correo = request.getParameter("correo");
-		String poblacion = request.getParameter("poblaciones");
-		poblacion = (poblacion == null || poblacion.isEmpty() ? null : poblacion);
-		String activo = request.getParameter("activo");
-		
-		activo = (activo != null) ? "1" : "0";
-		
-
-		
-		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clientesService = new ClientesService();
-		
-		
-		
-		try {
-				listadoClientes = clientesService.buscarCliente(id,nombre, correo, poblacion,activo);
-			
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			e.printStackTrace();
-		}
-		
-		request.setAttribute("lista", listadoClientes);
-
+	
 		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/listadoClientes.jsp");
 		d.forward(request, response);
 	}
@@ -113,11 +90,9 @@ public class ListadoClientesController extends HttpServlet {
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String idPoblacion = request.getParameter("idPoblacion");
+		String idPoblacion = request.getParameter("poblacion");
 		String activo = request.getParameter("activo");
 		activo = (activo != null) ? "1":"0";
-
-	
 		
 		List<ClientesDTO> listadoClientes = new ArrayList<>();
 		
@@ -131,20 +106,20 @@ public class ListadoClientesController extends HttpServlet {
 		
 		List<PoblacionDTO> listadoPoblaciones= new ArrayList<>();
 		
-		IPoblacionDAO comboCliente = new PoblacionDAOImplTnd();
+		IPoblacionService comboPoblaciones = new PoblacionService();
 		
 		try {
 
-			listadoPoblaciones = comboCliente.RecuperarPoblacion();
+			listadoPoblaciones = comboPoblaciones.recuperarPoblaciones();
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("comboMunicipio", listadoPoblaciones);
+		request.setAttribute("comboPoblacion", listadoPoblaciones);
 		request.setAttribute("lista", listadoClientes);
 		
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/listadoClientes.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/listadoClientes.jsp");
 		d.forward(request, response);
 	}
 }

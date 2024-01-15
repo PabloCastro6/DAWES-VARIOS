@@ -1,10 +1,17 @@
 package com.pablo.tienda.controladores.clientes;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.NamingException;
+
 import com.pablo.tienda.dtos.ClientesDTO;
+import com.pablo.tienda.dtos.PoblacionDTO;
+import com.pablo.tienda.negocio.IPoblacionService;
+import com.pablo.tienda.negocio.impl.PoblacionService;
+import com.pablo.tienda.negocio.impl.ClientesService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -12,10 +19,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
-
-
-
 
 
 
@@ -40,18 +43,19 @@ public class FormularioBorrarClientesController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<ClientesDTO> listaClientes = new ArrayList();
-		IPoblacionDAO combosPoblaciones = new PoblacionDAOImplTnd();
-
+		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
+		IPoblacionService comboPoblaciones = new PoblacionService();
+		
 		try {
-			listaClientes = combosPoblaciones.recuperaMunicipios();
 
-		} catch (ClassNotFoundException | SQLException e) {
-
+			listaPoblaciones = comboPoblaciones.recuperarPoblaciones();
+		} catch (ClassNotFoundException | SQLException | NamingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		request.setAttribute("comboPoblaciones", listaClientes);
+		
+		
+		request.setAttribute("comboPoblaciones", listaPoblaciones);
 		
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
@@ -61,11 +65,12 @@ public class FormularioBorrarClientesController extends HttpServlet {
 		activo = (activo != null) ? "1":"0";
 
 		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clientesService = new ClienteService();
+		ClientesService clientesService = new ClientesService();
+		
 
 		try {
-			listadoClientes = clientesService.buscarClientes(id, nombre, correo, idPoblacion, activo);
-		} catch (ClassNotFoundException | SQLException e) {
+			listadoClientes = clientesService.buscarCliente(id, nombre, correo, idPoblacion, activo);
+		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			e.printStackTrace();
 		}
 		
@@ -73,7 +78,7 @@ public class FormularioBorrarClientesController extends HttpServlet {
 
 
 		RequestDispatcher d = getServletContext()
-				.getRequestDispatcher("/WEB-INF/clientes/borradoClientes.jsp");
+				.getRequestDispatcher("/WEB-INF/vistas/clientes/borrarClientes.jsp");
 		d.forward(request, response);
 	}
 

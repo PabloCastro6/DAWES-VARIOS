@@ -12,6 +12,6 @@ import com.pablo.tienda.dtos.PoblacionDTO;
 public interface IPoblacionDAO {
 	
 	
-	public List<PoblacionDTO> RecuperarPoblacion() throws ClassNotFoundException, SQLException, NamingException;
+	public List<PoblacionDTO> recuperarPoblaciones() throws ClassNotFoundException, SQLException, NamingException;
 
 }

@@ -9,6 +9,7 @@ public class ClientesDTO {
 	private Integer activo;
 	
 	
+	
 	public ClientesDTO(Integer id_cliente, String nombre, String correo,  Integer id_poblacion, Integer activo) {
 		super();
 		this.id_cliente = id_cliente;
@@ -39,13 +40,13 @@ public class ClientesDTO {
 	}
 
 
-	public String getCorreoElectronico() {
+	public String getCorreo() {
 		return correo;
 	}
 
 
-	public void setCorreoElectronico(String correoElectronico) {
-		this.correo = correoElectronico;
+	public void setCorreo(String correo) {
+		this.correo = correo;
 	}
 
 

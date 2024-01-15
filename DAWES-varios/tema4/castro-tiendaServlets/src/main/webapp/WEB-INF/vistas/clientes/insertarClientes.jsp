@@ -24,7 +24,7 @@
 						<br>
 			<label for="correo">Correo Electronico</label>
 						<br>
-			<input type ="text" id="correo" name="correo">
+			<input type ="email" id="correo" name="correo" required>
 			<br>
 			
 			<label for="poblacion">Poblacion:</label>

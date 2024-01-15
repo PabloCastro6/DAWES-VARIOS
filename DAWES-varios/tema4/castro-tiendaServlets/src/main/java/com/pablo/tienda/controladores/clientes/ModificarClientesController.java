@@ -10,8 +10,9 @@ import javax.naming.NamingException;
 import com.pablo.tienda.dao.IPoblacionDAO;
 import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
 import com.pablo.tienda.dtos.PoblacionDTO;
+import com.pablo.tienda.negocio.IPoblacionService;
 import com.pablo.tienda.negocio.impl.ClientesService;
-
+import com.pablo.tienda.negocio.impl.PoblacionService;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -54,20 +55,18 @@ public class ModificarClientesController extends HttpServlet {
 		
 		ClientesService clientesService = new ClientesService();
 		
-		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
-
-
+		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
+		IPoblacionService comboPoblaciones = new PoblacionService();
 		
-
 		try {
-			listaPoblacion = comboPoblacion.RecuperarPoblacion();
-			
+
+			listaPoblaciones = comboPoblaciones.recuperarPoblaciones();
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		request.setAttribute("comboMunicipios", listaPoblacion);
+		request.setAttribute("comboMunicipios", listaPoblaciones);
 	}
 
 

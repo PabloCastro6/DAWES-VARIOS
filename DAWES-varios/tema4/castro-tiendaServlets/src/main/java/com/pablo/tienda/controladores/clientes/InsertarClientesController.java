@@ -11,8 +11,9 @@ import com.pablo.tienda.dao.IPoblacionDAO;
 import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
 import com.pablo.tienda.dtos.ClientesDTO;
 import com.pablo.tienda.dtos.PoblacionDTO;
+import com.pablo.tienda.negocio.IPoblacionService;
 import com.pablo.tienda.negocio.impl.ClientesService;
-
+import com.pablo.tienda.negocio.impl.PoblacionService;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -42,10 +43,11 @@ public class InsertarClientesController  extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
-		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
+		IPoblacionService comboPoblaciones = new PoblacionService();
 		
 		try {
-			listaPoblaciones = comboPoblacion.RecuperarPoblacion();
+
+			listaPoblaciones = comboPoblaciones.recuperarPoblaciones();
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,33 +56,7 @@ public class InsertarClientesController  extends HttpServlet{
 		request.setAttribute("comboPoblacion", listaPoblaciones);
 			
 		
-		String id = request.getParameter("id");
-		String nombre = request.getParameter("nombre");
-		String correo = request.getParameter("correo");
-		String poblacion = request.getParameter("poblaciones");
-		poblacion = (poblacion == null || poblacion.isEmpty() ? null : poblacion);
-		String activo = request.getParameter("activo");
-		
-		activo = (activo != null) ? "1" : "0";
-		
-		
-		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clientesService = new ClientesService();
-		
-		
-		
-		try {
-			 if(poblacion  != null) {
-				listadoClientes = clientesService.buscarCliente(id,nombre, correo, poblacion,activo);
-			}else {
-		 listadoClientes = clientesService.obtenerTodosClientes();
-		}
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			e.printStackTrace();
-		}
-		
-		request.setAttribute("lista", listadoClientes);
-
+	
 		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/insertarClientes.jsp");
 		d.forward(request, response);
 	}
@@ -94,7 +70,7 @@ public class InsertarClientesController  extends HttpServlet{
 
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String idPoblacion = request.getParameter("poblacion");
+		String idPoblacion = request.getParameter("idpoblacion");
 		String activo = request.getParameter("activo");
 		
 		activo = (activo != null) ? "1":"0";

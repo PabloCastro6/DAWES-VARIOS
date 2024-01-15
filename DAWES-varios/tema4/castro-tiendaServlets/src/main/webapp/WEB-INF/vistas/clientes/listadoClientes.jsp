@@ -21,7 +21,7 @@
 				method="POST" id="formulario">
 				
 				<br>
-				<label for="IdCliente"> Id Cliente</label> 
+				<label for="idCliente"> Id Cliente</label> 
 				<br>
 				<input type="text" id="idCliente" name="id">
 				<br>
@@ -29,16 +29,16 @@
 				<br> 
 				<input type="text" id="nombre" name="nombre"> 
 				<br>
-				<label for="correoElectronico">Correo Electronico</label> 
+				<label for="correo">Correo Electronico</label> 
 				<br>
 				<input type="text" id="correo" name="correo">
 				<br>	
-				<label for="Poblacion">Poblacion</label>
+				<label for="poblacion">Poblacion</label>
 				 <br> 
 				 
-				 <select name="poblacion" var="poblacion"
+				 <select id="poblacion" name="poblacion" 
 					form="formulario">
-					<option value="#" disabled selected>--Seleccione una poblacion--</option>
+					<option value="" selected>--Seleccione una poblacion--</option>
 					<c:forEach items="${comboPoblacion}" var="poblacion">
 						<option value="${poblacion.id}">${poblacion.nombre}</option>
 					</c:forEach>
@@ -73,10 +73,10 @@
 				</tr>
 				<c:forEach items="${lista}" var="cliente">
 					<tr>
-						<td>${cliente.id}</td>
+						<td>${cliente.id_cliente}</td>
 						<td>${cliente.nombre}</td>
-						<td>${cliente.CorreoElectronico}</td>
-						<td>${cliente.nombrePoblacion}</td>
+						<td>${cliente.correo}</td>
+						<td>${cliente.id_poblacion}</td>
 						<td>${cliente.activo}</td>
 					</tr>
 				</c:forEach>

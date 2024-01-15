@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,13 +27,13 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 		String sql = null;
 		
 		if(poblacion.equals("")) {
-			sql = "SELECT c.ID_Cliente, c.Nombre, c.CorreoElectronico, p.Nombre, c.`ID_Poblacion`, c.activo "
-					+ " FROM cliente c " + " INNER JOIN poblacion p " + " ON p.ID = c.ID_Poblacion "
+			sql = "SELECT c.ID_Cliente, c.Nombre, c.CorreoElectronico, c.ID_Poblacion, c.activo "
+					+ " FROM clientes c " + " INNER JOIN poblacion p " + " ON p.ID = c.ID_Poblacion "
 					+ " WHERE c.ID_Cliente LIKE ? AND c.Nombre LIKE ? AND c.CorreoElectronico LIKE ?  "
 					+ " AND c.activo = ?";
 		} else {
-			sql =  "SELECT c.ID_Cliente, c.Nombre, c.CorreoElectronico, p.Nombre, c.ID_Poblacion, c.activo "
-					+ " FROM cliente c " + " INNER JOIN poblacion p " + " ON p.ID = c.ID_Poblacion "
+			sql =  "SELECT c.ID_Cliente, c.Nombre, c.CorreoElectronico, c.ID_Poblacion, c.activo "
+					+ " FROM clientes c " + " INNER JOIN poblacion p " + " ON p.ID = c.ID_Poblacion "
 					+ " WHERE c.ID_Cliente LIKE ? AND c.Nombre LIKE ? AND c.CorreoElectronico LIKE ? "
 					+ " AND c.ID_Poblacion = ? AND c.activo = ? ";
 		}
@@ -57,18 +58,15 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 			ps.setString(5, activo);
 			
 		}
+		
 		System.out.println(ps.toString());
 		ResultSet clientesRS = ps.executeQuery();
 		while (clientesRS.next()) {
-			
-		}
-		
-		{
+			listaClientes.add(new ClientesDTO(clientesRS.getInt(1),clientesRS.getString(2),clientesRS.getString(3),clientesRS.getInt(4),clientesRS.getInt(5)));
+		}	
 			connection.close();
 			return listaClientes;
 			
-		}
-		
 		
 	}
 	
