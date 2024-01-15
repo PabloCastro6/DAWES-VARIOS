@@ -47,7 +47,7 @@ public class FormularioModificarClientesController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		List<PoblacionDTO> listaPoblacion = new ArrayList();
-		IPoblacionDAO combosClientes = new PoblacionDAOImplTnd();
+		IClientesDAO combosClientes = new ClientesDAOImplTnd();
 		
 		try {
 			listaPoblacion = combosClientes.recuperaComboMunicipios();
@@ -81,38 +81,6 @@ public class FormularioModificarClientesController extends HttpServlet {
 
 		RequestDispatcher d = getServletContext()
 				.getRequestDispatcher("/WEB-INF/clientes/modificadoClientes.jsp");
-		d.forward(request, response);
-		
-		
-		
-	}
-	
-
-}
-
-
-		
-		
-		
-		
-		
-		
-		
-		
-		List<ClienteDTO> listadoClientes = new ArrayList<>();
-		ClientesServices clientesService = new ClientesServices();
-
-		try {
-			listadoClientes = clientesService.buscarClientes(id, nombre, correo, idPoblacion, activo);
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}
-		
-		request.setAttribute("lista", listadoClientes);
-
-
-		RequestDispatcher d = getServletContext()
-				.getRequestDispatcher("/WEB-INF/vistaClientes/actualizadoClientes.jsp");
 		d.forward(request, response);
 		
 		

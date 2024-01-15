@@ -12,7 +12,7 @@ import com.pablo.tienda.dtos.ClientesDTO;
 public interface IClientesService {
 	
 
-	List<CategoriasDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException;
+	List<ClientesDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException;
 	
 	List<ClientesDTO> buscarCliente(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException;

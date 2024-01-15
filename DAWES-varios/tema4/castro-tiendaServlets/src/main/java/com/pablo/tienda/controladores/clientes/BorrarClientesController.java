@@ -1,6 +1,9 @@
 package com.pablo.tienda.controladores.clientes;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -8,6 +11,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import com.pablo.tienda.negocio.IClientesService;
+import com.pablo.tienda.negocio.impl.ClientesServices;
 
 
 
@@ -40,7 +45,7 @@ public class BorrarClientesController extends HttpServlet {
 		
 		try {
 			clientesService.borrarClientes(id);
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
