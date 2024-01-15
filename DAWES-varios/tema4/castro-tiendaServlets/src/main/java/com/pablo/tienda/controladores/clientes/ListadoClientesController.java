@@ -11,18 +11,14 @@ import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
 
-<<<<<<< HEAD
+
 import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.IPoblacionDAO;
 import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
 import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
-=======
-import com.pablo.tienda.dao.IPoblacionDAO;
-import com.pablo.tienda.dao.tndimpl.PoblacionDAOImplTnd;
 import com.pablo.tienda.dtos.ClientesDTO;
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
-import com.pablo.tienda.dtos.ClientesDTO;
+import com.pablo.tienda.dtos.PoblacionDTO;
 import com.pablo.tienda.negocio.impl.ClientesService;
 
 import jakarta.servlet.RequestDispatcher;
@@ -60,7 +56,7 @@ public class ListadoClientesController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-<<<<<<< HEAD
+
 		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
 		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
 		
@@ -74,8 +70,7 @@ public class ListadoClientesController extends HttpServlet {
 		request.setAttribute("comboPoblacion", listaPoblaciones);
 			
 		
-=======
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
+
 		String id = request.getParameter("id");
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
@@ -85,7 +80,7 @@ public class ListadoClientesController extends HttpServlet {
 		
 		activo = (activo != null) ? "1" : "0";
 		
-<<<<<<< HEAD
+
 		
 		List<ClientesDTO> listadoClientes = new ArrayList<>();
 		ClientesService clientesService = new ClientesService();
@@ -149,10 +144,10 @@ public class ListadoClientesController extends HttpServlet {
 		List<PoblacionDTO> listaPoblacion = new ArrayList<PoblacionDTO>();
 		IPoblacionDAO comboPoblacion = new PoblacionDAOImplTnd();
 
-=======
+
 		ClientesService clientesService = new ClientesService();
 		
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
+
 		try {
 			if(poblacion  != null) {
 				listadoClientes = clientesService.buscarClientes(id, nombre, correo, poblacion);
@@ -167,8 +162,6 @@ public class ListadoClientesController extends HttpServlet {
 		d.forward(request, response);
 	}
 
-<<<<<<< HEAD
-=======
 	
 	
 	

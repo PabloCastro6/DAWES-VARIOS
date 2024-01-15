@@ -23,25 +23,22 @@ public class PoblacionDAOImplTnd implements IPoblacionDAO {
 	private static final Logger logger = LoggerFactory.getLogger(ProveedorDAOImplTnd.class) ; 
 
 	@Override
-	public List<PoblacionDTO> RecuperarPoblacion() throws ClassNotFoundException, SQLException, NamingException {
+	public List<PoblacionDTO> RecuperarPoblacion() throws ClassNotFoundException, SQLException {
+
+		String sql = "SELECT * FROM poblacion ORDER BY nombre";
 		
-		String sql = "SELECT ID, Nombre FROM Poblacion ORDER BY ID ";
+		List<PoblacionDTO>listaPoblacion = new ArrayList<>();
 		
-		List<PoblacionDTO> listaPoblaciones = new ArrayList<>();
 		Connection connection = DBUtils.conectaBBDD();
 		PreparedStatement ps = connection.prepareStatement(sql);
-		
 		ResultSet rs = ps.executeQuery();
 		
-		while(rs.next()) {
-			listaPoblaciones.add(new PoblacionDTO(rs.getInt(1), rs.getString(2)));
-			logger.info("añadida poblacion " + rs.getInt(1)+ " " + rs.getString(2)  );
 		
+		while(rs.next()) {
+			listaPoblacion.add(new PoblacionDTO(rs.getInt(1), rs.getString(2)));
 		}
 		connection.close();
-		return listaPoblaciones;
-	
+		return listaPoblacion;
 	}
-
 
 }

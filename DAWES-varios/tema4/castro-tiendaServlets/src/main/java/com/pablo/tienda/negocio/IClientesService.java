@@ -7,15 +7,20 @@ import javax.naming.NamingException;
 
 
 import com.pablo.tienda.dtos.ClientesDTO;
-import com.pablo.tienda.dtos.ProductosDTO;
+
 
 public interface IClientesService {
 	
-	public List<ClientesDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException;
 
 	List<ClientesDTO> buscarCliente(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException;
 	
-	public Integer insertarCliente (String nombre, String correo, String poblacion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+	public Integer insertarClientes (String nombre, String correo, String poblacion, String activo)throws ClassNotFoundException, SQLException, NamingException;
+
+	
+	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion,
+			String activo) throws ClassNotFoundException, SQLException;
+	
+	public Integer borrarClientes(String id)throws ClassNotFoundException, SQLException;
 
 }

@@ -91,30 +91,31 @@ public class InsertarClientesController  extends HttpServlet{
 			throws ServletException, IOException {
 		Integer resultado = 0;
 		
-		
-		String id = request.getParameter("id");
+
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
 		String idPoblacion = request.getParameter("poblacion");
 		String activo = request.getParameter("activo");
-
-		List<ClientesDTO> listadoClientes = new ArrayList<>();
-		ClientesService clienteService = new ClientesService();
+		
+		activo = (activo != null) ? "1":"0";
 
 		try {
-			listadoClientes = clienteService.buscarCliente(id, nombre, correo, idPoblacion, activo);
-
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			
+			resultado = new ClientesService().insertarCliente(nombre, correo, idPoblacion, activo);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		request.setAttribute("lista", listadoClientes);
-
-		System.out.println("clientes" + listadoClientes);
-
-		doGet(request,response);
 		
+		request.setAttribute("resultado", resultado);
+		
+		doGet(request, response);
+	}
+	
+	
+}		
 		
 		
 //		// RECUPERACION DE COMBOS
@@ -137,8 +138,7 @@ public class InsertarClientesController  extends HttpServlet{
 //	}
 
 
-	}
-}
+
 
 
 

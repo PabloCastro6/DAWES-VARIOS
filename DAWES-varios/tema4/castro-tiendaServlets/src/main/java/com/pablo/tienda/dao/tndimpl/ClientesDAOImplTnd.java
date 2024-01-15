@@ -1,6 +1,6 @@
 package com.pablo.tienda.dao.tndimpl;
 
-<<<<<<< HEAD
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,12 +18,6 @@ import com.pablo.tienda.utils.DBUtils;
 public class ClientesDAOImplTnd implements IClientesDAO {
 	
 	
-	
-	@Override
-	public List<ClientesDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	
 	@Override 
@@ -79,7 +73,7 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 	}
 	
 	@Override
-	public Integer insertarCliente(String nombre, String correo, String poblacion, String activo)
+	public Integer insertarClientes(String nombre, String correo, String poblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		String sql = "INSERT INTO clientes (Nombre,CorreoElectronico,ID_Poblacion,activo) VALUES (?, ?, ?, ?) ";
@@ -100,11 +94,47 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 	}
 
 
+	@Override
+	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
+			throws ClassNotFoundException, SQLException {
+
+		String sql = "UPDATE clientes SET Nombre = ?, CorreoElectronico = ?, ID_Poblacion = ?, activo = ? WHERE ID_Cliente = ? ";
+
+		Connection connection = DBUtils.conectaBBDD();
+		PreparedStatement ps = connection.prepareStatement(sql);
+
+		ps.setString(1, nombre);
+		ps.setString(2, correo);
+		ps.setString(3, idPoblacion);
+		ps.setString(4, activo);
+		ps.setString(5, id);
+
+		Integer resultado = ps.executeUpdate();
+		ps.toString();
+		System.out.println(ps.toString());
+		connection.close();
+
+		return resultado;
+	}
+
+	@Override
+	public Integer borrarClientes(String id) throws ClassNotFoundException, SQLException {
+
+		String sql = "UPDATE clientes SET activo = 0 "
+				+ " WHERE ID_Cliente = ? ";
+		
+		Connection connection = DBUtils.conectaBBDD();
+		
+		PreparedStatement ps = connection.prepareStatement(sql);
+		
+		ps.setString(1, id);
+		
+		Integer resultado = ps.executeUpdate();
+		connection.close();
+		return resultado;
+	}
 
 
 	
-=======
-public class ClientesDAOImplTnd {
-
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
 }
+

@@ -5,24 +5,15 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
 import com.pablo.tienda.dao.tndimpl.ClientesDAOImplTnd;
 import com.pablo.tienda.dtos.ClientesDTO;
-import com.pablo.tienda.dtos.ProductosDTO;
 import com.pablo.tienda.negocio.IClientesService;
 
 public class ClientesService implements IClientesService {
 
-	@Override
-	public List<ClientesDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
-<<<<<<< HEAD
 	@Override
 	public List<ClientesDTO> buscarCliente(String id, String nombre,String correo, String Poblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -31,18 +22,24 @@ public class ClientesService implements IClientesService {
 	}
 	
 	@Override
-	public Integer insertarCliente( String nombre, String correo, String poblacion, String activo)
+	public Integer insertarClientes(String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return new ClientesDAOImplTnd().insertarCliente(nombre, correo, poblacion, activo);
-	}
-=======
-	public List<ClientesDTO> buscarProducto(String id, String nombre, String correoElectronico, String poblacion)
-			throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return new ClientesDAOImplTnd().buscarProductos(id, nombre, correoElectronico,poblacion);
+
+		return new ClientesDAOImplTnd().insertarClientes( nombre, correo, idPoblacion, activo);
 	}
 
->>>>>>> 2bd2a32303b039dc63ff177d4dc1d5bba7129039
+	@Override
+	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
+			throws ClassNotFoundException, SQLException {
+
+		return new ClientesDAOImplTnd().actualizarClientes(id, nombre, correo, idPoblacion, activo);
+	}
+
+	@Override
+	public Integer borrarClientes(String id) throws ClassNotFoundException, SQLException {
+
+		return new ClientesDAOImplTnd().borrarClientes(id);
+	}
+
 
 }
