@@ -50,7 +50,7 @@ public class BorrarClientesController extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/borradoClientes.jsp");
+		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/borrarClientes.jsp");
 		d.forward(request, response);
 	}
 

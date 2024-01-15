@@ -86,16 +86,15 @@ public class ProductoController {
 
 	
 	@GetMapping("modificarproducto")
-	
-	public String getFormularioActualizarProducto(ModelMap model)
+	public String getFormularioModificarProducto(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 		
 		recuperacionCombos(model);
 
-		return "productos/actualizarProducto";
+		return "productos/modificarProducto";
 	}
 
-	@PostMapping("modificarproducto")
+	@PostMapping("formulariomodificarproducto")
 	public String getFormularioModificarProducto(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion, @RequestParam("precio") String precio,
 			@RequestParam("cantidadStock") String cantidadStock, @RequestParam("idCategoria") String idCategoria,

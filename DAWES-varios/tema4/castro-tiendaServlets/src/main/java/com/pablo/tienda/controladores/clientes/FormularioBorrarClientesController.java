@@ -35,6 +35,19 @@ public class FormularioBorrarClientesController extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<PoblacionDTO> listaPoblaciones = new ArrayList<PoblacionDTO>();
+		IPoblacionService comboPoblaciones = new PoblacionService();
+		
+		try {
+
+			listaPoblaciones = comboPoblaciones.recuperarPoblaciones();
+		} catch (ClassNotFoundException | SQLException | NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		request.setAttribute("comboPoblacion", listaPoblaciones);
 		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/vistas/clientes/borrarClientes.jsp");
 		d.forward(request, response);
 	}

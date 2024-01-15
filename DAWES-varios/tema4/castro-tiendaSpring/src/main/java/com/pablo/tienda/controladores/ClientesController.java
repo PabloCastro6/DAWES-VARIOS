@@ -20,9 +20,6 @@ import com.pablo.tienda.negocio.IClientesService;
 
 
 
-
-
-
 @Controller
 @RequestMapping("/clientes")
 public class ClientesController {
@@ -70,7 +67,7 @@ public class ClientesController {
 
 		model.addAttribute("comboMunicipio", listaClientes);
 
-		return "clientes/insertadoClientes";
+		return "clientes/insertarClientes";
 
 	}
 
@@ -91,7 +88,7 @@ public class ClientesController {
 
 		model.addAttribute("resultado", resultado);
 
-		return "clientes/insertadoClientes";
+		return "clientes/insertarClientes";
 
 	}
 	
@@ -103,7 +100,7 @@ public class ClientesController {
 
 		model.addAttribute("comboMunicipio", listaClientes);
 
-		return "clientes/actualizadoClientes";
+		return "clientes/modificarClientes";
 
 	}
 	
@@ -124,10 +121,10 @@ public class ClientesController {
 		
 		model.addAttribute("lista", listaCliente);
 
-		return "clientes/actualizadoClientes";
+		return "clientes/modificarClientes";
 	}
 	
-	@PostMapping("actualizarcliente")
+	@PostMapping("modificarcliente")
 	public String Clientes(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
 			@RequestParam("idPoblacion") String idPoblacion,
@@ -142,7 +139,7 @@ public class ClientesController {
 
 		clientesService.modificarClientes(id, nombre, correo, idPoblacion, activo);
 
-		return "clientes/actualizadoClientes";
+		return "clientes/modificarClientes";
 	}
 	
 	@GetMapping("formularioborrarcliente")
@@ -153,7 +150,7 @@ public class ClientesController {
 
 		model.addAttribute("comboMunicipio", listaClientes);
 
-		return "clientes/borradoClientes";
+		return "clientes/borrarClientes";
 
 	}
 	
@@ -174,7 +171,7 @@ public class ClientesController {
 		
 		model.addAttribute("lista", listaCliente);
 
-		return "clientes/borradoClientes";
+		return "clientes/borrarClientes";
 	}
 	
 	@PostMapping("borrarclientes")
@@ -186,7 +183,7 @@ public class ClientesController {
 		
 		clientesService.borrarClientes(id);
 		
-		return "clientes/borradoClientes";
+		return "clientes/borrarClientes";
 	}
 
 

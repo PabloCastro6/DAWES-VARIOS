@@ -29,7 +29,7 @@ public class ProveedoresServices {
 		}
 
 		@Override
-		public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
+		public Integer modificarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 				throws ClassNotFoundException, SQLException {
 
 			return new ClientesDAOImplTnd().actualizarClientes(id, nombre, correo, idPoblacion, activo);
@@ -42,6 +42,6 @@ public class ProveedoresServices {
 		}
 
 
-		
 
+	}
 }

@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +21,11 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 
 	
 	@Override 
-	public List<ClientesDTO> buscarCliente (String id, String nombre, String correo,String poblacion, String activo)
+	public List<ClientesDTO> buscarCliente (String id, String nombre, String correo,String idpoblacion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 		String sql = null;
 		
-		if(poblacion.equals("")) {
+		if(idpoblacion.equals("")) {
 			sql = "SELECT c.ID_Cliente, c.Nombre, c.CorreoElectronico, c.ID_Poblacion, c.activo "
 					+ " FROM clientes c " + " INNER JOIN poblacion p " + " ON p.ID = c.ID_Poblacion "
 					+ " WHERE c.ID_Cliente LIKE ? AND c.Nombre LIKE ? AND c.CorreoElectronico LIKE ?  "
@@ -43,7 +42,7 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 		
 		PreparedStatement ps = connection.prepareStatement(sql);
 		
-		if(poblacion.equals("")) {
+		if(idpoblacion.equals("")) {
 			ps.setString(1,  "%" + id + "%");
 			ps.setString(2,  "%" + nombre + "%");
 			ps.setString(3,  "%" + correo + "%");
@@ -54,7 +53,7 @@ public class ClientesDAOImplTnd implements IClientesDAO {
 			ps.setString(1,  "%" + id + "%");
 			ps.setString(2,  "%" + nombre + "%");
 			ps.setString(3,  "%" + correo + "%");
-			ps.setString(4, poblacion);
+			ps.setString(4, idpoblacion);
 			ps.setString(5, activo);
 			
 		}

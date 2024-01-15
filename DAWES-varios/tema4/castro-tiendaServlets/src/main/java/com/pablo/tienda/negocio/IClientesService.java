@@ -23,7 +23,7 @@ public interface IClientesService {
 	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion,
 			String activo) throws ClassNotFoundException, SQLException;
 	
-	public Integer borrarClientes(String id)throws ClassNotFoundException, SQLException;
+	public Integer borrarClientes(String idPoblacion)throws ClassNotFoundException, SQLException;
 
 
 }

@@ -54,7 +54,7 @@
 	
 		<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/borrarclientes" method = "POST">
+		<form action = "http://localhost:8080/tienda/clientes/borrarcliente" method = "POST">
 
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id" value="${cliente.id}" readonly>
@@ -62,13 +62,13 @@
 			<label for = "nombre">Nombre</label>
 				<input type = "text" id = "nombre" name = "nombre" value="${cliente.nombre}">
 			<br>
-			<label for = "correo">Correo Electr�nico</label>
+			<label for = "correo">Correo Electronico</label>
 				<input type = "text" id = "correo" name = "correo" value="${cliente.correo}">
 			<br>
 			<label for = "idPoblacion">Poblacion</label>
 			
 			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected> - Selecciona una poblaci�n - </option>
+			<option value="" selected> - Selecciona una poblacion - </option>
 				<c:forEach items ="${comboClientes}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>

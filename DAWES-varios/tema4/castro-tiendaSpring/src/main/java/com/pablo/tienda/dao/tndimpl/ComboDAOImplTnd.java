@@ -52,5 +52,25 @@ public class ComboDAOImplTnd implements IComboDAO {
 		return listaProveedores;
 	}
 
+	@Override
+	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException {
+		String sql = "SELECT * FROM poblacion ORDER BY nombre";
+		
+		List<ComboDTO>listaMunicipio = new ArrayList<>();
+		
+		Connection connection = DBUtils.conectaBBDD();
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		
+		
+		while(rs.next()) {
+			listaMunicipio.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
+		}
+		connection.close();
+		return listaMunicipio;
+	}
+
+	
+
 }
 

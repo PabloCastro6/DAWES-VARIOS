@@ -30,7 +30,7 @@ public class ClientesServices implements IClientesService {
 	public Integer modificarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
 
-		return new ClientesDAOImplTnd().modificarClientes(id, nombre, correo, idPoblacion, activo);
+		return new ClientesDAOImplTnd().actualizarClientes(id, nombre, correo, idPoblacion, activo);
 	}
 
 	@Override
