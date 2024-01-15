@@ -12,7 +12,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import com.pablo.tienda.negocio.IClientesService;
-import com.pablo.tienda.negocio.impl.ClientesServices;
 
 
 
@@ -34,24 +33,24 @@ public class BorrarClientesController extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String id = request.getParameter("id");
-		
-		IClientesService clientesService = new ClientesServices();
-		
-		try {
-			clientesService.borrarClientes(id);
-		} catch (ClassNotFoundException | SQLException | NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/borradoClientes.jsp");
-		d.forward(request, response);
-	}
+//	/**
+//	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+//	 */
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//
+//		String id = request.getParameter("id");
+//		
+//		IClientesService clientesService = new ClientesServices();
+//		
+//		try {
+//			clientesService.borrarClientes(id);
+//		} catch (ClassNotFoundException | SQLException | NamingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		RequestDispatcher d = getServletContext().getRequestDispatcher("/WEB-INF/clientes/borradoClientes.jsp");
+//		d.forward(request, response);
+//	}
 
 }
