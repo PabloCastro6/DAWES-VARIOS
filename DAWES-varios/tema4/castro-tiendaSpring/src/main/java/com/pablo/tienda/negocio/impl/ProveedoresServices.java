@@ -3,45 +3,45 @@ package com.pablo.tienda.negocio.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.naming.NamingException;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.pablo.tienda.dao.tndimpl.ClientesDAOImplTnd;
-import com.pablo.tienda.dtos.ClienteDTO;
-import com.pablo.tienda.negocio.IClientesService;
+import com.pablo.tienda.dao.IProveedorDAO;
+import com.pablo.tienda.dtos.ProveedorDTO;
+import com.pablo.tienda.negocio.IProveedoresService;
 
 public class ProveedoresServices {
 	
 	@Component
-	public class ClientesServices implements IClientesService{
+	public class ProveedoresService implements IProveedoresService {
 
+		@Autowired
+		IProveedorDAO proveedorDAO;
 		@Override
-		public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
-				throws ClassNotFoundException, SQLException {
+		public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,
+				String correo, String direccion, String activo)
+				throws ClassNotFoundException, SQLException, NamingException {
 			
-			return new ClientesDAOImplTnd().buscarClientes(id, nombre, correo,idPoblacion, activo);
+			return proveedorDAO.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
 		}
-
 		@Override
-		public Integer insertarClientes(String nombre, String correo, String idPoblacion, String activo)
-				throws ClassNotFoundException, SQLException {
-
-			return new ClientesDAOImplTnd().insertarClientes( nombre, correo, idPoblacion, activo);
+		public Integer insertarProveedores(String nombre, String contacto, String telefono, String correo, String direccion,
+				String activo) throws ClassNotFoundException, SQLException, NamingException {
+			return proveedorDAO.insertarProveedores(nombre, contacto, telefono, correo, direccion, activo);
 		}
-
 		@Override
-		public Integer modificarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
-				throws ClassNotFoundException, SQLException {
-
-			return new ClientesDAOImplTnd().actualizarClientes(id, nombre, correo, idPoblacion, activo);
+		public Integer actualizarProveedores(String id, String nombre, String contacto, String telefono, String correo,
+				String direccion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+			return proveedorDAO.actualizarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
 		}
-
 		@Override
-		public Integer borrarClientes(String id) throws ClassNotFoundException, SQLException {
-
-			return new ClientesDAOImplTnd().borrarClientes(id);
+		public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
+			
+			return proveedorDAO.borrarProveedores(id);
 		}
 
-
-
+	
 	}
 }

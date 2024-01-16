@@ -3,7 +3,7 @@ package com.pablo.tienda.dtos;
 public class ProveedorDTO {
 
 
-	private Integer id_proveedor;
+	private Integer id;
 	private String nombre;
 	private String Contacto;
 	private String telefono;
@@ -11,10 +11,10 @@ public class ProveedorDTO {
 	private String direccion;
 	private Integer activo;
 	
-	public ProveedorDTO(Integer id_proveedor, String nombre, String contacto, String telefono, String correo,
+	public ProveedorDTO(Integer id, String nombre, String contacto, String telefono, String correo,
 			String direccion, Integer activo) {
 		super();
-		this.id_proveedor = id_proveedor;
+		this.id = id;
 		this.nombre = nombre;
 		Contacto = contacto;
 		this.telefono = telefono;
@@ -27,12 +27,12 @@ public class ProveedorDTO {
 		super();
 	}
 
-	public Integer getId_proveedor() {
-		return id_proveedor;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setId_proveedor(Integer id_proveedor) {
-		this.id_proveedor = id_proveedor;
+	public void setId_proveedor(Integer id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

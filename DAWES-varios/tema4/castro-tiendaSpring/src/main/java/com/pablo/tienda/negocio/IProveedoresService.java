@@ -3,18 +3,21 @@ package com.pablo.tienda.negocio;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.naming.NamingException;
+
 import com.pablo.tienda.dtos.ProveedorDTO;
 
 public interface IProveedoresService {
 
-	public List<ProveedorDTO> buscarCategorias(String id_proveedor, String nombre, String contacto, String telefono, String correo,
-			String direccion, String activo) throws ClassNotFoundException, SQLException;
+	public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,
+			String correo, String direccion, String activo)
+			throws ClassNotFoundException, SQLException, NamingException;
 
-	public Integer insertarCategorias( String nombre, String contacto, String telefono, String correo,
-			String direccion, String activo) throws ClassNotFoundException, SQLException;
+	public Integer insertarProveedores(String nombre, String contacto, String telefono, String correo, String direccion,
+			String activo) throws ClassNotFoundException, SQLException, NamingException;
 
-	public Integer actualizarCategorias(String id_proveedor, String nombre, String contacto, String telefono, String correo,
-			String direccion, String activo) throws ClassNotFoundException, SQLException;
-	
-	public Integer borrarCategorias(String id)throws ClassNotFoundException, SQLException;
+	public Integer actualizarProveedores(String id, String nombre, String contacto, String telefono, String correo,
+			String direccion, String activo) throws ClassNotFoundException, SQLException, NamingException;
+
+	public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException;
 }

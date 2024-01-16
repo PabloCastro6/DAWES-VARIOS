@@ -20,7 +20,7 @@ public class ComboDAOImplTnd implements IComboDAO {
 	
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 
-		String sql = "SELECT * FROM categorias ORDER BY ID_Categoria";
+		String sql = "SELECT ID_Categoria, Nombre FROM categorias ORDER BY Nombre";
 
 		List<ComboDTO> listaCategorias = new ArrayList<>();
 
@@ -37,40 +37,44 @@ public class ComboDAOImplTnd implements IComboDAO {
 
 	public List<ComboDTO> recuperaCombosProveedores() throws ClassNotFoundException, SQLException, NamingException {
 
-		String sql = "SELECT * FROM proveedores ORDER BY ID_Proveedor";
-
-		List<ComboDTO> listaProveedores = new ArrayList<>();
+		String sql = "SELECT ID_Proveedor, Nombre FROM proveedores ORDER BY Nombre";
 
 		Connection connection = DBUtils.conectaBBDD();
+		List<ComboDTO> listaProveedores = new ArrayList<>();
+
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-
-		while (rs.next()) {
+		
+		while(rs.next()) {
 			listaProveedores.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
 		}
+		
 		connection.close();
 		return listaProveedores;
 	}
 
+	
+	
 	@Override
 	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException {
-		String sql = "SELECT * FROM poblacion ORDER BY nombre";
-		
-		List<ComboDTO>listaMunicipio = new ArrayList<>();
-		
+		String sql = "SELECT ID, Nombre FROM poblacion ORDER BY ID";
+
 		Connection connection = DBUtils.conectaBBDD();
+		List<ComboDTO> listaPoblaciones = new ArrayList<>();
+
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		
-		
 		while(rs.next()) {
-			listaMunicipio.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
+			listaPoblaciones.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
 		}
+		
 		connection.close();
-		return listaMunicipio;
+		return listaPoblaciones;
+	
+	}
 	}
 
 	
 
-}
 
