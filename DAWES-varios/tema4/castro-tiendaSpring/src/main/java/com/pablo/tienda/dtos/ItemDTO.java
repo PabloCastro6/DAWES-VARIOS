@@ -7,7 +7,7 @@ public class ItemDTO {
 	private Integer productoID;
 	private String productoNombre;
 	private Integer cantidad;
-	private Double cantidadPagar;
+	private Double precio; //precio
 	
 	
 	public ItemDTO(Integer clienteID, String clienteNombre, Integer productoID, String productoNombre, Integer cantidad,
@@ -18,7 +18,7 @@ public class ItemDTO {
 		this.productoID = productoID;
 		this.productoNombre = productoNombre;
 		this.cantidad = cantidad;
-		this.cantidadPagar = cantidadPagar;
+		this.precio = cantidadPagar;
 	}
 	
 	public ItemDTO() {
@@ -66,11 +66,11 @@ public class ItemDTO {
 	}
 
 	public Double getCantidadPagar() {
-		return cantidadPagar;
+		return precio;
 	}
 
 	public void setCantidadPagar(Double cantidadPagar) {
-		this.cantidadPagar = cantidadPagar;
+		this.precio = cantidadPagar;
 	}
 	
 	

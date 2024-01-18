@@ -16,10 +16,9 @@ function calculaPrecio() {
 		cliente: cliente,
 		producto: producto
 	};
-	if(cliente === "" || producto === "") {
-		return; //Detiene la funcion si algún campo está vacío
+	if (cliente === "" || producto === "" ) {		
+		return; // Detiene la función si algún campo está vacío
 	}
-
 	// Realizar una petición POST
 	fetch('http://localhost:8080/tienda/pedidos/calculaprecio', {
 		method: 'POST',
@@ -56,7 +55,7 @@ function agregarAlCarrito() {
 	
 	 console.log("Valor del input: ", cantidadPagar);
 //Comprobamos que todos los campos tienen valor
-	if (clienteID === "" || producto === "" || isNaN(precio)) {
+	if (clienteID === "" || productoSeleccionado === "" || isNaN(precio)) {
 		alert("Por favor, seleccione una opción en todos los campos.");
 		return; // Detiene la función si algún campo está vacío
 	}
@@ -100,6 +99,7 @@ function realizarVenta() {
 			return response.text();
 		})
 		.then(data => {
+		
 			if (data === "OK") {
 				console.log("Operación exitosa.");
 				alert('Pedido realizado con éxito ');
