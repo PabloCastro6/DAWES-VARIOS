@@ -6944,3 +6944,12 @@ java.util.concurrent.TimeoutException
 !MESSAGE Help document /org.eclipse.datatools.doc.isv/html/reference/api/org/eclipse/datatools/enablement/ase/containment/package-summary.html cannot be opened.
 !SUBENTRY 1 org.eclipse.help.base 4 4 2024-01-18 12:58:42.625
 !MESSAGE Help document /org.eclipse.datatools.doc.isv/html/reference/api/org/eclipse/datatools/enablement/sybase/asa/schemaobjecteditor/examples/services/package-summary.html cannot be opened.
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-01-18 13:32:33.001
+!MESSAGE Unexpected URLConnection defaultUseCaches enabled
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-01-18 13:33:21.106
+!MESSAGE Unexpected URLConnection defaultUseCaches enabled
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-01-18 13:34:34.208
+!MESSAGE Unexpected URLConnection defaultUseCaches enabled

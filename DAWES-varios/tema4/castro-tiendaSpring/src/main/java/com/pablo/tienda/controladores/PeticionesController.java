@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.pablo.tienda.dao.IComboDAO;
 import com.pablo.tienda.dtos.PeticionesDTO;
+import com.pablo.tienda.negocio.IPeticionesService;
 
 public class PeticionesController {
 	
@@ -25,12 +27,12 @@ public class PeticionesController {
 		@Autowired
 		IPeticionesService peticionesService;
 		@Autowired
-		CombosDAO combosDAO;
+		IComboDAO combosDAO;
 
 		@GetMapping("listarpeticiones")
 		public String getListadoPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-			combos(model);
+			//combos(model);
 
 			return "peticiones/listarPeticiones";
 		}
@@ -43,7 +45,7 @@ public class PeticionesController {
 
 			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
 					fecha, cantidad, estado);
-			combos(model);
+		//	combos(model);
 
 			model.addAttribute("lista", listaPeticiones);
 

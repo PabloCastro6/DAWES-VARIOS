@@ -73,6 +73,25 @@ public class ComboDAOImplTnd implements IComboDAO {
 		return listaPoblaciones;
 	
 	}
+	
+	@Override
+	public List<ComboDTO> recuperarCombosEstadoPedidos() throws ClassNotFoundException, SQLException, NamingException {
+		String sql = "SELECT * FROM estadospedidos ORDER BY EstadoID";
+
+		List<ComboDTO> listaEstadoPedido = new ArrayList<>();
+
+		try (Connection connection = DBUtils.conectaBBDD();
+				PreparedStatement ps = connection.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery()) {
+
+			while (rs.next()) {
+				listaEstadoPedido.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
+			}
+		}
+
+		return listaEstadoPedido;
+	}
+
 	}
 
 	
