@@ -14,8 +14,13 @@ public interface IComboDAO {
 
 	public List<ComboDTO> recuperaCombosProveedores() throws ClassNotFoundException, SQLException, NamingException;
 	
-	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException;
+	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException, NamingException;
 	
 	public List<ComboDTO> recuperarCombosEstadoPedidos() throws ClassNotFoundException, SQLException, NamingException;
+	
+	public List<ComboDTO> recuperarCombosClientes()throws ClassNotFoundException, SQLException, NamingException;
 
-}
+	public List<ComboDTO> recuperarCombosProductos() throws ClassNotFoundException, SQLException, NamingException;
+	}
+
+

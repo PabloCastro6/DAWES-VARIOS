@@ -91,6 +91,44 @@ public class ComboDAOImplTnd implements IComboDAO {
 
 		return listaEstadoPedido;
 	}
+	
+	@Override
+	public List<ComboDTO> recuperarCombosClientes() throws ClassNotFoundException, SQLException, NamingException {
+
+		String sql = "SELECT * FROM clientes ORDER BY ID_Cliente";
+
+		List<ComboDTO> listaClientes = new ArrayList<>();
+
+		try (Connection connection = DBUtils.conectaBBDD();
+				PreparedStatement ps = connection.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery()) {
+
+			while (rs.next()) {
+				listaClientes.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
+			}
+		}
+
+		return listaClientes;
+	}
+
+	@Override
+	public List<ComboDTO> recuperarCombosProductos() throws ClassNotFoundException, SQLException, NamingException {
+
+		String sql = "SELECT * FROM productos ORDER BY ID_Producto";
+
+		List<ComboDTO> listaProductos = new ArrayList<>();
+
+		try (Connection connection = DBUtils.conectaBBDD();
+				PreparedStatement ps = connection.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery()) {
+
+			while (rs.next()) {
+				listaProductos.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
+			}
+		}
+
+		return listaProductos;
+	}
 
 	}
 

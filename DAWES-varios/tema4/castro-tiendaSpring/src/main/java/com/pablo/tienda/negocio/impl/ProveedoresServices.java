@@ -38,7 +38,6 @@ public class ProveedoresServices {
 		}
 		@Override
 		public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
-			
 			return proveedorDAO.borrarProveedores(id);
 		}
 

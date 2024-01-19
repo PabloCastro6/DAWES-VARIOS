@@ -175,7 +175,7 @@ public class ClientesController {
 	}
 	
 	@PostMapping("borrarclientes")
-	public String borrarCliente(@RequestParam("id") String id, ModelMap model) throws ClassNotFoundException, SQLException {
+	public String borrarCliente(@RequestParam("id") String id, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 		
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 

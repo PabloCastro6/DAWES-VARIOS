@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.IProveedoresService;
 
+
 @Controller
 @RequestMapping("/proveedores/")
 public class ProveedorController {
@@ -23,8 +24,7 @@ public class ProveedorController {
 	@Autowired
 	IProveedoresService proveedoresService;
 	
-	@GetMapping("listarproveedores")
-	
+	@GetMapping("/listarproveedores")
 	public String getListadoProveedores() {
 		return "/proveedores/listadoProveedores";
 	}
@@ -66,6 +66,7 @@ public class ProveedorController {
 		
 		return "/proveedores/insertarProveedores";
 	}
+	
 	
 	@GetMapping("formularioactualizarproveedor")
 
