@@ -10,11 +10,13 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.pablo.tienda.dao.IProveedorDAO;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.utils.DBUtils;
 
+@Service
 @Component
 public class ProveedorDAOImpTnd implements IProveedorDAO {
 	

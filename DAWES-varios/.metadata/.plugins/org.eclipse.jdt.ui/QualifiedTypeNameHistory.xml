@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.pablo.tienda.negocio.ICategoriasService"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.CategoriasDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductosDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductosDTO"/>
@@ -34,12 +33,6 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ClientesDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.impl.ClientesService"/>
     <fullyQualifiedTypeName name="java.util.Objects"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.IProveedoresService"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProveedorDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProveedorDTO"/>
@@ -54,7 +47,17 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.IPeticionesService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PeticionesDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.PeticionesDAOImplTnd"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPeticionesDAO"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="javax.naming.NamingException"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.PeticionesDAOImplTnd"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
 </qualifiedTypeNameHistroy>

@@ -30,10 +30,10 @@ public class PeticionesController {
 		@Autowired
 		IComboDAO combosDAO;
 
-		@GetMapping("listarpeticiones")
+		@GetMapping("/listarpeticiones")
 		public String getListadoPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-			//combos(model);
+			combos(model);
 
 			return "peticiones/listarPeticiones";
 		}
@@ -46,7 +46,7 @@ public class PeticionesController {
 
 			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
 					fecha, cantidad, estado);
-		//	combos(model);
+			combos(model);
 
 			model.addAttribute("lista", listaPeticiones);
 

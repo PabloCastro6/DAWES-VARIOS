@@ -2,141 +2,114 @@ package com.pablo.tienda.dtos;
 
 public class PeticionesDTO {
 	
-	private Integer id;
+	private Integer idPeticiones;
 	private Integer idCliente;
+	private String nombreCliente;
 	private Integer idProducto;
-	private Integer idEstado;
+	private String nombreProducto;
 	private String fecha;
 	private Integer cantidad;
-	private String nombreCliente;
-	private String nombreProducto;
+	private Integer estado;
 	private String nombreEstado;
-	
-	
-	
-	public PeticionesDTO(Integer id, Integer idCliente, Integer idProducto, Integer idEstado, String fecha,
-			Integer cantidad, String nombreCliente, String nombreProducto, String nombreEstado) {
+
+	public PeticionesDTO(Integer idPeticiones, Integer idCliente, Integer idProducto, String fechaAnhadido,
+			Integer cantidad, Integer estado, String nombreCliente, String nombreProducto) {
 		super();
-		this.id = id;
+		this.idPeticiones = idPeticiones;
 		this.idCliente = idCliente;
 		this.idProducto = idProducto;
-		this.idEstado = idEstado;
-		this.fecha = fecha;
+		this.fecha = fechaAnhadido;
 		this.cantidad = cantidad;
+		this.estado = estado;
 		this.nombreCliente = nombreCliente;
 		this.nombreProducto = nombreProducto;
+	}
+
+	public PeticionesDTO(Integer idPeticiones, Integer idCliente, String nombreCliente, Integer idProducto,
+			String nombreProducto, String fecha, Integer cantidad, Integer estado, String nombreEstado) {
+		super();
+		this.idPeticiones = idPeticiones;
+		this.idCliente = idCliente;
+		this.nombreCliente = nombreCliente;
+		this.idProducto = idProducto;
+		this.nombreProducto = nombreProducto;
+		this.fecha = fecha;
+		this.cantidad = cantidad;
+		this.estado = estado;
 		this.nombreEstado = nombreEstado;
 	}
 
-
-
-	public Integer getId() {
-		return id;
+	public Integer getIdPeticiones() {
+		return idPeticiones;
 	}
 
-
-
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdPeticiones(Integer idPeticiones) {
+		this.idPeticiones = idPeticiones;
 	}
-
-
 
 	public Integer getIdCliente() {
 		return idCliente;
 	}
 
-
-
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-
-
-
-	public Integer getIdProducto() {
-		return idProducto;
-	}
-
-
-
-	public void setIdProducto(Integer idProducto) {
-		this.idProducto = idProducto;
-	}
-
-
-
-	public Integer getIdEstado() {
-		return idEstado;
-	}
-
-
-
-	public void setIdEstado(Integer idEstado) {
-		this.idEstado = idEstado;
-	}
-
-
-
-	public String getFecha() {
-		return fecha;
-	}
-
-
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-
-
-	public Integer getCantidad() {
-		return cantidad;
-	}
-
-
-
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
-	}
-
-
 
 	public String getNombreCliente() {
 		return nombreCliente;
 	}
 
-
-
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
 
+	public Integer getIdProducto() {
+		return idProducto;
+	}
 
+	public void setIdProducto(Integer idProducto) {
+		this.idProducto = idProducto;
+	}
 
 	public String getNombreProducto() {
 		return nombreProducto;
 	}
 
-
-
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
 	}
 
+	public String getFecha() {
+		return fecha;
+	}
 
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
 
 	public String getNombreEstado() {
 		return nombreEstado;
 	}
 
-
-
 	public void setNombreEstado(String nombreEstado) {
 		this.nombreEstado = nombreEstado;
 	}
-	
-	
-	
 
 }
+

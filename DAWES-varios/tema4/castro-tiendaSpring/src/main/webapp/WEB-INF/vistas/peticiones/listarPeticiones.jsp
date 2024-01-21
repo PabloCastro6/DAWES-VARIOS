@@ -32,7 +32,7 @@
 				<br>
 				<select name="idCliente" id="idCliente" form="formulario">
 				
-						<option value="">Seleccione una opci�n</option>
+						<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
 					</c:forEach>
