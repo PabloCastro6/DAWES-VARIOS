@@ -99,7 +99,12 @@ public class ProveedorController {
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		activo = (activo != null) ? "1" : "0";
+		
+		
+		
+		
+		
+		
 		
 		proveedoresService.actualizarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
 		

@@ -5479,3 +5479,78 @@ org.eclipse.jdt.core.JavaModelException: src/examen/lectura-escritura [in ejerci
 2024-01-21 21:17:52,615 [Worker-47: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-01-21 21:17:52,634 [Worker-47: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-01-21 21:17:52,638 [Worker-47: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 17:38:49,105 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-01-22 17:40:23,634 [Worker-4: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 17:40:23,672 [Worker-4: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 17:40:23,683 [Worker-4: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 18:55:07,208 [Worker-5: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 18:55:07,364 [Worker-5: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 18:55:07,376 [Worker-5: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 19:05:51,674 [Worker-54: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-01-22 19:05:53,611 [Worker-54: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:castro-tiendaSpring:0.0.1-SNAPSHOT @ C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\pom.xml.
+2024-01-22 19:05:56,521 [Worker-54: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /castro-tiendaSpring/src/main/java
+2024-01-22 19:05:56,522 [Worker-54: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /castro-tiendaSpring/src/main/resources
+2024-01-22 19:05:56,522 [Worker-54: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /castro-tiendaSpring/src/main/resources
+2024-01-22 19:05:56,524 [Worker-54: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /castro-tiendaSpring/src/test/java
+2024-01-22 19:05:56,525 [Worker-54: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /castro-tiendaSpring/src/test/resources
+2024-01-22 19:05:58,213 [Worker-54: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0,00 sec, refresh facades takes 4,00 sec, update config takes 1,00 sec 
+2024-01-22 19:06:42,204 [Worker-57: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 19:06:42,263 [Worker-57: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 19:06:42,276 [Worker-57: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 19:12:48,135 [Worker-62: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 19:12:48,162 [Worker-62: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 19:12:48,177 [Worker-62: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 19:14:46,248 [Worker-64: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 19:14:46,271 [Worker-64: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 19:14:46,284 [Worker-64: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 19:17:16,096 [Worker-62: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:castro-tiendaSpring:0.0.1-SNAPSHOT @ C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\pom.xml.
+2024-01-22 19:17:46,745 [Worker-68: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 19:17:46,846 [Worker-68: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 19:17:46,869 [Worker-68: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 20:12:11,851 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-01-22 20:12:22,267 [Worker-14: Updating Maven Dependencies] ERROR o.e.m.c.i.p.r.ProjectRegistryRefreshJob - Cannot invoke "java.net.URI.getScheme()" because "uri" is null
+java.lang.NullPointerException: Cannot invoke "java.net.URI.getScheme()" because "uri" is null
+	at org.eclipse.core.internal.filesystem.InternalFileSystemCore.getStore(InternalFileSystemCore.java:107)
+	at org.eclipse.core.filesystem.EFS.getStore(EFS.java:479)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.getRemoteFile(ProjectRegistryManager.java:1165)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.toJavaIoFile(ProjectRegistryManager.java:1157)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.configureExecutionRequest(ProjectRegistryManager.java:976)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.readMavenProjectFacades(ProjectRegistryManager.java:758)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:393)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:367)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$4(ProjectRegistryRefreshJob.java:154)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1097)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.lambda$0(ProjectRegistryRefreshJob.java:153)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryRefreshJob.run(ProjectRegistryRefreshJob.java:106)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-01-22 20:12:34,418 [Worker-9: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:castro-tiendaSpring:0.0.1-SNAPSHOT @ C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\pom.xml.
+2024-01-22 20:12:54,399 [Worker-11: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 20:12:54,423 [Worker-11: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:12:54,431 [Worker-11: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 20:16:21,238 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 20:16:21,250 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:16:21,259 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 20:22:58,733 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 20:22:58,739 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:22:58,747 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-01-22 20:25:51,257 [Worker-7: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 20:25:51,263 [Worker-7: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:25:51,269 [Worker-7: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-22 20:26:30,874 [Worker-10: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:26:30,875 [Worker-10: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:26:30,879 [Worker-10: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-22 20:28:35,314 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 20:28:35,323 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 20:28:35,328 [Worker-20: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-22 22:52:36,161 [Worker-35: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 22:52:36,181 [Worker-35: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 22:52:36,186 [Worker-35: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-22 22:54:11,821 [Worker-33: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-22 22:54:11,829 [Worker-33: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-22 22:54:11,832 [Worker-33: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes

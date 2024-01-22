@@ -20,7 +20,7 @@
 	
 	<h3>Inserccion de nueva Peticion</h3>
 		<div class="form">
-			<form action="http://localhost:8080/tienda/peticiones/insertarpeticiones" method="POST" id="formulario">
+			<form action="http://localhost:8080/tienda/peticiones/insertarpeticion" method="POST" id="formulario">
 
 				<label for="cliente">Cliente:</label>
 				<br>

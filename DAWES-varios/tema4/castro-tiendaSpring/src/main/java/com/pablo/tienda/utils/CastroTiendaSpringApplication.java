@@ -13,13 +13,4 @@ public class CastroTiendaSpringApplication {
 		SpringApplication.run(CastroTiendaSpringApplication.class, args);
 	}
 
-	public static String cambiarFormato(String fechaOriginal) {
-
-		DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		LocalDateTime fecha = LocalDateTime.parse(fechaOriginal, formatoOriginal);
-		DateTimeFormatter nuevoFormato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		String fechaFormateada = fecha.format(nuevoFormato);
-
-		return fechaFormateada;
-	}
 }

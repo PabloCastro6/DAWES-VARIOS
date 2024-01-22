@@ -9,11 +9,11 @@ public class PeticionesDTO {
 	private String nombreProducto;
 	private String fecha;
 	private Integer cantidad;
-	private Integer estado;
+	private String estado;
 	private String nombreEstado;
 
 	public PeticionesDTO(Integer idPeticiones, Integer idCliente, Integer idProducto, String fechaAnhadido,
-			Integer cantidad, Integer estado, String nombreCliente, String nombreProducto) {
+			Integer cantidad, String estado, String nombreCliente, String nombreProducto) {
 		super();
 		this.idPeticiones = idPeticiones;
 		this.idCliente = idCliente;
@@ -26,7 +26,7 @@ public class PeticionesDTO {
 	}
 
 	public PeticionesDTO(Integer idPeticiones, Integer idCliente, String nombreCliente, Integer idProducto,
-			String nombreProducto, String fecha, Integer cantidad, Integer estado, String nombreEstado) {
+			String nombreProducto, String fecha, Integer cantidad, String estado, String nombreEstado) {
 		super();
 		this.idPeticiones = idPeticiones;
 		this.idCliente = idCliente;
@@ -95,11 +95,11 @@ public class PeticionesDTO {
 		this.cantidad = cantidad;
 	}
 
-	public Integer getEstado() {
+	public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Integer estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 

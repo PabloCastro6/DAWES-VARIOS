@@ -18,155 +18,221 @@ import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.negocio.IPeticionesService;
 
+
+@Controller
+@RequestMapping("/peticiones")
 public class PeticionesController {
-	
 
-	@Controller
-	@RequestMapping("/peticiones")
-	public class PeticicionesController {
+	@Autowired
+	IPeticionesService peticionesService;
+	@Autowired
+	IComboDAO combosDAO;
 
-		@Autowired
-		IPeticionesService peticionesService;
-		@Autowired
-		IComboDAO combosDAO;
+	@GetMapping("listarpeticion")
+	public String getListadoPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-		@GetMapping("/listarpeticiones")
-		public String getListadoPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
 
-			combos(model);
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
 
-			return "peticiones/listarPeticiones";
-		}
+		return "peticiones/listadoPeticiones";
+	}
 
-		@PostMapping("listarpeticiones")
-		public String buscarPeticiones(@RequestParam("idPeticiones") String idPeticiones, @RequestParam("idCliente") String idCliente,
-				@RequestParam("idProducto") String idProducto, @RequestParam("fecha") String fecha,
-				@RequestParam("cantidad") String cantidad, @RequestParam("estado") String estado,
-				ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+	@PostMapping("listarpeticiones")
+	public String buscarPeticiones(@RequestParam("idPeticiones") String idPeticiones,
+			@RequestParam("idCliente") String idCliente, @RequestParam("idProducto") String idProducto,
+			@RequestParam("fecha") String fecha, @RequestParam("cantidad") String cantidad,
+			@RequestParam("estado") String estado, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
-					fecha, cantidad, estado);
-			combos(model);
-
-			model.addAttribute("lista", listaPeticiones);
-
-			return "peticiones/listarPeticiones";
+		if(fecha.equals("")) {
+			fecha = "1970/1/1";
 		}
 		
-		@GetMapping("insertarpeticiones")
-		public String getFormularioInsertarPeticion(ModelMap model)
-				throws ClassNotFoundException, SQLException, NamingException {
-
-			combos(model);
-
-			return "peticiones/insertarPeticiones";
-
-		}
-
-		@PostMapping("insertarpeticiones")
-		public String insertarPeticion(@RequestParam("idCliente") String idCliente,
-				@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
-				@RequestParam("idEstadoPedido") String idEstadoPedido, ModelMap model)
-				throws ClassNotFoundException, SQLException, NamingException {
-
-			combos(model);
-			Integer resultado = peticionesService.insertarPeticiones(idCliente, idProducto, cantidad, idEstadoPedido);
-
-			model.addAttribute("resultado", resultado);
-
-			return "peticiones/insertarPeticiones";
-
+		if(cantidad.equals("")) {
+			cantidad = "0";
 		}
 		
-		@GetMapping("formularioactualizarpeticiones")
-		public String getFormularioActualizarPeticion(ModelMap model)
-		        throws ClassNotFoundException, SQLException, NamingException {
-			
-			combos(model);
-			
-		    return "/peticiones/actualizarPeticiones";
-		}
+		List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
+				fecha, cantidad, estado);
 
-		@PostMapping("formularioactualizarpeticiones")
-		public String formularioActualizarPeticiones(@RequestParam("idPeticiones") String idPeticiones, @RequestParam("idCliente") String idCliente,
-				@RequestParam("idProducto") String idProducto, @RequestParam("fecha") String fecha,
-				@RequestParam("cantidad") String cantidad, @RequestParam("estado") String estado,
-				ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		    
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
 
-			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
-					fecha, cantidad, estado);
-			
-			combos(model);
-			
-		    model.addAttribute("lista", listaPeticiones);
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
 
-		    return "/peticiones/actualizarPeticiones";
-		}
+		model.addAttribute("lista", listaPeticiones);
 
-		@PostMapping("actualizarpeticiones")
-		public String actualizarPeticiones(@RequestParam("idPeticiones") String idPeticiones, @RequestParam("idCliente") String idCliente,
-				@RequestParam("idProducto") String idProducto, @RequestParam("fecha") String fecha,
-				@RequestParam("cantidad") String cantidad, @RequestParam("estado") String estado,
-				ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-			
-		    combos(model);
+		return "peticiones/listadoPeticiones";
+	}
 
-		    peticionesService.actualizarPeticiones(idPeticiones, idCliente, idProducto, cantidad, estado);
+	@GetMapping("insertarpeticion")
+	public String getFormularioInsertarPeticion(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-		    return "/peticiones/actualizarPeticiones";
-		}
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
 
-		@GetMapping("formularioborrarpeticiones")
-		public String getFormularioBorrarPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		    
-		    combos(model);
-			
-			return "/peticiones/borrarPeticiones";
-		}
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
 
-		@PostMapping("formularioborrarpeticiones")
-		public String formularioBorrarPeticiones(@RequestParam("idPeticiones") String idPeticiones, @RequestParam("idCliente") String idCliente,
-				@RequestParam("idProducto") String idProducto, @RequestParam("fecha") String fecha,
-				@RequestParam("cantidad") String cantidad, @RequestParam("estado") String estado,
-				ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-
-		    combos(model);
-
-			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
-					fecha, cantidad, estado);
-			
-			model.addAttribute("lista", listaPeticiones);
-
-		    return "/peticiones/borrarPeticiones";
-		}
-
-		@PostMapping("borrarpeticiones")
-		public String borrarPeticiones(@RequestParam("idPeticiones") String idPeticiones, ModelMap model)
-		        throws ClassNotFoundException, SQLException, NamingException {
-
-		    combos(model);
-
-		    peticionesService.borrarPeticiones(idPeticiones);
-
-		    return "/peticiones/borrarPeticiones";
-		}
-
-
-
-
-		private void combos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-			List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
-			List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
-			List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
-
-			model.addAttribute("comboCliente", listaCliente);
-			model.addAttribute("comboProducto", listaProducto);
-			model.addAttribute("comboEstadoPedido", listaEstadoPedido);
-		}
+		return "peticiones/insertarPeticiones";
 
 	}
 
+	@PostMapping("insertarpeticion")
+	public String insertarPeticion(@RequestParam("idCliente") String idCliente,
+			@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
+			@RequestParam("idEstadoPedido") String idEstadoPedido, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
 
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+		Integer resultado = peticionesService.insertarPeticiones(idCliente, idProducto, cantidad, idEstadoPedido);
+
+		model.addAttribute("resultado", resultado);
+
+		return "peticiones/insertarPeticiones";
+
+	}
+
+	@GetMapping("formularioactualizarpeticion")
+	public String getFormularioActualizarPeticion(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+
+		return "/peticiones/actualizarPeticiones";
+	}
+
+	@PostMapping("formularioactualizarpeticion")
+	public String formularioActualizarPeticiones(@RequestParam("idPeticiones") String idPeticiones,
+			@RequestParam("idCliente") String idCliente, @RequestParam("idProducto") String idProducto,
+			@RequestParam("fecha") String fecha, @RequestParam("cantidad") String cantidad,
+			@RequestParam("estado") String estado, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+
+		if(fecha.equals("")) {
+			fecha = "1970/1/1";
+		}
+		
+		if(cantidad.equals("")) {
+			cantidad = "0";
+		}
+		
+		List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
+				fecha, cantidad, estado);
+
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+
+		model.addAttribute("lista", listaPeticiones);
+
+		return "/peticiones/actualizarPeticiones";
+	}
+
+	@PostMapping("actualizarpeticiones")
+	public String actualizarPeticiones(@RequestParam("idPeticiones") String idPeticiones,
+			@RequestParam("idCliente") String idCliente, @RequestParam("idProducto") String idProducto,
+			@RequestParam("fecha") String fecha, @RequestParam("cantidad") String cantidad,
+			@RequestParam("estado") String estado, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+
+		peticionesService.actualizarPeticiones(idPeticiones, idCliente, idProducto, cantidad, fecha, estado);
+
+		return "/peticiones/actualizarPeticiones";
+	}
+	
+	@GetMapping("formularioborrarpeticion")
+	public String getFormularioBorrarPeticiones(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+	    
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+		
+		return "/peticiones/borrarPeticiones";
+	}
+
+	@PostMapping("formularioborrarpeticion")
+	public String formularioBorrarPeticiones(@RequestParam("idPeticiones") String idPeticiones, @RequestParam("idCliente") String idCliente,
+			@RequestParam("idProducto") String idProducto, @RequestParam("fecha") String fecha,
+			@RequestParam("cantidad") String cantidad, @RequestParam("estado") String estado,
+			ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+
+		if(fecha.equals("")) {
+			fecha = "1970/1/1";
+		}
+		
+		if(cantidad.equals("")) {
+			cantidad = "0";
+		}
+		
+		List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente, idProducto,
+				fecha, cantidad, estado);
+		
+		model.addAttribute("lista", listaPeticiones);
+
+	    return "/peticiones/borrarPeticiones";
+	}
+
+	@PostMapping("borrarpeticiones")
+	public String borrarPeticiones(@RequestParam("idPeticiones") String idPeticiones, ModelMap model)
+	        throws ClassNotFoundException, SQLException, NamingException {
+
+		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = combosDAO.recuperarCombosEstadoPedidos();
+
+		model.addAttribute("comboCliente", listaCliente);
+		model.addAttribute("comboProducto", listaProducto);
+		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
+		
+	    peticionesService.borrarPeticiones(idPeticiones);
+
+	    return "/peticiones/borrarPeticiones";
+	}
+	
 }
+
+
 
