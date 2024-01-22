@@ -18,7 +18,6 @@ import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.dtos.ProductoDTO;
 import com.pablo.tienda.negocio.IProductosService;
 
-
 @Controller
 @RequestMapping("productos")
 public class ProductoController {
@@ -67,28 +66,27 @@ public class ProductoController {
 	@PostMapping("insertarproducto")
 	public String insertarProducto(@RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion, @RequestParam("precio") String precio,
-			@RequestParam( "cantidadStock") String cantidadStock, @RequestParam("idCategoria") String idCategoria,
+			@RequestParam("cantidadStock") String cantidadStock, @RequestParam("idCategoria") String idCategoria,
 			@RequestParam("idProveedor") String idProveedor, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		precio = (precio == "") ? "0" : precio;
 		cantidadStock = (cantidadStock == "") ? "0" : cantidadStock;
 
 		recuperacionCombos(model);
 		Integer resultado = productoService.insertarProducto(nombre, descripcion, precio, cantidadStock, idCategoria,
 				idProveedor);
-		
+
 		model.addAttribute("resultado", resultado);
 
 		return "productos/insertarProducto";
 
 	}
 
-	
 	@GetMapping("modificarproducto")
 	public String getFormularioModificarProducto(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		recuperacionCombos(model);
 
 		return "productos/modificarProducto";
@@ -101,9 +99,9 @@ public class ProductoController {
 			@RequestParam("idProveedor") String idProveedor, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		List<ProductoDTO> listaProducto = productoService.buscarProducto(id, nombre, descripcion, precio,
-				cantidadStock, idCategoria, idProveedor);
-		
+		List<ProductoDTO> listaProducto = productoService.buscarProducto(id, nombre, descripcion, precio, cantidadStock,
+				idCategoria, idProveedor);
+
 		recuperacionCombos(model);
 		model.addAttribute("lista", listaProducto);
 
@@ -116,11 +114,10 @@ public class ProductoController {
 			@RequestParam("cantidadStock") String cantidadStock, @RequestParam("idCategoria") String idCategoria,
 			@RequestParam("idProveedor") String idProveedor, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
 
 		precio = (precio == "") ? "0" : precio;
 		cantidadStock = (cantidadStock == "") ? "0" : cantidadStock;
-		
+
 		recuperacionCombos(model);
 
 		productoService.modificarProducto(id, nombre, descripcion, precio, cantidadStock, idCategoria, idProveedor);
@@ -128,7 +125,7 @@ public class ProductoController {
 		return "productos/modificarProducto";
 
 	}
-	
+
 	private void recuperacionCombos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 		List<ComboDTO> listaCategoria = comboDAO.recuperaCombosCategorias();
 
@@ -138,6 +135,4 @@ public class ProductoController {
 		model.addAttribute("comboProveedores", listaProveedores);
 	}
 
-
 }
-

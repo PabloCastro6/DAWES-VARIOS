@@ -17,26 +17,24 @@ import com.pablo.tienda.dtos.ItemDTO;
 @Controller
 @RequestMapping("/pedidos")
 public class PedidosController {
-	
-	
-	@PostMapping ("/calculaprecio")
-			public @ResponseBody Double calculaPrecio (ModelMap modelmap, @RequestBody  ClienteProductoDTO clienteProductoDTO) {
-		
-		System.out.println(clienteProductoDTO.getCliente()+ " " + clienteProductoDTO.getProducto());
+
+	@PostMapping("/calculaprecio")
+	public @ResponseBody Double calculaPrecio(ModelMap modelmap, @RequestBody ClienteProductoDTO clienteProductoDTO) {
+
+		System.out.println(clienteProductoDTO.getCliente() + " " + clienteProductoDTO.getProducto());
 		return 3.0;
 	}
-	
+
 	@PostMapping("/dopedido")
 	public ResponseEntity<String> creaPedido(ModelMap modelMap, @RequestBody List<ItemDTO> lista) {
-		
-		for(ItemDTO i : lista) {
+
+		for (ItemDTO i : lista) {
 			System.out.println(i.getClienteNombre() + " " + i.getProductoNombre());
 		}
-		
-	//	return ResponseEntity.ok("Operacion realizada con éxito");
-		
+
+		// return ResponseEntity.ok("Operacion realizada con éxito");
+
 		return ResponseEntity.internalServerError().body("Error al realizar la venta");
-		
+
 	}
 }
-	

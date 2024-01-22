@@ -9,11 +9,9 @@ import java.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 public class DBUtils {
 
-	private static final Logger logger = LoggerFactory.getLogger(DBUtils.class) ; 
-
+	private static final Logger logger = LoggerFactory.getLogger(DBUtils.class);
 
 	public static Connection conectaBBDD() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,7 +22,7 @@ public class DBUtils {
 		logger.info("Establecida la conexión a la BBDD");
 		return connection;
 	}
-	
+
 	public static String cambiarFormato(String fechaOriginal) {
 
 		DateTimeFormatter formatoOriginal = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -35,5 +33,3 @@ public class DBUtils {
 		return fechaFormateada;
 	}
 }
-
-

@@ -48,7 +48,6 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PeticionesDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.PeticionesDAOImplTnd"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPeticionesDAO"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.utils.CastroTiendaSpringApplication"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.utils.CastroTiendaSpringApplication"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 </qualifiedTypeNameHistroy>

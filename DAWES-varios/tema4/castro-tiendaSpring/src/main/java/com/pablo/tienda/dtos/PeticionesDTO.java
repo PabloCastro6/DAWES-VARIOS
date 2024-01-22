@@ -1,7 +1,7 @@
 package com.pablo.tienda.dtos;
 
 public class PeticionesDTO {
-	
+
 	private Integer idPeticiones;
 	private Integer idCliente;
 	private String nombreCliente;
@@ -112,4 +112,3 @@ public class PeticionesDTO {
 	}
 
 }
-

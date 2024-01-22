@@ -3,7 +3,7 @@ package com.pablo.tienda.negocio.impl;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.naming.NamingException;
+
 
 import org.springframework.stereotype.Component;
 
@@ -12,8 +12,8 @@ import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.negocio.IPeticionesService;
 
 @Component
-public class PeticionesService implements IPeticionesService{
-	
+public class PeticionesService implements IPeticionesService {
+
 	@Override
 	public List<PeticionesDTO> buscarPeticiones(String iD, String iD_Cliente, String iD_Producto, String fecha,
 			String cantidad, String nombreEstado) throws ClassNotFoundException, SQLException {
@@ -30,10 +30,11 @@ public class PeticionesService implements IPeticionesService{
 	}
 
 	@Override
-	public Integer actualizarPeticiones(String iD, String iD_Cliente, String iD_Producto, String cantidad,
-			String fecha, String nombreEstado) throws ClassNotFoundException, SQLException {
+	public Integer actualizarPeticiones(String iD, String iD_Cliente, String iD_Producto, String cantidad, String fecha,
+			String nombreEstado) throws ClassNotFoundException, SQLException {
 
-		return new PeticionesDAOImplTnd().actualizarPeticiones(iD, iD_Cliente, iD_Producto, cantidad, fecha, nombreEstado);
+		return new PeticionesDAOImplTnd().actualizarPeticiones(iD, iD_Cliente, iD_Producto, cantidad, fecha,
+				nombreEstado);
 	}
 
 	@Override
@@ -43,4 +44,3 @@ public class PeticionesService implements IPeticionesService{
 	}
 
 }
-

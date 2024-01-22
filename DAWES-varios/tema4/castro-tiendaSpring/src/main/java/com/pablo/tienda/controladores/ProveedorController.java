@@ -16,58 +16,58 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.IProveedoresService;
 
-
 @Controller
 @RequestMapping("/proveedores/")
 public class ProveedorController {
 
 	@Autowired
 	IProveedoresService proveedoresService;
-	
+
 	@GetMapping("/listarproveedores")
 	public String getListadoProveedores() {
 		return "/proveedores/listadoProveedores";
 	}
-	
+
 	@PostMapping("listarproveedores")
 	public String buscarProveedores(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("contacto") String contacto,@RequestParam("telefono") String telefono,
-			@RequestParam("correo") String correo,@RequestParam("direccion") String direccion,
+			@RequestParam("contacto") String contacto, @RequestParam("telefono") String telefono,
+			@RequestParam("correo") String correo, @RequestParam("direccion") String direccion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		activo = (activo != null) ? "1" : "0";
 
-		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
+		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono,
+				correo, direccion, activo);
 
 		model.addAttribute("lista", listaProveedores);
 
 		return "/proveedores/listadoProveedores";
 	}
-	
+
 	@GetMapping("insertarproveedores")
 	public String getFormularioInsertarCategoria(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		return "/proveedores/insertarProveedores";
 	}
-	
+
 	@PostMapping("insertarproveedores")
-	public String insertarProveedores(@RequestParam("nombre") String nombre,
-			@RequestParam("contacto") String contacto,@RequestParam("telefono") String telefono,
-			@RequestParam("correo") String correo,@RequestParam("direccion") String direccion,
+	public String insertarProveedores(@RequestParam("nombre") String nombre, @RequestParam("contacto") String contacto,
+			@RequestParam("telefono") String telefono, @RequestParam("correo") String correo,
+			@RequestParam("direccion") String direccion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		activo = (activo != null) ? "1" : "0";
-		Integer resultado = proveedoresService.insertarProveedores(nombre, contacto, telefono, correo, direccion, activo);
-		
+		Integer resultado = proveedoresService.insertarProveedores(nombre, contacto, telefono, correo, direccion,
+				activo);
+
 		model.addAttribute("resultado", resultado);
-		
+
 		return "/proveedores/insertarProveedores";
 	}
-	
-	
+
 	@GetMapping("formularioactualizarproveedor")
 
 	public String getFormularioActualizarProveedores(ModelMap model)
@@ -77,40 +77,35 @@ public class ProveedorController {
 	}
 
 	@PostMapping("formularioactualizarproveedor")
-	public String getFormularioActualizarProveedores(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("contacto") String contacto,@RequestParam("telefono") String telefono,
-			@RequestParam("correo") String correo,@RequestParam("direccion") String direccion,
+	public String getFormularioActualizarProveedores(@RequestParam("id") String id,
+			@RequestParam("nombre") String nombre, @RequestParam("contacto") String contacto,
+			@RequestParam("telefono") String telefono, @RequestParam("correo") String correo,
+			@RequestParam("direccion") String direccion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		activo = (activo != null) ? "1" : "0";
-		
-		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
-		
+
+		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono,
+				correo, direccion, activo);
+
 		model.addAttribute("lista", listaProveedores);
-		
+
 		return "/proveedores/actualizarProveedores";
 	}
-	
+
 	@PostMapping("actualizarproveedor")
 	public String actualizarProveedores(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("contacto") String contacto,@RequestParam("telefono") String telefono,
-			@RequestParam("correo") String correo,@RequestParam("direccion") String direccion,
+			@RequestParam("contacto") String contacto, @RequestParam("telefono") String telefono,
+			@RequestParam("correo") String correo, @RequestParam("direccion") String direccion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		
-		
-		
-		
-		
-		
-		
 		proveedoresService.actualizarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
-		
+
 		return "/proveedores/actualizarProveedores";
 	}
-	
+
 	@GetMapping("formularioborrarproveedor")
 
 	public String getFormularioBorrarProveedor(ModelMap model)
@@ -118,20 +113,23 @@ public class ProveedorController {
 
 		return "/proveedores/borrarProveedores";
 	}
+
 	@PostMapping("formularioborrarproveedor")
 	public String getFormularioBorrarProveedores(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
-			@RequestParam("contacto") String contacto,@RequestParam("telefono") String telefono,
-			@RequestParam("correo") String correo,@RequestParam("direccion") String direccion,
+			@RequestParam("contacto") String contacto, @RequestParam("telefono") String telefono,
+			@RequestParam("correo") String correo, @RequestParam("direccion") String direccion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
-	
+
 		activo = (activo != null) ? "1" : "0";
-		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
+		List<ProveedorDTO> listaProveedores = proveedoresService.buscarProveedores(id, nombre, contacto, telefono,
+				correo, direccion, activo);
 
 		model.addAttribute("lista", listaProveedores);
 
 		return "/proveedores/borrarProveedores";
 	}
+
 	@PostMapping("borrarproveedor")
 	public String borrarProveedor(@RequestParam("id") String id)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -141,4 +139,3 @@ public class ProveedorController {
 		return "/proveedores/borrarProveedores";
 	}
 }
-

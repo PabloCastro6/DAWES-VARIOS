@@ -22,7 +22,7 @@
 		
 		<div class="form">
 			<form
-				action="http://localhost:8080/tienda/peticiones/listarPeticiones" method="POST" id="formulario">
+				action="http://localhost:8080/tienda/peticiones/listarpeticiones" method="POST" id="formulario">
 
 				<label for="id">Id Peticion:</label> 
 				<br>
