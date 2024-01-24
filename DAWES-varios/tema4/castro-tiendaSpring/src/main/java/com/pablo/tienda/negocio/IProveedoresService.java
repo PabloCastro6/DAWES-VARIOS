@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
+import org.springframework.stereotype.Component;
+
 import com.pablo.tienda.dtos.ProveedorDTO;
 
+@Component
 public interface IProveedoresService {
 
 	public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,

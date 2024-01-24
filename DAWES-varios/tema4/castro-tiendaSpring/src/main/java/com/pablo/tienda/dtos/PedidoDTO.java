@@ -1,53 +1,55 @@
 package com.pablo.tienda.dtos;
 
 public class PedidoDTO {
+	public Integer id;
+	public Integer idCliente;
+	public String nombreCliente;
+	public String fecha;
+	public Integer idEstado;
+	public String nombreEstado;
+	public Integer idProducto;
+	public String nombreProducto;
+	public Integer cantidad;
+	public Double precio;
 	
-	private Integer idPedido;
-	private Integer idCliente;
-	private String nombreCliente;
-	private String fecha;
-	private Integer idEstado;
-	private String nombreProducto;
-	private String nombre;
-	private Integer idProducto;
-	private Integer cantidad ;
-	private Double precio;
-	
-	
-	
-	public PedidoDTO(Integer idPedido, Integer idCliente, String nombreCliente, String fecha, Integer idEstado,
-			String nombreProducto, String nombre, Integer idProducto, Integer cantidad, Double precio) {
+
+	public PedidoDTO(Integer id, Integer idCliente, String fecha, Integer idEstado, String nombreCliente,
+			String nombreEstado,Integer idProducto,String nombreProducto,Integer cantidad,Double precio) {
 		super();
-		this.idPedido = idPedido;
+		this.id = id;
 		this.idCliente = idCliente;
-		this.nombreCliente = nombreCliente;
 		this.fecha = fecha;
 		this.idEstado = idEstado;
+		this.nombreCliente = nombreCliente;
+		this.nombreEstado = nombreEstado;
+		this.idProducto = idProducto;
 		this.nombreProducto = nombreProducto;
-		this.nombre = nombre;
+		this.cantidad = cantidad;
+		this.precio = precio;
+		
+	}
+	
+	
+	public PedidoDTO( Integer idCliente, Integer idProducto, Integer cantidad, Double precio,Integer id) {
+		super();
+		this.idCliente = idCliente;
 		this.idProducto = idProducto;
 		this.cantidad = cantidad;
 		this.precio = precio;
+		this.id = id;
 	}
 
 
 
-	public PedidoDTO() {
-		super();
+
+	public Integer getId() {
+		return id;
 	}
 
 
-
-	public Integer getIdPedido() {
-		return idPedido;
+	public void setId(Integer id) {
+		this.id = id;
 	}
-
-
-
-	public void setIdPedido(Integer idPedido) {
-		this.idPedido = idPedido;
-	}
-
 
 
 	public Integer getIdCliente() {
@@ -55,11 +57,9 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-
 
 
 	public String getNombreCliente() {
@@ -67,11 +67,9 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
-
 
 
 	public String getFecha() {
@@ -79,11 +77,9 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-
 
 
 	public Integer getIdEstado() {
@@ -91,35 +87,19 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setIdEstado(Integer idEstado) {
 		this.idEstado = idEstado;
 	}
 
 
-
-	public String getNombreProducto() {
-		return nombreProducto;
+	public String getNombreEstado() {
+		return nombreEstado;
 	}
 
 
-
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setNombreEstado(String nombreEstado) {
+		this.nombreEstado = nombreEstado;
 	}
-
-
-
-	public String getNombre() {
-		return nombre;
-	}
-
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
 
 
 	public Integer getIdProducto() {
@@ -127,11 +107,19 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setIdProducto(Integer idProducto) {
 		this.idProducto = idProducto;
 	}
 
+
+	public String getNombreProducto() {
+		return nombreProducto;
+	}
+
+
+	public void setNombreProducto(String nombreProducto) {
+		this.nombreProducto = nombreProducto;
+	}
 
 
 	public Integer getCantidad() {
@@ -139,11 +127,9 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-
 
 
 	public Double getPrecio() {
@@ -151,15 +137,17 @@ public class PedidoDTO {
 	}
 
 
-
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-	
+
+
+
+}
 	
 	
 	
 	
 	
 
-}
+
