@@ -29,7 +29,7 @@ import com.pablo.tienda.negocio.IPedidosService;
 
 
 @Controller
-@RequestMapping("/pedidos")
+@RequestMapping("/pedidos/")
 public class PedidosController {
 
 	@Autowired
@@ -58,26 +58,33 @@ public class PedidosController {
 	@GetMapping("listarpedidos")
 	public String getListadoPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-	//	recupercionCombos(model);
-		return "pedido/listarPedidos";
+		recuperacionCombos(model);
+		return "pedidos/listarPedidos";
 	}
 
+	
 	@PostMapping("listarpedido")
 	public String buscarPedido(@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "idCliente", required = false) String idCliente, @RequestParam("fecha") String fecha,
 			@RequestParam(value = "idEstado", required = false) String idEstado, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-	//	recuperacionCombo(model);
+		recuperacionCombos(model);
 		
 		List<PedidoDTO> listaPedido = pedidoService.buscarPedidos(id, idCliente, fecha, idEstado);
 		model.addAttribute("lista", listaPedido);
 
-		return "pedido/listarPedido";
+		return "pedidos/listarPedidos";
 	}
 
 	
-	
+	@GetMapping("insertarpedido")
+	public String getInsertarPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
+
+		recuperacionCombos(model);
+		return "pedidos/insertarPedido";
+	}
+
 	
 	
 	//ACTUALIZAR
@@ -128,9 +135,9 @@ public class PedidosController {
 	
 	private void recuperacionCombos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
-		List<ComboDTO> listaCliente = IComboDAO.recuperarCombosClientes();
-		List<ComboDTO> listaProducto = IComboDAO.recuperarCombosProductos();
-		List<ComboDTO> listaEstadoPedido = IComboDAO.recuperarCombosEstadoPedidos();
+		List<ComboDTO> listaCliente = comboDAO.recuperarCombosClientes();
+		List<ComboDTO> listaProducto = comboDAO.recuperarCombosProductos();
+		List<ComboDTO> listaEstadoPedido = comboDAO.recuperarCombosEstadoPedidos();
 
 		model.addAttribute("comboCliente", listaCliente);
 		model.addAttribute("comboProducto", listaProducto);

@@ -73,6 +73,11 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 			return listaPedido;
 		}
 
+		
+		
+		
+		
+		
 		@Override
 		public Integer actualizarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
 				throws ClassNotFoundException, SQLException {
