@@ -15,9 +15,9 @@ import com.pablo.tienda.dao.IComboDAO;
 import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.utils.DBUtils;
 
-@Component
+@Component 
 public class ComboDAOImplTnd implements IComboDAO {
-
+	
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 
 		String sql = "SELECT ID_Categoria, Nombre FROM categorias ORDER BY Nombre";
@@ -44,15 +44,17 @@ public class ComboDAOImplTnd implements IComboDAO {
 
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-
-		while (rs.next()) {
+		
+		while(rs.next()) {
 			listaProveedores.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
 		}
-
+		
 		connection.close();
 		return listaProveedores;
 	}
 
+	
+	
 	@Override
 	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException {
 		String sql = "SELECT ID, Nombre FROM poblacion ORDER BY ID";
@@ -62,16 +64,16 @@ public class ComboDAOImplTnd implements IComboDAO {
 
 		PreparedStatement ps = connection.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
-
-		while (rs.next()) {
+		
+		while(rs.next()) {
 			listaPoblaciones.add(new ComboDTO(rs.getInt(1), rs.getString(2)));
 		}
-
+		
 		connection.close();
 		return listaPoblaciones;
-
+	
 	}
-
+	
 	@Override
 	public List<ComboDTO> recuperarCombosEstadoPedidos() throws ClassNotFoundException, SQLException, NamingException {
 		String sql = "SELECT * FROM estadospedidos ORDER BY EstadoID";
@@ -89,7 +91,7 @@ public class ComboDAOImplTnd implements IComboDAO {
 
 		return listaEstadoPedido;
 	}
-
+	
 	@Override
 	public List<ComboDTO> recuperarCombosClientes() throws ClassNotFoundException, SQLException, NamingException {
 
@@ -128,4 +130,8 @@ public class ComboDAOImplTnd implements IComboDAO {
 		return listaProductos;
 	}
 
-}
+	}
+
+	
+
+

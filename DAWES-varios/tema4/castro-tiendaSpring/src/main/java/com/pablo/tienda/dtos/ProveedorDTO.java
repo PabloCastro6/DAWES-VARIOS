@@ -2,6 +2,7 @@ package com.pablo.tienda.dtos;
 
 public class ProveedorDTO {
 
+
 	private Integer id;
 	private String nombre;
 	private String Contacto;
@@ -9,9 +10,9 @@ public class ProveedorDTO {
 	private String correo;
 	private String direccion;
 	private Integer activo;
-
-	public ProveedorDTO(Integer id, String nombre, String contacto, String telefono, String correo, String direccion,
-			Integer activo) {
+	
+	public ProveedorDTO(Integer id, String nombre, String contacto, String telefono, String correo,
+			String direccion, Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -81,5 +82,10 @@ public class ProveedorDTO {
 	public void setActivo(Integer activo) {
 		this.activo = activo;
 	}
+	
+	
+	
 
 }
+
+

@@ -8,9 +8,8 @@ public class ClienteDTO {
 	private Integer idPoblacion;
 	private Integer activo;
 	private String nombrePoblacion;
-
-	public ClienteDTO(Integer id, String nombre, String correo, Integer idPoblacion, Integer activo,
-			String nombrePoblacion) {
+	
+	public ClienteDTO(Integer id, String nombre, String correo, Integer idPoblacion, Integer activo, String nombrePoblacion) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -71,5 +70,10 @@ public class ClienteDTO {
 	public void setActivo(Integer activo) {
 		this.activo = activo;
 	}
+	
+
+
+	
 
 }
+
