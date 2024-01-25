@@ -87,49 +87,50 @@ public class PedidosController {
 
 	
 	
+	
 	//ACTUALIZAR
 	
-//	
-//	@GetMapping("formularioactualizarpedido")
-//
-//	public String getFormularioActualizarPedido(ModelMap model)
-//			throws ClassNotFoundException, SQLException, NamingException {
-//
-//		recupercionCombos(model);
-//
-//		return "pedido/actualizarPedido";
-//	}
-//
-//	@PostMapping("formularioactualizarpedido")
-//	public String getFormularioActualizarPedido(@RequestParam(value = "id", required = false) String id,
-//			@RequestParam(value = "idCliente", required = false) String idCliente,
-//			@RequestParam(value = "fecha", required = false) String fecha,
-//			@RequestParam(value = "idEstado", required = false) String idEstado, ModelMap model)
-//			throws ClassNotFoundException, SQLException, NamingException {
-//
-//		List<PedidoDTO> listaPedido = pedidoService.buscarPedidos(id, idCliente, fecha, idEstado);
-//		recupercionCombos(model);
-//		model.addAttribute("lista", listaPedido);
-//
-//		return "pedido/actualizarPedido";
-//	}
-//
-//	
-//	
-//	
-//	@PostMapping("actualizarpedido")
-//	public String actualizarPedido(@RequestParam("id") String id, @RequestParam("idCliente") String idCliente,
-//			@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
-//			@RequestParam("precio") String precio, ModelMap model)
-//			throws ClassNotFoundException, SQLException, NamingException {
-//
-//		recupercionCombos(model);
-//
-//		pedidoService.actualizarPedido(id, idCliente, idProducto, cantidad, precio);
-//
-//		return "pedido/actualizarPedido";
-//
-//	}
+	
+	@GetMapping("formularioactualizarpedido")
+
+	public String getFormularioActualizarPedido(ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		recuperacionCombos(model);
+
+		return "pedido/actualizarPedido";
+	}
+
+	@PostMapping("formularioactualizarpedido")
+	public String getFormularioActualizarPedido(@RequestParam(value = "id", required = false) String id,
+			@RequestParam(value = "idCliente", required = false) String idCliente,
+			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "idEstado", required = false) String idEstado, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		List<PedidoDTO> listaPedido = pedidoService.buscarPedidos(id, idCliente, fecha, idEstado);
+		recuperacionCombos(model);
+		model.addAttribute("lista", listaPedido);
+
+		return "pedido/actualizarPedido";
+	}
+
+	
+	
+	
+	@PostMapping("actualizarpedido")
+	public String actualizarPedido(@RequestParam("id") String id, @RequestParam("idCliente") String idCliente,
+			@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
+			@RequestParam("precio") String precio, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		recuperacionCombos(model);
+
+		pedidoService.actualizarPedidos(id, idCliente, idProducto, cantidad, precio);
+
+		return "pedido/actualizarPedido";
+
+	}
 
 	
 	
