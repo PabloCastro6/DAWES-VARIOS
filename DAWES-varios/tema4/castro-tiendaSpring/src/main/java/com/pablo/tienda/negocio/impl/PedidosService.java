@@ -49,8 +49,8 @@ public class PedidosService implements IPedidosService {
 
 		// TODO:1 llamar al DAO para comprobar las compras acumuladas del clienteID
 		// devuelve el numero de compras x
-		// TODO:2 Hacer en el DAO un metodo para calcular el descuento
-		// TODO:3 Consultar el precio del producto ya con el descuento return
+		// TODO:2 Hacer en el DAO un metodo para calcular el descuento x
+		// TODO:3 Consultar el precio del producto ya con el descuento return x HECHO!! 
 		
 		
 	}
