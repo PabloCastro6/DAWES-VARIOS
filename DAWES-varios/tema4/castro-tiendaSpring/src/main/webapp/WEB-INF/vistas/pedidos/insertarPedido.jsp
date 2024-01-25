@@ -13,9 +13,9 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes informaticos</h2>
+<h2>PEDIDOS</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
     <h1>Carrito de Compras</h1>
 

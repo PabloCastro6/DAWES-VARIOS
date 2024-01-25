@@ -29,7 +29,7 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 
 			if (fecha.equals("")) {
 				sql = "SELECT p.ID_Pedido, p.ID_Cliente,CAST(p.FechaPedido AS DATE), p.EstadoID, c.Nombre, e.NombreEstado, "
-						+ " pr.ID_Producto, pr.Nombre , dp.Cantidad, dp.PrecioUnitario" + " FROM pedidos p "
+						+ " pr.ID_Producto, pr.Nombre , dp.Cantidad, dp.PrecioUnitario , dp.ID_Detalle" + " FROM pedidos p "
 						+ " INNER JOIN clientes c ON p.ID_Cliente = c.ID_Cliente "
 						+ " INNER JOIN estadospedidos e ON p.EstadoID = e.EstadoID "
 						+ " INNER JOIN detalles_pedido dp ON p.ID_Pedido = dp.ID_Pedido "
@@ -39,7 +39,7 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 			} else {
 
 				sql = "SELECT p.ID_Pedido, p.ID_Cliente, CAST(p.FechaPedido AS DATE), p.EstadoID, c.Nombre, e.NombreEstado, "
-						+ " pr.ID_Producto,pr.Nombre, dp.Cantidad, dp.PrecioUnitario" + " FROM pedidos p "
+						+ " pr.ID_Producto,pr.Nombre, dp.Cantidad, dp.PrecioUnitario, dp.ID_Detalle" + " FROM pedidos p "
 						+ " INNER JOIN clientes c ON p.ID_Cliente = c.ID_Cliente "
 						+ " INNER JOIN estadospedidos e ON p.EstadoID = e.EstadoID "
 						+ " INNER JOIN detalles_pedido dp ON p.ID_Pedido = dp.ID_Pedido "
@@ -47,7 +47,7 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 						+ " WHERE p.ID_Pedido LIKE ? AND p.ID_Cliente LIKE ? " + " AND CAST(p.FechaPedido AS DATE) >= ? "
 						+ " AND p.EstadoID LIKE ? ;";
 			}
-
+			
 			PreparedStatement ps = connection.prepareStatement(sql);
 
 			if (fecha.equals("")) {
@@ -67,7 +67,7 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 
 			while (rs.next()) {
 				listaPedido.add(new PedidoDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getDouble(10)));
+						rs.getString(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getDouble(10), rs.getInt(11)));
 			}
 			connection.close();
 			return listaPedido;
@@ -76,15 +76,16 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 		
 		
 		
-		
+		//MODIFICAR
 		
 		@Override
-		public Integer actualizarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
+		public Integer actualizarPedidos(String idDetalle, String idCliente, String idProducto, String cantidad, String precio)
 				throws ClassNotFoundException, SQLException {
 			String sql = "UPDATE pedidos AS p " + " INNER JOIN detalles_pedido AS dp ON p.ID_Pedido = dp.ID_Pedido "
 					+ " SET p.ID_Cliente = ?, dp.ID_Producto = ?, dp.Cantidad = ?, dp.PrecioUnitario = ? "
-					+ " WHERE p.ID_Pedido = ?;";
-
+					+ " WHERE dp.ID_Detalle = ?;";
+			
+			
 			Connection connection = DBUtils.conectaBBDD();
 			PreparedStatement ps = connection.prepareStatement(sql);
 
@@ -92,7 +93,7 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 			ps.setString(2, idProducto);
 			ps.setString(3, cantidad);
 			ps.setString(4, precio);
-			ps.setString(5, id);
+			ps.setString(5, idDetalle);
 
 			System.out.println(ps.toString());
 			Integer resultado = ps.executeUpdate();
@@ -100,6 +101,13 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 			return resultado;
 		}
 
+
+
+
+	
+		
+		
+		
 
 		
 		public Double buscarPrecioAcumulado(Integer cliente) throws ClassNotFoundException, SQLException {
@@ -118,8 +126,6 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 
 			System.out.println(ps.toString());
 
-			// rs.next();
-			// precioAcumulado = rs.getDouble(1);
 
 			rs.next();
 			Double precioAcumulado = rs.getDouble(1);
@@ -128,7 +134,32 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 			return precioAcumulado;
 		}
 
+		
+		public Double calcularDescuento(Double precioAcumulado) throws ClassNotFoundException, SQLException {
+			
+			String sql = "SELECT descuento FROM tienda.descuentos WHERE cantidad < ?  order by cantidad desc LIMIT 1; ";
+			
+			Connection connection = DBUtils.conectaBBDD();
+
+			PreparedStatement ps = connection.prepareStatement(sql);
+
+			ps.setDouble(1, precioAcumulado);
+
+			ResultSet rs = ps.executeQuery();
+
+			System.out.println(ps.toString());
+
+
+			rs.next();
+			Double descuento = rs.getDouble(1);
+		
+			connection.close();
+			return descuento;
+		}
+			
 	}
+
+
 
 
 	// TODO

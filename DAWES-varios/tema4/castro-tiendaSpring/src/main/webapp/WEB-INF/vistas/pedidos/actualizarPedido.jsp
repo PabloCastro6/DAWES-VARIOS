@@ -12,19 +12,19 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes infórmaticos</h2>
+<h2>PEDIDOS</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 <div class="container">
 		<h3>Modificacion Pedido</h3>
 		
 		<div class="form">
-			<form action="http://localhost:8080/tienda/pedido/formularioactualizarpedido" method="POST" >
+			<form action="http://localhost:8080/tienda/pedidos/formularioactualizarpedido" method="POST" >
 			
 				<label for="id">Id Pedido:</label> 
 				<br>
-				<input type="text" id="id" name="id"> 
+				<input type="text" id="id" name="id" > 
 				<br>
 				<label for="cliente">Cliente:</label>
 				<br>
@@ -54,16 +54,19 @@
 		</div>
 
 		
+		
+		
 	<h3>Resultado de busqueda</h3>
 	
 	<c:forEach items="${lista}" var="pedido">
 	
 		<div class="form">
-			<form action="http://localhost:8080/tienda/pedido/actualizarpedido" method="POST">
+			<form action="http://localhost:8080/tienda/pedidos/actualizarpedido" method="POST">
 			
-				<label for="id">Id Peticion:</label> 
+				<label for="id">Id Pedido:</label> 
 				<br>
-				<input type="text" id="id" name="id" value ="${pedido.id}" readonly> 
+				<input type="text" id="id" name="id" value ="${pedido.id}" disabled> 
+				<input type="hidden" name="idDetalle" value="${pedido.idDetalle}">
 				<br>
 				<label for="cliente">Cliente:</label>
 				<br>

@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IPedidosDAO;
+import com.pablo.tienda.dao.IProductoDAO;
 import com.pablo.tienda.dtos.ClienteProductoDTO;
 import com.pablo.tienda.dtos.ItemDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
+import com.pablo.tienda.dtos.ProductoDTO;
 import com.pablo.tienda.negocio.IPedidosService;
 
 
@@ -21,26 +23,41 @@ public class PedidosService implements IPedidosService {
 	
 	@Autowired
 	IPedidosDAO pedidoDAO;
+	
+	@Autowired
+	IProductoDAO productoDAO;
 
 	public Double calcularPrecio(ClienteProductoDTO clienteProducto) {
 
 		try {
-			pedidoDAO.buscarPrecioAcumulado(null);
+		Double precioAcumulado =	pedidoDAO.buscarPrecioAcumulado(clienteProducto.getCliente());
+		
+		Double descuento = pedidoDAO.calcularDescuento(precioAcumulado);
+		
+		List<ProductoDTO> productos = productoDAO.buscarProducto(clienteProducto.getProducto().toString(),"", "","","","","");
+		ProductoDTO producto = productos.get(0);
+		
+		Double precioDelProducto = producto.getPrecio();
+		
+		return precioDelProducto * (1 - descuento/100);
+			
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			e.printStackTrace();
 		}
+		
+		return null;
 
 		// TODO:1 llamar al DAO para comprobar las compras acumuladas del clienteID
-		// devuelve el numero de compras
+		// devuelve el numero de compras x
 		// TODO:2 Hacer en el DAO un metodo para calcular el descuento
 		// TODO:3 Consultar el precio del producto ya con el descuento return
-		// precio*(1-descuento/100)
-		return null;
+		
+		
 	}
 
 	public Integer doPedido(List<ItemDTO> lista) {
 
-		// TODO: Llaar al DAO insertar
+		// TODO: Llamar al DAO insertar
 		return null;
 
 	}
@@ -55,10 +72,10 @@ public class PedidosService implements IPedidosService {
 	}
 
 	@Override
-	public Integer actualizarPedidos(String id, String idcliente, String idProducto, String cantidad, String precio)
+	public Integer actualizarPedidos(String idDetalle, String idcliente, String idProducto, String cantidad, String precio)
 			throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
-		return pedidoDAO.actualizarPedidos(id, idcliente, idProducto, cantidad, precio);
+		return pedidoDAO.actualizarPedidos(idDetalle, idcliente, idProducto, cantidad, precio);
 	}
 
 }

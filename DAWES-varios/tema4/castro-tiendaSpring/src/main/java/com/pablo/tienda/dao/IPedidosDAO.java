@@ -13,7 +13,9 @@ public interface IPedidosDAO {
 	
 	public Integer actualizarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)throws ClassNotFoundException, SQLException;
 	
-	public Double buscarPrecioAcumulado(Integer cliente) throws ClassNotFoundException, SQLException, NamingException;
+	 public Double buscarPrecioAcumulado(Integer cliente) throws ClassNotFoundException, SQLException, NamingException;
+	 
+		public Double calcularDescuento(Double precioAcumulado) throws ClassNotFoundException, SQLException;
+			
+		}
 	
-
-}

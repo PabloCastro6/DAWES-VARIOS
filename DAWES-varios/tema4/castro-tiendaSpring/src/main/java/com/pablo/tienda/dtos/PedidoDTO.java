@@ -11,10 +11,11 @@ public class PedidoDTO {
 	public String nombreProducto;
 	public Integer cantidad;
 	public Double precio;
+	public Integer idDetalle;
 	
 
 	public PedidoDTO(Integer id, Integer idCliente, String fecha, Integer idEstado, String nombreCliente,
-			String nombreEstado,Integer idProducto,String nombreProducto,Integer cantidad,Double precio) {
+			String nombreEstado,Integer idProducto,String nombreProducto,Integer cantidad,Double precio,Integer idDetalle) {
 		super();
 		this.id = id;
 		this.idCliente = idCliente;
@@ -26,6 +27,7 @@ public class PedidoDTO {
 		this.nombreProducto = nombreProducto;
 		this.cantidad = cantidad;
 		this.precio = precio;
+		this.idDetalle = idDetalle;
 		
 	}
 	
@@ -141,6 +143,17 @@ public class PedidoDTO {
 		this.precio = precio;
 	}
 
+
+	public Integer getIdDetalle() {
+		return idDetalle;
+	}
+
+
+	public void setIdDetalle(Integer idDetalle) {
+		this.idDetalle = idDetalle;
+	}
+
+	
 
 
 }

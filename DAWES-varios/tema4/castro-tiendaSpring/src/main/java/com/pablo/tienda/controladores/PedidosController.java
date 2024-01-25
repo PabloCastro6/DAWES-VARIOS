@@ -37,8 +37,8 @@ public class PedidosController {
 	@Autowired
 	IComboDAO comboDAO;
 
+	
 	@PostMapping("/calculaprecio")
-
 	public @ResponseBody Double calculaPrecio(ModelMap model, @RequestBody ClienteProductoDTO clienteProducto) {
 		System.out.println(clienteProducto.getCliente() + " , " + clienteProducto.getProducto());
 		return pedidoService.calcularPrecio(clienteProducto);
@@ -54,6 +54,8 @@ public class PedidosController {
 		return ResponseEntity.internalServerError().body("Error al realizar la venta");
 
 	}
+	
+	
 
 	@GetMapping("listarpedidos")
 	public String getListadoPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
@@ -88,7 +90,12 @@ public class PedidosController {
 	
 	
 	
-	//ACTUALIZAR
+	
+	
+	
+	
+	
+	//MODIFICAR
 	
 	
 	@GetMapping("formularioactualizarpedido")
@@ -98,9 +105,10 @@ public class PedidosController {
 
 		recuperacionCombos(model);
 
-		return "pedido/actualizarPedido";
+		return "pedidos/actualizarPedido";
 	}
 
+	
 	@PostMapping("formularioactualizarpedido")
 	public String getFormularioActualizarPedido(@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "idCliente", required = false) String idCliente,
@@ -112,27 +120,30 @@ public class PedidosController {
 		recuperacionCombos(model);
 		model.addAttribute("lista", listaPedido);
 
-		return "pedido/actualizarPedido";
+		return "pedidos/actualizarPedido";
 	}
 
 	
 	
 	
 	@PostMapping("actualizarpedido")
-	public String actualizarPedido(@RequestParam("id") String id, @RequestParam("idCliente") String idCliente,
+	public String actualizarPedido(@RequestParam("idDetalle") String idDetalle, @RequestParam("idCliente") String idCliente,
 			@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
 			@RequestParam("precio") String precio, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		recuperacionCombos(model);
 
-		pedidoService.actualizarPedidos(id, idCliente, idProducto, cantidad, precio);
+		pedidoService.actualizarPedidos(idDetalle, idCliente, idProducto, cantidad, precio);
 
-		return "pedido/actualizarPedido";
+		return "pedidos/actualizarPedido";
 
 	}
 
 	
+	
+	
+	//RECUPERACION DE COMBOS
 	
 	private void recuperacionCombos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
@@ -151,33 +162,6 @@ public class PedidosController {
 
 
 
-
-
-
-
-
-
-
-
-
-//	@PostMapping ("/calculaprecio")
-//			public @ResponseBody Double calculaPrecio (ModelMap modelmap, @RequestBody  ClienteProductoDTO clienteProductoDTO) {
-//		
-//		System.out.println(clienteProductoDTO.getCliente()+ " " + clienteProductoDTO.getProducto());
-//		return 3.0;
-//	}
-//	
-//	@PostMapping("/dopedido")
-//	public ResponseEntity<String> creaPedido(ModelMap modelMap, @RequestBody List<ItemDTO> lista) {
-//		
-//		for(ItemDTO i : lista) {
-//			System.out.println(i.getClienteNombre() + " " + i.getProductoNombre());
-//		}
-//		
-//	//	return ResponseEntity.ok("Operacion realizada con éxito");
-//		
-//		return ResponseEntity.internalServerError().body("Error al realizar la venta");
-		
 }
 
 	
