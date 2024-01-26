@@ -54,7 +54,7 @@ function agregarAlCarrito() {
 	const cantidadPagar = (precio * cantidad);
 	
 	 console.log("Valor del input: ", cantidadPagar);
-	//Comprobamos que todos los campos tienen valor
+//Comprobamos que todos los campos tienen valor
 	if (clienteID === "" || productoSeleccionado === "" || isNaN(precio)) {
 		alert("Por favor, seleccione una opción en todos los campos.");
 		return; // Detiene la función si algún campo está vacío

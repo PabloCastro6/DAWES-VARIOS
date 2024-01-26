@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
+import com.pablo.tienda.dtos.ItemDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
 
 public interface IPedidosDAO {
@@ -14,12 +15,11 @@ public interface IPedidosDAO {
 
 	public Integer actualizarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
 			throws ClassNotFoundException, SQLException;
-	
-	public Integer insertarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
-			throws ClassNotFoundException, SQLException;
 
 	public Double buscarPrecioAcumulado(Integer cliente) throws ClassNotFoundException, SQLException, NamingException;
 
 	public Double calcularDescuento(Double precioAcumulado) throws ClassNotFoundException, SQLException;
+
+	public Integer insertarPedido(List<ItemDTO> lista) throws ClassNotFoundException, SQLException;
 
 }

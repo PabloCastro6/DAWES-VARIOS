@@ -7,7 +7,6 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -34,6 +33,7 @@ public class PedidosController {
 	@Autowired
 	IComboDAO comboDAO;
 
+	//INSERTAR 
 	@PostMapping("/calculaprecio")
 	public @ResponseBody Double calculaPrecio(ModelMap model, @RequestBody ClienteProductoDTO clienteProducto) {
 		System.out.println(clienteProducto.getCliente() + " , " + clienteProducto.getProducto());
@@ -41,16 +41,23 @@ public class PedidosController {
 	}
 
 	@PostMapping("/dopedido")
-	public ResponseEntity<String> creaPedido(ModelMap model, @RequestBody List<ItemDTO> lista) {
+	public ResponseEntity<String> creaPedido(ModelMap model, @RequestBody List<ItemDTO> lista) throws ClassNotFoundException, SQLException {
 
 		for (ItemDTO i : lista) {
 			System.out.println(i.getClienteNombre() + " " + i.getProductoNombre());
 		}
-		// return ResponseEntity.ok("Operación realizada con éxito.");
-		return ResponseEntity.internalServerError().body("Error al realizar la venta");
+		
+		pedidoService.doPedido(lista);
+		 return ResponseEntity.ok("Operación realizada con éxito.");
+		// return ResponseEntity.internalServerError().body("Error al realizar la venta");
 
 	}
 
+	
+	
+	
+	
+	//LISTAR
 	@GetMapping("listarpedidos")
 	public String getListadoPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
@@ -119,29 +126,6 @@ public class PedidosController {
 
 	}
 
-	
-	
-	
-	
-	@PostMapping
-	public ResponseEntity<String> crearPedido(@RequestBody PedidoDTO pedidoDTO) {
-		
-		try{
-			pedidoService.crearPedido(pedidoDTO);
-			return ResponseEntity.ok("Pedido creado");
-		 } catch (Exception e) {
-	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear pedido");
-	        }
-	    }
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// RECUPERACION DE COMBOS
 
 	private void recuperacionCombos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {

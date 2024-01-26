@@ -47,7 +47,7 @@ public class ProductoDAOImpTnd implements IProductoDAO {
 		ps.setString(7, idProveedor);
 
 		ResultSet rs = ps.executeQuery();
-
+		System.out.println(ps.toString());
 		while (rs.next()) {
 			listaProductos.add(new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
 					rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getString(9)));
@@ -56,6 +56,37 @@ public class ProductoDAOImpTnd implements IProductoDAO {
 		return listaProductos;
 
 	}
+	
+	
+	@Override
+	public ProductoDTO buscarProductoPorID(Integer id) throws ClassNotFoundException, SQLException, NamingException {
+		String sql = "SELECT p.ID_Producto, p.Nombre, p.Descripcion, p.Precio, p.CantidadEnStock,p.ID_Categoria,p.ID_Proveedor"
+				+ " FROM productos p "
+				+ " WHERE p.ID_Producto = ? ";
+
+		Connection connection = DBUtils.conectaBBDD();
+		ProductoDTO producto = null;
+
+		PreparedStatement ps = connection.prepareStatement(sql);
+
+		ps.setInt(1, id);
+		
+
+		ResultSet rs = ps.executeQuery();
+		System.out.println(ps.toString());
+		if (rs.next()) {
+			producto = new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDouble(4),
+					rs.getInt(5), rs.getInt(6), rs.getInt(7));
+		}
+		connection.close();
+		return producto;
+
+	}
+	
+	
+	
+	
+	
 
 	public Integer insertarProducto(String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
@@ -101,4 +132,6 @@ public class ProductoDAOImpTnd implements IProductoDAO {
 		return resultado;
 	}
 
-}
+	
+	}
+

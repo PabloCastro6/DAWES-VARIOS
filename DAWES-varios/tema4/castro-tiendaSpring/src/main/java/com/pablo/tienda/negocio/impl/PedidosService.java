@@ -33,9 +33,8 @@ public class PedidosService implements IPedidosService {
 
 			Double descuento = pedidoDAO.calcularDescuento(precioAcumulado);
 
-			List<ProductoDTO> productos = productoDAO.buscarProducto(clienteProducto.getProducto().toString(), "", "",
-					"", "", "", "");
-			ProductoDTO producto = productos.get(0);
+			ProductoDTO producto = productoDAO.buscarProductoPorID(clienteProducto.getProducto());
+		
 
 			Double precioDelProducto = producto.getPrecio();
 
@@ -54,25 +53,14 @@ public class PedidosService implements IPedidosService {
 
 	}
 
-	public Integer doPedido(List<ItemDTO> lista) {
+	public Integer doPedido(List<ItemDTO> lista) throws ClassNotFoundException, SQLException {
 
 		// TODO: Llamar al DAO insertar
-		
-		Double insertarPedido = pedidoDAO.insertarPedidos();
+		pedidoDAO.insertarPedido(lista);
 		return null;
 
 	}
 
-	
-	@Override
-	public void crearPedido(PedidoDTO pedidoDTO) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
-	
 	@Override
 	public List<PedidoDTO> buscarPedidos(String id, String idcliente, String fecha, String idestado)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -87,5 +75,4 @@ public class PedidosService implements IPedidosService {
 		return pedidoDAO.actualizarPedidos(idDetalle, idcliente, idProducto, cantidad, precio);
 	}
 
-	
 }

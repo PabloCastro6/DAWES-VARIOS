@@ -6,6 +6,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import com.pablo.tienda.dtos.ClienteProductoDTO;
+import com.pablo.tienda.dtos.ItemDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
 
 public interface IPedidosService {
@@ -17,8 +18,7 @@ public interface IPedidosService {
 
 	public Integer actualizarPedidos(String id, String cliente, String idProducto, String cantidad, String precio)
 			throws ClassNotFoundException, SQLException, NamingException;
-
 	
-	public void crearPedido(PedidoDTO pedidoDTO);
+	public Integer doPedido(List<ItemDTO> lista) throws ClassNotFoundException, SQLException;
 
 }

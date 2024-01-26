@@ -17,5 +17,8 @@ public interface IProductoDAO {
 
 	public Integer actualizarProducto(String id, String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException;
+	
+	public ProductoDTO buscarProductoPorID(Integer id)
+			throws ClassNotFoundException, SQLException, NamingException;
 
 }

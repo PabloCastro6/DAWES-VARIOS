@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import javax.naming.NamingException;
 import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IPedidosDAO;
+import com.pablo.tienda.dtos.ItemDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
 import com.pablo.tienda.utils.DBUtils;
 
@@ -133,19 +135,68 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 
 		System.out.println(ps.toString());
 
-		rs.next();
-		Double descuento = rs.getDouble(1);
+		Double descuento = 0.0;
+
+		if (rs.next()) {
+			descuento = rs.getDouble(1);
+		}
 
 		connection.close();
 		return descuento;
 	}
 
-	
-	@Override
-	public Integer insertarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
-			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
+	public Double buscarDescuento(Integer idCliente) throws ClassNotFoundException, SQLException {
+
 		return null;
+	}
+
+	public Integer insertarPedido(List<ItemDTO> lista) throws SQLException, ClassNotFoundException {
+
+		String insertePedido = "INSERT INTO pedidos (ID_Cliente,EstadoID) VALUES (?,1)";
+		String insertarDetallePedido = "INSERT INTO detalles_pedido (ID_Pedido, ID_Producto, Cantidad, PrecioUnitario) VALUES (?, ?, ?, ?);";
+
+		int filasInsertadas = 0;
+		int idPedido = 0;
+		int idCliente = lista.get(0).getClienteID();
+		Integer resultado = null;
+
+		Connection connection = DBUtils.conectaBBDD();
+		PreparedStatement psPedido = connection.prepareStatement(insertePedido, Statement.RETURN_GENERATED_KEYS);
+
+		psPedido.setInt(1, idCliente);
+
+		// Logger.debug("Query a ejecutar: " + psPedido);
+		filasInsertadas = psPedido.executeUpdate();
+
+		if (filasInsertadas == 0) {
+			throw new SQLException("Ha fallado la insercción del pedido");
+		}
+
+		ResultSet clavesGeneradas = psPedido.getGeneratedKeys();
+
+		if (clavesGeneradas.next()) {
+			idPedido = clavesGeneradas.getInt(1);
+		} else {
+			throw new SQLException("Insert fallido, no se ha obtenido el id");
+		}
+		
+		for (ItemDTO elemento : lista) {
+			PreparedStatement psDetallePedido = connection.prepareStatement(insertarDetallePedido);
+			
+			psDetallePedido.setInt(1, idPedido);
+			psDetallePedido.setInt(2, elemento.getProductoID());
+			psDetallePedido.setInt(3, elemento.getCantidad());
+			psDetallePedido.setDouble(4, elemento.getCantidadPagar() / elemento.getCantidad());
+			 
+			resultado = psDetallePedido.executeUpdate();
+			
+		}
+		
+		
+		connection.close();
+		return resultado;
+		
+
 	}
 
 }

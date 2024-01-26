@@ -17,74 +17,50 @@
 </header>
 <%@include file="../menu.html" %>
 
-    <h1>Carrito de Compras</h1>
-
   
-     <%-- HACER COMBO CLIENTE --%>
-      <label for="cliente">Seleccionar cliente:</label>
+
+    <div class="container">
+	<h3>Insertar Pedidos</h3>
+		<div class="form">
+			
+				<label for="cliente">Seleccionar cliente:</label>
 				<br>
-				<select name="idCliente" id="cliente">
-				
-						<option value="" disabled selected>--Seleccione un cliente--</option>
-					<c:forEach items="${comboCliente}" var="cliente">
-						<option value="${cliente.id}">${cliente.nombre}</option>
-					</c:forEach>
-				
+    			<select name="idCliente" id="cliente" >
+					<option value="" disabled selected>--Seleccione un cliente--</option>
+						<c:forEach items="${comboCliente}" var="cliente">
+					<option value="${cliente.id}">${cliente.nombre}</option>
+						</c:forEach>
 				</select>
-				
-	<%-- comentarioEJEMPLO
-    <select id="cliente">
-		<option value="" disabled selected>Seleccione una opción</option>
-		<option value="1">Pepe</option>
-        <option value="2">Juanita</option>
-        <option value="3">Pepita</option>
-    </select>
- --%>
-    <br><br>
-
-    
-   <%-- HACER COMBO PRODUCTO --%>
-   <label for="producto">Seleccionar producto:</label>
+    			<br><br>
+				<label for="producto">Seleccionar producto:</label>
 				<br>
-				<select onchange = "calculaPrecio()" id="Producto" >
-				
-						<option value="" disabled selected>--Seleccione un producto--</option>
-					<c:forEach items="${comboProducto}" var="producto">
-						<option value="${producto.id}">${producto.nombre}</option>
-					</c:forEach>
-				
+    			<select name="idProducto" id="producto" >
+					<option value="" disabled selected>--Seleccione un producto--</option>
+						<c:forEach items="${comboProducto}" var="producto">
+					<option value="${producto.id}">${producto.nombre}</option>
+						</c:forEach>
 				</select>
-   
-   
-   
-   <%-- Ejemplo 
-   <label for="producto">Seleccionar producto:</label>
-   <br>
-    <select onchange = "calculaPrecio()" id="producto">
-		<option value="" disabled selected>Seleccione una opción</option>
-        <option value="1">Teclado</option>
-        <option value="2">Procesador</option>
-        <option value="3">ratósn</option>
-    </select>
---%>
-
-
-    <br><br>
-
-    <label for="cantidad">Cantidad:</label>
-    <input type="number" id="cantidad" value="1">
-
-    <br><br>
-        <label for="precio">Precio:</label>
-    <input type="number" id="precio" >
-   <br><br>
-    <button onclick="agregarAlCarrito()">Agregar al carrito</button>
-    <button onclick="realizarVenta()">Realizar Venta</button>
-
-    <h2>Carrito</h2>
-    <ul id="listaCarrito">
-    </ul>
-
+  				<br><br>
+				<label for="cantidad">Cantidad:</label>
+				<br>
+    			<input type="number" id="cantidad" value="1">
+				<br><br>
+       			<label for="precio">Precio:</label>
+       			<br>
+   		 		<input type="number" id="precio" value="${pedido.precio}" readonly >
+  	 			<br><br>
+    			<button onclick="agregarAlCarrito()">Agregar al carrito</button>
+    			<button onclick="realizarVenta()">Realizar Venta</button>
+  			
+		</div>
+		<br><br>
+     	<h3>Carrito</h3>
+     	<div class="form">
+    		<ul id="listaCarrito">
+    		</ul>
+    	</div>
+    	
  <script src="/tienda/js/scripts.js"></script>
+ </div>
 </body>
 </html>
