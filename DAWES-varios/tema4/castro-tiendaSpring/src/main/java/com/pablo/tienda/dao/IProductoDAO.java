@@ -6,7 +6,6 @@ import javax.naming.NamingException;
 
 import com.pablo.tienda.dtos.ProductoDTO;
 
-
 public interface IProductoDAO {
 
 	public List<ProductoDTO> buscarProducto(String id, String nombre, String descripcion, String precio,

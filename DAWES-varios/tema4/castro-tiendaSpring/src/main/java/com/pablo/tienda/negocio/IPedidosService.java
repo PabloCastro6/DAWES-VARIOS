@@ -9,11 +9,16 @@ import com.pablo.tienda.dtos.ClienteProductoDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
 
 public interface IPedidosService {
-	
+
 	public Double calcularPrecio(ClienteProductoDTO clienteProducto);
+
+	public List<PedidoDTO> buscarPedidos(String id, String cliente, String fecha, String estado)
+			throws ClassNotFoundException, SQLException, NamingException;
+
+	public Integer actualizarPedidos(String id, String cliente, String idProducto, String cantidad, String precio)
+			throws ClassNotFoundException, SQLException, NamingException;
+
 	
-	public List<PedidoDTO> buscarPedidos(String id,String cliente, String fecha,String estado)throws ClassNotFoundException, SQLException, NamingException;
-	
-	public Integer actualizarPedidos(String id,String cliente, String idProducto, String cantidad, String precio)throws ClassNotFoundException, SQLException, NamingException;
+	public void crearPedido(PedidoDTO pedidoDTO);
 
 }

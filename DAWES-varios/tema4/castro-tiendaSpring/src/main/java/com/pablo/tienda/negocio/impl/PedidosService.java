@@ -16,53 +16,62 @@ import com.pablo.tienda.dtos.PedidoDTO;
 import com.pablo.tienda.dtos.ProductoDTO;
 import com.pablo.tienda.negocio.IPedidosService;
 
-
 @Component
 public class PedidosService implements IPedidosService {
-	//Calculo precio total, y pasar por parametro el ClienteProductoDTO
-	
+	// Calculo precio total, y pasar por parametro el ClienteProductoDTO
+
 	@Autowired
 	IPedidosDAO pedidoDAO;
-	
+
 	@Autowired
 	IProductoDAO productoDAO;
 
 	public Double calcularPrecio(ClienteProductoDTO clienteProducto) {
 
 		try {
-		Double precioAcumulado =	pedidoDAO.buscarPrecioAcumulado(clienteProducto.getCliente());
-		
-		Double descuento = pedidoDAO.calcularDescuento(precioAcumulado);
-		
-		List<ProductoDTO> productos = productoDAO.buscarProducto(clienteProducto.getProducto().toString(),"", "","","","","");
-		ProductoDTO producto = productos.get(0);
-		
-		Double precioDelProducto = producto.getPrecio();
-		
-		return precioDelProducto * (1 - descuento/100);
-			
+			Double precioAcumulado = pedidoDAO.buscarPrecioAcumulado(clienteProducto.getCliente());
+
+			Double descuento = pedidoDAO.calcularDescuento(precioAcumulado);
+
+			List<ProductoDTO> productos = productoDAO.buscarProducto(clienteProducto.getProducto().toString(), "", "",
+					"", "", "", "");
+			ProductoDTO producto = productos.get(0);
+
+			Double precioDelProducto = producto.getPrecio();
+
+			return precioDelProducto * (1 - descuento / 100);
+
 		} catch (ClassNotFoundException | SQLException | NamingException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 
 		// TODO:1 llamar al DAO para comprobar las compras acumuladas del clienteID
 		// devuelve el numero de compras x
 		// TODO:2 Hacer en el DAO un metodo para calcular el descuento x
-		// TODO:3 Consultar el precio del producto ya con el descuento return x HECHO!! 
-		
-		
+		// TODO:3 Consultar el precio del producto ya con el descuento return x HECHO!!
+
 	}
 
 	public Integer doPedido(List<ItemDTO> lista) {
 
 		// TODO: Llamar al DAO insertar
+		
+		Double insertarPedido = pedidoDAO.insertarPedidos();
 		return null;
 
 	}
 
+	
+	@Override
+	public void crearPedido(PedidoDTO pedidoDTO) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	
+	
 	
 	@Override
 	public List<PedidoDTO> buscarPedidos(String id, String idcliente, String fecha, String idestado)
@@ -72,11 +81,11 @@ public class PedidosService implements IPedidosService {
 	}
 
 	@Override
-	public Integer actualizarPedidos(String idDetalle, String idcliente, String idProducto, String cantidad, String precio)
-			throws ClassNotFoundException, SQLException, NamingException {
+	public Integer actualizarPedidos(String idDetalle, String idcliente, String idProducto, String cantidad,
+			String precio) throws ClassNotFoundException, SQLException, NamingException {
 		// TODO Auto-generated method stub
 		return pedidoDAO.actualizarPedidos(idDetalle, idcliente, idProducto, cantidad, precio);
 	}
 
+	
 }
-

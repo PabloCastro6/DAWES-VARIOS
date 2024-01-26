@@ -7,6 +7,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,10 +25,6 @@ import com.pablo.tienda.dtos.ItemDTO;
 import com.pablo.tienda.dtos.PedidoDTO;
 import com.pablo.tienda.negocio.IPedidosService;
 
-
-
-
-
 @Controller
 @RequestMapping("/pedidos/")
 public class PedidosController {
@@ -37,7 +34,6 @@ public class PedidosController {
 	@Autowired
 	IComboDAO comboDAO;
 
-	
 	@PostMapping("/calculaprecio")
 	public @ResponseBody Double calculaPrecio(ModelMap model, @RequestBody ClienteProductoDTO clienteProducto) {
 		System.out.println(clienteProducto.getCliente() + " , " + clienteProducto.getProducto());
@@ -54,8 +50,6 @@ public class PedidosController {
 		return ResponseEntity.internalServerError().body("Error al realizar la venta");
 
 	}
-	
-	
 
 	@GetMapping("listarpedidos")
 	public String getListadoPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
@@ -64,7 +58,6 @@ public class PedidosController {
 		return "pedidos/listarPedidos";
 	}
 
-	
 	@PostMapping("listarpedido")
 	public String buscarPedido(@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "idCliente", required = false) String idCliente, @RequestParam("fecha") String fecha,
@@ -72,14 +65,13 @@ public class PedidosController {
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		recuperacionCombos(model);
-		
+
 		List<PedidoDTO> listaPedido = pedidoService.buscarPedidos(id, idCliente, fecha, idEstado);
 		model.addAttribute("lista", listaPedido);
 
 		return "pedidos/listarPedidos";
 	}
 
-	
 	@GetMapping("insertarpedido")
 	public String getInsertarPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
@@ -87,17 +79,8 @@ public class PedidosController {
 		return "pedidos/insertarPedido";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	//MODIFICAR
-	
-	
+	// MODIFICAR
+
 	@GetMapping("formularioactualizarpedido")
 
 	public String getFormularioActualizarPedido(ModelMap model)
@@ -108,7 +91,6 @@ public class PedidosController {
 		return "pedidos/actualizarPedido";
 	}
 
-	
 	@PostMapping("formularioactualizarpedido")
 	public String getFormularioActualizarPedido(@RequestParam(value = "id", required = false) String id,
 			@RequestParam(value = "idCliente", required = false) String idCliente,
@@ -123,13 +105,10 @@ public class PedidosController {
 		return "pedidos/actualizarPedido";
 	}
 
-	
-	
-	
 	@PostMapping("actualizarpedido")
-	public String actualizarPedido(@RequestParam("idDetalle") String idDetalle, @RequestParam("idCliente") String idCliente,
-			@RequestParam("idProducto") String idProducto, @RequestParam("cantidad") String cantidad,
-			@RequestParam("precio") String precio, ModelMap model)
+	public String actualizarPedido(@RequestParam("idDetalle") String idDetalle,
+			@RequestParam("idCliente") String idCliente, @RequestParam("idProducto") String idProducto,
+			@RequestParam("cantidad") String cantidad, @RequestParam("precio") String precio, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		recuperacionCombos(model);
@@ -143,8 +122,28 @@ public class PedidosController {
 	
 	
 	
-	//RECUPERACION DE COMBOS
 	
+	@PostMapping
+	public ResponseEntity<String> crearPedido(@RequestBody PedidoDTO pedidoDTO) {
+		
+		try{
+			pedidoService.crearPedido(pedidoDTO);
+			return ResponseEntity.ok("Pedido creado");
+		 } catch (Exception e) {
+	            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear pedido");
+	        }
+	    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// RECUPERACION DE COMBOS
+
 	private void recuperacionCombos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
 		List<ComboDTO> listaCliente = comboDAO.recuperarCombosClientes();
@@ -156,12 +155,4 @@ public class PedidosController {
 		model.addAttribute("comboEstadoPedido", listaEstadoPedido);
 	}
 
-
-
-
-
-
-
 }
-
-	

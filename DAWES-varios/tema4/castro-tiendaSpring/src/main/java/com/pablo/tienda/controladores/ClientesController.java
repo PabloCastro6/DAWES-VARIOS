@@ -18,8 +18,6 @@ import com.pablo.tienda.dtos.ClienteDTO;
 import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.negocio.IClientesService;
 
-
-
 @Controller
 @RequestMapping("/clientes")
 public class ClientesController {
@@ -35,7 +33,7 @@ public class ClientesController {
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		return "clientes/listadoClientes";
 	}
 
@@ -53,7 +51,7 @@ public class ClientesController {
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		model.addAttribute("lista", listaCliente);
 
 		return "clientes/listadoClientes";
@@ -72,8 +70,7 @@ public class ClientesController {
 	}
 
 	@PostMapping("insertarcliente")
-	public String insertarCliente(@RequestParam("nombre") String nombre,
-			@RequestParam("correo") String correo,
+	public String insertarCliente(@RequestParam("nombre") String nombre, @RequestParam("correo") String correo,
 			@RequestParam("idPoblacion") String idPoblacion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -83,7 +80,7 @@ public class ClientesController {
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		Integer resultado = clientesService.insertarClientes(nombre, correo, idPoblacion, activo);
 
 		model.addAttribute("resultado", resultado);
@@ -91,7 +88,7 @@ public class ClientesController {
 		return "clientes/insertarClientes";
 
 	}
-	
+
 	@GetMapping("formulariomodificarcliente")
 	public String getFormularioModificarCliente(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -103,7 +100,7 @@ public class ClientesController {
 		return "clientes/modificarClientes";
 
 	}
-	
+
 	@PostMapping("formulariomodificarcliente")
 	public String getFormularioModificarClientes(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
@@ -118,12 +115,12 @@ public class ClientesController {
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		model.addAttribute("lista", listaCliente);
 
 		return "clientes/modificarClientes";
 	}
-	
+
 	@PostMapping("modificarcliente")
 	public String Clientes(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
@@ -132,7 +129,7 @@ public class ClientesController {
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		activo = (activo != null) ? "1" : "0";
-		
+
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
@@ -141,7 +138,7 @@ public class ClientesController {
 
 		return "clientes/modificarClientes";
 	}
-	
+
 	@GetMapping("formularioborrarcliente")
 	public String getFormularioBorrarCliente(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -153,7 +150,7 @@ public class ClientesController {
 		return "clientes/borrarClientes";
 
 	}
-	
+
 	@PostMapping("formularioborrarcliente")
 	public String borrarCliente(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
@@ -168,23 +165,23 @@ public class ClientesController {
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		model.addAttribute("lista", listaCliente);
 
 		return "clientes/borrarClientes";
 	}
-	
+
 	@PostMapping("borrarclientes")
-	public String borrarCliente(@RequestParam("id") String id, ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
-		
+	public String borrarCliente(@RequestParam("id") String id, ModelMap model)
+			throws ClassNotFoundException, SQLException, NamingException {
+
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
 
 		model.addAttribute("comboMunicipio", listaClientes);
-		
+
 		clientesService.borrarClientes(id);
-		
+
 		return "clientes/borrarClientes";
 	}
-
 
 }

@@ -1,15 +1,14 @@
 package com.pablo.tienda.dtos;
 
 public class ItemDTO {
-	
+
 	private Integer clienteID;
 	private String clienteNombre;
 	private Integer productoID;
 	private String productoNombre;
 	private Integer cantidad;
-	private Double precio; //precio
-	
-	
+	private Double precio;
+
 	public ItemDTO(Integer clienteID, String clienteNombre, Integer productoID, String productoNombre, Integer cantidad,
 			Double cantidadPagar) {
 		super();
@@ -20,7 +19,7 @@ public class ItemDTO {
 		this.cantidad = cantidad;
 		this.precio = cantidadPagar;
 	}
-	
+
 	public ItemDTO() {
 		super();
 	}
@@ -72,9 +71,5 @@ public class ItemDTO {
 	public void setCantidadPagar(Double cantidadPagar) {
 		this.precio = cantidadPagar;
 	}
-	
-	
-	
-	
 
 }

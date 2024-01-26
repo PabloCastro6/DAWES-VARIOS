@@ -9,18 +9,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-
 import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.ICategoriasService;
 
 @Component
-public class CategoriasService implements ICategoriasService{
-	
+public class CategoriasService implements ICategoriasService {
+
 	@Autowired
 	ICategoriasDAO categoriasDAO;
-	
+
 	@Override
 	public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {
 		return categoriasDAO.obtenerTodasCategorias();
@@ -52,8 +51,5 @@ public class CategoriasService implements ICategoriasService{
 		// TODO Auto-generated method stub
 		return categoriasDAO.borrarCategoria(id);
 	}
-	
-	
 
 }
-

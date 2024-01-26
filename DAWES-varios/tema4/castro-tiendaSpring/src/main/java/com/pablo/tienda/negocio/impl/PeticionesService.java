@@ -37,5 +37,3 @@ import com.pablo.tienda.negocio.IPeticionesService;
 //        return new PeticionesDAOImplTnd().borrarPeticiones(idPeticiones);
 //    }
 //}
-
-

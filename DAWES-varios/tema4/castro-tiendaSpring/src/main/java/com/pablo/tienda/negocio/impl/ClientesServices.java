@@ -11,19 +11,19 @@ import com.pablo.tienda.negocio.IClientesService;
 
 @Component
 public class ClientesServices implements IClientesService {
-	
+
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
-		
-		return new ClientesDAOImplTnd().buscarClientes(id, nombre, correo,idPoblacion, activo);
+
+		return new ClientesDAOImplTnd().buscarClientes(id, nombre, correo, idPoblacion, activo);
 	}
 
 	@Override
 	public Integer insertarClientes(String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
 
-		return new ClientesDAOImplTnd().insertarClientes( nombre, correo, idPoblacion, activo);
+		return new ClientesDAOImplTnd().insertarClientes(nombre, correo, idPoblacion, activo);
 	}
 
 	@Override
@@ -38,8 +38,5 @@ public class ClientesServices implements IClientesService {
 
 		return new ClientesDAOImplTnd().borrarClientes(id);
 	}
-
-	
-	
 
 }

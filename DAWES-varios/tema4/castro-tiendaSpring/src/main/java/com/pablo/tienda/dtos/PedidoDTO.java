@@ -12,10 +12,10 @@ public class PedidoDTO {
 	public Integer cantidad;
 	public Double precio;
 	public Integer idDetalle;
-	
 
 	public PedidoDTO(Integer id, Integer idCliente, String fecha, Integer idEstado, String nombreCliente,
-			String nombreEstado,Integer idProducto,String nombreProducto,Integer cantidad,Double precio,Integer idDetalle) {
+			String nombreEstado, Integer idProducto, String nombreProducto, Integer cantidad, Double precio,
+			Integer idDetalle) {
 		super();
 		this.id = id;
 		this.idCliente = idCliente;
@@ -28,11 +28,10 @@ public class PedidoDTO {
 		this.cantidad = cantidad;
 		this.precio = precio;
 		this.idDetalle = idDetalle;
-		
+
 	}
-	
-	
-	public PedidoDTO( Integer idCliente, Integer idProducto, Integer cantidad, Double precio,Integer id) {
+
+	public PedidoDTO(Integer idCliente, Integer idProducto, Integer cantidad, Double precio, Integer id) {
 		super();
 		this.idCliente = idCliente;
 		this.idProducto = idProducto;
@@ -40,127 +39,93 @@ public class PedidoDTO {
 		this.precio = precio;
 		this.id = id;
 	}
-
-
-
 
 	public Integer getId() {
 		return id;
 	}
 
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	public Integer getIdCliente() {
 		return idCliente;
 	}
 
-
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
 	}
-
 
 	public String getNombreCliente() {
 		return nombreCliente;
 	}
 
-
 	public void setNombreCliente(String nombreCliente) {
 		this.nombreCliente = nombreCliente;
 	}
-
 
 	public String getFecha() {
 		return fecha;
 	}
 
-
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-
 
 	public Integer getIdEstado() {
 		return idEstado;
 	}
 
-
 	public void setIdEstado(Integer idEstado) {
 		this.idEstado = idEstado;
 	}
-
 
 	public String getNombreEstado() {
 		return nombreEstado;
 	}
 
-
 	public void setNombreEstado(String nombreEstado) {
 		this.nombreEstado = nombreEstado;
 	}
-
 
 	public Integer getIdProducto() {
 		return idProducto;
 	}
 
-
 	public void setIdProducto(Integer idProducto) {
 		this.idProducto = idProducto;
 	}
-
 
 	public String getNombreProducto() {
 		return nombreProducto;
 	}
 
-
 	public void setNombreProducto(String nombreProducto) {
 		this.nombreProducto = nombreProducto;
 	}
-
 
 	public Integer getCantidad() {
 		return cantidad;
 	}
 
-
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-
 
 	public Double getPrecio() {
 		return precio;
 	}
 
-
 	public void setPrecio(Double precio) {
 		this.precio = precio;
 	}
-
 
 	public Integer getIdDetalle() {
 		return idDetalle;
 	}
 
-
 	public void setIdDetalle(Integer idDetalle) {
 		this.idDetalle = idDetalle;
 	}
 
-	
-
-
 }
-	
-	
-	
-	
-	
-
-
