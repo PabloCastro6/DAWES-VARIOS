@@ -18,7 +18,7 @@ public interface IPedidosService {
 
 	public Integer actualizarPedidos(String id, String cliente, String idProducto, String cantidad, String precio)
 			throws ClassNotFoundException, SQLException, NamingException;
-	
+
 	public Integer doPedido(List<ItemDTO> lista) throws ClassNotFoundException, SQLException;
 
 }

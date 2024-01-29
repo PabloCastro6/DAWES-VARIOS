@@ -33,7 +33,7 @@ public class PedidosController {
 	@Autowired
 	IComboDAO comboDAO;
 
-	//INSERTAR 
+	// INSERTAR
 	@PostMapping("/calculaprecio")
 	public @ResponseBody Double calculaPrecio(ModelMap model, @RequestBody ClienteProductoDTO clienteProducto) {
 		System.out.println(clienteProducto.getCliente() + " , " + clienteProducto.getProducto());
@@ -41,23 +41,21 @@ public class PedidosController {
 	}
 
 	@PostMapping("/dopedido")
-	public ResponseEntity<String> creaPedido(ModelMap model, @RequestBody List<ItemDTO> lista) throws ClassNotFoundException, SQLException {
+	public ResponseEntity<String> creaPedido(ModelMap model, @RequestBody List<ItemDTO> lista)
+			throws ClassNotFoundException, SQLException {
 
 		for (ItemDTO i : lista) {
 			System.out.println(i.getClienteNombre() + " " + i.getProductoNombre());
 		}
-		
+
 		pedidoService.doPedido(lista);
-		 return ResponseEntity.ok("Operación realizada con éxito.");
-		// return ResponseEntity.internalServerError().body("Error al realizar la venta");
+		return ResponseEntity.ok("Operación realizada con EXITO.");
+		// return ResponseEntity.internalServerError().body("Error al realizar la
+		// venta;
 
 	}
 
-	
-	
-	
-	
-	//LISTAR
+	// LISTAR
 	@GetMapping("listarpedidos")
 	public String getListadoPedido(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
