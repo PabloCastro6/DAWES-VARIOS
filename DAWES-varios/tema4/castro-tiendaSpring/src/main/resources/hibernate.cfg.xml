@@ -1,25 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
-	<session-factory>
-		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/tienda?serverTimezone=UTC</property>
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">PracticaRoot</property>
-		<property name="hibernate.connection.pool_size">1</property>
-		<property name="hibernate.current_session_context_class">thread</property>
-		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
-		<mapping class="com.pablo.tienda.entities.CategoriasEntity" />
+    <session-factory>
 
-		<!--  <mapping class="com.pablo.tienda.entities."/>
-		<mapping class="com.pablo.tienda.entities."/>
-		<mapping class="com.pablo.tienda.entities."/>
-		<mapping class="com.pablo.tienda.entities."/>
-		<mapping class="com.pablo.tienda.entities."/>
-		<mapping class="com.pablo.tienda.entities."/> -->
+        <!-- Configuración JDBC para el acceso a la BBDD -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/tienda</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">PracticaRoot</property>
 
-	</session-factory>
+        <!-- Seteamos el pool de conexiones a 1-->
+        <property name="connection.pool_size">100</property>
+
+        <!-- Dialecto SQL a usar, cada BBDD (Oracle, MySQL, Posgress) tiene el suyo -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+        <!-- Con esta configuración nos saldrá por consola las sentencias SQL que se envían a la BBDD -->
+        <property name="show_sql">true</property>
+         <!-- Con esta configuración nos saldrá por consola las sentencias SQL de una forma más legible -->
+        <property name="format_sql">true</property>    
+
+
+		<property name="current_session_context_class">thread</property>
+		
+			<mapping class="com.pablo.tienda.entities.CategoriasEntity"/>
+		<!--	<mapping class="com.kike.colegio.entities."/>
+			<mapping class="com.kike.colegio.entities."/>
+			<mapping class="com.kike.colegio.entities."/>
+			<mapping class="com.kike.colegio.entities."/> -->
+    </session-factory>
+
 </hibernate-configuration>

@@ -14,7 +14,7 @@
 	<header>
 		<h2>Productos</h2>
 	</header>
-	<%@include file="/menu.html"%>
+	<%@include file="../menu.html"%>
 
 	<div class="container">
 		<div class="form">
@@ -33,7 +33,7 @@
 					
 				<label for="categorias">Categoria</label> <br> 
 				<select
-					name="idcategorias" id="categorias" form="formulario">
+					name="idCategoria" id="categorias" form="formulario">
 
 					<br>
 
@@ -47,7 +47,7 @@
 				
 				<label for="proveedores">Proveedor</label> <br>
 				<select
-					name="idproveedores" id="proveedores" form="formulario">
+					name="idProveedor" id="proveedores" form="formulario">
 					
 					<br>
 

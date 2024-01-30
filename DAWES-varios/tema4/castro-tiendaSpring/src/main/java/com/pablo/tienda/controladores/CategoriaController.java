@@ -25,7 +25,7 @@ public class CategoriaController {
 
 	@GetMapping("listarcategorias")
 	public String getListadoCategorias() {
-		return "listadoCategorias";
+		return "categorias/listadoCategorias";
 	}
 
 	@PostMapping("listarcategorias")
@@ -40,13 +40,13 @@ public class CategoriaController {
 
 		model.addAttribute("lista", listaCategorias);
 
-		return "listadoCategorias";
+		return "categorias/listadoCategorias";
 
 	}
 
 	@GetMapping("insertarcategorias")
 	public String getInsertarCategorias() {
-		return "insertarCategorias";
+		return "categorias/insertarCategorias";
 	}
 
 	@PostMapping("insertarcategorias")
@@ -60,12 +60,12 @@ public class CategoriaController {
 		Integer resultado = categoriasService.insertarCategoria(nombre, descripcion, activo);
 		model.addAttribute("resultado", resultado);
 
-		return "insertarCategorias";
+		return "categorias/insertarCategorias";
 	}
 
 	@GetMapping("formulariomodificarcategorias")
 	public String getFormularioModificarCategoria() {
-		return "modificarCategorias";
+		return "categorias/modificarCategorias";
 	}
 
 	@PostMapping("formulariomodificarcategorias")
@@ -79,12 +79,12 @@ public class CategoriaController {
 		List<CategoriasDTO> listaCategoria = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		model.addAttribute("lista", listaCategoria);
 
-		return "modificarCategorias";
+		return "categorias/modificarCategorias";
 	}
 
 	@GetMapping("modificarcategorias")
 	public String getModificarCategorias() {
-		return "modificarCategorias";
+		return "categorias/modificarCategorias";
 	}
 
 	@PostMapping("modificarcategorias")
@@ -97,13 +97,13 @@ public class CategoriaController {
 
 		categoriasService.modificarCategoria(id, nombre, descripcion, activo);
 
-		return "modificarCategorias";
+		return "categorias/modificarCategorias";
 	}
 
 	@GetMapping("formularioborrarcategorias")
 	public String formularioBorrarCategoria() {
 
-		return "borrarCategorias";
+		return "categorias/borrarCategorias";
 
 	}
 
@@ -118,7 +118,7 @@ public class CategoriaController {
 		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
 		model.addAttribute("lista", listaCategorias);
 
-		return "borrarCategorias";
+		return "categorias/borrarCategorias";
 	}
 
 	@PostMapping("borrarcategorias")
@@ -126,7 +126,7 @@ public class CategoriaController {
 			throws ClassNotFoundException, SQLException, NamingException {
 		categoriasService.borrarCategoria(id);
 
-		return "borrarCategorias";
+		return "categorias/borrarCategorias";
 	}
 
 }

@@ -15,7 +15,7 @@ public class DBUtils {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		String urlDB = "jdbc:mysql://localhost:3306/tienda?serverTimezone=UTC";
 		String user = "root";
-		String pass = "PracticaRoot";
+		String pass = "1234";
 		Connection connection = DriverManager.getConnection(urlDB, user, pass);
 		logger.info("Establecida la conexión a la BBDD");
 		return connection;

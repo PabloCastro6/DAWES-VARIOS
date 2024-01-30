@@ -179,21 +179,23 @@ public class PedidosDAOImplTnd implements IPedidosDAO {
 		} else {
 			throw new SQLException("Insert fallido, no se ha obtenido el id");
 		}
-
+		
 		for (ItemDTO elemento : lista) {
 			PreparedStatement psDetallePedido = connection.prepareStatement(insertarDetallePedido);
-
+			
 			psDetallePedido.setInt(1, idPedido);
 			psDetallePedido.setInt(2, elemento.getProductoID());
 			psDetallePedido.setInt(3, elemento.getCantidad());
 			psDetallePedido.setDouble(4, elemento.getCantidadPagar() / elemento.getCantidad());
-
+			 
 			resultado = psDetallePedido.executeUpdate();
-
+			
 		}
-
+		
+		
 		connection.close();
 		return resultado;
+		
 
 	}
 

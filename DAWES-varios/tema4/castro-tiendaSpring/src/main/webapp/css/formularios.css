@@ -1,9 +1,9 @@
-input {
-
-	width: 100%;
-	padding: 1px 2px;
-	margin: 0.5em 0;
-	box-sizing: border-box;
+input{
+	
+  width: 100%;
+  padding: 1px 2px;
+  margin: 0.5em 0;
+  box-sizing: border-box;
 }
 
 
@@ -12,13 +12,14 @@ input[type=checkbox] {
 	text-align: left;
 }
 
-.form {
+.form{
 	margin-top: 5px;
 	margin: 5px 0 5px 0 auto;
-	border: 0.1em inset black;
-	padding: 10px;
+	 border: 0.1em inset black;
+	 padding: 10px;
 }
 
-.hidden {
+.hidden{
 	display: none;
 }
+

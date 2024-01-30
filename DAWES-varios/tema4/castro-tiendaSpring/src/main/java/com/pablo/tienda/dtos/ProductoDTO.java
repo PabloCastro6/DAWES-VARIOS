@@ -26,6 +26,7 @@ public class ProductoDTO {
 		this.proveedor = proveedor;
 	}
 
+	
 	public ProductoDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock,
 			Integer idCategoria, Integer idProveedor) {
 		super();
@@ -37,6 +38,8 @@ public class ProductoDTO {
 		this.idCategoria = idCategoria;
 		this.idProveedor = idProveedor;
 	}
+
+	
 
 	public Integer getId() {
 		return id;

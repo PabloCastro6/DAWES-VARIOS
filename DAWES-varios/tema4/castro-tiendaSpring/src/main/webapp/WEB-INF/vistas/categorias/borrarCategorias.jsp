@@ -14,7 +14,7 @@
 	<header>
 		<h2>Panel de control Tienda de componentes infórmaticos</h2>
 	</header>
-	<%@include file="/menu.html"%>
+	<%@include file="../menu.html"%>
 
 
 

@@ -7,7 +7,7 @@ public class ItemDTO {
 	private Integer productoID;
 	private String productoNombre;
 	private Integer cantidad;
-	private Double precio;
+	private Double precio; 
 
 	public ItemDTO(Integer clienteID, String clienteNombre, Integer productoID, String productoNombre, Integer cantidad,
 			Double cantidadPagar) {

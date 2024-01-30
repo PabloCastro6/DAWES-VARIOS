@@ -15,7 +15,7 @@
 	<header>
 		<h2>Gestión de Tienda</h2>
 	</header>
-	<%@include file="/menu.html"%>
+	<%@include file="../menu.html"%>
 	<div class="container">
 		<div class="form">
 			<form
@@ -32,7 +32,7 @@
 					 <br>
 					 <label for="categoria">Categoria:</label>
 					  <br>
-					<select name="idcategoria"
+					<select name="idCategoria"
 					id="categoria" form="formulario">
 
 
@@ -42,7 +42,7 @@
 
  		
 				</select>  <br> <label for="idProveedor">Proveedor:</label> <br> <select
-					name="idproveedor" id="idProveedor" form="formulario">
+					name="idProveedor" id="idProveedor" form="formulario">
 
 					<c:forEach items="${comboProveedores}" var="proveedor">
 						<option value="${proveedor.id}">${proveedor.nombre}</option>

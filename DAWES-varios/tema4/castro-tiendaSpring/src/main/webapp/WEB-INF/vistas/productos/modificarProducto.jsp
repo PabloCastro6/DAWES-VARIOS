@@ -14,7 +14,7 @@
 	<header>
 		<h2>Gestion de tienda</h2>
 	</header>
-	<%@include file="/menu.html"%>
+	<%@include file="../menu.html"%>
 	<div class="container">
 		<h3>Actualizar Productos</h3>
 		<div class="form">
