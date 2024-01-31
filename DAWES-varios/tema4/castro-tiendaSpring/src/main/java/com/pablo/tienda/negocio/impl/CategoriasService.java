@@ -6,6 +6,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,11 @@ import com.pablo.tienda.negocio.ICategoriasService;
 @Component
 public class CategoriasService implements ICategoriasService {
 
+	
 	@Autowired
+	@Qualifier("HibernateImpl")
 	ICategoriasDAO categoriasDAO;
+	
 
 	@Override
 	public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {

@@ -1,8 +1,13 @@
 package com.pablo.tienda.entities;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,6 +17,7 @@ public class CategoriasEntity {
 	
 	@Id
 	@Column(name="ID_Categoria")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name="Nombre")
@@ -25,9 +31,29 @@ public class CategoriasEntity {
 	private Integer activo;
 	
 	
+    @OneToMany(mappedBy = "categoria")
+    private Set<ProductoEntity> productos;
 	
 	
 	
+
+	public Set<ProductoEntity> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Set<ProductoEntity> productos) {
+		this.productos = productos;
+	}
+
+	public CategoriasEntity(Integer id, String nombre, String descripcion, Integer activo,
+			Set<ProductoEntity> productos) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.activo = activo;
+		this.productos = productos;
+	}
 
 	public CategoriasEntity(Integer id, String nombre, String descripcion, Integer activo) {
 		super();
@@ -42,7 +68,21 @@ public class CategoriasEntity {
 		this.id = id;
 		this.nombre = nombre;
 	}
+	
+	
+	public CategoriasEntity(String nombre, String descripcion, Integer activo) {
+		super();
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.activo = activo;
+	}
 
+	public CategoriasEntity() {
+		super();
+	}
+
+	
+	
 	public Integer getId() {
 		return id;
 	}
