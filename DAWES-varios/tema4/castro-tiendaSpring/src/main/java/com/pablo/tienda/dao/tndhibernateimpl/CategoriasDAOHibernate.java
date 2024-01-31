@@ -20,92 +20,87 @@ import com.pablo.tienda.utils.DBUtils;
 // @Repository  
 @Component("HibernateImpl")
 public class CategoriasDAOHibernate implements ICategoriasDAO {
-	
-	
 
 	@Override
 	public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {
-	return null;
-    }
-	
+		return null;
+	}
 
 	@Override
 	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
+		
 		String jpql = "SELECT new com.pablo.tienda.dtos.CategoriasDTO (c.id, c.nombre, c.descripcion, c.activo)"
-                + " FROM CategoriasEntity c"
-                + " WHERE CAST (c.id AS string) LIKE :id"
-                + " AND c.nombre LIKE :nombre"
-                + " AND c.descripcion LIKE :descripcion"
-                + " AND c.activo = :activo";
+				+ " FROM CategoriasEntity c" + " WHERE CAST (c.id AS string) LIKE :id" + " AND c.nombre LIKE :nombre"
+				+ " AND c.descripcion LIKE :descripcion" + " AND c.activo = :activo";
 
-    SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
-    Session session = sessionFactory.getCurrentSession();
-    session.beginTransaction();
+		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
 
-    Query<CategoriasDTO> query = session.createQuery(jpql, CategoriasDTO.class)
-                                        .setParameter("id", "%" + id + "%")
-                                        .setParameter("nombre", "%" + nombre + "%")
-                                        .setParameter("descripcion", "%" + descripcion + "%")
-                                        .setParameter("activo", activo);
+		Query<CategoriasDTO> query = session.createQuery(jpql, CategoriasDTO.class).setParameter("id", "%" + id + "%")
+				.setParameter("nombre", "%" + nombre + "%").setParameter("descripcion", "%" + descripcion + "%")
+				.setParameter("activo", activo);
 
-    List<CategoriasDTO> listaCategorias = query.getResultList();
+		List<CategoriasDTO> listaCategorias = query.getResultList();
 
-    session.getTransaction().commit();
-    session.close();
-    return listaCategorias;
+		session.getTransaction().commit();
+		session.close();
+		return listaCategorias;
 	}
-	
 
 	@Override
 	public Integer insertarCategoria(String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		SessionFactory factory = DBUtils.creadorSessionFactory();
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
 
-        CategoriasEntity categoriaEntity = new CategoriasEntity(nombre, descripcion, Integer.parseInt(activo));
-        
+		CategoriasEntity categoriaEntity = new CategoriasEntity(nombre, descripcion, Integer.parseInt(activo));
+
 //        CategoriasEntity categoriaEntity = new CategoriasEntity(9, nombre, descripcion, 1);
-        
-        session.persist(categoriaEntity);
-        session.getTransaction().commit();
-        session.close();
-        
-        return categoriaEntity.getId();
-    }
 
+		session.persist(categoriaEntity);
+		session.getTransaction().commit();
+		session.close();
+
+		return categoriaEntity.getId();
+	}
+
+	
 	@Override
 	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		SessionFactory factory = DBUtils.creadorSessionFactory();
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
 
-        CategoriasEntity categoriaEntity = new CategoriasEntity(Integer.parseInt(id), nombre, descripcion, Integer.parseInt(activo));
-        session.merge(categoriaEntity);
+		CategoriasEntity categoriaEntity = new CategoriasEntity(Integer.parseInt(id), nombre, descripcion,
+				Integer.parseInt(activo));
+		session.merge(categoriaEntity);
 
-        session.getTransaction().commit();
-        session.close();
-        return categoriaEntity.getId();
-    }
+		session.getTransaction().commit();
+		session.close();
+		return categoriaEntity.getId();
+	}
 
+	
 	@Override
 	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
-        Session session = factory.getCurrentSession();
-        session.beginTransaction();
+		Session session = factory.getCurrentSession();
+		session.beginTransaction();
 
-        CategoriasEntity categoriaEntity = session.find(CategoriasEntity.class, Integer.parseInt(id));
-        if (categoriaEntity != null) {
-            session.delete(categoriaEntity);
-        }
+		CategoriasEntity categoriaEntity = session.find(CategoriasEntity.class, Integer.parseInt(id));
+		if (categoriaEntity != null) {
+			session.delete(categoriaEntity);
+		}
 
-        session.getTransaction().commit();
-        session.close();
-        return categoriaEntity != null ? categoriaEntity.getId() : null;
-    }
+		session.getTransaction().commit();
+		session.close();
+		return categoriaEntity != null ? categoriaEntity.getId() : null;
+	}
 
 }

@@ -34,7 +34,6 @@ public class PedidosService implements IPedidosService {
 			Double descuento = pedidoDAO.calcularDescuento(precioAcumulado);
 
 			ProductoDTO producto = productoDAO.buscarProductoPorID(clienteProducto.getProducto());
-		
 
 			Double precioDelProducto = producto.getPrecio();
 

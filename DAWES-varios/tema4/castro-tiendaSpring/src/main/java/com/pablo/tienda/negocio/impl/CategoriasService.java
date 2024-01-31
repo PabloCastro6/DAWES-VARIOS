@@ -18,11 +18,9 @@ import com.pablo.tienda.negocio.ICategoriasService;
 @Component
 public class CategoriasService implements ICategoriasService {
 
-	
 	@Autowired
 	@Qualifier("HibernateImpl")
 	ICategoriasDAO categoriasDAO;
-	
 
 	@Override
 	public List<CategoriasDTO> obtenerTodasCategorias() throws ClassNotFoundException, SQLException, NamingException {

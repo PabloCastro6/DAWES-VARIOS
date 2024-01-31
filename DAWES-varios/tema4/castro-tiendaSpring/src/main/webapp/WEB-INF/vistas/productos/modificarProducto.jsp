@@ -21,16 +21,26 @@
 			<form
 				action="http://localhost:8080/tienda/productos/formulariomodificarproducto"
 				method="POST" id="formulario">
-				<label for="IdProducto"> Id Producto</label> <input type="text"
-					id="idProducto" name="id"> <label for="nombre">
-					Nombre</label> <input type="text" id="nombre" name="nombre"> <label
-					for="descripcion"> Descripcion</label> <input type="text"
-					id="descripcion" name="descripcion"> <br> <label
-					for="precio">Precio</label> <input type="number" id="precio"
-					name="precio" min="0"> <label for="cantidadStock">Cantidad
-					en Stock</label> <input type="number" id="cantidadStock"
-					name="cantidadStock" min="0"> <label for="categorias">Categoria</label>
-				<br> <select name="idcategorias" id="categorias"
+				<label for="IdProducto"> Id Producto</label> 
+				<input type="text"
+					id="idProducto" name="id" required> 
+					<label for="nombre">
+					Nombre</label> 
+					<input type="text" id="nombre" name="nombre"> 
+					<label
+					for="descripcion"> Descripcion</label>
+					 <input type="text"
+					id="descripcion" name="descripcion"> <br> 
+					<label
+					for="precio">Precio</label> 
+					<input type="number" id="precio"
+					name="precio" min="0"> 
+					<label for="cantidadStock">Cantidad
+					en Stock</label> 
+					<input type="number" id="cantidadStock"
+					name="cantidadStock" min="0"> 
+					<label for="categorias">Categoria</label>
+				<br> <select name="idCategoria" id="categorias"
 					form="formulario">
 
 					<br>
@@ -40,9 +50,8 @@
 						<option value="${categoria.id}">${categoria.nombre}</option>
 					</c:forEach>
 
-				</select> <br>
-				<br> <label for="proveedores">Proveedor</label> <br> <select
-					name="idproveedores" id="proveedores" form="formulario">
+				</select> <br> <br> <label for="proveedores">Proveedor</label> <br>
+				<select name="idProveedor" id="proveedores" form="formulario">
 
 					<br>
 
@@ -50,8 +59,8 @@
 						<option value="${proveedor.id}">${proveedor.nombre}</option>
 					</c:forEach>
 
-				</select> <br>
-				<br> <input type="submit" value="Enviar" name="enviar">
+				</select> <br> <br> <input type="submit" value="Enviar"
+					name="enviar">
 			</form>
 		</div>
 
@@ -63,7 +72,7 @@
 
 			<div class="form">
 				<form
-					action="http://localhost:8080/tienda/productos/modificarproductos"
+					action="http://localhost:8080/tienda/productos/modificarproducto"
 					method="POST">
 
 					<label for="id">Id Producto:</label> <br> <input type="text"
@@ -79,13 +88,13 @@
 						en Stock:</label> <br> <input type="number" id="cantidadStock"
 						name="cantidadStock" value="${producto.cantidadEnStock}" min=0
 						required> <br> <label for="categoria">Categoria:</label>
-					<br> <select name="idcategorias" id="idCategoria">
+					<br> <select name="idCategoria" id="idCategoria">
 
-						
-					
-				
 
-						<c:forEach items="${comboCategoria}" var="categoria">
+
+
+
+						<c:forEach items="${comboCategorias}" var="categoria">
 							<c:choose>
 								<c:when test="${categoria.id == producto.idCategoria}">
 									<option value="${producto.idCategoria}" selected>${producto.categoria}</option>
@@ -96,16 +105,10 @@
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-					</select>
-					
-					
-					
-					
-					
-					<br> <br> <label for="precio">Proveedor:</label> <br>
-					
-					
-					<select name="idproveedores" id="idProveedor">
+					</select> <br> <br> <label for="precio">Proveedor:</label> <br>
+
+
+					<select name="idProveedor" id="idProveedor">
 
 						<c:forEach items="${comboProveedores}" var="proveedor">
 							<c:choose>

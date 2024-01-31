@@ -38,13 +38,13 @@ public class ProductoController {
 	}
 
 	@PostMapping("listarproducto")
-	public String buscarProducto(@RequestParam("idCategoria") String id, @RequestParam("nombre") String nombre,
+	public String buscarProducto(@RequestParam("idProducto") String id, @RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion, @RequestParam("precio") String precio,
 			@RequestParam("cantidadStock") String cantidadStock, @RequestParam("idCategoria") String idCategoria,
 			@RequestParam("idProveedor") String idProveedor, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		List<ProductoDTO> listaProducto = productoService.buscarProducto(idCategoria, nombre, descripcion, precio,
+		List<ProductoDTO> listaProducto = productoService.buscarProducto(id, nombre, descripcion, precio,
 				cantidadStock, idCategoria, idProveedor);
 
 		recuperacionCombos(model);

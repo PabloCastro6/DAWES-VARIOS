@@ -11,31 +11,26 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="categorias")
+@Table(name = "categorias")
 
 public class CategoriasEntity {
-	
+
 	@Id
-	@Column(name="ID_Categoria")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_Categoria")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@Column(name="Nombre")
+
+	@Column(name = "Nombre")
 	private String nombre;
-	
-	@Column(name="Descripcion")
+
+	@Column(name = "Descripcion")
 	private String descripcion;
-	
-	
-	@Column(name="Activo")
+
+	@Column(name = "Activo")
 	private Integer activo;
-	
-	
-    @OneToMany(mappedBy = "categoria")
-    private Set<ProductoEntity> productos;
-	
-	
-	
+
+	@OneToMany(mappedBy = "categoria")
+	private Set<ProductoEntity> productos;
 
 	public Set<ProductoEntity> getProductos() {
 		return productos;
@@ -68,8 +63,7 @@ public class CategoriasEntity {
 		this.id = id;
 		this.nombre = nombre;
 	}
-	
-	
+
 	public CategoriasEntity(String nombre, String descripcion, Integer activo) {
 		super();
 		this.nombre = nombre;
@@ -81,8 +75,6 @@ public class CategoriasEntity {
 		super();
 	}
 
-	
-	
 	public Integer getId() {
 		return id;
 	}

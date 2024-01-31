@@ -21,7 +21,7 @@
 			<form action="http://localhost:8080/tienda/productos/listarproducto"
 				method="POST" id="formulario">
 				<label for="IdProducto"> Id Producto</label> <input type="text" id="idProducto"
-					name="id">
+					name="idProducto" required>
 				
 				<label for="nombre"> Nombre</label> <input type="text" id="nombre"
 					name="nombre"> <label for="descripcion">

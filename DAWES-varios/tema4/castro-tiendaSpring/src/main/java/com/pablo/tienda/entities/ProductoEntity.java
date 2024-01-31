@@ -1,6 +1,5 @@
 package com.pablo.tienda.entities;
 
-
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -18,7 +17,7 @@ import jakarta.persistence.Table;
 public class ProductoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Producto")
     private int id;
 
@@ -38,64 +37,103 @@ public class ProductoEntity {
     @JoinColumn(name = "ID_Categoria")
     private CategoriasEntity categoria;
 
-	public ProductoEntity(int id, String nombre, String descripcion, BigDecimal precio, Integer cantidadEnStock,
-			CategoriasEntity categoria) {
+  @ManyToOne
+  @JoinColumn(name = "ID_Proveedor")
+  private ProveedorEntity proveedorEntity;
+  
+  
+//  @OneToMany(mappedBy = "producto")
+//  private Set<Peticion> peticiones;
+
+//  @OneToMany(mappedBy = "producto")
+//  private Set<DetallePedido> detallePedidos;
+    
+    
+
+	public ProductoEntity(String nombre, String descripcion, BigDecimal precio, Integer cantidadEnStock,
+			CategoriasEntity categoria, ProveedorEntity proveedorEntity) {
 		super();
-		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.cantidadEnStock = cantidadEnStock;
 		this.categoria = categoria;
+		this.proveedorEntity = proveedorEntity;
 	}
+
+
 
 	public ProductoEntity() {
 		super();
 	}
 
+
+
 	public int getId() {
 		return id;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
 	public String getNombre() {
 		return nombre;
 	}
+
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
+
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
+
+
 	public BigDecimal getPrecio() {
 		return precio;
 	}
+
+
 
 	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 
+
+
 	public Integer getCantidadEnStock() {
 		return cantidadEnStock;
 	}
+
+
 
 	public void setCantidadEnStock(Integer cantidadEnStock) {
 		this.cantidadEnStock = cantidadEnStock;
 	}
 
+
+
 	public CategoriasEntity getCategoria() {
 		return categoria;
 	}
+
+
 
 	public void setCategoria(CategoriasEntity categoria) {
 		this.categoria = categoria;
@@ -103,18 +141,13 @@ public class ProductoEntity {
 
 
 
-//    @ManyToOne
-//    @JoinColumn(name = "ID_Proveedor")
-//    private Proveedor proveedor;
-//
-//    @OneToMany(mappedBy = "producto")
-//    private Set<Peticion> peticiones;
+	public ProveedorEntity getProveedorEntity() {
+		return proveedorEntity;
+	}
 
-//    @OneToMany(mappedBy = "producto")
-//    private Set<DetallePedido> detallePedidos;
 
-    // Getters y setters...
-    
-    
+
+
+
     
 }
