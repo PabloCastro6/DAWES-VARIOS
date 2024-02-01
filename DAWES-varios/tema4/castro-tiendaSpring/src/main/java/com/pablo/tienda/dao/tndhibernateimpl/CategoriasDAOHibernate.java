@@ -18,7 +18,7 @@ import com.pablo.tienda.entities.CategoriasEntity;
 import com.pablo.tienda.utils.DBUtils;
 
 // @Repository  
-@Component("HibernateImpl")
+@Component("HibernateImplCategoria")
 public class CategoriasDAOHibernate implements ICategoriasDAO {
 
 	@Override

@@ -35,7 +35,7 @@ public class ProductoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Categoria")
-	private CategoriasEntity categoria;
+	private CategoriasEntity categoriaEntity;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Proveedor")
@@ -54,7 +54,7 @@ public class ProductoEntity {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.cantidadEnStock = cantidadEnStock;
-		this.categoria = categoria;
+		this.categoriaEntity = categoria;
 		this.proveedorEntity = proveedorEntity;
 	}
 
@@ -103,11 +103,11 @@ public class ProductoEntity {
 	}
 
 	public CategoriasEntity getCategoria() {
-		return categoria;
+		return categoriaEntity;
 	}
 
 	public void setCategoria(CategoriasEntity categoria) {
-		this.categoria = categoria;
+		this.categoriaEntity = categoria;
 	}
 
 	public ProveedorEntity getProveedorEntity() {

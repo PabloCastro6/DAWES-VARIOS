@@ -1,39 +1,55 @@
 package com.pablo.tienda.entities;
 
-import jakarta.persistence.Column;
+
+
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
 
 @Entity
-@Table(name = "proveedores")
-public class ProveedorEntity {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_Proveedor")
+@Table(name = "poblacion")
+public class PoblacionEntity {
 	
-	private Integer id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String nombre;
+    
+    
+	public PoblacionEntity(Integer id, String nombre) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+	}
 
-	@Column(name = "Nombre")
-	private String nombre;
+
+	public PoblacionEntity() {
+		super();
+	}
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+    
+    
 }

@@ -1,5 +1,7 @@
 package com.pablo.tienda.dtos;
 
+import java.math.BigDecimal;
+
 public class ProductoDTO {
 
 	private Integer id;
@@ -26,17 +28,19 @@ public class ProductoDTO {
 		this.proveedor = proveedor;
 	}
 
-	public ProductoDTO(Integer id, String nombre, String descripcion, double precio, Integer cantidadEnStock,
+	public ProductoDTO(Integer id, String nombre, String descripcion, BigDecimal precio, Integer cantidadEnStock,
 			Integer idCategoria, Integer idProveedor) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		this.precio = precio;
+		this.precio = precio.doubleValue();
 		this.cantidadEnStock = cantidadEnStock;
 		this.idCategoria = idCategoria;
 		this.idProveedor = idProveedor;
 	}
+	
+	
 
 	public Integer getId() {
 		return id;

@@ -6,8 +6,10 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.IProductoDAO;
 import com.pablo.tienda.dtos.ProductoDTO;
 import com.pablo.tienda.negocio.IProductosService;
@@ -16,6 +18,7 @@ import com.pablo.tienda.negocio.IProductosService;
 public class ProductoService implements IProductosService {
 
 	@Autowired
+	@Qualifier("HibernateImplProducto")
 	IProductoDAO productoDAO;
 
 	public List<ProductoDTO> buscarProducto(String id, String nombre, String descripcion, String precio,

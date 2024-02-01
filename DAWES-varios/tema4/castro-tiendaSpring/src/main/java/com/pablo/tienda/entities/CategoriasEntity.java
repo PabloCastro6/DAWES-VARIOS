@@ -29,7 +29,7 @@ public class CategoriasEntity {
 	@Column(name = "Activo")
 	private Integer activo;
 
-	@OneToMany(mappedBy = "categoria")
+	@OneToMany(mappedBy = "categoriaEntity")
 	private Set<ProductoEntity> productos;
 
 	public Set<ProductoEntity> getProductos() {

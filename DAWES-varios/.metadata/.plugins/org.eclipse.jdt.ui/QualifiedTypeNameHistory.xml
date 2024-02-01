@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+<<<<<<< Updated upstream
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductosDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.ICategoriasDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd"/>
@@ -9,6 +10,8 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductoDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.IProductosService"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductoDTO"/>
+=======
+>>>>>>> Stashed changes
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.io.File"/>
@@ -43,7 +46,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IComboDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.negocio.IPeticionesService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PeticionesDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.PeticionesDAOImplTnd"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPeticionesDAO"/>
@@ -56,8 +58,22 @@
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<<<<<<< Updated upstream
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="javax.naming.NamingException"/>
     <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
+=======
+    <fullyQualifiedTypeName name="org.hibernate.mapping.List"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ClientesEntity"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductoDTO"/>
+    <fullyQualifiedTypeName name="org.hibernate.Session"/>
+    <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProductoEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductoDAO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.CategoriasEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProveedorEntity"/>
+    <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+>>>>>>> Stashed changes
 </qualifiedTypeNameHistroy>

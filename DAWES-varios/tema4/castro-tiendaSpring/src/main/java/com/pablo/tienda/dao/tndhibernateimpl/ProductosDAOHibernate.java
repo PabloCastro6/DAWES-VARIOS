@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IProductoDAO;
 import com.pablo.tienda.dtos.ProductoDTO;
@@ -14,6 +16,8 @@ import com.pablo.tienda.entities.ProductoEntity;
 import com.pablo.tienda.entities.ProveedorEntity;
 import com.pablo.tienda.utils.DBUtils;
 
+@Primary
+@Component("HibernateImplProducto")
 public class ProductosDAOHibernate implements IProductoDAO {
 
 	@Override
@@ -25,35 +29,32 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		session.beginTransaction();
 
 		String hql = "SELECT new com.pablo.tienda.dtos.ProductoDTO(pe.id, pe.nombre, pe.descripcion, pe.precio,"
-				+ " pe.cantidadEnStock, c.idCategoria, c.idProveedor)" 
-				+ " FROM ProductoEntity pe"
-				+ " INNER JOIN categoriasEntity c ON pe.categoria.id = c.id "
-				+ " INNER JOIN proveedoresEntity pr ON p.id = pe.proveedor.id"
-				+ " WHERE pe.nombre LIKE :nombre"
-				+ " AND pe.descripcion LIKE :descripcion" 
-				+ " AND pe.precio >= :precio"
-				+ " AND pe.cantidadStock >= :cantidadStock";
+				+ " pe.cantidadEnStock, c.id, pr.id)" + " FROM ProductoEntity pe"
+				+ " INNER JOIN CategoriasEntity c ON pe.categoriaEntity.id = c.id "
+				+ " INNER JOIN ProveedorEntity pr ON pr.id = pe.proveedorEntity.id" + " WHERE pe.nombre LIKE :nombre"
+				+ " AND pe.descripcion LIKE :descripcion" + " AND pe.precio >= :precio"
+				+ " AND pe.cantidadEnStock >= :cantidadStock";
 
 		StringBuilder sb = new StringBuilder(hql);
 
 		if (!idCategoria.equals("")) {
-			sb.append("AND p.idCategoria LIKE :idCategoria");
+			sb.append(" AND pe.categoriaEntity.id LIKE :idCategoria");
 		}
 
 		if (!idProveedor.equals("")) {
-			sb.append("AND p.idProveedor LIKE :idProveedor");
+			sb.append(" AND pe.proveedorEntity.id LIKE :idProveedor");
 		}
 
-		if (id.equals("")) {
-			sb.append("AND p.id = :id");
+		if (!id.equals("")) {
+			sb.append(" AND pe.id = :id");
 		}
 
 		hql = sb.toString();
 
 		Query<ProductoDTO> query = session.createQuery(hql, ProductoDTO.class)
 				.setParameter("nombre", "%" + nombre + "%").setParameter("descripcion", "%" + descripcion + "%")
-				.setParameter("precio", Double.parseDouble(precio))
-				.setParameter("cantidadStock", Integer.parseInt(cantidadStock));
+				.setParameter("precio", precio.isEmpty() ? 0 : Double.parseDouble(precio))
+				.setParameter("cantidadStock", cantidadStock.isEmpty() ? 0 : Integer.parseInt(cantidadStock));
 
 		if (!idCategoria.equals("")) {
 			query.setParameter("idCategoria", "%" + idCategoria + "%");
@@ -74,8 +75,6 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		return lista;
 	}
 
-	
-	
 	@Override
 	public ProductoDTO buscarProductoPorID(Integer id) {
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
@@ -85,12 +84,11 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		ProductoEntity producto = session.find(ProductoEntity.class, id);
 		return producto != null
 				? new ProductoDTO(producto.getId(), producto.getNombre(), producto.getDescripcion(),
-						producto.getPrecio().doubleValue(), producto.getCantidadEnStock(),
+						producto.getPrecio(), producto.getCantidadEnStock(),
 						producto.getCategoria().getId(), producto.getProveedorEntity().getId())
 				: null;
 	}
 
-	
 	@Override
 	public Integer insertarProducto(String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) {

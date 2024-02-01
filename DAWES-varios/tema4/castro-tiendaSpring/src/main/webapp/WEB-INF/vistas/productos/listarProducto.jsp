@@ -90,8 +90,8 @@
 						<td>${producto.descripcion}</td>
 						<td>${producto.precio}</td>
 						<td>${producto.cantidadEnStock}</td>
-						<td>${producto.idcategoria}</td>
-						<td>${producto.idproveedor}</td>
+						<td>${producto.idCategoria}</td>
+						<td>${producto.idProveedor}</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -1,14 +1,12 @@
 package com.pablo.tienda.entities;
 
 import java.util.Date;
-import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -43,8 +41,7 @@ public class ClientesEntity {
 
 	@Column(name = "activo")
 	private Integer activo;
-	
-	
+
 	// ...otros campos...
 
 //    @OneToMany(mappedBy = "cliente")
@@ -54,7 +51,6 @@ public class ClientesEntity {
 //    private Set<Peticion> peticiones;
 
 // Getters y setters...
-
 
 	public ClientesEntity() {
 		super();
