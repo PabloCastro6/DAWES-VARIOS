@@ -14,13 +14,13 @@
 <header>
 <h2>Panel de control Tienda de componentes infórmaticos</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 <div class = "container">
 
 	<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/formularioborrarcliente" method = "POST">
+		<form action = "http://localhost:8080/tienda/clientes/formulariomodificarclientes" method = "POST">
 
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id">
@@ -28,14 +28,14 @@
 			<label for = "nombre">Nombre</label>
 				<input type = "text" id = "nombre" name = "nombre">
 			<br>
-			<label for = "correo">Correo Electronico</label>
+			<label for = "correo">Correo Electr�nico</label>
 				<input type = "text" id = "correo" name = "correo">
 			<br>
 			<label for = "idPoblacion">Poblacion</label>
 			
 			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected>  Selecciona una poblacion  </option>
-				<c:forEach items ="${comboClientes}" var="poblacion">
+			<option value="" selected> - Selecciona una poblaci�n - </option>
+				<c:forEach items ="${comboMunicipio}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>
 					
@@ -54,7 +54,7 @@
 	
 		<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/borrarcliente" method = "POST">
+		<form action = "http://localhost:8080/tienda/clientes/modificarcliente" method = "POST">
 
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id" value="${cliente.id}" readonly>
@@ -68,8 +68,8 @@
 			<label for = "idPoblacion">Poblacion</label>
 			
 			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected> - Selecciona una poblacion - </option>
-				<c:forEach items ="${comboClientes}" var="poblacion">
+			<option value="" selected>  Selecciona una poblacion </option>
+				<c:forEach items ="${comboMunicipio}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>
 					

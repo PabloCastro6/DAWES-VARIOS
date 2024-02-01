@@ -14,14 +14,14 @@
 <header>
 <h2>Panel de control Tienda de componentes infórmaticos</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 
 <div class = "container">
 
 	<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/listarcliente" method = "POST" id="formulario">
+		<form action = "http://localhost:8080/tienda/clientes/listarclientes" method = "POST" id="formulario">
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id">
 			<br>

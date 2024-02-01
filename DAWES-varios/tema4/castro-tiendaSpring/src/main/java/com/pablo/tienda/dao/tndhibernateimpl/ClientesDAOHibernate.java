@@ -1,26 +1,23 @@
 package com.pablo.tienda.dao.tndhibernateimpl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.NamingException;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.mapping.List;
 import org.hibernate.query.Query;
 
+import com.pablo.tienda.dao.IClientesDAO;
 import com.pablo.tienda.dtos.ClienteDTO;
 import com.pablo.tienda.entities.ClientesEntity;
 import com.pablo.tienda.entities.PoblacionEntity;
 import com.pablo.tienda.utils.DBUtils;
 
-public class ClientesDAOHibernate {
+public class ClientesDAOHibernate implements IClientesDAO {
 
-	@Override
-	public List<ClienteDTO> obtenerTodosClientes() throws ClassNotFoundException, SQLException, NamingException {
-		// Implementación para obtener todos los clientes
-		return null;
-	}
+	
 
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
@@ -66,62 +63,63 @@ public class ClientesDAOHibernate {
 
 	}
 
+
+
 	@Override
-	public Integer insertarClientes(String nombre, String correo, String contrasena, String idPoblacion, String activo) {
-		
+	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo) {
+
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
 
-        ClientesEntity nuevoCliente = new ClientesEntity();
-        
-        nuevoCliente.setNombre(nombre);
-        nuevoCliente.setCorreoElectronico(correo);
-        nuevoCliente.setPassword(contrasena);
-        nuevoCliente.setPoblacion(session.find(PoblacionEntity.class, Integer.parseInt(idPoblacion)));
-        nuevoCliente.setActivo(Integer.parseInt(activo));
+		ClientesEntity cliente = new ClientesEntity();
+		cliente.setId(Integer.parseInt(id));
+		cliente.setNombre(nombre);
+		cliente.setCorreoElectronico(correo);
+		cliente.setIdPoblacion(Integer.parseInt(idPoblacion));
+		cliente.setActivo(Integer.parseInt(activo));
+		session.merge(cliente);
 
-        session.persist(nuevoCliente);
-        session.getTransaction().commit();
-        session.close();
-
-        Integer idGenerado = nuevoCliente.getId();
-        return idGenerado;
+		session.getTransaction().commit();
+		return cliente.getId();
 	}
 
-	
-//	@Override
-//	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo) {
-//	    try (Session session = sessionFactory.openSession()) {
-//	        session.beginTransaction();
-//
-//	        ClientesEntity cliente = new ClientesEntity();
-//	        cliente.setId(Integer.parseInt(id));
-//	        cliente.setNombre(nombre);
-//	        cliente.setCorreoElectronico(correo);
-//	        cliente.setIdPoblacion(idPoblacion);
-//	        cliente.setActivo(activo);
-//	        session.merge(cliente);
-//
-//	        session.getTransaction().commit();
-//	        return cliente.getId();
-//	    }
-//	}
-//	
-//	@Override
-//	public Integer borrarClientes(String id) {
-//	    try (Session session = sessionFactory.openSession()) {
-//	        session.beginTransaction();
-//
-//	        ClientesEntity cliente = session.find(ClientesEntity.class, Integer.parseInt(id));
-//	        if (cliente != null) {
-//	            cliente.setActivo("0"); // Si quieres desactivar en lugar de borrar
-//	            session.merge(cliente); // o session.delete(cliente) para eliminar
-//	        }
-//
-//	        session.getTransaction().commit();
-//	        return cliente != null ? cliente.getId() : null;
-//	    }
-//	}
-//
+	@Override
+	public Integer borrarClientes(String id) {
+		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+
+		ClientesEntity cliente = session.find(ClientesEntity.class, Integer.parseInt(id));
+		if (cliente != null) {
+			cliente.setActivo(0); // Si quieres desactivar en lugar de borrar
+			session.merge(cliente); // o session.delete(cliente) para eliminar
+		}
+
+		session.getTransaction().commit();
+		return cliente != null ? cliente.getId() : null;
+	}
+
+	@Override
+	public Integer insertarClientes(String nombre, String correo, String idPoblacion, String activo)
+			throws ClassNotFoundException, SQLException {
+		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		
+      ClientesEntity nuevoCliente = new ClientesEntity();
+      
+      nuevoCliente.setNombre(nombre);
+      nuevoCliente.setCorreoElectronico(correo);
+      nuevoCliente.setIdPoblacion(Integer.parseInt(idPoblacion));
+      nuevoCliente.setActivo(Integer.parseInt(activo));
+
+      session.persist(nuevoCliente);
+      session.getTransaction().commit();
+      session.close();
+
+      Integer idGenerado = nuevoCliente.getId();
+      
+      return idGenerado;
+	}
 }

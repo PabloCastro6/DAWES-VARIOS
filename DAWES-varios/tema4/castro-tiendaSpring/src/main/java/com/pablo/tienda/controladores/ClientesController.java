@@ -27,7 +27,7 @@ public class ClientesController {
 	@Autowired
 	IComboDAO combosDAO;
 
-	@GetMapping("listarcliente")
+	@GetMapping("listarclientes")
 	public String getListadoCliente(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 
 		List<ComboDTO> listaClientes = combosDAO.recuperaComboMunicipios();
@@ -37,7 +37,7 @@ public class ClientesController {
 		return "clientes/listadoClientes";
 	}
 
-	@PostMapping("listarcliente")
+	@PostMapping("listarclientes")
 	public String buscarCliente(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
 			@RequestParam("idPoblacion") String idPoblacion,
@@ -89,7 +89,7 @@ public class ClientesController {
 
 	}
 
-	@GetMapping("formulariomodificarcliente")
+	@GetMapping("formulariomodificarclientes")
 	public String getFormularioModificarCliente(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
@@ -101,7 +101,7 @@ public class ClientesController {
 
 	}
 
-	@PostMapping("formulariomodificarcliente")
+	@PostMapping("formulariomodificarclientes")
 	public String getFormularioModificarClientes(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam(value = "correo", required = false) String correo,
 			@RequestParam("idPoblacion") String idPoblacion,
@@ -171,7 +171,7 @@ public class ClientesController {
 		return "clientes/borrarClientes";
 	}
 
-	@PostMapping("borrarclientes")
+	@PostMapping("borrarcliente")
 	public String borrarCliente(@RequestParam("id") String id, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 

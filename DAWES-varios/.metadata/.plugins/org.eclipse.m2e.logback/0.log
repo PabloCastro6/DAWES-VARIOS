@@ -7630,3 +7630,193 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/ca
 2024-02-01 18:48:48,462 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-02-01 18:48:48,464 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-02-01 18:48:48,467 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:49:00,533 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:49:00,535 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:49:00,539 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:51:15,688 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:51:15,724 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:51:15,727 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:51:24,356 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:51:24,387 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:51:24,389 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:51:41,565 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:51:41,590 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:51:41,593 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:51:45,123 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:51:45,135 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:51:45,137 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:51:58,625 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:51:58,643 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:51:58,647 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:52:21,360 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:52:21,374 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:52:21,376 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:52:49,410 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:52:49,427 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:52:49,431 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:52:54,107 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:52:54,119 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:52:54,122 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:54:57,550 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:54:57,552 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:54:57,556 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:04,422 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:04,423 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:04,425 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:10,183 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:10,185 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:10,187 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:15,586 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:15,587 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:15,588 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:21,031 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:21,034 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 18:55:21,036 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:53,648 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:55:53,662 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:55:53,665 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:55:59,841 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:55:59,857 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:55:59,861 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:56:40,823 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:56:40,840 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:56:40,845 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:56:45,344 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:56:45,356 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:56:45,359 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:56:57,569 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:56:57,582 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:56:57,584 [Worker-80: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:57:32,491 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:57:32,505 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:57:32,515 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:57:36,460 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:57:36,471 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:57:36,473 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:57:40,060 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:57:40,074 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:57:40,078 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:58:12,651 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:58:12,667 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:58:12,671 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:58:31,512 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:58:31,524 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:58:31,526 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:05,416 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:05,429 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:05,431 [Worker-83: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:10,603 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:10,619 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:10,621 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:28,706 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:28,724 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:28,729 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:39,563 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:39,578 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:39,583 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:46,251 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:46,268 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:46,271 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:49,737 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:49,750 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:49,753 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:52,629 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:52,649 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:52,653 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 18:59:59,888 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 18:59:59,906 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 18:59:59,910 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:00:49,605 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:00:49,606 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:00:49,608 [Worker-81: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:01:48,576 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:01:48,595 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:01:48,598 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:01:51,913 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:01:51,926 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:01:51,929 [Worker-82: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:02:27,484 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:02:27,486 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:02:27,489 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:03:38,284 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:03:38,286 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:03:38,290 [Worker-87: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:06:23,331 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-02-01 19:06:30,880 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:06:30,907 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:06:30,923 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:07:25,044 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:07:25,063 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:07:25,072 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:09:06,953 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:09:06,960 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:09:06,967 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:09:26,014 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:09:26,029 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:09:26,034 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:09:33,615 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:09:33,629 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:09:33,632 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:09:51,091 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:09:51,106 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:09:51,111 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:10:33,292 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:10:33,307 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:10:33,311 [Worker-7: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:10:59,723 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:10:59,738 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:10:59,745 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:11:03,259 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:11:03,275 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:11:03,280 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:11:10,269 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:11:10,274 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:11:10,278 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:13:09,952 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:13:09,954 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:13:09,957 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:13:48,690 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:13:48,691 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:13:48,695 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:15:23,578 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:15:23,578 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:15:23,582 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:17:04,199 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:04,200 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:04,203 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:17:10,631 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:10,633 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:10,637 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:17:15,258 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:15,260 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:17:15,265 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:20:09,780 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:20:09,781 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:20:09,782 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:22:19,864 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:22:19,870 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:22:19,874 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:25:32,548 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:32,549 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:32,550 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:25:35,499 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:35,500 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:35,505 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:25:52,035 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:52,036 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:52,038 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:25:55,020 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:55,020 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:25:55,022 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:26:10,470 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:26:10,471 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:26:10,474 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:31:49,710 [Worker-24: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-02-01 19:31:49,716 [Worker-24: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 4 resources from src\main\resources to target\classes
+2024-02-01 19:31:49,719 [Worker-24: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:33:01,921 [Worker-22: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:33:01,921 [Worker-22: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:33:01,926 [Worker-22: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-01 19:34:19,733 [Worker-23: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:34:19,734 [Worker-23: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-02-01 19:34:19,737 [Worker-23: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources

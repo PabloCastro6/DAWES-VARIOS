@@ -14,13 +14,13 @@
 <header>
 <h2>Panel de control Tienda de componentes infórmaticos</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 <div class = "container">
 
 	<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/formularioactualizarcliente" method = "POST">
+		<form action = "http://localhost:8080/tienda/clientes/formularioborrarcliente" method = "POST">
 
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id">
@@ -28,13 +28,13 @@
 			<label for = "nombre">Nombre</label>
 				<input type = "text" id = "nombre" name = "nombre">
 			<br>
-			<label for = "correo">Correo Electr�nico</label>
-				<input type = "text" id = "correo" name = "correo">
+			<label for = "correo">Correo Electronico</label>
+				<input type = "text" id = "correo" name = "correo" >
 			<br>
 			<label for = "idPoblacion">Poblacion</label>
 			
 			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected> - Selecciona una poblaci�n - </option>
+			<option value="" selected>  Selecciona una poblacion  </option>
 				<c:forEach items ="${comboClientes}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>
@@ -54,22 +54,22 @@
 	
 		<div class = "form">
 	
-		<form action = "http://localhost:8080/tienda/clientes/actualizarcliente" method = "POST">
+		<form action = "http://localhost:8080/tienda/clientes/borrarcliente" method = "POST">
 
 			<label for = "id">ID Cliente</label>
 				<input type = "text" id = "id" name = "id" value="${cliente.id}" readonly>
 			<br>
 			<label for = "nombre">Nombre</label>
-				<input type = "text" id = "nombre" name = "nombre" value="${cliente.nombre}">
+				<input type = "text" id = "nombre" name = "nombre" value="${cliente.nombre}" readonly>
 			<br>
 			<label for = "correo">Correo Electronico</label>
-				<input type = "text" id = "correo" name = "correo" value="${cliente.correo}">
+				<input type = "text" id = "correo" name = "correo" value="${cliente.correo}" readonly>
 			<br>
 			<label for = "idPoblacion">Poblacion</label>
 			
-			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected>  Selecciona una poblacion </option>
-				<c:forEach items ="${comboClientes}" var="poblacion">
+			<select name ="idPoblacion" id="idPoblacion" readonly>
+			<option value="" selected> - Selecciona una poblacion - </option>
+				<c:forEach items ="${comboMunicipio}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>
 					
@@ -88,7 +88,7 @@
 					<input type="checkbox" id="activo" name ="activo" >
 				</c:if>
 				
-			<input type = "submit" value = "Modificar">
+			<input type = "submit" value = "Borrar">
 		</form>
 	
 		</div>
