@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 
-<html>
+<!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="/tienda/css/index.css">
 <link rel="stylesheet" href="/tienda/css/formularios.css">
@@ -16,16 +16,22 @@
 	</header>
 	<%@include file="../menu.html"%>
 
+
+
 	<div class="container">
 		<div class="form">
 			<form action="http://localhost:8080/tienda/productos/listarproducto"
 				method="POST" id="formulario">
-				<label for="IdProducto"> Id Producto</label> <input type="text" id="idProducto"
-					name="idProducto" required>
+				<label for="idProducto"> Id Producto</label> 
+				<input type="text" id="idProducto"
+					name="idProducto" >
 				
-				<label for="nombre"> Nombre</label> <input type="text" id="nombre"
-					name="nombre"> <label for="descripcion">
-					Descripcion</label> <input type="text" id="descripcion" name="descripcion">
+				<label for="nombre"> Nombre</label> 
+				<input type="text" id="nombre"
+					name="nombre"> 
+					<label for="descripcion">
+					Descripcion</label> 
+					<input type="text" id="descripcion" name="descripcion">
 				<br> <label for="precio">Precio</label> <input type="number"
 					id="precio" name="precio" min="0"> <label for="cantidadStock">Cantidad
 					en Stock</label> <input type="number" id="cantidadStock" name="cantidadStock" min="0">
@@ -37,6 +43,7 @@
 
 					<br>
 
+						<option value="">Seleccione una opcion</option>
 
 					<c:forEach items="${comboCategorias}" var="categoria">
 						<option value="${categoria.id}">${categoria.nombre}</option>
@@ -50,6 +57,7 @@
 					name="idProveedor" id="proveedores" form="formulario">
 					
 					<br>
+						<option value="">Seleccione una opcion</option>
 
 					<c:forEach items="${comboProveedores}" var="proveedor">
 						<option value="${proveedor.id}">${proveedor.nombre}</option>
@@ -82,8 +90,8 @@
 						<td>${producto.descripcion}</td>
 						<td>${producto.precio}</td>
 						<td>${producto.cantidadEnStock}</td>
-						<td>${producto.categoria}</td>
-						<td>${producto.proveedor}</td>
+						<td>${producto.idcategoria}</td>
+						<td>${producto.idproveedor}</td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -44,8 +44,8 @@ public class ProductoController {
 			@RequestParam("idProveedor") String idProveedor, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		List<ProductoDTO> listaProducto = productoService.buscarProducto(id, nombre, descripcion, precio,
-				cantidadStock, idCategoria, idProveedor);
+		List<ProductoDTO> listaProducto = productoService.buscarProducto(id, nombre, descripcion, precio, cantidadStock,
+				idCategoria, idProveedor);
 
 		recuperacionCombos(model);
 		model.addAttribute("lista", listaProducto);

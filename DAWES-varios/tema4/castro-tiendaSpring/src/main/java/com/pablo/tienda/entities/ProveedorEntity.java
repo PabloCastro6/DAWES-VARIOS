@@ -7,12 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
-
 @Entity
 @Table(name = "proveedores")
 public class ProveedorEntity {
-	
+
 	@Id
 	@Column(name = "ID_Proveedor")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +35,4 @@ public class ProveedorEntity {
 		this.nombre = nombre;
 	}
 
-	
-	
 }

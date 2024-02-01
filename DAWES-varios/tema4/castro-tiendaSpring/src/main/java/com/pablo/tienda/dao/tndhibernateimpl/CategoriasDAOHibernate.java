@@ -29,7 +29,7 @@ public class CategoriasDAOHibernate implements ICategoriasDAO {
 	@Override
 	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		String jpql = "SELECT new com.pablo.tienda.dtos.CategoriasDTO (c.id, c.nombre, c.descripcion, c.activo)"
 				+ " FROM CategoriasEntity c" + " WHERE CAST (c.id AS string) LIKE :id" + " AND c.nombre LIKE :nombre"
 				+ " AND c.descripcion LIKE :descripcion" + " AND c.activo = :activo";
@@ -68,7 +68,6 @@ public class CategoriasDAOHibernate implements ICategoriasDAO {
 		return categoriaEntity.getId();
 	}
 
-	
 	@Override
 	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -86,7 +85,6 @@ public class CategoriasDAOHibernate implements ICategoriasDAO {
 		return categoriaEntity.getId();
 	}
 
-	
 	@Override
 	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
 		SessionFactory factory = DBUtils.creadorSessionFactory();

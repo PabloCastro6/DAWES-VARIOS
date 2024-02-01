@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IProductosDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.ProductosDTO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.ICategoriasDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.CategoriasDAOImplTnd"/>
@@ -49,10 +48,7 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.tndimpl.PeticionesDAOImplTnd"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPeticionesDAO"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.SQLException"/>
-    <fullyQualifiedTypeName name="javax.naming.NamingException"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="javax.naming.NamingException"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.utils.DBUtils"/>
 </qualifiedTypeNameHistroy>

@@ -24,23 +24,58 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		String hql = "SELECT new com.pablo.tienda.dtos.ProductoDTO(p.id, p.nombre, p.descripcion, p.precio,"
-				+ " p.cantidadEnStock, p.categoria.id, p.proveedor.id, p.categoria.nombre, p.proveedor.nombre)"
-				+ " FROM ProductoEntity p"
-				+ " WHERE p.id = :id AND p.nombre LIKE :nombre AND p.descripcion LIKE :descripcion"
-				+ " AND p.precio >= :precio AND p.cantidadEnStock >= :cantidadStock"
-				+ " AND p.categoria.id = :idCategoria AND p.proveedor.id = :idProveedor";
+		String hql = "SELECT new com.pablo.tienda.dtos.ProductoDTO(pe.id, pe.nombre, pe.descripcion, pe.precio,"
+				+ " pe.cantidadEnStock, c.idCategoria, c.idProveedor)" 
+				+ " FROM ProductoEntity pe"
+				+ " INNER JOIN categoriasEntity c ON pe.categoria.id = c.id "
+				+ " INNER JOIN proveedoresEntity pr ON p.id = pe.proveedor.id"
+				+ " WHERE pe.nombre LIKE :nombre"
+				+ " AND pe.descripcion LIKE :descripcion" 
+				+ " AND pe.precio >= :precio"
+				+ " AND pe.cantidadStock >= :cantidadStock";
 
-		Query<ProductoDTO> query = session.createQuery(hql, ProductoDTO.class).setParameter("id", id)
+		StringBuilder sb = new StringBuilder(hql);
+
+		if (!idCategoria.equals("")) {
+			sb.append("AND p.idCategoria LIKE :idCategoria");
+		}
+
+		if (!idProveedor.equals("")) {
+			sb.append("AND p.idProveedor LIKE :idProveedor");
+		}
+
+		if (id.equals("")) {
+			sb.append("AND p.id = :id");
+		}
+
+		hql = sb.toString();
+
+		Query<ProductoDTO> query = session.createQuery(hql, ProductoDTO.class)
 				.setParameter("nombre", "%" + nombre + "%").setParameter("descripcion", "%" + descripcion + "%")
 				.setParameter("precio", Double.parseDouble(precio))
-				.setParameter("cantidadStock", Integer.parseInt(cantidadStock))
-				.setParameter("idCategoria", Integer.parseInt(idCategoria))
-				.setParameter("idProveedor", Integer.parseInt(idProveedor));
+				.setParameter("cantidadStock", Integer.parseInt(cantidadStock));
 
-		return query.getResultList();
+		if (!idCategoria.equals("")) {
+			query.setParameter("idCategoria", "%" + idCategoria + "%");
+		}
+
+		if (!idProveedor.equals("")) {
+			query.setParameter("idProveedor", "%" + idProveedor + "%");
+		}
+
+		if (!id.equals("")) {
+			query.setParameter("id", "%" + id + "%");
+		}
+
+		List<ProductoDTO> lista = query.getResultList();
+
+		session.close();
+
+		return lista;
 	}
 
+	
+	
 	@Override
 	public ProductoDTO buscarProductoPorID(Integer id) {
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
@@ -55,6 +90,7 @@ public class ProductosDAOHibernate implements IProductoDAO {
 				: null;
 	}
 
+	
 	@Override
 	public Integer insertarProducto(String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) {
@@ -66,20 +102,19 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		// Setear propiedades del producto...
 		CategoriasEntity categoriaEntity = session.find(CategoriasEntity.class, Integer.parseInt(idCategoria));
 		ProveedorEntity proveedorEntity = session.find(ProveedorEntity.class, Integer.parseInt(idProveedor));
-		
+
 		BigDecimal precioBigDecimal = new BigDecimal(precio);
 		Integer cantidadStockInteger = Integer.parseInt(cantidadStock);
-		
-		ProductoEntity producto = new ProductoEntity( nombre, descripcion,  precioBigDecimal, cantidadStockInteger, categoriaEntity,proveedorEntity);
-		
-		
+
+		ProductoEntity producto = new ProductoEntity(nombre, descripcion, precioBigDecimal, cantidadStockInteger,
+				categoriaEntity, proveedorEntity);
+
 		session.persist(producto);
 
 		session.getTransaction().commit();
 		return producto.getId();
 	}
 
-	
 	@Override
 	public Integer actualizarProducto(String id, String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) {
