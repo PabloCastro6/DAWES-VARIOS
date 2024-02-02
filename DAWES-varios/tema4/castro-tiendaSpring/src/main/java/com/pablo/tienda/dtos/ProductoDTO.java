@@ -39,8 +39,6 @@ public class ProductoDTO {
 		this.idCategoria = idCategoria;
 		this.idProveedor = idProveedor;
 	}
-	
-	
 
 	public Integer getId() {
 		return id;

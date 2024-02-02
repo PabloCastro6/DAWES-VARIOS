@@ -20,5 +20,4 @@ public interface IClientesDAO {
 
 	public Integer borrarClientes(String id) throws ClassNotFoundException, SQLException;
 
-	
 }

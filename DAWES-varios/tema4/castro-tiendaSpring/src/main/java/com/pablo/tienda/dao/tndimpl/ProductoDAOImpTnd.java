@@ -72,8 +72,8 @@ public class ProductoDAOImpTnd implements IProductoDAO {
 		ResultSet rs = ps.executeQuery();
 		System.out.println(ps.toString());
 		if (rs.next()) {
-			producto = new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBigDecimal(4), rs.getInt(5),
-					rs.getInt(6), rs.getInt(7));
+			producto = new ProductoDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getBigDecimal(4),
+					rs.getInt(5), rs.getInt(6), rs.getInt(7));
 		}
 		connection.close();
 		return producto;

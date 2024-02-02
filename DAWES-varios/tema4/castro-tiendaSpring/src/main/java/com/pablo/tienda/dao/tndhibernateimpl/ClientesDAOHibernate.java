@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IClientesDAO;
 import com.pablo.tienda.dtos.ClienteDTO;
@@ -15,15 +16,14 @@ import com.pablo.tienda.entities.ClientesEntity;
 import com.pablo.tienda.entities.PoblacionEntity;
 import com.pablo.tienda.utils.DBUtils;
 
+@Component("HibernateImplCliente")
 public class ClientesDAOHibernate implements IClientesDAO {
-
-	
 
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
 
-		String hql = "SELECT new com.chuchi.tienda.dtos.ClientesDTO (c.id, c.nombre, c.correoElectronico, p.id, c.activo, p.nombre) "
+		String hql = "SELECT new com.pablo.tienda.dtos.ClientesDTO (c.id, c.nombre, c.correoElectronico, p.id, c.activo, p.nombre) "
 				+ "FROM ClientesEntity c " + "INNER JOIN PoblacionEntity p ON c.poblacion.id = p.id "
 				+ "WHERE c.nombre LIKE :nombre " + "AND c.correoElectronico LIKE :correoElectronico "
 				+ "AND c.activo = :activo ";
@@ -62,8 +62,6 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		return listaClientes;
 
 	}
-
-
 
 	@Override
 	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo) {
@@ -106,20 +104,20 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
-      ClientesEntity nuevoCliente = new ClientesEntity();
-      
-      nuevoCliente.setNombre(nombre);
-      nuevoCliente.setCorreoElectronico(correo);
-      nuevoCliente.setIdPoblacion(Integer.parseInt(idPoblacion));
-      nuevoCliente.setActivo(Integer.parseInt(activo));
 
-      session.persist(nuevoCliente);
-      session.getTransaction().commit();
-      session.close();
+		ClientesEntity nuevoCliente = new ClientesEntity();
 
-      Integer idGenerado = nuevoCliente.getId();
-      
-      return idGenerado;
+		nuevoCliente.setNombre(nombre);
+		nuevoCliente.setCorreoElectronico(correo);
+		nuevoCliente.setIdPoblacion(Integer.parseInt(idPoblacion));
+		nuevoCliente.setActivo(Integer.parseInt(activo));
+
+		session.persist(nuevoCliente);
+		session.getTransaction().commit();
+		session.close();
+
+		Integer idGenerado = nuevoCliente.getId();
+
+		return idGenerado;
 	}
 }

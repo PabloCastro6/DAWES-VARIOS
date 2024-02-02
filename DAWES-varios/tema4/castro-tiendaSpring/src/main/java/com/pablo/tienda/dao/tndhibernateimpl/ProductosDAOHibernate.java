@@ -84,8 +84,8 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		ProductoEntity producto = session.find(ProductoEntity.class, id);
 		return producto != null
 				? new ProductoDTO(producto.getId(), producto.getNombre(), producto.getDescripcion(),
-						producto.getPrecio(), producto.getCantidadEnStock(),
-						producto.getCategoria().getId(), producto.getProveedorEntity().getId())
+						producto.getPrecio(), producto.getCantidadEnStock(), producto.getCategoria().getId(),
+						producto.getProveedorEntity().getId())
 				: null;
 	}
 

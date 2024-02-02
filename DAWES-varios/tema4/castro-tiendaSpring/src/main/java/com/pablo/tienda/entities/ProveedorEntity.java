@@ -14,7 +14,7 @@ public class ProveedorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_Proveedor")
-	
+
 	private Integer id;
 
 	@Column(name = "Nombre")

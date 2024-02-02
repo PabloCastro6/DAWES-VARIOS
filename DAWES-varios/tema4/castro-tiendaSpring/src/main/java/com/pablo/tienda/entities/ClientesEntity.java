@@ -120,5 +120,4 @@ public class ClientesEntity {
 		this.activo = activo;
 	}
 
-
 }
