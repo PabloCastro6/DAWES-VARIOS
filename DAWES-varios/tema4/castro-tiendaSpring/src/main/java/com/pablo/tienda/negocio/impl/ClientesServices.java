@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.ICategoriasDAO;
+import com.pablo.tienda.dao.IClientesDAO;
 import com.pablo.tienda.dao.tndimpl.ClientesDAOImplTnd;
 import com.pablo.tienda.dtos.ClienteDTO;
 import com.pablo.tienda.negocio.IClientesService;
@@ -15,10 +16,9 @@ import com.pablo.tienda.negocio.IClientesService;
 @Component
 public class ClientesServices implements IClientesService {
 
-	
 	@Autowired
 	@Qualifier("HibernateImplCliente")
-	ICategoriasDAO categoriasDAO;
+	IClientesDAO clienteDAO;
 
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
