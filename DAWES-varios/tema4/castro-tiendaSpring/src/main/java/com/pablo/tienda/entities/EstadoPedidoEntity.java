@@ -10,12 +10,12 @@ import jakarta.persistence.Table;
 import java.util.Set;
 
 @Entity
-@Table(name = "estadospedido")
+@Table(name = "estadospedidos")
 public class EstadoPedidoEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Estado_ID")
+	@Column(name = "EstadoID")
 	private Integer id;
 
 	@Column(name = "NombreEstado", nullable = false)
@@ -24,6 +24,7 @@ public class EstadoPedidoEntity {
 	@OneToMany(mappedBy = "estado")
 	private Set<PedidoEntity> pedido;
 
+	
 	@OneToMany(mappedBy = "estado")
 	private Set<PeticionEntity> peticion;
 

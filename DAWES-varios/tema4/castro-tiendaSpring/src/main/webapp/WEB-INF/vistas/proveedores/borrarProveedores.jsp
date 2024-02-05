@@ -20,7 +20,7 @@
 	<div class="container">
 		<div class="form">
 		
-			<form action="http://localhost:8080/tienda/proveedores/formularioborrarproveedor"
+			<form action="http://localhost:8080/tienda/proveedores/formularioborrarproveedores"
 				method="POST">
 
 					<br>
@@ -64,7 +64,7 @@
 				
 				<div class="form">
 					
-					<form action="http://localhost:8080/tienda/proveedores/borrarproveedor" method="POST">
+					<form action="http://localhost:8080/tienda/proveedores/borrarproveedores" method="POST">
 						
 						<br>
 				    <label for="id"> ID Proveedor: </label> 

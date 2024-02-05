@@ -32,10 +32,12 @@ public class PeticionEntity {
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
+	
 	@ManyToOne
-	@JoinColumn(name = "EstadoID")
+	@JoinColumn(name = "Estado")
 	private EstadoPedidoEntity estado;
 
+	
 	public PeticionEntity(Integer peticionID, ClientesEntity cliente, ProductoEntity producto, String fecha,
 			Integer cantidad, EstadoPedidoEntity estado) {
 		super();

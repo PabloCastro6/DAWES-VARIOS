@@ -12,9 +12,9 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes infórmaticos</h2>
+<h2>Panel de control Tienda de componentes informaticos</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 <div class="container">
 
@@ -32,7 +32,7 @@
 				<br>
 				<select name="idCliente" id="idCliente" form="formulario">
 				
-						<option value="">Seleccione una opci�n</option>
+						<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
 					</c:forEach>
@@ -84,7 +84,7 @@
 			
 			<c:forEach items="${lista}" var="peticiones">
 				<tr>
-					<td>${peticiones.idPeticiones}</td>
+					<td>${peticiones.id}</td>
 					<td>${peticiones.nombreCliente}</td>
 					<td>${peticiones.nombreProducto}</td>
 					<td>${peticiones.fecha}</td>

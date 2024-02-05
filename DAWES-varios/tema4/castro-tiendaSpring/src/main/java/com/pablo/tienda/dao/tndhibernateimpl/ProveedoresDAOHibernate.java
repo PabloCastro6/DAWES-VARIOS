@@ -126,9 +126,9 @@ public class ProveedoresDAOHibernate implements IProveedorDAO {
 
 		ProveedorEntity entidadProveedor = new ProveedorEntity(Integer.parseInt(id));
 
-		entidadProveedor.setActivo(0);
+		
 
-		session.merge(entidadProveedor);
+		session.remove(entidadProveedor);
 
 		session.getTransaction().commit();
 

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-
 import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dtos.CategoriasDTO;
 import com.pablo.tienda.negocio.ICategoriasService;

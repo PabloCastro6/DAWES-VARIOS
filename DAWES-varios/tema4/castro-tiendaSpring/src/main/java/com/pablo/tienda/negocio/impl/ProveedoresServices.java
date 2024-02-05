@@ -13,10 +13,8 @@ import com.pablo.tienda.dao.IProveedorDAO;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.IProveedoresService;
 
-public class ProveedoresServices {
-
 	@Component
-	public class ProveedoresService implements IProveedoresService {
+	public class ProveedoresServices implements IProveedoresService {
 
 		@Autowired
 		@Qualifier("HibernateImplProveedor")
@@ -48,4 +46,4 @@ public class ProveedoresServices {
 		}
 
 	}
-}
+

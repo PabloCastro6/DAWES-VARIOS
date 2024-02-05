@@ -18,11 +18,9 @@ import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.negocio.IPeticionesService;
 
-public class PeticionesController {
-
 	@Controller
 	@RequestMapping("/peticiones")
-	public class PeticicionesController {
+	public class PeticionesController {
 
 		@Autowired
 		IPeticionesService peticionesService;
@@ -33,7 +31,7 @@ public class PeticionesController {
 		public String getListadoPeticiones(ModelMap model)
 				throws ClassNotFoundException, SQLException, NamingException {
 
-			// combos(model);
+			 combos(model);
 
 			return "peticiones/listarPeticiones";
 		}
@@ -47,7 +45,7 @@ public class PeticionesController {
 
 			List<PeticionesDTO> listaPeticiones = peticionesService.buscarPeticiones(idPeticiones, idCliente,
 					idProducto, fecha, cantidad, estado);
-			// combos(model);
+			 combos(model);
 
 			model.addAttribute("lista", listaPeticiones);
 
@@ -114,7 +112,7 @@ public class PeticionesController {
 
 			combos(model);
 
-			peticionesService.actualizarPeticiones(idPeticiones, idCliente, idProducto, cantidad, estado);
+			peticionesService.actualizarPeticiones(idPeticiones, idCliente, idProducto,fecha, cantidad, estado);
 
 			return "/peticiones/actualizarPeticiones";
 		}
@@ -168,4 +166,3 @@ public class PeticionesController {
 
 	}
 
-}

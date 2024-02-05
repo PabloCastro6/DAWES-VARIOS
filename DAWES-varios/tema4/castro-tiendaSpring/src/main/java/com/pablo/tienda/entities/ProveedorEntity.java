@@ -30,7 +30,7 @@ public class ProveedorEntity {
 	@Column(name = "ID_Proveedor")
 	private Integer id;
 
-	@Column(name = "Nombre", nullable = false)
+	@Column(name = "Nombre" )
 	private String nombre;
 
 	@Column(name = "Contacto")
@@ -48,9 +48,9 @@ public class ProveedorEntity {
 	@Column(name = "Activo")
 	private Integer activo;
 
-	@OneToMany(mappedBy = "proveedor")
-	private Set<ProductoEntity> productos;
 	
+//	@OneToMany(mappedBy = "proveedor")
+//	private Set<ProductoEntity> productos;
 
 	public ProveedorEntity(Integer id, String nombre, String contacto, String telefono, String correoElectronico,
 			String direccion, Integer activo, Set<ProductoEntity> productos) {
@@ -62,7 +62,7 @@ public class ProveedorEntity {
 		this.correoElectronico = correoElectronico;
 		this.direccion = direccion;
 		this.activo = activo;
-		this.productos = productos;
+		// this.productos = productos;
 	}
 
 	public ProveedorEntity(String nombre, String contacto, String telefono, String correoElectronico, String direccion,
@@ -76,10 +76,10 @@ public class ProveedorEntity {
 		this.activo = activo;
 	}
 
-	public ProveedorEntity(Integer id, String nombre, String contacto, String telefono, String correoElectronico, String direccion,
-			Integer activo) {
+	public ProveedorEntity(Integer id, String nombre, String contacto, String telefono, String correoElectronico,
+			String direccion, Integer activo) {
 		super();
-		this.id= id;
+		this.id = id;
 		this.nombre = nombre;
 		this.contacto = contacto;
 		this.telefono = telefono;
@@ -87,12 +87,12 @@ public class ProveedorEntity {
 		this.direccion = direccion;
 		this.activo = activo;
 	}
-	
+
 	public ProveedorEntity(Integer id) {
 		super();
-		this.id= id;
+		this.id = id;
 	}
-	
+
 	public ProveedorEntity() {
 		super();
 	}
@@ -153,12 +153,12 @@ public class ProveedorEntity {
 		this.activo = activo;
 	}
 
-	public Set<ProductoEntity> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(Set<ProductoEntity> productos) {
-		this.productos = productos;
-	}
+//	public Set<ProductoEntity> getProductos() {
+//		return productos;
+//	}
+//
+//	public void setProductos(Set<ProductoEntity> productos) {
+//		this.productos = productos;
+//	}
 
 }
