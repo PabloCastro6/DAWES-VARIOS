@@ -6,6 +6,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IProveedorDAO;
@@ -18,6 +19,7 @@ public class ProveedoresServices {
 	public class ProveedoresService implements IProveedoresService {
 
 		@Autowired
+		@Qualifier("HibernateImplProveedor")
 		IProveedorDAO proveedorDAO;
 
 		@Override

@@ -12,15 +12,15 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes infórmaticos</h2>
+<h2>Panel de control Tienda</h2>
 </header>
-<%@include file="/menu.html" %>
+<%@include file="../menu.html" %>
 
 <h3> Listado Proveedores </h3>
 	<div class="container">
 		<div class="form">
 		
-			<form action="http://localhost:8080/tienda/proveedores/listarproveedores"
+			<form action="http://localhost:8080/tienda/proveedores/listadoproveedores"
 				method="POST">
 
 					<br>
