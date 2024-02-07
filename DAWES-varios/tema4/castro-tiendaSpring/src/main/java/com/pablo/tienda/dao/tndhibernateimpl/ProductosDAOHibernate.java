@@ -37,11 +37,11 @@ public class ProductosDAOHibernate implements IProductoDAO {
 		StringBuilder sb = new StringBuilder(hql);
 
 		if (!idCategoria.equals("")) {
-			sb.append(" AND pe.categoriaEntity.id LIKE :idCategoria");
+			sb.append(" AND pe.categoriaEntity.id = :idCategoria");
 		}
 
 		if (!idProveedor.equals("")) {
-			sb.append(" AND pe.proveedorEntity.id LIKE :idProveedor");
+			sb.append(" AND pe.proveedorEntity.id = :idProveedor");
 		}
 
 		if (!id.equals("")) {
@@ -56,15 +56,15 @@ public class ProductosDAOHibernate implements IProductoDAO {
 				.setParameter("cantidadStock", cantidadStock.isEmpty() ? 0 : Integer.parseInt(cantidadStock));
 
 		if (!idCategoria.equals("")) {
-			query.setParameter("idCategoria", "%" + idCategoria + "%");
+			query.setParameter("idCategoria", Integer.parseInt(idCategoria) );
 		}
 
 		if (!idProveedor.equals("")) {
-			query.setParameter("idProveedor", "%" + idProveedor + "%");
+			query.setParameter("idProveedor",  Integer.parseInt(idProveedor) );
 		}
 
 		if (!id.equals("")) {
-			query.setParameter("id", "%" + id + "%");
+			query.setParameter("id", Integer.parseInt(id) );
 		}
 
 		List<ProductoDTO> lista = query.getResultList();

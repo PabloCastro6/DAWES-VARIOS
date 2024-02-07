@@ -19,12 +19,12 @@
 	
 	<div class="container">
 		<div class="form">
-			<form action="http://localhost:8080/tienda/peticiones/insertarPeticiones" method="POST">
+			<form action="http://localhost:8080/tienda/peticiones/insertarpeticiones" method="POST">
 				<br>
 				<label for="cliente">Cliente</label>
 				
 				
-				<select name="idCliente" id="idCliente" form="formulario">
+				<select name="idCliente" id="idCliente">
 						<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
@@ -36,7 +36,7 @@
 				<br> <br>
 				
 				<label for="producto">Productos</label> 
-				<select name="idProducto" id="idProducto" form="formulario">
+				<select name="idProducto" id="idProducto" >
 						<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboProducto}" var="producto">
 						<option value="${producto.id}">${producto.nombre}</option>
@@ -50,7 +50,7 @@
 				<br><br>
 				
 				<label for="estadopedido">Estado Pedido</label> 
-				<select name="estado" id="estado" form="formulario">
+				<select name="idEstadoPedido" id="estado" >
 						<option value="">Seleccione una opcion</option>
 						
 					<c:forEach items="${comboEstadoPedido}" var="estadoPedido">

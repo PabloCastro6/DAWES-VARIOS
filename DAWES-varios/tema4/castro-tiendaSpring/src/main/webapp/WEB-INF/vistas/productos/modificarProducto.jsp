@@ -43,18 +43,19 @@
 				<br> <select name="idCategoria" id="categorias"
 					form="formulario">
 
-					<br>
+					
 
-
+					<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboCategorias}" var="categoria">
+					
 						<option value="${categoria.id}">${categoria.nombre}</option>
 					</c:forEach>
 
 				</select> <br> <br> <label for="proveedores">Proveedor</label> <br>
 				<select name="idProveedor" id="proveedores" form="formulario">
 
-					<br>
 
+						<option value="">Seleccione una opcion</option>
 					<c:forEach items="${comboProveedores}" var="proveedor">
 						<option value="${proveedor.id}">${proveedor.nombre}</option>
 					</c:forEach>
@@ -97,7 +98,7 @@
 						<c:forEach items="${comboCategorias}" var="categoria">
 							<c:choose>
 								<c:when test="${categoria.id == producto.idCategoria}">
-									<option value="${producto.idCategoria}" selected>${producto.categoria}</option>
+									<option value="${producto.idCategoria}" selected>${categoria.nombre}</option>
 								</c:when>
 
 								<c:otherwise>

@@ -36,8 +36,8 @@ public class ClientesEntity {
 	@Column(name = "ID_Poblacion")
 	private Integer idPoblacion;
 
-	@Column(name = "nombre_poblacion")
-	private String nombrePoblacion;
+//	@Column(name = "nombre_poblacion")
+//	private String nombrePoblacion;
 
 	@Column(name = "activo")
 	private Integer activo;
@@ -104,13 +104,13 @@ public class ClientesEntity {
 		this.idPoblacion = idPoblacion;
 	}
 
-	public String getNombrePoblacion() {
-		return nombrePoblacion;
-	}
-
-	public void setNombrePoblacion(String nombrePoblacion) {
-		this.nombrePoblacion = nombrePoblacion;
-	}
+//	public String getNombrePoblacion() {
+//		return nombrePoblacion;
+//	}
+//
+//	public void setNombrePoblacion(String nombrePoblacion) {
+//		this.nombrePoblacion = nombrePoblacion;
+//	}
 
 	public Integer getActivo() {
 		return activo;

@@ -21,24 +21,24 @@
 <div class="container">
 	
 		<div class="form">
-			<form action="http://localhost:8080/tienda/peticiones/formularioActualizarPeticiones"  method="POST">
+			<form action="http://localhost:8080/tienda/peticiones/formularioactualizarpeticiones"  method="POST">
 				<label for="id">ID</label>
-				<input type="text" id="id" name="id"> 
+				<input type="text" id="id" name="idPeticiones"> 
 				<br>
 				
 				<label for="cliente">Cliente</label>
-				<select name="cliente" id="cliente">
+				<select name="idCliente" id="cliente">
 					<option value="" selected>-- Seleccione un cliente</option>
-					<c:forEach items="${listaClientes}" var="cliente">
+					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
 					</c:forEach>
 				</select> 
 				<br> <br>
 				
 				<label for="producto">Productos</label> 
-				<select name="producto" id="producto">
+				<select name="idProducto" id="producto">
 					<option value="" selected>-- Seleccione un producto</option>
-					<c:forEach items="${listaProductos}" var="producto">
+					<c:forEach items="${comboProducto}" var="producto">
 						<option value="${producto.id}">${producto.nombre}</option>
 					</c:forEach>
 				</select> 
@@ -48,9 +48,9 @@
 				<br> <br>
 				
 				<label for="estadopedido">Estado Pedido</label> 
-				<select name="estadopedido" id="proveedor">
+				<select name="estado" id="proveedor">
 					<option value="" selected>-- Seleccione un estado</option>
-					<c:forEach items="${listaEstadoPedidos}" var="estadopedido">
+					<c:forEach items="${comboEstadoPedido}" var="estadopedido">
 						<option value="${estadopedido.id}">${estadopedido.nombre}</option>
 					</c:forEach>
 				</select> 
@@ -67,25 +67,25 @@
 		
 		<c:forEach items="${lista}" var="peticion">
 		 	<div class="form">
-		 		<form action="http://localhost:8080/tienda/peticiones/actualizarPeticiones" method="POST">
+		 		<form action="http://localhost:8080/tienda/peticiones/actualizarpeticiones" method="POST">
 		 		
 		 		<label for="id">ID</label> 
-		 		<input type="text" id="id" name="id" value="${peticion.idPeticiones}" readonly> 
+		 		<input type="text" id="id" name="idPeticiones" value="${peticion.id}" readonly> 
 		 		<br>
 		 		
 				<label for="cliente">Cliente</label>
-				<select name="cliente" id="cliente">					
+				<select name="idCliente" id="cliente">					
 					<option value="${peticion.idCliente}" selected>${peticion.nombreCliente}</option>
-					<c:forEach items="${listaClientes}" var="cliente">
+					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
 					</c:forEach>
 				</select> 
 				<br> <br>
 				
 				<label for="producto">Productos</label> 
-				<select name="producto" id="producto">					
+				<select name="idProducto" id="producto">					
 					<option value="${peticion.idProducto}" selected>${peticion.nombreProducto}</option>
-					<c:forEach items="${listaProductos}" var="producto">
+					<c:forEach items="${comboProducto}" var="producto">
 						<option value="${producto.id}">${producto.nombre}</option>
 					</c:forEach>
 				</select> 
@@ -96,9 +96,9 @@
 				<br>
 				
 				<label for="estadopedido">Estado Pedido</label> 
-				<select name="estadopedido" id="estadopedido">
-					<option value="${peticion.estado}" selected>${peticion.nombreEstado}</option>
-					<c:forEach items="${listaEstadoPedidos}" var="estadopedido">
+				<select name="estado" id="estadopedido">
+					<option value="${peticion.idEstado}" selected>${peticion.nombreEstado}</option>
+					<c:forEach items="${comboEstadoPedido}" var="estadopedido">
 						<option value="${estadopedido.id}">${estadopedido.nombre}</option>
 					</c:forEach>
 				</select>
@@ -112,7 +112,7 @@
 		 </c:forEach>
 		 
 		<c:if test ="${resultado == 1}">
-		<p>Petici�n actualizada correctamente</p>
+		<p>Peticion actualizada</p>
 		</c:if>
 	</div>
 

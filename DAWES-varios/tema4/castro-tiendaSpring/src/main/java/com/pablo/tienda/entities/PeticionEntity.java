@@ -2,6 +2,8 @@ package com.pablo.tienda.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,6 +16,7 @@ import jakarta.persistence.TemporalType;
 public class PeticionEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID_Peticiones")
 	private Integer peticionID;
 
@@ -51,12 +54,11 @@ public class PeticionEntity {
 		super();
 	}
 
-	public PeticionEntity(ClientesEntity cliente, ProductoEntity producto, String fecha, Integer cantidad,
+	public PeticionEntity(ClientesEntity cliente, ProductoEntity producto, Integer cantidad,
 			EstadoPedidoEntity estado) {
 		super();
 		this.cliente = cliente;
 		this.producto = producto;
-		this.fecha = fecha;
 		this.cantidad = cantidad;
 		this.estado = estado;
 	}

@@ -12,7 +12,11 @@ import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IPeticionesDAO;
 import com.pablo.tienda.dtos.PeticionesDTO;
+import com.pablo.tienda.entities.CategoriasEntity;
+import com.pablo.tienda.entities.ClientesEntity;
+import com.pablo.tienda.entities.EstadoPedidoEntity;
 import com.pablo.tienda.entities.PeticionEntity;
+import com.pablo.tienda.entities.ProductoEntity;
 import com.pablo.tienda.utils.DBUtils;
 
 @Component("HibernateImplPeticion")
@@ -38,7 +42,7 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		Query<PeticionesDTO> query = session.createQuery(jpql, PeticionesDTO.class)
 				.setParameter("peticion", "%" + idPeticiones + "%").setParameter("cliente", "%" + idCliente + "%")
 				.setParameter("producto", "%" + idProducto + "%").setParameter("fecha", fechaAnhadido)
-		        .setParameter("cantidad", cantidad).setParameter("estado", "%" + estado + "%");
+				.setParameter("cantidad", cantidad).setParameter("estado", "%" + estado + "%");
 
 		List<PeticionesDTO> listaPeticiones = query.getResultList();
 
@@ -49,18 +53,24 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 	}
 
 	@Override
-	public Integer insertarPeticion(String idCliente, String idProducto, String cantidad, String estado)
+	public Integer insertarPeticion(String idCliente, String idProducto,String cantidad, String estado)
 			throws ClassNotFoundException, SQLException, NamingException {
+		
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		
-		PeticionEntity peticionEntity = new PeticionEntity (Integer.parseInt(idCliente),Integer.parseInt(idProducto),cantidad);
-		
+		ClientesEntity clienteEntity = session.find(ClientesEntity.class, Integer.parseInt(idCliente));
+		ProductoEntity productoEntity = session.find(ProductoEntity.class, Integer.parseInt(idProducto));
+		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class, Integer.parseInt(estado));
+
+		PeticionEntity peticionEntity = new PeticionEntity(clienteEntity,productoEntity,
+				Integer.parseInt(cantidad),estadoPedidoEntity);
+
 		session.persist(peticionEntity);
 		session.getTransaction().commit();
 		session.close();
-		
+
 		return peticionEntity.getPeticionID();
 	}
 
@@ -70,10 +80,22 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
+
+		ClientesEntity clienteEntity = session.find(ClientesEntity.class, Integer.parseInt(idCliente));
+		ProductoEntity productoEntity = session.find(ProductoEntity.class, Integer.parseInt(idProducto));
+		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class, Integer.parseInt(idEstadoPedido));
 		
-		PeticionEntity peticionEntity = new PeticionEntity(/**/);
+		
+		PeticionEntity peticionEntity = new PeticionEntity();
+		peticionEntity.setPeticionID(Integer.parseInt(id));
+		peticionEntity.setFecha(fechaAnhadido);
+		peticionEntity.setCantidad(Integer.parseInt(cantidad));
+		peticionEntity.setCliente(clienteEntity);
+		peticionEntity.setProducto(productoEntity);
+		peticionEntity.setEstado(estadoPedidoEntity);
+		
+		
 		session.merge(peticionEntity);
-		
 		session.getTransaction().commit();
 		session.close();
 		return peticionEntity.getPeticionID();
@@ -84,7 +106,7 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		
+
 		return null;
 	}
 
