@@ -16,7 +16,6 @@ import com.pablo.tienda.entities.ProductoEntity;
 import com.pablo.tienda.entities.ProveedorEntity;
 import com.pablo.tienda.utils.DBUtils;
 
-
 @Component("HibernateImplProducto")
 public class ProductosDAOHibernate implements IProductoDAO {
 

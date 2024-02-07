@@ -21,6 +21,4 @@ public interface IPeticionesDAO {
 
 	public Integer borrarPeticion(String idPeticiones) throws ClassNotFoundException, SQLException, NamingException;
 
-
-
 }

@@ -24,7 +24,6 @@ public class EstadoPedidoEntity {
 	@OneToMany(mappedBy = "estado")
 	private Set<PedidoEntity> pedido;
 
-	
 	@OneToMany(mappedBy = "estado")
 	private Set<PeticionEntity> peticion;
 

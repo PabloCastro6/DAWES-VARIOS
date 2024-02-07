@@ -30,7 +30,7 @@ public class ProveedorEntity {
 	@Column(name = "ID_Proveedor")
 	private Integer id;
 
-	@Column(name = "Nombre" )
+	@Column(name = "Nombre")
 	private String nombre;
 
 	@Column(name = "Contacto")
@@ -48,7 +48,6 @@ public class ProveedorEntity {
 	@Column(name = "Activo")
 	private Integer activo;
 
-	
 //	@OneToMany(mappedBy = "proveedor")
 //	private Set<ProductoEntity> productos;
 

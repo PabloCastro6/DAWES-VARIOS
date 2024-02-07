@@ -12,7 +12,7 @@ public class PeticionesDTO {
 	private String nombreProducto;
 	private String nombreEstado;
 
-	public PeticionesDTO(Integer id, Integer idCliente, Integer idProducto,Integer idEstado, String fecha, 
+	public PeticionesDTO(Integer id, Integer idCliente, Integer idProducto, Integer idEstado, String fecha,
 			Integer cantidad, String nombreCliente, String nombreProducto, String nombreEstado) {
 		super();
 		this.id = id;
@@ -25,10 +25,6 @@ public class PeticionesDTO {
 		this.nombreProducto = nombreProducto;
 		this.nombreEstado = nombreEstado;
 	}
-	
-	
-
-
 
 	public Integer getId() {
 		return id;

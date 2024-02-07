@@ -9,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-
-
 import com.pablo.tienda.dao.IPeticionesDAO;
 import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.negocio.IPeticionesService;
-
 
 @Component
 public class PeticionesService implements IPeticionesService {
@@ -39,7 +36,7 @@ public class PeticionesService implements IPeticionesService {
 	@Override
 	public Integer actualizarPeticiones(String id, String idCliente, String idProducto, String fechaAnhadido,
 			String cantidad, String idEstadoPedido) throws ClassNotFoundException, SQLException, NamingException {
-		return peticionesDAO.actualizarPeticion(id, idCliente, idProducto,fechaAnhadido, cantidad, idEstadoPedido);
+		return peticionesDAO.actualizarPeticion(id, idCliente, idProducto, fechaAnhadido, cantidad, idEstadoPedido);
 	}
 
 	@Override

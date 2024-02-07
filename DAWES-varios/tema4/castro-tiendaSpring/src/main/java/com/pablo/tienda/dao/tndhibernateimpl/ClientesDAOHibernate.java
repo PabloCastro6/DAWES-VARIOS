@@ -98,7 +98,6 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		return cliente != null ? cliente.getId() : null;
 	}
 
-	
 	@Override
 	public Integer insertarClientes(String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {

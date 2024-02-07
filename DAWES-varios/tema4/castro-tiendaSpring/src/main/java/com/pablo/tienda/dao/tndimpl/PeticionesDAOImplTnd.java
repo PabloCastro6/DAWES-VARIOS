@@ -43,8 +43,8 @@ public class PeticionesDAOImplTnd implements IPeticionesDAO {
 		ps.setString(2, "%" + idCliente + "%");
 		ps.setString(3, "%" + idProducto + "%");
 		ps.setString(4, fechaAnhadido);
-		ps.setString(5,  cantidad);
-		ps.setString(6,  cantidad);
+		ps.setString(5, cantidad);
+		ps.setString(6, cantidad);
 		ps.setString(7, "%" + idEstadoPedido + "%");
 
 		ResultSet rs = ps.executeQuery();
@@ -114,6 +114,5 @@ public class PeticionesDAOImplTnd implements IPeticionesDAO {
 
 		return resultado;
 	}
-
 
 }

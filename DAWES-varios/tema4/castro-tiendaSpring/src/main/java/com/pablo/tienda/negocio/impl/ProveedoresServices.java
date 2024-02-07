@@ -13,37 +13,36 @@ import com.pablo.tienda.dao.IProveedorDAO;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.IProveedoresService;
 
-	@Component
-	public class ProveedoresServices implements IProveedoresService {
+@Component
+public class ProveedoresServices implements IProveedoresService {
 
-		@Autowired
-		@Qualifier("HibernateImplProveedor")
-		IProveedorDAO proveedorDAO;
+	@Autowired
+	@Qualifier("HibernateImplProveedor")
+	IProveedorDAO proveedorDAO;
 
-		@Override
-		public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,
-				String correo, String direccion, String activo)
-				throws ClassNotFoundException, SQLException, NamingException {
+	@Override
+	public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,
+			String correo, String direccion, String activo)
+			throws ClassNotFoundException, SQLException, NamingException {
 
-			return proveedorDAO.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
-		}
-
-		@Override
-		public Integer insertarProveedores(String nombre, String contacto, String telefono, String correo,
-				String direccion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-			return proveedorDAO.insertarProveedores(nombre, contacto, telefono, correo, direccion, activo);
-		}
-
-		@Override
-		public Integer actualizarProveedores(String id, String nombre, String contacto, String telefono, String correo,
-				String direccion, String activo) throws ClassNotFoundException, SQLException, NamingException {
-			return proveedorDAO.actualizarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
-		}
-
-		@Override
-		public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
-			return proveedorDAO.borrarProveedores(id);
-		}
-
+		return proveedorDAO.buscarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
 	}
 
+	@Override
+	public Integer insertarProveedores(String nombre, String contacto, String telefono, String correo, String direccion,
+			String activo) throws ClassNotFoundException, SQLException, NamingException {
+		return proveedorDAO.insertarProveedores(nombre, contacto, telefono, correo, direccion, activo);
+	}
+
+	@Override
+	public Integer actualizarProveedores(String id, String nombre, String contacto, String telefono, String correo,
+			String direccion, String activo) throws ClassNotFoundException, SQLException, NamingException {
+		return proveedorDAO.actualizarProveedores(id, nombre, contacto, telefono, correo, direccion, activo);
+	}
+
+	@Override
+	public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
+		return proveedorDAO.borrarProveedores(id);
+	}
+
+}

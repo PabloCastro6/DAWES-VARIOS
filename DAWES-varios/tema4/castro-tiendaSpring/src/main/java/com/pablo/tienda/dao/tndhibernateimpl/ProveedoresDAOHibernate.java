@@ -37,7 +37,6 @@ public class ProveedoresDAOHibernate implements IProveedorDAO {
 		}
 		building.append(jpql1);
 
-		
 		String jpql2 = "";
 
 		jpql2 = " and prov.nombre like :nombre and prov.contacto like :contacto and prov.telefono like :telefono and prov.correoElectronico like :correoElectronico and prov.direccion like :direccion and prov.activo = :activo";
@@ -95,7 +94,6 @@ public class ProveedoresDAOHibernate implements IProveedorDAO {
 		return pk;
 	}
 
-	
 	@Override
 	public Integer actualizarProveedores(String id, String nombre, String contacto, String telefono,
 			String correoElectronico, String direccion, String activo)
@@ -117,7 +115,6 @@ public class ProveedoresDAOHibernate implements IProveedorDAO {
 		return pk;
 	}
 
-	
 	@Override
 	public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
@@ -125,8 +122,6 @@ public class ProveedoresDAOHibernate implements IProveedorDAO {
 		session.beginTransaction();
 
 		ProveedorEntity entidadProveedor = new ProveedorEntity(Integer.parseInt(id));
-
-		
 
 		session.remove(entidadProveedor);
 
