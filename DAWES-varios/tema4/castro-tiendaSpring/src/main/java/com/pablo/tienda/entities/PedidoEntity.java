@@ -31,17 +31,17 @@ public class PedidoEntity {
 
 	@Column(name = "FechaPedido")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fechaRegistro;
+	private String fechaRegistro;
 
 	@ManyToOne
 	@JoinColumn(name = "EstadoID")
 	private EstadoPedidoEntity estado;
 
 	@OneToMany(mappedBy = "pedido")
-	private Set<DetalleEntity> detallesPedido;
+	private Set<DetalleEntity> detallesPedido  ;
 	
 
-	public PedidoEntity(Integer id, ClientesEntity cliente, Date fechaRegistro, EstadoPedidoEntity estado,
+	public PedidoEntity(Integer id, ClientesEntity cliente, String fechaRegistro, EstadoPedidoEntity estado,
 			Set<DetalleEntity> detallesPedido) {
 		super();
 		this.id = id;
@@ -71,11 +71,11 @@ public class PedidoEntity {
 		this.cliente = cliente;
 	}
 
-	public Date getFechaRegistro() {
+	public String getFechaRegistro() {
 		return fechaRegistro;
 	}
 
-	public void setFechaRegistro(Date fechaRegistro) {
+	public void setFechaRegistro(String fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
 

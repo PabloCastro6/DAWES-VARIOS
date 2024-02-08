@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-import com.pablo.tienda.dao.ICategoriasDAO;
+
 import com.pablo.tienda.dao.IPedidosDAO;
 import com.pablo.tienda.dao.IProductoDAO;
 import com.pablo.tienda.dtos.ClienteProductoDTO;
@@ -22,7 +22,7 @@ import com.pablo.tienda.negocio.IPedidosService;
 public class PedidosService implements IPedidosService {
 	// Calculo precio total, y pasar por parametro el ClienteProductoDTO
 
-	// @Qualifier("HibernateImplPedido")
+	@Qualifier("HibernateImplPedido")
 	@Autowired
 	IPedidosDAO pedidoDAO;
 

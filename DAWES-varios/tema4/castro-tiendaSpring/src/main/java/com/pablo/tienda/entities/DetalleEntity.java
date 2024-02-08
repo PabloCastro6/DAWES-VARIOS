@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "detallepedidos")
+@Table(name = "detalles_pedido")
 public class DetalleEntity {
 
 	@Id
@@ -85,5 +85,7 @@ public class DetalleEntity {
 	public void setPrecioUnitario(Double precioUnitario) {
 		this.precioUnitario = precioUnitario;
 	}
+
+
 
 }
