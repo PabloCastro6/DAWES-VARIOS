@@ -2,4 +2,8 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IClientesDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.PeticionEntity"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Query"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPedidosDAO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PedidoDTO"/>
 </qualifiedTypeNameHistroy>

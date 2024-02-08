@@ -28,7 +28,7 @@ public class PeticionEntity {
 	@JoinColumn(name = "ID_Producto")
 	private ProductoEntity producto;
 
-	@Column(name = "FechaAñadido")
+	@Column(name = "FechaAñadido", insertable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private String fecha;
 

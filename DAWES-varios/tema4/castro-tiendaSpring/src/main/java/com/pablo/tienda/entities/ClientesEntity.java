@@ -27,7 +27,7 @@ public class ClientesEntity {
 	private String correoElectronico;
 
 	@Column(name = "password")
-	private String password;
+	private String contraseña;
 
 	@Column(name = "FechaRegistro")
 	@Temporal(TemporalType.TIMESTAMP)
@@ -81,11 +81,11 @@ public class ClientesEntity {
 	}
 
 	public String getPassword() {
-		return password;
+		return contraseña;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.contraseña = password;
 	}
 
 	public Date getFechaRegistro() {

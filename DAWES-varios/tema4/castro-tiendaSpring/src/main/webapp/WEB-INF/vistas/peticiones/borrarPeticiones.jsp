@@ -21,37 +21,40 @@
 <div class="container">
 	
 		<div class="form">
-			<form action="http://localhost:8080/tienda/peticiones/formularioBorrarPeticiones"  method="POST">
-				<label for="id">ID</label> 
-				<input type="text" id="id" name="id"> <br>
+			<form action="http://localhost:8080/tienda/peticiones/formularioborrarpeticiones"  method="POST">
+				<label for="id">ID</label>
+				<input type="text" id="id" name="idPeticiones"> 
+				<br>
 				
 				<label for="cliente">Cliente</label>
-				<select name="cliente" id="cliente">
+				<select name="idCliente" id="cliente">
 					<option value="" selected>-- Seleccione un cliente</option>
-					<c:forEach items="${listaClientes}" var="cliente">
+					<c:forEach items="${comboCliente}" var="cliente">
 						<option value="${cliente.id}">${cliente.nombre}</option>
 					</c:forEach>
 				</select> 
 				<br> <br>
 				
 				<label for="producto">Productos</label> 
-				<select name="producto" id="producto">
+				<select name="idProducto" id="producto">
 					<option value="" selected>-- Seleccione un producto</option>
-					<c:forEach items="${listaProductos}" var="producto">
+					<c:forEach items="${comboProducto}" var="producto">
 						<option value="${producto.id}">${producto.nombre}</option>
 					</c:forEach>
 				</select> 
-				<br> 
+				<br> <br>
 				
-				<label for="cantidad">Cantidad</label> <input type="text" id="cantidad" name="cantidad"> <br>
+				<label for="cantidad">Cantidad</label> <input type="text" id="cantidad" name="cantidad"> 
+				<br> <br>
 				
 				<label for="estadopedido">Estado Pedido</label> 
-				<select name="estadopedido" id="proveedor">
+				<select name="estado" id="proveedor">
 					<option value="" selected>-- Seleccione un estado</option>
-					<c:forEach items="${listaEstadoPedidos}" var="estadopedido">
+					<c:forEach items="${comboEstadoPedido}" var="estadopedido">
 						<option value="${estadopedido.id}">${estadopedido.nombre}</option>
 					</c:forEach>
-				</select> <br>
+				</select> 
+				<br> <br>
 				
 				<label for="fecha">Fecha desde:</label>
 				<input type="date" name="fecha" id="fecha">
@@ -62,12 +65,13 @@
 			</form>
 		</div>
 		
+		
 		<c:forEach items="${lista}" var="peticion">
 		 	<div class="form">
-		 		<form action="http://localhost:8080/tienda/peticiones/borrarPeticiones" method="POST">
+		 		<form action="http://localhost:8080/tienda/peticiones/borrarpeticiones" method="POST">
 		 		
 		 		<label>ID:</label> 
-		 		<input type="text" id="id" name="id" value="${peticion.idPeticiones}" readonly>
+		 		<input type="text" id="id" name="idPeticiones" value="${peticion.id}" readonly>
 		 		<br>
 		 		
 				<label>Cliente:</label> 
@@ -90,13 +94,13 @@
 				<input type="text" value="${peticion.fecha}" readonly> 
 				<br>
 				
-		 		<input type="submit" value="Cancelar Petici�n">
+		 		<input type="submit" value="Cancelar Peticion">
 		 		</form>
 		 	</div>
 		 </c:forEach>
 		 
 		<c:if test ="${resultado == 1}">
-		<p>Petici�n cancelada correctamente</p>
+		<p>Peticion cancelada correctamente</p>
 		</c:if>
 	</div>
 

@@ -1,6 +1,7 @@
 package com.pablo.tienda.dao.tndhibernateimpl;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.naming.NamingException;
@@ -60,6 +61,10 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 		
+//		PeticionEntity nuevaPeticion = new PeticionEntity();
+//		
+//		nuevaPeticion.setFecha(LocalDateTime.now().toString());
+		
 		ClientesEntity clienteEntity = session.find(ClientesEntity.class, Integer.parseInt(idCliente));
 		ProductoEntity productoEntity = session.find(ProductoEntity.class, Integer.parseInt(idProducto));
 		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class, Integer.parseInt(estado));
@@ -77,6 +82,7 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 	@Override
 	public Integer actualizarPeticion(String id, String idCliente, String idProducto, String fechaAnhadido,
 			String cantidad, String idEstadoPedido) throws ClassNotFoundException, SQLException, NamingException {
+		
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
@@ -87,6 +93,7 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		
 		
 		PeticionEntity peticionEntity = new PeticionEntity();
+		
 		peticionEntity.setPeticionID(Integer.parseInt(id));
 		peticionEntity.setFecha(fechaAnhadido);
 		peticionEntity.setCantidad(Integer.parseInt(cantidad));
@@ -101,13 +108,26 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 		return peticionEntity.getPeticionID();
 	}
 
+	
 	@Override
 	public Integer borrarPeticion(String idPeticiones) throws ClassNotFoundException, SQLException, NamingException {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 
-		return null;
+        PeticionEntity peticion = session.get(PeticionEntity.class, Integer.parseInt(idPeticiones));
+        
+        if(peticion != null) {
+        	peticion.setEstado(session.find(EstadoPedidoEntity.class, 5));
+        	
+        	session.merge(peticion);
+        	session.getTransaction().commit();
+        	session.close();
+            return 1; 
+        }
+        
+        session.close();
+		return 0;
+	}
 	}
 
-}

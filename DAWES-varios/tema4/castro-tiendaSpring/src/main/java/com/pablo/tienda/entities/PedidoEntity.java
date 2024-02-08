@@ -39,6 +39,7 @@ public class PedidoEntity {
 
 	@OneToMany(mappedBy = "pedido")
 	private Set<DetalleEntity> detallesPedido;
+	
 
 	public PedidoEntity(Integer id, ClientesEntity cliente, Date fechaRegistro, EstadoPedidoEntity estado,
 			Set<DetalleEntity> detallesPedido) {
