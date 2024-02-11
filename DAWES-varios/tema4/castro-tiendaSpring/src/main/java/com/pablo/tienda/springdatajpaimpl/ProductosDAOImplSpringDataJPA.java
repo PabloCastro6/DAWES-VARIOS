@@ -14,7 +14,7 @@ import com.pablo.tienda.repositories.ProductosRepository;
 
 @Component("ProductosDAOImplSpringDataJPA")
 public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
-	
+
 	@Autowired
 	private ProductosRepository productosRepository;
 

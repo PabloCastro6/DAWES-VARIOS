@@ -56,4 +56,10 @@ public class CategoriasService implements ICategoriasService {
 		return categoriasDAO.borrarCategoria(id);
 	}
 
+	@Override
+	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, Integer estadoActivo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

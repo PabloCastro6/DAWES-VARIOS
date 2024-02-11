@@ -12,7 +12,6 @@ import com.pablo.tienda.dao.IPeticionesDAO;
 import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.repositories.PeticionesRepository;
 
-
 @Component("PeticionesDAOImplSpringDataJPA")
 public class PeticionesDAOImplSpringDataJPA implements IPeticionesDAO {
 

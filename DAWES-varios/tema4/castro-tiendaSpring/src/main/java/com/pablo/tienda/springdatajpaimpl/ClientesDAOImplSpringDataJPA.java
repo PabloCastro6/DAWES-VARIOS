@@ -12,8 +12,7 @@ import com.pablo.tienda.repositories.ClientesRepository;
 
 @Component("ClientesDAOImplSpringDataJPA")
 public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
-	
-	
+
 	@Autowired
 	private ClientesRepository clientesRepository;
 
@@ -43,7 +42,5 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

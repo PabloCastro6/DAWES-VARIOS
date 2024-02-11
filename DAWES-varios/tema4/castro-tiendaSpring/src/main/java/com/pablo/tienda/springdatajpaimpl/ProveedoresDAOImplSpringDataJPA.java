@@ -13,8 +13,8 @@ import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.repositories.ProveedoresRepository;
 
 @Component("ProveedoresDAOImplSpringDataJPA")
-public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO{
-	
+public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO {
+
 	@Autowired
 	private ProveedoresRepository proveedorRepository;
 
@@ -45,6 +45,5 @@ public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }

@@ -14,11 +14,13 @@ import com.pablo.tienda.entities.CategoriasEntity;
 public interface CategoriasRepository extends CrudRepository<CategoriasEntity, Integer> {
 
 	@Query(value = "SELECT new com.pablo.tienda.dtos.CategoriasDTO(a.id, a.nombre, a.descripcion, a.activo) " +
-	        "FROM com.pablo.tienda.entities.CategoriasEntity a " + 
-	        "WHERE a.nombre LIKE CONCAT('%', :nombre, '%') " +
-	        "AND a.descripcion LIKE CONCAT('%', :descripcion, '%') " +
+	        "FROM com.pablo.tienda.entities.CategoriasEntity a " +
+	        "WHERE (:nombre IS NULL OR :nombre = '' OR a.nombre LIKE CONCAT('%', :nombre, '%')) " +
+	        "AND (:descripcion IS NULL OR :descripcion = '' OR a.descripcion LIKE CONCAT('%', :descripcion, '%')) " +
 	        "AND (:activo IS NULL OR a.activo = :activo)")
-
+	
 	public List<CategoriasDTO> buscaCategorias(@Param("nombre") String nombre,
-				@Param("descripcion") String descripcion, @Param("activo") Integer activo);
+	                                           @Param("descripcion") String descripcion,
+	                                           @Param("activo") Integer activo);
+
 }

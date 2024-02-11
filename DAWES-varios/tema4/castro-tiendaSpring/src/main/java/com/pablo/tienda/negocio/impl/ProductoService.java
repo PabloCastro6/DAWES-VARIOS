@@ -20,9 +20,9 @@ public class ProductoService implements IProductosService {
 //	@Autowired
 //	@Qualifier("HibernateImplProducto")
 //	IProductoDAO productoDAO;
-	
+
 	@Autowired
-	@Qualifier("ProductoDAOImplSpringDataJPA")
+	@Qualifier("ProductosDAOImplSpringDataJPA")
 	IProductoDAO productoDAO;
 
 	public List<ProductoDTO> buscarProducto(String id, String nombre, String descripcion, String precio,

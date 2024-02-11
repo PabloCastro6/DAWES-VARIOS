@@ -22,22 +22,21 @@ import com.pablo.tienda.negocio.IPedidosService;
 public class PedidosService implements IPedidosService {
 	// Calculo precio total, y pasar por parametro el ClienteProductoDTO
 
-//	@Qualifier("HibernateImplPedido")
-//	@Autowired
-//	IPedidosDAO pedidoDAO;
-	
+	@Qualifier("HibernateImplPedido")
 	@Autowired
-	@Qualifier("PedidosDAOImplSpringDataJPA")
 	IPedidosDAO pedidoDAO;
-	
 
 //	@Autowired
-//	@Qualifier("HibernateImplProducto")
-//	IProductoDAO productoDAO;
-	
+//	@Qualifier("PedidosDAOImplSpringDataJPA")
+//	IPedidosDAO pedidoDAO;
+
 	@Autowired
-	@Qualifier("ProductosDAOImplSpringDataJPA")
+	@Qualifier("HibernateImplProducto")
 	IProductoDAO productoDAO;
+
+//	@Autowired
+//	@Qualifier("ProductosDAOImplSpringDataJPA")
+//	IProductoDAO productoDAO;
 
 	public Double calcularPrecio(ClienteProductoDTO clienteProducto) {
 

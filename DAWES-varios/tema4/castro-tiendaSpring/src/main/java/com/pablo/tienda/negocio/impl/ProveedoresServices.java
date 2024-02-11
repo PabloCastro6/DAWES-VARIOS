@@ -20,7 +20,7 @@ public class ProveedoresServices implements IProveedoresService {
 //	@Autowired
 //	@Qualifier("HibernateImplProveedor")
 //	IProveedorDAO proveedorDAO;
-	
+
 	@Autowired
 	@Qualifier("ProveedoresDAOImplSpringDataJPA")
 	IProveedorDAO proveedorDAO;

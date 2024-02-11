@@ -20,7 +20,7 @@ public class PeticionesService implements IPeticionesService {
 //	@Autowired
 //	@Qualifier("HibernateImplPeticion")
 //	IPeticionesDAO peticionesDAO;
-	
+
 	@Autowired
 	@Qualifier("PeticionesDAOImplSpringDataJPA")
 	IPeticionesDAO peticionesDAO;

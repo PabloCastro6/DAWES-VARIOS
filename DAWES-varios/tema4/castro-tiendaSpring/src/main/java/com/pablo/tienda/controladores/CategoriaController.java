@@ -25,17 +25,15 @@ public class CategoriaController {
 	@Autowired
 	ICategoriasService categoriasService;
 
-	@Autowired
-	@Qualifier("combospringdatajpa")
-	IComboDAO combosDAO;
-	
-	
-	
-	
+//	@Autowired
+//	@Qualifier("combospringdatajpa")
+//	IComboDAO combosDAO;
+
 	@GetMapping("listarcategorias")
 	public String getListadoCategorias() {
 		return "categorias/listadoCategorias";
 	}
+
 
 	@PostMapping("listarcategorias")
 	public String buscarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
@@ -43,9 +41,9 @@ public class CategoriaController {
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		activo = (activo != null) ? "1" : "0";
+		String estadoActivo =  (activo != null) ? "1" : "0";
 
-		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, activo);
+		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, estadoActivo);
 
 		model.addAttribute("lista", listaCategorias);
 
@@ -53,6 +51,7 @@ public class CategoriaController {
 
 	}
 
+	
 	@GetMapping("insertarcategorias")
 	public String getInsertarCategorias() {
 		return "categorias/insertarCategorias";
