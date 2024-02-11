@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.IPeticionesDAO;
 import com.pablo.tienda.dtos.PeticionesDTO;
 import com.pablo.tienda.negocio.IPeticionesService;
@@ -16,8 +17,12 @@ import com.pablo.tienda.negocio.IPeticionesService;
 @Component
 public class PeticionesService implements IPeticionesService {
 
+//	@Autowired
+//	@Qualifier("HibernateImplPeticion")
+//	IPeticionesDAO peticionesDAO;
+	
 	@Autowired
-	@Qualifier("HibernateImplPeticion")
+	@Qualifier("PeticionesDAOImplSpringDataJPA")
 	IPeticionesDAO peticionesDAO;
 
 	@Override

@@ -56,15 +56,15 @@ public class ProductosDAOHibernate implements IProductoDAO {
 				.setParameter("cantidadStock", cantidadStock.isEmpty() ? 0 : Integer.parseInt(cantidadStock));
 
 		if (!idCategoria.equals("")) {
-			query.setParameter("idCategoria", Integer.parseInt(idCategoria) );
+			query.setParameter("idCategoria", Integer.parseInt(idCategoria));
 		}
 
 		if (!idProveedor.equals("")) {
-			query.setParameter("idProveedor",  Integer.parseInt(idProveedor) );
+			query.setParameter("idProveedor", Integer.parseInt(idProveedor));
 		}
 
 		if (!id.equals("")) {
-			query.setParameter("id", Integer.parseInt(id) );
+			query.setParameter("id", Integer.parseInt(id));
 		}
 
 		List<ProductoDTO> lista = query.getResultList();

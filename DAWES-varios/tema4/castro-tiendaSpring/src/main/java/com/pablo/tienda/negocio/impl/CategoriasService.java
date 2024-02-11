@@ -16,8 +16,12 @@ import com.pablo.tienda.negocio.ICategoriasService;
 @Component
 public class CategoriasService implements ICategoriasService {
 
+//	@Autowired
+//	@Qualifier("HibernateImplCategoria")
+//	ICategoriasDAO categoriasDAO;
+
 	@Autowired
-	@Qualifier("HibernateImplCategoria")
+	@Qualifier("CategoriasDAOImplSpringDataJPA")
 	ICategoriasDAO categoriasDAO;
 
 	@Override

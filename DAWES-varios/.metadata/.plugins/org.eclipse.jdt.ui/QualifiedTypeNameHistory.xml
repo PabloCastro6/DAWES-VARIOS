@@ -6,4 +6,11 @@
     <fullyQualifiedTypeName name="jakarta.persistence.Query"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IPedidosDAO"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PedidoDTO"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.PedidoEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.DetalleEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProductoEntity"/>
+    <fullyQualifiedTypeName name="jakarta.transaction.Transaction"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

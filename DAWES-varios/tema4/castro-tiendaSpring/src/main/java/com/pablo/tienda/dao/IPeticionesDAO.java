@@ -13,7 +13,7 @@ public interface IPeticionesDAO {
 			String fechaAñadido, String cantidad, String estado)
 			throws ClassNotFoundException, SQLException, NamingException;
 
-	public Integer insertarPeticion(String idCliente, String idProducto,String cantidad, String estado)
+	public Integer insertarPeticion(String idCliente, String idProducto, String cantidad, String estado)
 			throws ClassNotFoundException, SQLException, NamingException;
 
 	public Integer actualizarPeticion(String id, String idCliente, String idProducto, String fechaAnhadido,

@@ -17,8 +17,12 @@ import com.pablo.tienda.negocio.IProductosService;
 @Component
 public class ProductoService implements IProductosService {
 
+//	@Autowired
+//	@Qualifier("HibernateImplProducto")
+//	IProductoDAO productoDAO;
+	
 	@Autowired
-	@Qualifier("HibernateImplProducto")
+	@Qualifier("ProductoDAOImplSpringDataJPA")
 	IProductoDAO productoDAO;
 
 	public List<ProductoDTO> buscarProducto(String id, String nombre, String descripcion, String precio,

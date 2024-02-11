@@ -78,7 +78,7 @@ public class CategoriasDAOHibernate implements ICategoriasDAO {
 
 		CategoriasEntity categoriaEntity = new CategoriasEntity(Integer.parseInt(id), nombre, descripcion,
 				Integer.parseInt(activo));
-		
+
 		session.merge(categoriaEntity);
 
 		session.getTransaction().commit();

@@ -38,8 +38,7 @@ public class PedidoEntity {
 	private EstadoPedidoEntity estado;
 
 	@OneToMany(mappedBy = "pedido")
-	private Set<DetalleEntity> detallesPedido  ;
-	
+	private Set<DetalleEntity> detallesPedido;
 
 	public PedidoEntity(Integer id, ClientesEntity cliente, String fechaRegistro, EstadoPedidoEntity estado,
 			Set<DetalleEntity> detallesPedido) {

@@ -116,8 +116,6 @@ public class PeticionesController {
 		return "/peticiones/actualizarPeticiones";
 	}
 
-	
-	
 	@GetMapping("formularioborrarpeticiones")
 	public String getFormularioBorrarPeticiones(ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
@@ -154,11 +152,7 @@ public class PeticionesController {
 
 		return "/peticiones/borrarPeticiones";
 	}
-	
-	
-	
 
-	
 	private void combos(ModelMap model) throws ClassNotFoundException, SQLException, NamingException {
 		List<ComboDTO> listaCliente = combosDAO.recuperarCombosClientes();
 		List<ComboDTO> listaProducto = combosDAO.recuperarCombosProductos();

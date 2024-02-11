@@ -54,23 +54,23 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 	}
 
 	@Override
-	public Integer insertarPeticion(String idCliente, String idProducto,String cantidad, String estado)
+	public Integer insertarPeticion(String idCliente, String idProducto, String cantidad, String estado)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
-		
+
 //		PeticionEntity nuevaPeticion = new PeticionEntity();
 //		
 //		nuevaPeticion.setFecha(LocalDateTime.now().toString());
-		
+
 		ClientesEntity clienteEntity = session.find(ClientesEntity.class, Integer.parseInt(idCliente));
 		ProductoEntity productoEntity = session.find(ProductoEntity.class, Integer.parseInt(idProducto));
 		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class, Integer.parseInt(estado));
 
-		PeticionEntity peticionEntity = new PeticionEntity(clienteEntity,productoEntity,
-				Integer.parseInt(cantidad),estadoPedidoEntity);
+		PeticionEntity peticionEntity = new PeticionEntity(clienteEntity, productoEntity, Integer.parseInt(cantidad),
+				estadoPedidoEntity);
 
 		session.persist(peticionEntity);
 		session.getTransaction().commit();
@@ -82,52 +82,49 @@ public class PeticionesDAOHibernate implements IPeticionesDAO {
 	@Override
 	public Integer actualizarPeticion(String id, String idCliente, String idProducto, String fechaAnhadido,
 			String cantidad, String idEstadoPedido) throws ClassNotFoundException, SQLException, NamingException {
-		
+
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 
 		ClientesEntity clienteEntity = session.find(ClientesEntity.class, Integer.parseInt(idCliente));
 		ProductoEntity productoEntity = session.find(ProductoEntity.class, Integer.parseInt(idProducto));
-		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class, Integer.parseInt(idEstadoPedido));
-		
-		
+		EstadoPedidoEntity estadoPedidoEntity = session.find(EstadoPedidoEntity.class,
+				Integer.parseInt(idEstadoPedido));
+
 		PeticionEntity peticionEntity = new PeticionEntity();
-		
+
 		peticionEntity.setPeticionID(Integer.parseInt(id));
 		peticionEntity.setFecha(fechaAnhadido);
 		peticionEntity.setCantidad(Integer.parseInt(cantidad));
 		peticionEntity.setCliente(clienteEntity);
 		peticionEntity.setProducto(productoEntity);
 		peticionEntity.setEstado(estadoPedidoEntity);
-		
-		
+
 		session.merge(peticionEntity);
 		session.getTransaction().commit();
 		session.close();
 		return peticionEntity.getPeticionID();
 	}
 
-	
 	@Override
 	public Integer borrarPeticion(String idPeticiones) throws ClassNotFoundException, SQLException, NamingException {
 		SessionFactory factory = DBUtils.creadorSessionFactory();
 		Session session = factory.getCurrentSession();
 		session.beginTransaction();
 
-        PeticionEntity peticion = session.get(PeticionEntity.class, Integer.parseInt(idPeticiones));
-        
-        if(peticion != null) {
-        	peticion.setEstado(session.find(EstadoPedidoEntity.class, 5));
-        	
-        	session.merge(peticion);
-        	session.getTransaction().commit();
-        	session.close();
-            return 1; 
-        }
-        
-        session.close();
+		PeticionEntity peticion = session.get(PeticionEntity.class, Integer.parseInt(idPeticiones));
+
+		if (peticion != null) {
+			peticion.setEstado(session.find(EstadoPedidoEntity.class, 5));
+
+			session.merge(peticion);
+			session.getTransaction().commit();
+			session.close();
+			return 1;
+		}
+
+		session.close();
 		return 0;
 	}
-	}
-
+}

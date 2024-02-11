@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import com.pablo.tienda.dao.ICategoriasDAO;
 import com.pablo.tienda.dao.IProveedorDAO;
 import com.pablo.tienda.dtos.ProveedorDTO;
 import com.pablo.tienda.negocio.IProveedoresService;
@@ -16,8 +17,12 @@ import com.pablo.tienda.negocio.IProveedoresService;
 @Component
 public class ProveedoresServices implements IProveedoresService {
 
+//	@Autowired
+//	@Qualifier("HibernateImplProveedor")
+//	IProveedorDAO proveedorDAO;
+	
 	@Autowired
-	@Qualifier("HibernateImplProveedor")
+	@Qualifier("ProveedoresDAOImplSpringDataJPA")
 	IProveedorDAO proveedorDAO;
 
 	@Override

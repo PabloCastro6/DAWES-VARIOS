@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+
 import com.pablo.tienda.dao.IClientesDAO;
 import com.pablo.tienda.dtos.ClienteDTO;
 import com.pablo.tienda.negocio.IClientesService;
@@ -14,8 +15,12 @@ import com.pablo.tienda.negocio.IClientesService;
 @Component
 public class ClientesServices implements IClientesService {
 
+//	@Autowired
+//	@Qualifier("HibernateImplCliente")
+//	IClientesDAO clientesDAO;
+	
 	@Autowired
-	@Qualifier("HibernateImplCliente")
+	@Qualifier("ClientesDAOImplSpringDataJPA")
 	IClientesDAO clientesDAO;
 
 	@Override

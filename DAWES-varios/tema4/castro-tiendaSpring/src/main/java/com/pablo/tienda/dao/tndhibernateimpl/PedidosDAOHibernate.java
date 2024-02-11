@@ -1,6 +1,5 @@
 package com.pablo.tienda.dao.tndhibernateimpl;
 
- 
 import java.sql.SQLException;
 import java.util.List;
 
@@ -26,65 +25,56 @@ public class PedidosDAOHibernate implements IPedidosDAO {
 	@Override
 	public List<PedidoDTO> buscarPedidos(String idPedido, String idCliente, String idEstado, String fecha)
 			throws ClassNotFoundException, SQLException {
-		
+
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		
-		String hql = "SELECT new com.pablo.tienda.dtos.PedidoDTO(" +
-			    "pe.id AS id, c.id AS idCliente, pe.fechaRegistro AS fecha, ep.id AS idEstado, c.nombre AS nombreCliente, " +
-			    "ep.nombre AS nombreEstado, pr.id AS idProducto, pr.nombre AS nombreProducto, dp.cantidad AS cantidad, " +
-			    "dp.precioUnitario AS precio, dp.id AS idDetalle)" +
-			    " FROM PedidoEntity pe" +
-			    " JOIN pe.cliente c" +
-			    " JOIN pe.estado ep" +
-			    " JOIN pe.detallesPedido dp" +
-			    " JOIN dp.producto pr" +
-			    " WHERE pe.fechaRegistro >= :fechaRegistro";
 
-		
+		String hql = "SELECT new com.pablo.tienda.dtos.PedidoDTO("
+				+ "pe.id AS id, c.id AS idCliente, pe.fechaRegistro AS fecha, ep.id AS idEstado, c.nombre AS nombreCliente, "
+				+ "ep.nombre AS nombreEstado, pr.id AS idProducto, pr.nombre AS nombreProducto, dp.cantidad AS cantidad, "
+				+ "dp.precioUnitario AS precio, dp.id AS idDetalle)" + " FROM PedidoEntity pe" + " JOIN pe.cliente c"
+				+ " JOIN pe.estado ep" + " JOIN pe.detallesPedido dp" + " JOIN dp.producto pr"
+				+ " WHERE pe.fechaRegistro >= :fechaRegistro";
+
 		String hqlId = " AND pe.id = :id";
 		String hqlCliente = "AND c.id = :cliente";
 		String hqlEstado = "AND ep.id = :estado";
-		
-		
+
 		StringBuilder sbHql = new StringBuilder(hql);
-		
-		if(idPedido != "") {
-			sbHql.append(hqlId);		
+
+		if (idPedido != "") {
+			sbHql.append(hqlId);
 		}
-		if(idCliente != "") {
-			sbHql.append(hqlCliente);		
+		if (idCliente != "") {
+			sbHql.append(hqlCliente);
 		}
-		if(idEstado != "") {
-			sbHql.append(hqlEstado);		
+		if (idEstado != "") {
+			sbHql.append(hqlEstado);
 		}
-		
+
 		if (fecha != null) {
-		    hql += " AND pe.fechaRegistro >= :fechaRegistro";
+			hql += " AND pe.fechaRegistro >= :fechaRegistro";
 		}
 
+		Query<PedidoDTO> query = session.createQuery(sbHql.toString(), PedidoDTO.class).setParameter("fechaRegistro",
+				fecha);
 
-		Query<PedidoDTO> query = session.createQuery(sbHql.toString(), PedidoDTO.class)
-				.setParameter("fechaRegistro", fecha);
-		
-		if(idPedido != "") {
-			query.setParameter("id", idPedido);		
+		if (idPedido != "") {
+			query.setParameter("id", idPedido);
 		}
-		if(idCliente != "") {
-			query.setParameter("cliente", idCliente);			
+		if (idCliente != "") {
+			query.setParameter("cliente", idCliente);
 		}
-		if(idEstado != "") {
-			query.setParameter("estado", idEstado);		
+		if (idEstado != "") {
+			query.setParameter("estado", idEstado);
 		}
-		
+
 		List<PedidoDTO> listaPedidos = query.getResultList();
 		session.close();
-		
+
 		return listaPedidos;
 	}
-
-
 
 	@Override
 	public Integer actualizarPedidos(String id, String idCliente, String idProducto, String cantidad, String precio)
@@ -150,8 +140,6 @@ public class PedidosDAOHibernate implements IPedidosDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
-		
-		
 		return null;
 	}
 

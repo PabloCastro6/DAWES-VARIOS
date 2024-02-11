@@ -59,7 +59,7 @@ public class PeticionesDAOImplTnd implements IPeticionesDAO {
 		return listaPeticiones;
 	}
 
-	public Integer insertarPeticion(String idCliente, String idProducto,String cantidad, String idEstadoPedido)
+	public Integer insertarPeticion(String idCliente, String idProducto, String cantidad, String idEstadoPedido)
 			throws ClassNotFoundException, SQLException, NamingException {
 
 		String sql = "INSERT INTO peticiones (ID_Cliente,ID_Producto,cantidad,Estado) " + " VALUES (?,?,?,?)";

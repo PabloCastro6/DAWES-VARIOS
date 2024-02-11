@@ -86,6 +86,4 @@ public class DetalleEntity {
 		this.precioUnitario = precioUnitario;
 	}
 
-
-
 }
