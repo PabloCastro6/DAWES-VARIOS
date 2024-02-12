@@ -25,13 +25,11 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 			throws ClassNotFoundException, SQLException, NamingException {
 		
 		 
-        Integer idCategoriaInt = (idCategoria != null && !idCategoria.isEmpty()) ? Integer.valueOf(idCategoria) : null;
-        Integer idProveedorInt = (idProveedor != null && !idProveedor.isEmpty()) ? Integer.valueOf(idProveedor) : null;
-
-        
-        return productosRepository.buscarProducto(nombre, null, null, idCategoriaInt, idProveedorInt);
+       
+        return productosRepository.buscarProducto(id,nombre, descripcion, precio,cantidadStock, idCategoria, idProveedor);
     }
   
+	
 	@Override
 	public Integer insertarProducto(String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {

@@ -71,6 +71,8 @@ public class CategoriaController {
 		return "categorias/insertarCategorias";
 	}
 
+	
+	
 	@GetMapping("formulariomodificarcategorias")
 	public String getFormularioModificarCategoria() {
 		return "categorias/modificarCategorias";
@@ -132,8 +134,10 @@ public class CategoriaController {
 	@PostMapping("borrarcategorias")
 	public String borrarCategoria(@RequestParam("id") String id)
 			throws ClassNotFoundException, SQLException, NamingException {
-		categoriasService.borrarCategoria(id);
-
+		
+		 categoriasService.borrarCategoria(id);
+		
+		
 		return "categorias/borrarCategorias";
 	}
 

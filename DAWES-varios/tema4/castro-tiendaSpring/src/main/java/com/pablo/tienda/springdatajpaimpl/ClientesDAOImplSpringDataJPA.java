@@ -19,8 +19,9 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		//mapear clienteEntuty a clienteDTO
+		return clientesRepository.findAll();
 	}
 
 	@Override

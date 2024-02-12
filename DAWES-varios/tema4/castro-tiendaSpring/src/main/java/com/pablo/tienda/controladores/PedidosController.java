@@ -7,6 +7,7 @@ import java.util.List;
 import javax.naming.NamingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -30,6 +31,7 @@ public class PedidosController {
 
 	@Autowired
 	IPedidosService pedidoService;
+	@Qualifier("combospringdatajpa")
 	@Autowired
 	IComboDAO comboDAO;
 

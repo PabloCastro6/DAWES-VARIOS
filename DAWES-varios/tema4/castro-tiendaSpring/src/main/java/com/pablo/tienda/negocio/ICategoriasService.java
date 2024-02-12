@@ -22,5 +22,4 @@ public interface ICategoriasService {
 
 	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException;
 
-	public List<CategoriasDTO> buscarCategoria(String id, String nombre, String descripcion, Integer estadoActivo);
 }

@@ -28,9 +28,9 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 	@Override
 	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		Integer activoInt = activo.equals("1") ? 1 : 0; 
-		
-	    return categoriasRepository.buscaCategorias(nombre, descripcion, activoInt);
+			
+
+	    return categoriasRepository.buscaCategorias(nombre, descripcion, Integer.parseInt(activo));
 	}
 
 	@Override
@@ -46,7 +46,8 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 	@Override
 	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		CategoriasEntity c = new CategoriasEntity(Integer.parseInt(activo),nombre,descripcion,Integer.parseInt(activo));
+		
+		CategoriasEntity c = new CategoriasEntity(Integer.parseInt(id),nombre,descripcion,Integer.parseInt(activo));
 		
 		categoriasRepository.save(c);
 		return c.getId();
@@ -54,11 +55,12 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 
 	@Override
 	public Integer borrarCategoria(String id) throws ClassNotFoundException, SQLException, NamingException {
+		CategoriasEntity categoria = categoriasRepository.findById(Integer.parseInt(id)).get();
+		categoria.setActivo(0);
+		categoriasRepository.save(categoria);
 		
+		return categoria.getId();
 		
-	
-		
-		return null;
 	}
 
 }
