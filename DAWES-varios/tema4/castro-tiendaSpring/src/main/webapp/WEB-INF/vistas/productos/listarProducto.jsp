@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <head>
 <link rel="stylesheet" href="/tienda/css/index.css">
 <link rel="stylesheet" href="/tienda/css/formularios.css">

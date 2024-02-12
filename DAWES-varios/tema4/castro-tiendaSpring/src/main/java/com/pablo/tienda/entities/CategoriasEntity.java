@@ -107,4 +107,6 @@ public class CategoriasEntity {
 		this.activo = activo;
 	}
 
+	
+
 }

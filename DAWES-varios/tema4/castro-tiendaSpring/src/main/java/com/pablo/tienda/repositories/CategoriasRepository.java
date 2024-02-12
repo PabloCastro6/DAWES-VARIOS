@@ -19,8 +19,8 @@ public interface CategoriasRepository extends CrudRepository<CategoriasEntity, I
 	        "AND (:descripcion IS NULL OR :descripcion = '' OR a.descripcion LIKE CONCAT('%', :descripcion, '%')) " +
 	        "AND (:activo IS NULL OR a.activo = :activo)")
 	
-	public List<CategoriasDTO> buscaCategorias(@Param("nombre") String nombre,
-	                                           @Param("descripcion") String descripcion,
-	                                           @Param("activo") Integer activo);
+	List<CategoriasDTO> buscaCategorias(@Param("nombre") String nombre,
+            							@Param("descripcion") String descripcion,
+            							@Param("activo") Integer activo);
 
 }

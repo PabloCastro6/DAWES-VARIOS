@@ -9,14 +9,30 @@ import java.util.List;
 
 import javax.naming.NamingException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.pablo.tienda.dao.IComboDAO;
 import com.pablo.tienda.dtos.ComboDTO;
+import com.pablo.tienda.entities.CategoriasEntity;
+import com.pablo.tienda.repositories.CategoriasRepository;
 import com.pablo.tienda.utils.DBUtils;
 
 @Component
 public class ComboDAOImplTnd implements IComboDAO {
+	
+	
+//	@Autowired 
+//	private CategoriasRepository categoriasRepository;
+//	
+//	@Override
+//	public List<ComboDTO> recuperaCombosCategorias() {
+//		Iterable<CategoriasEntity> listaCategorias = categoriasRepository.findAll();
+//		
+//		return null;
+//	}
+//	
+	
 
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 
