@@ -22,11 +22,14 @@ public interface ProveedoresRepository extends CrudRepository<ProveedorEntity, I
 	           "AND (:correo IS NULL OR p.correoElectronico = :correo) " +
 	           "AND (:direccion IS NULL OR p.direccion LIKE %:direccion%) " +
 	           "AND (:activo IS NULL OR p.activo = :activo)")
+	
 	    List<ProveedorDTO> buscarProveedoresConFiltros(@Param("nombre") String nombre,
 	                                                   @Param("contacto") String contacto,
 	                                                   @Param("telefono") String telefono,
 	                                                   @Param("correo") String correo,
 	                                                   @Param("direccion") String direccion,
 	                                                   @Param("activo") Integer activo);
+
+	
 	}
 

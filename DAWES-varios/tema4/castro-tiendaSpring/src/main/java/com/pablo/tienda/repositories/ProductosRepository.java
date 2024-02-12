@@ -19,7 +19,7 @@ public interface ProductosRepository extends CrudRepository<ProductoEntity, Inte
 	 @Query("SELECT new com.pablo.tienda.dtos.ProductoDTO(" +
 	           "p.id, p.nombre, p.descripcion, p.precio, p.cantidadEnStock, " +
 	           "p.categoriaEntity.id, p.proveedorEntity.id) " +
-	           "FROM ProductoEntity p " +
+	           "FROM com.pablo.tienda.entities.ProductoEntity p " +
 	           "WHERE (:nombre IS NULL OR :nombre = '' OR p.nombre LIKE CONCAT('%', :nombre, '%')) " +
 	           "AND (:descripcion IS NULL OR :descripcion = '' OR p.descripcion LIKE CONCAT('%', :descripcion, '%')) " +
 	           "AND (:precio IS NULL OR :precio = '' OR p.precio >= CAST (:precio AS BigDecimal)) " +

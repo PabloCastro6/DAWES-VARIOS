@@ -22,8 +22,8 @@ public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO {
 	public List<ProveedorDTO> buscarProveedores(String id, String nombre, String contacto, String telefono,
 			String correo, String direccion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return proveedorRepository.buscaProveedor(Integer.parseInt(id),nombre, contacto,telefono,correo,direccion, Integer.parseInt(activo));
 	}
 
 	@Override

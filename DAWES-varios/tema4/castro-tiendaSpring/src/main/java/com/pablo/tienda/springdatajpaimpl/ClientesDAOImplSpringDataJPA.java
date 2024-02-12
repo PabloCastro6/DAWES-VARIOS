@@ -19,9 +19,10 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 	@Override
 	public List<ClienteDTO> buscarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
-		
+		 
 		//mapear clienteEntuty a clienteDTO
-		return clientesRepository.findAll();
+		//return clientesRepository.findAll();
+		return null;
 	}
 
 	@Override
