@@ -69,12 +69,13 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		SessionFactory sessionFactory = DBUtils.creadorSessionFactory();
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
-
+		PoblacionEntity poblacion = session.find(PoblacionEntity.class, Integer.parseInt(idPoblacion));
+		
 		ClientesEntity cliente = new ClientesEntity();
 		cliente.setId(Integer.parseInt(id));
 		cliente.setNombre(nombre);
 		cliente.setCorreoElectronico(correo);
-		cliente.setIdPoblacion(Integer.parseInt(idPoblacion));
+		cliente.setPoblacion(poblacion);
 		cliente.setActivo(Integer.parseInt(activo));
 		session.merge(cliente);
 
@@ -105,11 +106,12 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 
+		PoblacionEntity poblacion = session.find(PoblacionEntity.class, Integer.parseInt(idPoblacion));
 		ClientesEntity nuevoCliente = new ClientesEntity();
 
 		nuevoCliente.setNombre(nombre);
 		nuevoCliente.setCorreoElectronico(correo);
-		nuevoCliente.setIdPoblacion(Integer.parseInt(idPoblacion));
+		nuevoCliente.setPoblacion(poblacion);
 		nuevoCliente.setActivo(Integer.parseInt(activo));
 
 		session.persist(nuevoCliente);

@@ -52,7 +52,6 @@ public class PeticionesDAOImplSpringDataJPA implements IPeticionesDAO {
 		ClientesEntity clienteEntity = clientesRepository.findById(Integer.parseInt(idCliente)).get();
 		ProductoEntity productoEntity = productosRepository.findById(Integer.parseInt(idProducto)).get();
 		EstadoPedidoEntity estadoPedidoEntity = estadoPedidoRepository.findById(Integer.parseInt(estado)).get();
-		
 
 		PeticionEntity p = new PeticionEntity(clienteEntity, productoEntity, Integer.parseInt(cantidad),
 				estadoPedidoEntity);

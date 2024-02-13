@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes infórmaticos</h2>
+<h2>LISTADO CLIENTES</h2>
 </header>
 <%@include file="../menu.html" %>
 

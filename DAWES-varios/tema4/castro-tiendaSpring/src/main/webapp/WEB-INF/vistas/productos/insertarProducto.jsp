@@ -42,10 +42,10 @@
 
  		
 				</select>  <br> <label for="idProveedor">Proveedor:</label> <br> <select
-					name="idProveedor" id="proveedores" form="formulario">
+					name="idProveedor" id="idProveedor" form="formulario">
 					
 					<br>
-						<option value="">Seleccione una opcion</option>
+						<option value="">Seleccione una opcion</option>  
 
 					<c:forEach items="${comboProveedores}" var="proveedor">
 						<option value="${proveedor.id}">${proveedor.nombre}</option>

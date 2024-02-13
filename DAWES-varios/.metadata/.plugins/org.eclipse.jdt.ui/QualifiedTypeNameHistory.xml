@@ -26,7 +26,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProductoEntity"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ClientesEntity"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.EstadoPedidoEntity"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.PeticionEntity"/>
@@ -37,6 +36,10 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.CategoriasEntity"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.CategoriasRepository"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.ProveedoresRepository"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProveedorEntity"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProveedorEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.PoblacionEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.repositories.MunicipiosRepository"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.ClientesEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.repositories.PoblacionRepository"/>
 </qualifiedTypeNameHistroy>

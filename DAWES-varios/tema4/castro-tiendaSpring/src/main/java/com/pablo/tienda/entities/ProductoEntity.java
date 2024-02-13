@@ -58,6 +58,22 @@ public class ProductoEntity {
 		this.proveedorEntity = proveedorEntity;
 	}
 
+	
+	
+	public ProductoEntity(int id, String nombre, String descripcion, BigDecimal precio, Integer cantidadEnStock,
+		CategoriasEntity categoriaEntity, ProveedorEntity proveedorEntity) {
+	super();
+	this.id = id;
+	this.nombre = nombre;
+	this.descripcion = descripcion;
+	this.precio = precio;
+	this.cantidadEnStock = cantidadEnStock;
+	this.categoriaEntity = categoriaEntity;
+	this.proveedorEntity = proveedorEntity;
+}
+
+
+
 	public ProductoEntity() {
 		super();
 	}

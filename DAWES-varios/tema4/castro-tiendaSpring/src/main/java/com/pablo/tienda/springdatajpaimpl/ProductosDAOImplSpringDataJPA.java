@@ -45,25 +45,25 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
 
 		CategoriasEntity categoriaEntity = null;
-	    ProveedorEntity proveedorEntity = null;
+		ProveedorEntity proveedorEntity = null;
 
-	 
-	    if (idCategoria != null && !idCategoria.isEmpty()) {
-	        categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).orElse(null);
-	    }
+		if (idCategoria != null && !idCategoria.isEmpty()) {
+			categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).orElse(null);
+		}
 
-	    if (idProveedor != null && !idProveedor.isEmpty()) {
-	        proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).orElse(null);
-	    }
+		if (idProveedor != null && !idProveedor.isEmpty()) {
+			proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).orElse(null);
+		}
 
-	    BigDecimal precioDecimal = (!precio.isEmpty()) ? new BigDecimal(precio) : BigDecimal.ZERO;
-	    Integer cantidadEnStock = (!cantidadStock.isEmpty()) ? Integer.parseInt(cantidadStock) : 0;
+		BigDecimal precioDecimal = (!precio.isEmpty()) ? new BigDecimal(precio) : BigDecimal.ZERO;
+		Integer cantidadEnStock = (!cantidadStock.isEmpty()) ? Integer.parseInt(cantidadStock) : 0;
 
-	    ProductoEntity producto = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity, proveedorEntity);
-	    productosRepository.save(producto);
-	    return producto.getId();
+		ProductoEntity producto = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock,
+				categoriaEntity, proveedorEntity);
+		productosRepository.save(producto);
+		return producto.getId();
 	}
-	
+
 //		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).get();
 //		ProveedorEntity proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
 //
@@ -85,22 +85,21 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 		ProveedorEntity proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
 
 		BigDecimal precioDecimal = new BigDecimal(precio);
-		Integer cantidadEnStock = Integer.valueOf(cantidadStock);
+		Integer cantidadEnStock = Integer.parseInt(cantidadStock);
+		
+		Integer idProducto = Integer.parseInt(id);
 
-		ProductoEntity p = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity,
+		ProductoEntity p = new ProductoEntity(idProducto,nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity,
 				proveedorEntity);
+		
 		productosRepository.save(p);
 		return p.getId();
 	}
 
-	
-	
-@Override
-public ProductoDTO buscarProductoPorID(Integer id) throws ClassNotFoundException, SQLException, NamingException {
-	// TODO Auto-generated method stub
-	return null;
-}
-
-	
+	@Override
+	public ProductoDTO buscarProductoPorID(Integer id) throws ClassNotFoundException, SQLException, NamingException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

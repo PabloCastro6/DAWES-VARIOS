@@ -24,7 +24,7 @@ public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO {
 			String correo, String direccion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		return proveedorRepository.buscaProveedores(id,nombre, contacto, telefono, correo, direccion,
+		return proveedorRepository.buscaProveedores(id, nombre, contacto, telefono, correo, direccion,
 				Integer.parseInt(activo));
 	}
 
@@ -52,7 +52,7 @@ public class ProveedoresDAOImplSpringDataJPA implements IProveedorDAO {
 
 	@Override
 	public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException {
-		ProveedorEntity p = new ProveedorEntity(Integer.parseInt(id));
+		ProveedorEntity p = proveedorRepository.findById(Integer.parseInt(id)).get();
 		p.setActivo(0);
 		proveedorRepository.save(p);
 		return p.getId();

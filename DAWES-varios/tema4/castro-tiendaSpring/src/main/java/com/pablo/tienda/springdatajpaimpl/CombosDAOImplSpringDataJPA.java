@@ -14,11 +14,15 @@ import com.pablo.tienda.dtos.ComboDTO;
 import com.pablo.tienda.entities.CategoriasEntity;
 import com.pablo.tienda.entities.ClientesEntity;
 import com.pablo.tienda.entities.EstadoPedidoEntity;
+import com.pablo.tienda.entities.PoblacionEntity;
 import com.pablo.tienda.entities.ProductoEntity;
+import com.pablo.tienda.entities.ProveedorEntity;
 import com.pablo.tienda.repositories.CategoriasRepository;
 import com.pablo.tienda.repositories.ClientesRepository;
 import com.pablo.tienda.repositories.EstadoPedidoRepository;
+import com.pablo.tienda.repositories.PoblacionRepository;
 import com.pablo.tienda.repositories.ProductosRepository;
+import com.pablo.tienda.repositories.ProveedoresRepository;
 
 @Component("combospringdatajpa")
 public class CombosDAOImplSpringDataJPA implements IComboDAO {
@@ -35,6 +39,14 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 	@Autowired
 	private EstadoPedidoRepository estadoPedidoRepository;
 
+	
+	@Autowired
+	private PoblacionRepository poblacionRepository;
+	
+	@Autowired
+	private ProveedoresRepository proveedorRepository;
+	
+	
 	@Override
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 		Iterable<CategoriasEntity> listaCategorias = categoriaRepository.findAll();
@@ -71,16 +83,39 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 
 	@Override
 	public List<ComboDTO> recuperaCombosProveedores() throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<ProveedorEntity> listaProveedor = proveedorRepository.findAll();
+		return mapeoProveedorEntityComboDTO(listaProveedor);
 	}
+
+	private List<ComboDTO> mapeoProveedorEntityComboDTO(Iterable<ProveedorEntity> lista) {
+
+		List<ComboDTO> combo = new ArrayList<>();
+
+		for (ProveedorEntity m : lista) {
+			combo.add(new ComboDTO(m.getId(), m.getNombre()));
+		}
+
+		return combo;
+	}
+	
 
 	@Override
 	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
+		Iterable<PoblacionEntity> listaPoblacion = poblacionRepository.findAll();
+		return mapeoPoblacionEntityComboDTO(listaPoblacion);
 	}
 
+	private List<ComboDTO> mapeoPoblacionEntityComboDTO(Iterable<PoblacionEntity> lista) {
+
+		List<ComboDTO> combo = new ArrayList<>();
+
+		for (PoblacionEntity m : lista) {
+			combo.add(new ComboDTO(m.getId(), m.getNombre()));
+		}
+
+		return combo;
+	}
+	
 	@Override
 	public List<ComboDTO> recuperarCombosEstadoPedidos() throws ClassNotFoundException, SQLException, NamingException {
 		Iterable<EstadoPedidoEntity> listaEstado = estadoPedidoRepository.findAll();

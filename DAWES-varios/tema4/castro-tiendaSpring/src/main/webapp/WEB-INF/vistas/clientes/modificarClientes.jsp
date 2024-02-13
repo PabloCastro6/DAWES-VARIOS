@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-<h2>Panel de control Tienda de componentes infórmaticos</h2>
+<h2>MODIFICAR CLIENTES</h2>
 </header>
 <%@include file="../menu.html" %>
 
@@ -34,7 +34,7 @@
 			<label for = "idPoblacion">Poblacion</label>
 			
 			<select name ="idPoblacion" id="idPoblacion">
-			<option value="" selected> - Selecciona una poblaci�n - </option>
+			<option value="" selected> - Selecciona una poblacion - </option>
 				<c:forEach items ="${comboMunicipio}" var="poblacion">
 					
 					<option value="${poblacion.id}">${poblacion.nombre}</option>

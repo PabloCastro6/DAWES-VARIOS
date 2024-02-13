@@ -21,6 +21,4 @@ public interface IProveedorDAO {
 
 	public Integer borrarProveedores(String id) throws ClassNotFoundException, SQLException, NamingException;
 
-
-
 }
