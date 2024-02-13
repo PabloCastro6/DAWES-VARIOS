@@ -56,6 +56,4 @@ public class CategoriasService implements ICategoriasService {
 		return categoriasDAO.borrarCategoria(id);
 	}
 
-	
-
 }

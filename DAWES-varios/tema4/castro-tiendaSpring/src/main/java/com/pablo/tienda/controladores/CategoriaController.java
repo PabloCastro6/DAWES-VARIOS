@@ -34,14 +34,13 @@ public class CategoriaController {
 		return "categorias/listadoCategorias";
 	}
 
-
 	@PostMapping("listarcategorias")
 	public String buscarCategorias(@RequestParam("id") String id, @RequestParam("nombre") String nombre,
 			@RequestParam("descripcion") String descripcion,
 			@RequestParam(value = "activo", required = false) String activo, ModelMap model)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		String estadoActivo =  (activo != null) ? "1" : "0";
+		String estadoActivo = (activo != null) ? "1" : "0";
 
 		List<CategoriasDTO> listaCategorias = categoriasService.buscarCategoria(id, nombre, descripcion, estadoActivo);
 
@@ -51,7 +50,6 @@ public class CategoriaController {
 
 	}
 
-	
 	@GetMapping("insertarcategorias")
 	public String getInsertarCategorias() {
 		return "categorias/insertarCategorias";
@@ -71,8 +69,6 @@ public class CategoriaController {
 		return "categorias/insertarCategorias";
 	}
 
-	
-	
 	@GetMapping("formulariomodificarcategorias")
 	public String getFormularioModificarCategoria() {
 		return "categorias/modificarCategorias";
@@ -134,10 +130,9 @@ public class CategoriaController {
 	@PostMapping("borrarcategorias")
 	public String borrarCategoria(@RequestParam("id") String id)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
-		 categoriasService.borrarCategoria(id);
-		
-		
+
+		categoriasService.borrarCategoria(id);
+
 		return "categorias/borrarCategorias";
 	}
 

@@ -51,7 +51,7 @@
 						<option value="${proveedor.id}">${proveedor.nombre}</option>
 					</c:forEach>
 
-				</select>  <br> <input type="submit" value="Insertar">
+				</select>   <br> <input type="submit" value="Insertar">
 			</form>
 		</div>
 

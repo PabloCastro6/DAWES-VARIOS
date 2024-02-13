@@ -52,14 +52,29 @@ public class ClientesEntity {
 
 // Getters y setters...
 
-	public ClientesEntity() {
-		super();
-	}
-
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
 
+	public ClientesEntity(Integer id, String nombre, String correoElectronico, String contraseña, Date fechaRegistro,
+			Integer idPoblacion, Integer activo) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.correoElectronico = correoElectronico;
+		this.contraseña = contraseña;
+		this.fechaRegistro = fechaRegistro;
+		this.idPoblacion = idPoblacion;
+		this.activo = activo;
+	}
+
+	
+	
+	
 	public void setId(int id) {
 		this.id = id;
 	}

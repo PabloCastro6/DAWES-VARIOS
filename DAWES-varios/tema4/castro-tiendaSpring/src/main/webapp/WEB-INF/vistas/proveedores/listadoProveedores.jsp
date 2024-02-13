@@ -36,7 +36,7 @@
 					<br>
 					<input type="text" id="contacto" name="contacto">  
 					<br>
-					<label for="telefono"> Tel�fono: </label> 
+					<label for="telefono"> Telefono: </label> 
 					<br>					
 					<input type="text" id="telefono" name="telefono">
 					<br>
@@ -44,7 +44,7 @@
 					<br>
 					<input type="text" id="correo" name="correo"> 
 					<br>
-					<label for="direccion"> Direcci�n: </label> 
+					<label for="direccion"> Direccion: </label> 
 					<br>
 					<input type="text" id="direccion" name="direccion">  
 					<br>

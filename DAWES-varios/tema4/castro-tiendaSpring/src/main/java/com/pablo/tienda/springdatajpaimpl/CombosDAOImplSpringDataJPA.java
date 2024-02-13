@@ -31,7 +31,7 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 
 	@Autowired
 	private ClientesRepository clienteRepository;
-	
+
 	@Autowired
 	private EstadoPedidoRepository estadoPedidoRepository;
 

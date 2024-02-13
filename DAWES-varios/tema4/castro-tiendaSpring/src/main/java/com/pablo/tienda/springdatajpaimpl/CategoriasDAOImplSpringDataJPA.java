@@ -28,17 +28,16 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 	@Override
 	public List<CategoriasDTO> buscarCategorias(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-			
 
-	    return categoriasRepository.buscaCategorias(nombre, descripcion, Integer.parseInt(activo));
+		return categoriasRepository.buscaCategorias(nombre, descripcion, Integer.parseInt(activo));
 	}
 
 	@Override
 	public Integer insertarCategoria(String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
-		CategoriasEntity c = new CategoriasEntity(nombre,descripcion,Integer.parseInt(activo));
-		
+
+		CategoriasEntity c = new CategoriasEntity(nombre, descripcion, Integer.parseInt(activo));
+
 		categoriasRepository.save(c);
 		return c.getId();
 	}
@@ -46,9 +45,9 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 	@Override
 	public Integer actualizarCategoria(String id, String nombre, String descripcion, String activo)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
-		CategoriasEntity c = new CategoriasEntity(Integer.parseInt(id),nombre,descripcion,Integer.parseInt(activo));
-		
+
+		CategoriasEntity c = new CategoriasEntity(Integer.parseInt(id), nombre, descripcion, Integer.parseInt(activo));
+
 		categoriasRepository.save(c);
 		return c.getId();
 	}
@@ -58,9 +57,9 @@ public class CategoriasDAOImplSpringDataJPA implements ICategoriasDAO {
 		CategoriasEntity categoria = categoriasRepository.findById(Integer.parseInt(id)).get();
 		categoria.setActivo(0);
 		categoriasRepository.save(categoria);
-		
+
 		return categoria.getId();
-		
+
 	}
 
 }

@@ -24,10 +24,10 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 
 	@Autowired
 	private ProductosRepository productosRepository;
-	
+
 	@Autowired
 	private CategoriasRepository categoriasRepository;
-	
+
 	@Autowired
 	private ProveedoresRepository proveedoresRepository;
 
@@ -35,51 +35,72 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 	public List<ProductoDTO> buscarProducto(String id, String nombre, String descripcion, String precio,
 			String cantidadStock, String idCategoria, String idProveedor)
 			throws ClassNotFoundException, SQLException, NamingException {
-		
-		 
-       
-        return productosRepository.buscarProducto(id,nombre, descripcion, precio,cantidadStock, idCategoria, idProveedor);
-    }
-  
-	
+
+		return productosRepository.buscarProducto(id, nombre, descripcion, precio, cantidadStock, idCategoria,
+				idProveedor);
+	}
+
 	@Override
 	public Integer insertarProducto(String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
-		
-		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).orElse(null) ;
-		ProveedorEntity proveedorEntity =  proveedoresRepository.findById(Integer.parseInt(idProveedor)).orElse(null) ;
-		
-		BigDecimal precioDecimal = new BigDecimal(precio);
-	    Integer cantidadEnStock = Integer.valueOf(cantidadStock);
-		
-	    ProductoEntity p = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity, proveedorEntity);
-		productosRepository.save(p);
-		return p.getId();
-		
+
+		CategoriasEntity categoriaEntity = null;
+	    ProveedorEntity proveedorEntity = null;
+
+	 
+	    if (idCategoria != null && !idCategoria.isEmpty()) {
+	        categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).orElse(null);
+	    }
+
+	    if (idProveedor != null && !idProveedor.isEmpty()) {
+	        proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).orElse(null);
+	    }
+
+	    BigDecimal precioDecimal = (!precio.isEmpty()) ? new BigDecimal(precio) : BigDecimal.ZERO;
+	    Integer cantidadEnStock = (!cantidadStock.isEmpty()) ? Integer.parseInt(cantidadStock) : 0;
+
+	    ProductoEntity producto = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity, proveedorEntity);
+	    productosRepository.save(producto);
+	    return producto.getId();
 	}
+	
+//		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).get();
+//		ProveedorEntity proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
+//
+//		BigDecimal precioDecimal = new BigDecimal(precio);
+//		Integer cantidadEnStock = Integer.valueOf(cantidadStock);
+//
+//		ProductoEntity p = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity,
+//				proveedorEntity);
+//		productosRepository.save(p);
+//		return p.getId();
+
+//	}
 
 	@Override
 	public Integer actualizarProducto(String id, String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
-		
-		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).orElse(null) ;
-		ProveedorEntity proveedorEntity =  proveedoresRepository.findById(Integer.parseInt(idProveedor)).orElse(null) ;
-		
+
+		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).get();
+		ProveedorEntity proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
+
 		BigDecimal precioDecimal = new BigDecimal(precio);
-	    Integer cantidadEnStock = Integer.valueOf(cantidadStock);
-	    
-	    
-	    
-		
-	    ProductoEntity p = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity, proveedorEntity);
+		Integer cantidadEnStock = Integer.valueOf(cantidadStock);
+
+		ProductoEntity p = new ProductoEntity(nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity,
+				proveedorEntity);
 		productosRepository.save(p);
 		return p.getId();
 	}
 
-	@Override
-	public ProductoDTO buscarProductoPorID(Integer id) throws ClassNotFoundException, SQLException, NamingException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+@Override
+public ProductoDTO buscarProductoPorID(Integer id) throws ClassNotFoundException, SQLException, NamingException {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+	
 
 }

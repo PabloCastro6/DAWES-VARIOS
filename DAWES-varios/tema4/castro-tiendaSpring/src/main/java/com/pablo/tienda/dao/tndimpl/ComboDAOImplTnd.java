@@ -20,8 +20,7 @@ import com.pablo.tienda.utils.DBUtils;
 
 @Component
 public class ComboDAOImplTnd implements IComboDAO {
-	
-	
+
 //	@Autowired 
 //	private CategoriasRepository categoriasRepository;
 //	
@@ -32,7 +31,6 @@ public class ComboDAOImplTnd implements IComboDAO {
 //		return null;
 //	}
 //	
-	
 
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 
