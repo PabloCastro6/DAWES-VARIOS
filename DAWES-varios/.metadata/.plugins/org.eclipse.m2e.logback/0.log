@@ -8749,3 +8749,4 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/ca
 2024-02-13 18:58:59,540 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@7facb452{STOPPING}[10.0.17,sto=0]
 2024-02-13 18:58:59,555 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@75a3615b{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
 2024-02-13 18:58:59,572 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@6d8822e6{/help,null,STOPPED}
+2024-02-14 12:14:09,986 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
