@@ -54,10 +54,10 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
 		PoblacionEntity p = poblacionRepository.findById(Integer.parseInt(idPoblacion)).get();
-		
-		Integer idCliente = Integer.parseInt(id); 
 
-		ClientesEntity c = new ClientesEntity(idCliente,nombre, correo, p, Integer.parseInt(activo));
+		Integer idCliente = Integer.parseInt(id);
+
+		ClientesEntity c = new ClientesEntity(idCliente, nombre, correo, p, Integer.parseInt(activo));
 		clientesRepository.save(c);
 		return c.getId();
 

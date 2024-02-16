@@ -18,7 +18,7 @@ public interface ClientesRepository extends CrudRepository<ClientesEntity, Integ
 			+ " WHERE CAST(c.id AS string) LIKE CONCAT('%', :id, '%') " + "AND c.nombre LIKE CONCAT('%', :nombre, '%') "
 			+ " AND c.correoElectronico LIKE CONCAT('%', :correoElectronico, '%') "
 			+ " AND (:idPoblacion is null OR c.poblacion.id = :idPoblacion) " + "AND c.activo = :activo ")
-	
+
 	List<ClienteDTO> buscarCliente(@Param("id") String id, @Param("nombre") String nombre,
 			@Param("correoElectronico") String correoElectronico, @Param("idPoblacion") Integer idPoblacion,
 			@Param("activo") Integer activo);

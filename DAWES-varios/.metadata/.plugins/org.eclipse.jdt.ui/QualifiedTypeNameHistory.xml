@@ -20,7 +20,6 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dtos.PeticionesDTO"/>
     <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.dao.IComboDAO"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -32,7 +31,6 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.ClientesRepository"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.ProductosRepository"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.EstadoPedidoRepository"/>
-    <fullyQualifiedTypeName name="com.pablo.tienda.entities.CategoriasEntity"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.CategoriasRepository"/>
     <fullyQualifiedTypeName name="java.math.BigDecimal"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.repositories.MunicipiosRepository"/>
@@ -44,4 +42,13 @@
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.ProveedorEntity"/>
     <fullyQualifiedTypeName name="com.pablo.tienda.entities.PoblacionEntity"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.entities.CategoriasEntity"/>
+    <fullyQualifiedTypeName name="com.pablo.tienda.negocio.impl.CategoriasService"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
 </qualifiedTypeNameHistroy>

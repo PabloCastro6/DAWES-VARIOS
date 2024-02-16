@@ -70,7 +70,7 @@ public class ClientesDAOHibernate implements IClientesDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		PoblacionEntity poblacion = session.find(PoblacionEntity.class, Integer.parseInt(idPoblacion));
-		
+
 		ClientesEntity cliente = new ClientesEntity();
 		cliente.setId(Integer.parseInt(id));
 		cliente.setNombre(nombre);

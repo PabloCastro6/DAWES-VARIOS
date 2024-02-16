@@ -64,7 +64,6 @@ public class ClientesEntity {
 		return id;
 	}
 
-
 	public ClientesEntity(String nombre, String correoElectronico, PoblacionEntity poblacion, Integer activo) {
 		super();
 		this.nombre = nombre;
@@ -73,8 +72,8 @@ public class ClientesEntity {
 		this.poblacion = poblacion;
 	}
 
-	public ClientesEntity(Integer id, String nombre, String correoElectronico, 
-			PoblacionEntity poblacion,Integer activo) {
+	public ClientesEntity(Integer id, String nombre, String correoElectronico, PoblacionEntity poblacion,
+			Integer activo) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -147,15 +146,12 @@ public class ClientesEntity {
 		this.activo = activo;
 	}
 
-
 	public PoblacionEntity getPoblacion() {
 		return poblacion;
 	}
 
-
 	public void setPoblacion(PoblacionEntity poblacion) {
 		this.poblacion = poblacion;
 	}
-	
 
 }

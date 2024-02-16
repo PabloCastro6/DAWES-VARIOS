@@ -86,12 +86,12 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 
 		BigDecimal precioDecimal = new BigDecimal(precio);
 		Integer cantidadEnStock = Integer.parseInt(cantidadStock);
-		
+
 		Integer idProducto = Integer.parseInt(id);
 
-		ProductoEntity p = new ProductoEntity(idProducto,nombre, descripcion, precioDecimal, cantidadEnStock, categoriaEntity,
-				proveedorEntity);
-		
+		ProductoEntity p = new ProductoEntity(idProducto, nombre, descripcion, precioDecimal, cantidadEnStock,
+				categoriaEntity, proveedorEntity);
+
 		productosRepository.save(p);
 		return p.getId();
 	}

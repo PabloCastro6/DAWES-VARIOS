@@ -39,14 +39,12 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 	@Autowired
 	private EstadoPedidoRepository estadoPedidoRepository;
 
-	
 	@Autowired
 	private PoblacionRepository poblacionRepository;
-	
+
 	@Autowired
 	private ProveedoresRepository proveedorRepository;
-	
-	
+
 	@Override
 	public List<ComboDTO> recuperaCombosCategorias() throws ClassNotFoundException, SQLException, NamingException {
 		Iterable<CategoriasEntity> listaCategorias = categoriaRepository.findAll();
@@ -97,7 +95,6 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 
 		return combo;
 	}
-	
 
 	@Override
 	public List<ComboDTO> recuperaComboMunicipios() throws ClassNotFoundException, SQLException, NamingException {
@@ -115,7 +112,7 @@ public class CombosDAOImplSpringDataJPA implements IComboDAO {
 
 		return combo;
 	}
-	
+
 	@Override
 	public List<ComboDTO> recuperarCombosEstadoPedidos() throws ClassNotFoundException, SQLException, NamingException {
 		Iterable<EstadoPedidoEntity> listaEstado = estadoPedidoRepository.findAll();
