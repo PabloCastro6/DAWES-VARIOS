@@ -1,5 +1,7 @@
 package com.pablo.tienda.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class PeticionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Producto")
+	@JsonBackReference
 	private ProductoEntity producto;
 
 	@Column(name = "FechaAñadido", insertable = false)
@@ -37,6 +40,7 @@ public class PeticionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "Estado")
+	@JsonBackReference
 	private EstadoPedidoEntity estado;
 
 	public PeticionEntity(Integer peticionID, ClientesEntity cliente, ProductoEntity producto, String fecha,
@@ -110,5 +114,13 @@ public class PeticionEntity {
 	public void setEstado(EstadoPedidoEntity estado) {
 		this.estado = estado;
 	}
+
+	@Override
+	public String toString() {
+		return "PeticionEntity [peticionID=" + peticionID + ", cliente=" + cliente + ", producto=" + producto
+				+ ", fecha=" + fecha + ", cantidad=" + cantidad + ", estado=" + estado + "]";
+	}
+	
+	
 
 }

@@ -84,7 +84,7 @@ public class CategoriaControllerRest {
 												@RequestParam (value = "descripcion", required = false) String descripcion,
 												@RequestParam (value = "activo", required = false) Integer activo) throws ClassNotFoundException, SQLException, NamingException {
 		
-		Integer resultado = categoriasService.actualizarCategoria(id.toString(), nombre, descripcion, activo.toString());
+		Integer resultado = categoriasService.modificarCategoria(id.toString(), nombre, descripcion, activo.toString());
 		
 		return ResponseEntity.ok("Categoria insertada correctamente");
 	}

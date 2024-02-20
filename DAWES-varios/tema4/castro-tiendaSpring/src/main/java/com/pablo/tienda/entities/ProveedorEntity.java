@@ -152,6 +152,12 @@ public class ProveedorEntity {
 		this.activo = activo;
 	}
 
+	@Override
+	public String toString() {
+		return "ProveedorEntity [id=" + id + ", nombre=" + nombre + ", contacto=" + contacto + ", telefono=" + telefono
+				+ ", correoElectronico=" + correoElectronico + ", direccion=" + direccion + ", activo=" + activo + "]";
+	}
+
 //	public Set<ProductoEntity> getProductos() {
 //		return productos;
 //	}
@@ -159,5 +165,7 @@ public class ProveedorEntity {
 //	public void setProductos(Set<ProductoEntity> productos) {
 //		this.productos = productos;
 //	}
+	
+	
 
 }

@@ -3,6 +3,8 @@ package com.pablo.tienda.entities;
 import java.math.BigDecimal;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,10 +41,11 @@ public class ProductoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Proveedor")
+	@JsonBackReference
 	private ProveedorEntity proveedorEntity;
 
 //  @OneToMany(mappedBy = "producto")
-//  private Set<Peticion> peticiones;
+//  private Set<PeticionEntity> peticiones;
 
 //  @OneToMany(mappedBy = "producto")
 //  private Set<DetallePedido> detallePedidos;

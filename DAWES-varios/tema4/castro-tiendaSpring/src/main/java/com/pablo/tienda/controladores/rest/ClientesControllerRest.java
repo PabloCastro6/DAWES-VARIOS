@@ -1,5 +1,6 @@
 package com.pablo.tienda.controladores.rest;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +76,7 @@ public class ClientesControllerRest {
 											@RequestParam (value = "poblacion", required = false) Integer poblacion,
 											@RequestParam (value = "activo", required = false) Integer activo) throws ClassNotFoundException, SQLException {
 		
-		clientesService.actualizarClientes(id.toString(), nombre, correoElectronico, poblacion.toString(), activo.toString());
+		clientesService.modificarClientes(id.toString(), nombre, correoElectronico, poblacion.toString(), activo.toString());
 		
 		return ResponseEntity.ok("Cliente actualizado correctamente");
 		

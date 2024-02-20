@@ -1,6 +1,9 @@
 package com.pablo.tienda.entities;
 
 import java.util.Date;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -35,11 +39,10 @@ public class ClientesEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date fechaRegistro;
 
-//	@Column(name = "ID_Poblacion")
-//	private Integer idPoblacion;
-
-//	@Column(name = "nombre_poblacion")
-//	private String nombrePoblacion;
+	@ManyToOne
+	@JoinColumn(name = "ID_Poblacion")
+	@JsonBackReference
+	private PoblacionEntity poblacion;
 
 	@Column(name = "activo")
 	private Integer activo;
@@ -48,22 +51,17 @@ public class ClientesEntity {
 
 	// ...otros campos...
 
-//    @OneToMany(mappedBy = "cliente")
-//    private Set<Pedido> pedidos;
-//
-//    @OneToMany(mappedBy = "cliente")
-//    private Set<Peticion> peticiones;
+    @OneToMany(mappedBy = "cliente")
+    private Set<PedidoEntity> pedidos;
 
-	@ManyToOne
-	@JoinColumn(name = "ID_Poblacion")
-	private PoblacionEntity poblacion;
+    @OneToMany(mappedBy = "cliente")
+    private Set<PeticionEntity> peticiones;
+
+	
 
 // Getters y setters...
 
-	public int getId() {
-		return id;
-	}
-
+	
 	public ClientesEntity(String nombre, String correoElectronico, PoblacionEntity poblacion, Integer activo) {
 		super();
 		this.nombre = nombre;
@@ -83,8 +81,13 @@ public class ClientesEntity {
 	}
 
 	public ClientesEntity() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
+	
+	public int getId() {
+		return id;
+	}
+
 
 	public void setId(int id) {
 		this.id = id;

@@ -1,10 +1,15 @@
 package com.pablo.tienda.entities;
 
 import jakarta.persistence.Table;
+
+import java.util.Set;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 @Table(name = "poblacion")
@@ -13,7 +18,14 @@ public class PoblacionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String nombre;
+	
+	
+	
+	@Column(name = "Nombre", nullable = false)
+    private String nombre;
+    
+    @OneToMany(mappedBy = "poblacion")
+    private Set<ClientesEntity> clientes;
 
 	public PoblacionEntity(Integer id, String nombre) {
 		super();
@@ -41,4 +53,10 @@ public class PoblacionEntity {
 		this.nombre = nombre;
 	}
 
+	@Override
+	public String toString() {
+		return "PoblacionEntity [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	
 }

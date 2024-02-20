@@ -8781,3 +8781,4 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/ca
 2024-02-19 17:15:38,222 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@6cc5bfc4{STOPPING}[10.0.17,sto=0]
 2024-02-19 17:15:38,234 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@3da37aec{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
 2024-02-19 17:15:38,248 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@1e48602{/help,null,STOPPED}
+2024-02-20 08:40:23,066 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
