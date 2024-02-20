@@ -58,16 +58,16 @@ public class PeticionesControllerRest {
 																		@RequestParam (value = "cantidad", required = false) Integer cantidad,
 																		@RequestParam (value = "estado", required = false) Integer estado){
 		
-		List<PeticionesDTO> listaPeticiones = peticionesRepository.buscarPeticiones(id.toString(), cliente, producto, fecha, cantidad.toString(), estado);
+		List<PeticionesDTO> listaPeticiones = peticionesRepository.buscarPeticiones(id.toString(), cliente.toString(), producto.toString(), fecha, cantidad.toString(), estado.toString());
 				
 		return new ResponseEntity(listaPeticiones, HttpStatus.OK);
 		
 	}
 	
 	@PutMapping("/peticiones")
-	public ResponseEntity insertarPeticiones(@RequestBody PeticionEntity peticion) throws ClassNotFoundException, SQLException {
+	public ResponseEntity insertarPeticiones(@RequestBody PeticionEntity peticion) throws ClassNotFoundException, SQLException, NamingException {
 		
-		peticionesService.insertarPeticiones(peticion.getidCliente().toString(), peticion.getProducto().toString(), peticion.getCantidad().toString(), peticion.getEstado().toString());
+		peticionesService.insertarPeticiones(Integer.toString(peticion.getCliente().getId()), peticion.getProducto().toString(), peticion.getCantidad().toString(), peticion.getEstado().toString());
 		
 		return ResponseEntity.ok("Petición insertada correctamente"); 
 			

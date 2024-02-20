@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +38,7 @@ public class ProductoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Categoria")
+	@JsonIgnore
 	private CategoriasEntity categoriaEntity;
 
 	@ManyToOne

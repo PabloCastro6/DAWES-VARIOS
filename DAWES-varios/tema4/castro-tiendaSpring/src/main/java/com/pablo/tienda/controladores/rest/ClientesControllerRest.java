@@ -64,12 +64,12 @@ public class ClientesControllerRest {
 	@PostMapping("/clientes")
 	public ResponseEntity insertarCliente(@RequestBody ClientesEntity cliente) throws ClassNotFoundException, SQLException {
 		
-		clientesService.insertarClientes(cliente.getNombre(), cliente.getCorreoElectronico(), cliente.getPassword(), cliente.getPoblacion().getId().toString(), cliente.getActivo().toString());
+		clientesService.insertarClientes(cliente.getNombre(), cliente.getCorreoElectronico(), cliente.getPoblacion().getId().toString(), cliente.getActivo().toString());
 		
 		return ResponseEntity.ok("Cliente insertado correctamente");
 	}
 	
-	@PutMapping(value = "/clientes", params = {"id", "nombre", "correoElectronico", "password", "fechaRegistro", "poblacion", "activo"})
+	@PutMapping(value = "/clientes", params = {"id", "nombre", "correoElectronico", "poblacion", "activo"})
 	public ResponseEntity actualizarCliente(@RequestParam (value = "id", required = false) Integer id,
 											@RequestParam (value = "nombre", required = false) String nombre,
 											@RequestParam (value = "correoElectronico", required = false) String correoElectronico,
