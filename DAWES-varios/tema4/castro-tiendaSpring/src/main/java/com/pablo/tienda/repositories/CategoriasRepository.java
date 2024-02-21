@@ -22,5 +22,4 @@ public interface CategoriasRepository extends CrudRepository<CategoriasEntity, I
 	List<CategoriasDTO> buscaCategorias(@Param("nombre") String nombre, @Param("descripcion") String descripcion,
 			@Param("activo") Integer activo);
 
-
 }

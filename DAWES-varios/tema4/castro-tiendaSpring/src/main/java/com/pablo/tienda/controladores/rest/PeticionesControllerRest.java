@@ -26,74 +26,81 @@ import com.pablo.tienda.repositories.PeticionesRepository;
 @RestController
 @RequestMapping("/v1")
 public class PeticionesControllerRest {
-	
+
 	@Autowired
 	IPeticionesService peticionesService;
-	
+
 	@Autowired
 	PeticionesRepository peticionesRepository;
-	
+
 	@GetMapping("/peticiones")
-	public Iterable<PeticionEntity> obtenerTodasPeticiones(){
-		
+	public Iterable<PeticionEntity> obtenerTodasPeticiones() {
+
 		Iterable<PeticionEntity> peticiones = peticionesRepository.findAll();
-		
+
 		return peticiones;
 	}
-	
+
 	@GetMapping("/peticiones/{id}")
-	public ResponseEntity<PeticionEntity> obtenerPeticionPorId(@PathVariable("id") Integer id){
-		
+	public ResponseEntity<PeticionEntity> obtenerPeticionPorId(@PathVariable("id") Integer id) {
+
 		PeticionEntity peticion = peticionesRepository.findById(id).get();
-		
+
 		return new ResponseEntity(peticion, HttpStatus.OK);
-		
+
 	}
-	
-	@GetMapping(value = "/peticiones", params = {"id", "cliente", "producto", "fecha", "cantidad", "estado"})
-	public ResponseEntity<PeticionEntity> obtenerPeticionesConFiltros(@RequestParam (value = "id", required = false) Integer id,
-																		@RequestParam (value = "cliente", required = false) Integer cliente,
-																		@RequestParam (value = "producto", required = false) Integer producto,
-																		@RequestParam (value = "fecha", required = false) String fecha,
-																		@RequestParam (value = "cantidad", required = false) Integer cantidad,
-																		@RequestParam (value = "estado", required = false) Integer estado){
-		
-		List<PeticionesDTO> listaPeticiones = peticionesRepository.buscarPeticiones(id.toString(), cliente.toString(), producto.toString(), fecha, cantidad.toString(), estado.toString());
-				
+
+	@GetMapping(value = "/peticiones", params = { "id", "cliente", "producto", "fecha", "cantidad", "estado" })
+	public ResponseEntity<PeticionEntity> obtenerPeticionesConFiltros(
+			@RequestParam(value = "id", required = false) Integer id,
+			@RequestParam(value = "cliente", required = false) Integer cliente,
+			@RequestParam(value = "producto", required = false) Integer producto,
+			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "cantidad", required = false) Integer cantidad,
+			@RequestParam(value = "estado", required = false) Integer estado) {
+
+		List<PeticionesDTO> listaPeticiones = peticionesRepository.buscarPorFiltros(id.toString(), cliente.toString(),
+				producto.toString(), fecha, cantidad.toString(), estado.toString());
+
 		return new ResponseEntity(listaPeticiones, HttpStatus.OK);
-		
+
 	}
-	
+
 	@PutMapping("/peticiones")
-	public ResponseEntity insertarPeticiones(@RequestBody PeticionEntity peticion) throws ClassNotFoundException, SQLException, NamingException {
-		
-		peticionesService.insertarPeticiones(Integer.toString(peticion.getCliente().getId()), peticion.getProducto().toString(), peticion.getCantidad().toString(), peticion.getEstado().toString());
-		
-		return ResponseEntity.ok("Petición insertada correctamente"); 
-			
+	public ResponseEntity insertarPeticiones(@RequestBody PeticionEntity peticion)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		peticionesService.insertarPeticiones(Integer.toString(peticion.getCliente().getId()),
+				peticion.getProducto().toString(), peticion.getCantidad().toString(), peticion.getEstado().toString());
+
+		return ResponseEntity.ok("Petición insertada correctamente");
+
 	}
-	
-	@PatchMapping(value = "/peticiones", params = {"id", "cliente", "producto", "fecha", "cantidad", "estado"})
-	public ResponseEntity actualizarPeticiones(@RequestParam (value = "id", required = false) Integer id,
-												@RequestParam (value = "cliente", required = false) Integer cliente,
-												@RequestParam (value = "producto", required = false) Integer producto,
-												@RequestParam (value = "fecha", required = false) String fecha,
-												@RequestParam (value = "cantidad", required = false) Integer cantidad,
-												@RequestParam (value = "estado", required = false) Integer estado) throws ClassNotFoundException, SQLException, NamingException {
-		
-		peticionesService.actualizarPeticiones(id.toString(), cliente.toString(), producto.toString(), fecha, cantidad.toString(), estado.toString());
-		
-		return ResponseEntity.ok("Petición actualizada correctamente"); 
-		
+
+	@PatchMapping(value = "/peticiones", params = { "id", "cliente", "producto", "fecha", "cantidad", "estado" })
+	public ResponseEntity actualizarPeticiones(@RequestParam(value = "id", required = false) Integer id,
+			@RequestParam(value = "cliente", required = false) Integer cliente,
+			@RequestParam(value = "producto", required = false) Integer producto,
+			@RequestParam(value = "fecha", required = false) String fecha,
+			@RequestParam(value = "cantidad", required = false) Integer cantidad,
+			@RequestParam(value = "estado", required = false) Integer estado)
+			throws ClassNotFoundException, SQLException, NamingException {
+
+		peticionesService.actualizarPeticiones(id.toString(), cliente.toString(), producto.toString(), fecha,
+				cantidad.toString(), estado.toString());
+
+		return ResponseEntity.ok("Petición actualizada correctamente");
+
 	}
-	
+
 	@DeleteMapping("/peticiones/{id}")
-	public ResponseEntity borrarPeticiones(@PathVariable("id") Integer id) throws ClassNotFoundException, SQLException, NamingException {
-		
+	public ResponseEntity borrarPeticiones(@PathVariable("id") Integer id)
+			throws ClassNotFoundException, SQLException, NamingException {
+
 		peticionesService.borrarPeticiones(id.toString());
-		
-		return ResponseEntity.ok("Petición borrada correctamente"); 
-		
+
+		return ResponseEntity.ok("Petición borrada correctamente");
+
 	}
 
 }

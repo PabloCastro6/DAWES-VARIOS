@@ -51,17 +51,14 @@ public class ClientesEntity {
 
 	// ...otros campos...
 
-    @OneToMany(mappedBy = "cliente")
-    private Set<PedidoEntity> pedidos;
+	@OneToMany(mappedBy = "cliente")
+	private Set<PedidoEntity> pedidos;
 
-    @OneToMany(mappedBy = "cliente")
-    private Set<PeticionEntity> peticiones;
-
-	
+	@OneToMany(mappedBy = "cliente")
+	private Set<PeticionEntity> peticiones;
 
 // Getters y setters...
 
-	
 	public ClientesEntity(String nombre, String correoElectronico, PoblacionEntity poblacion, Integer activo) {
 		super();
 		this.nombre = nombre;
@@ -83,11 +80,10 @@ public class ClientesEntity {
 	public ClientesEntity() {
 		super();
 	}
-	
+
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;

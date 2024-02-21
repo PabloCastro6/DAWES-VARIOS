@@ -18,14 +18,12 @@ public class PoblacionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	
-	
+
 	@Column(name = "Nombre", nullable = false)
-    private String nombre;
-    
-    @OneToMany(mappedBy = "poblacion")
-    private Set<ClientesEntity> clientes;
+	private String nombre;
+
+	@OneToMany(mappedBy = "poblacion")
+	private Set<ClientesEntity> clientes;
 
 	public PoblacionEntity(Integer id, String nombre) {
 		super();
@@ -58,5 +56,4 @@ public class PoblacionEntity {
 		return "PoblacionEntity [id=" + id + ", nombre=" + nombre + "]";
 	}
 
-	
 }

@@ -120,7 +120,5 @@ public class PeticionEntity {
 		return "PeticionEntity [peticionID=" + peticionID + ", cliente=" + cliente + ", producto=" + producto
 				+ ", fecha=" + fecha + ", cantidad=" + cantidad + ", estado=" + estado + "]";
 	}
-	
-	
 
 }

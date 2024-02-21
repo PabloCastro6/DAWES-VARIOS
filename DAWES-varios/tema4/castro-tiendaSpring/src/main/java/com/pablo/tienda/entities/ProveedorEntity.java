@@ -165,7 +165,5 @@ public class ProveedorEntity {
 //	public void setProductos(Set<ProductoEntity> productos) {
 //		this.productos = productos;
 //	}
-	
-	
 
 }
