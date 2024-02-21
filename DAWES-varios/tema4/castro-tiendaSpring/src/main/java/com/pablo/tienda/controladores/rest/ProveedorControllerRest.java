@@ -51,14 +51,14 @@ public class ProveedorControllerRest {
 
 	@GetMapping(value = "/proveedores", params = { "id", "nombre", "contacto", "telefono", "correo", "direccion",
 			"activo" })
-	public ResponseEntity<ProveedorEntity> obtenerProveedoresConFiltros(
-			@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "contacto", required = false) String contacto,
-			@RequestParam(value = "telefono", required = false) String telefono,
-			@RequestParam(value = "correo", required = false) String correo,
-			@RequestParam(value = "direccion", required = false) String direccion,
-			@RequestParam(value = "activo", required = false) Integer activo) {
+	public ResponseEntity obtenerProveedoresConFiltros(
+			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "nombre", required = true) String nombre,
+			@RequestParam(value = "contacto", required = true) String contacto,
+			@RequestParam(value = "telefono", required = true) String telefono,
+			@RequestParam(value = "correo", required = true) String correo,
+			@RequestParam(value = "direccion", required = true) String direccion,
+			@RequestParam(value = "activo", required = true) Integer activo) {
 
 		List<ProveedorDTO> listaProveedores = proveedoresRepository.buscaProveedores(id.toString(), nombre, contacto,
 				telefono, correo, direccion, activo);

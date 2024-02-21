@@ -52,11 +52,11 @@ public class CategoriaControllerRest {
 	}
 
 	@GetMapping(value = "/categorias", params = { /*"id",*/ "nombre", "descripcion", "activo" }) 
-	public ResponseEntity<CategoriasEntity> obtenerCategoriasConFiltros(
+	public ResponseEntity obtenerCategoriasConFiltros(
 			/*@RequestParam(value = "id", required = false) Integer id,*/
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "descripcion", required = false) String descripcion,
-			@RequestParam(value = "activo", required = false) Integer activo) {
+			@RequestParam(value = "nombre", required = true) String nombre,
+			@RequestParam(value = "descripcion", required = true) String descripcion,
+			@RequestParam(value = "activo", required = true) Integer activo) {
 
 		List<CategoriasDTO> listaCategorias = categoriasrepository.buscaCategorias(/*id.toString(),*/ nombre, descripcion,
 				activo);

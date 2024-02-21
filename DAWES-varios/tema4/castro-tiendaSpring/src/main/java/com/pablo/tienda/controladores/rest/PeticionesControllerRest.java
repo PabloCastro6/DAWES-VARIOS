@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,13 +52,13 @@ public class PeticionesControllerRest {
 	}
 
 	@GetMapping(value = "/peticiones", params = { "id", "cliente", "producto", "fecha", "cantidad", "estado" })
-	public ResponseEntity<PeticionEntity> obtenerPeticionesConFiltros(
-			@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "cliente", required = false) Integer cliente,
-			@RequestParam(value = "producto", required = false) Integer producto,
-			@RequestParam(value = "fecha", required = false) String fecha,
-			@RequestParam(value = "cantidad", required = false) Integer cantidad,
-			@RequestParam(value = "estado", required = false) Integer estado) {
+	public ResponseEntity obtenerPeticionesConFiltros(
+			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "cliente", required = true) Integer cliente,
+			@RequestParam(value = "producto", required = true) Integer producto,
+			@RequestParam(value = "fecha", required = true) String fecha,
+			@RequestParam(value = "cantidad", required = true) Integer cantidad,
+			@RequestParam(value = "estado", required = true) Integer estado) {
 
 		List<PeticionesDTO> listaPeticiones = peticionesRepository.buscarPorFiltros(id.toString(), cliente.toString(),
 				producto.toString(), fecha, cantidad.toString(), estado.toString());
@@ -66,28 +67,23 @@ public class PeticionesControllerRest {
 
 	}
 
-	@PutMapping("/peticiones")
+	@PostMapping("/peticiones")
 	public ResponseEntity insertarPeticiones(@RequestBody PeticionEntity peticion)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		peticionesService.insertarPeticiones(Integer.toString(peticion.getCliente().getId()),
-				peticion.getProducto().toString(), peticion.getCantidad().toString(), peticion.getEstado().toString());
+		peticionesService.insertarPeticiones(null,
+				null, peticion.getCantidad().toString(), peticion.getEstado().toString());
 
 		return ResponseEntity.ok("Petición insertada correctamente");
 
 	}
 
-	@PatchMapping(value = "/peticiones", params = { "id", "cliente", "producto", "fecha", "cantidad", "estado" })
-	public ResponseEntity actualizarPeticiones(@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "cliente", required = false) Integer cliente,
-			@RequestParam(value = "producto", required = false) Integer producto,
-			@RequestParam(value = "fecha", required = false) String fecha,
-			@RequestParam(value = "cantidad", required = false) Integer cantidad,
-			@RequestParam(value = "estado", required = false) Integer estado)
+	@PutMapping(value = "/peticiones/{id}")
+	public ResponseEntity actualizarPeticiones(@PathVariable("id") Integer id, @RequestBody PeticionEntity peticion)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		peticionesService.actualizarPeticiones(id.toString(), cliente.toString(), producto.toString(), fecha,
-				cantidad.toString(), estado.toString());
+		peticionesService.actualizarPeticiones(id.toString(),null,
+				null,peticion.getFecha(), peticion.getCantidad().toString(), peticion.getEstado().toString());
 
 		return ResponseEntity.ok("Petición actualizada correctamente");
 

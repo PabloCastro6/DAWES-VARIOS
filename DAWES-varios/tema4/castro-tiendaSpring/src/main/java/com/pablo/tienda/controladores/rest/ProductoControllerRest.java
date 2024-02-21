@@ -51,12 +51,12 @@ public class ProductoControllerRest {
 	}
 
 	@GetMapping(value = "/productos", params = { "id", "nombre", "descripcion", "precio", "cantidadEnStock" })
-	public ResponseEntity<ProductoEntity> obtenerProductosConFiltros(
-			@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "descripcion", required = false) String descripcion,
-			@RequestParam(value = "precio", required = false) Double precio,
-			@RequestParam(value = "cantidadEnStock", required = false) Integer cantidadEnStock) {
+	public ResponseEntity obtenerProductosConFiltros(
+			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "nombre", required = true) String nombre,
+			@RequestParam(value = "descripcion", required = true) String descripcion,
+			@RequestParam(value = "precio", required = true) Double precio,
+			@RequestParam(value = "cantidadEnStock", required = true) Integer cantidadEnStock) {
 
 		List<ProductoDTO> listaProductos = productosRepository.buscarProducto(id.toString(), nombre, descripcion,
 				precio.toString(), cantidadEnStock.toString(), null, null);

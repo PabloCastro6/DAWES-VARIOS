@@ -50,12 +50,12 @@ public class ClientesControllerRest {
 
 	@GetMapping(value = "/clientes", params = { "id", "nombre", "correoElectronico", "password", "fechaRegistro",
 			"poblacion", "activo" })
-	public ResponseEntity<ClientesEntity> obtenerClientesConFiltros(
-			@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "correoElectronico", required = false) String correoElectronico,
-			@RequestParam(value = "poblacion", required = false) Integer poblacion,
-			@RequestParam(value = "activo", required = false) Integer activo) {
+	public ResponseEntity obtenerClientesConFiltros(
+			@RequestParam(value = "id", required = true) Integer id,
+			@RequestParam(value = "nombre", required = true) String nombre,
+			@RequestParam(value = "correoElectronico", required = true) String correoElectronico,
+			@RequestParam(value = "poblacion", required = true) Integer poblacion,
+			@RequestParam(value = "activo", required = true) Integer activo) {
 
 		List<ClienteDTO> listaClientes = clientesRepository.buscarCliente(id.toString(), nombre, correoElectronico,
 				poblacion, activo);
