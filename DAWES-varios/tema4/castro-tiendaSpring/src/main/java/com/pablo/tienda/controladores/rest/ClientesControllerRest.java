@@ -69,21 +69,17 @@ public class ClientesControllerRest {
 			throws ClassNotFoundException, SQLException {
 
 		clientesService.insertarClientes(cliente.getNombre(), cliente.getCorreoElectronico(),
-				cliente.getPoblacion().getId().toString(), cliente.getActivo().toString());
+				null, cliente.getActivo().toString());
 
 		return ResponseEntity.ok("Cliente insertado correctamente");
 	}
 
-	@PutMapping(value = "/clientes", params = { "id", "nombre", "correoElectronico", "poblacion", "activo" })
-	public ResponseEntity actualizarCliente(@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "correoElectronico", required = false) String correoElectronico,
-			@RequestParam(value = "poblacion", required = false) Integer poblacion,
-			@RequestParam(value = "activo", required = false) Integer activo)
+	@PutMapping(value = "/clientes/{id}")
+	public ResponseEntity actualizarCliente(@PathVariable(value = "id") Integer id, @RequestBody ClientesEntity cliente)
 			throws ClassNotFoundException, SQLException {
 
-		clientesService.modificarClientes(id.toString(), nombre, correoElectronico, poblacion.toString(),
-				activo.toString());
+		clientesService.modificarClientes(id.toString(), cliente.getNombre(), cliente.getCorreoElectronico(), null,
+				cliente.getActivo().toString());
 
 		return ResponseEntity.ok("Cliente actualizado correctamente");
 

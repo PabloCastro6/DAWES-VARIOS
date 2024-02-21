@@ -41,8 +41,14 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 	public Integer insertarClientes(String nombre, String correoElectronico, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
 
-		PoblacionEntity poblacion = poblacionRepository.findById(Integer.parseInt(idPoblacion)).get();
 
+		PoblacionEntity poblacion = null;
+		try {
+			poblacion = poblacionRepository.findById(Integer.parseInt(idPoblacion)).get();
+		} catch(NumberFormatException e){
+			//error
+			
+		}
 		ClientesEntity c = new ClientesEntity(nombre, correoElectronico, poblacion, Integer.parseInt(activo));
 		clientesRepository.save(c);
 
@@ -53,7 +59,14 @@ public class ClientesDAOImplSpringDataJPA implements IClientesDAO {
 	@Override
 	public Integer actualizarClientes(String id, String nombre, String correo, String idPoblacion, String activo)
 			throws ClassNotFoundException, SQLException {
-		PoblacionEntity p = poblacionRepository.findById(Integer.parseInt(idPoblacion)).get();
+		PoblacionEntity p = null;
+		try {
+			 p = poblacionRepository.findById(Integer.parseInt(idPoblacion)).get();
+		} catch(NumberFormatException e){
+			//error
+			
+		}
+				
 
 		Integer idCliente = Integer.parseInt(id);
 

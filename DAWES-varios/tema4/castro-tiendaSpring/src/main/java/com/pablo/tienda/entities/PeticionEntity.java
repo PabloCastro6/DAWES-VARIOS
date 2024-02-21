@@ -24,6 +24,7 @@ public class PeticionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Cliente")
+	@JsonBackReference
 	private ClientesEntity cliente;
 
 	@ManyToOne

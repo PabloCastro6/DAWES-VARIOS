@@ -24,7 +24,7 @@ import com.pablo.tienda.negocio.ICategoriasService;
 import com.pablo.tienda.repositories.CategoriasRepository;
 
 @RestController
-@RequestMapping("/tienda/v1")
+@RequestMapping("/v1")
 public class CategoriaControllerRest {
 
 	@Autowired
@@ -51,7 +51,7 @@ public class CategoriaControllerRest {
 		return new ResponseEntity(categorias, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/categorias", params = { /*"id",*/ "nombre", "descripcion", "activo" })
+	@GetMapping(value = "/categorias", params = { /*"id",*/ "nombre", "descripcion", "activo" }) 
 	public ResponseEntity<CategoriasEntity> obtenerCategoriasConFiltros(
 			/*@RequestParam(value = "id", required = false) Integer id,*/
 			@RequestParam(value = "nombre", required = false) String nombre,
@@ -75,16 +75,13 @@ public class CategoriaControllerRest {
 		return ResponseEntity.ok("Categoria insertada correctamente");
 	}
 
-	@PutMapping(value = "/categorias", params = { "id", "nombre", "descripcion", "activo" })
-	public ResponseEntity actualizarCategorias(@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "descripcion", required = false) String descripcion,
-			@RequestParam(value = "activo", required = false) Integer activo)
+	@PutMapping(value = "/categorias/{id}")
+	public ResponseEntity actualizarCategorias(@PathVariable(value = "id", required = false) Integer id,@RequestBody CategoriasEntity categorias)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		Integer resultado = categoriasService.modificarCategoria(id.toString(), nombre, descripcion, activo.toString());
+		Integer resultado = categoriasService.modificarCategoria(id.toString(),categorias.getNombre(),categorias.getDescripcion(),categorias.getActivo().toString());
 
-		return ResponseEntity.ok("Categoria insertada correctamente");
+		return ResponseEntity.ok("Categoria actualizada correctamente");
 	}
 
 	@DeleteMapping("/categorias/{id}")

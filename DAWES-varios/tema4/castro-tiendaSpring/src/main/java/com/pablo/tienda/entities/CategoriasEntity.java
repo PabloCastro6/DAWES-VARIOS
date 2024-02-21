@@ -2,6 +2,9 @@ package com.pablo.tienda.entities;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,6 +33,7 @@ public class CategoriasEntity {
 	private Integer activo;
 
 	@OneToMany(mappedBy = "categoriaEntity")
+	@JsonBackReference
 	private Set<ProductoEntity> productos;
 
 	public Set<ProductoEntity> getProductos() {

@@ -38,7 +38,7 @@ public class ProductoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Categoria")
-	@JsonIgnore
+	@JsonBackReference
 	private CategoriasEntity categoriaEntity;
 
 	@ManyToOne

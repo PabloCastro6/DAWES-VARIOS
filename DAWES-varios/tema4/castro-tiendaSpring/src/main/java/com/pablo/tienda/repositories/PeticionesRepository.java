@@ -23,4 +23,6 @@ public interface PeticionesRepository extends CrudRepository<PeticionEntity, Int
 	List<PeticionesDTO> buscarPorFiltros(@Param("peticion") String idPeticiones, @Param("cliente") String idCliente,
 			@Param("producto") String idProducto, @Param("fecha") String fecha, @Param("cantidad") String cantidad,
 			@Param("estado") String idEstado);
+
+	
 }
