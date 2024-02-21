@@ -8912,3 +8912,6 @@ Caused by: org.eclipse.core.runtime.CoreException: Cannot determine URI for '/ca
 2024-02-21 19:04:09,427 [Worker-72: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-02-21 19:04:09,433 [Worker-72: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
 2024-02-21 19:04:09,438 [Worker-72: Launching castro-tiendaSpring - CastroTiendaSpringApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Usuario\Desktop\REPO Dawes\DAWES-VARIOS\DAWES-varios\tema4\castro-tiendaSpring\src\test\resources
+2024-02-21 19:20:13,369 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@7e094b98{STOPPING}[10.0.17,sto=0]
+2024-02-21 19:20:13,382 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@2b5910c0{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2024-02-21 19:20:13,396 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@2c5a7046{/help,null,STOPPED}
