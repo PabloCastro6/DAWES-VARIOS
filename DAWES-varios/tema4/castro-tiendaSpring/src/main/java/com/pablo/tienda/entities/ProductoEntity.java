@@ -38,12 +38,12 @@ public class ProductoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Categoria")
-	@JsonBackReference
+	@JsonBackReference(value="producto-categoria")
 	private CategoriasEntity categoriaEntity;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Proveedor")
-	@JsonBackReference
+	@JsonBackReference(value="producto-proveedor")
 	private ProveedorEntity proveedorEntity;
 
 //  @OneToMany(mappedBy = "producto")

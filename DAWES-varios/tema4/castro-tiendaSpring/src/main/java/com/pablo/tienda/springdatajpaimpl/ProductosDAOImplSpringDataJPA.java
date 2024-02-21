@@ -81,9 +81,20 @@ public class ProductosDAOImplSpringDataJPA implements IProductoDAO {
 	public Integer actualizarProducto(String id, String nombre, String descripcion, String precio, String cantidadStock,
 			String idCategoria, String idProveedor) throws ClassNotFoundException, SQLException, NamingException {
 
-		CategoriasEntity categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).get();
-		ProveedorEntity proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
-
+		CategoriasEntity categoriaEntity = null;
+		try {
+			categoriaEntity = categoriasRepository.findById(Integer.parseInt(idCategoria)).get();
+		}catch(NumberFormatException e) {
+			//error
+		}
+		ProveedorEntity proveedorEntity = null;
+		
+		try {
+			proveedorEntity = proveedoresRepository.findById(Integer.parseInt(idProveedor)).get();
+		}catch(NumberFormatException e) {
+			//error
+		}
+		
 		BigDecimal precioDecimal = new BigDecimal(precio);
 		Integer cantidadEnStock = Integer.parseInt(cantidadStock);
 

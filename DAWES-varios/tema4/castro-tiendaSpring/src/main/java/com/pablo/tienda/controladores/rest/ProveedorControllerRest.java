@@ -78,19 +78,12 @@ public class ProveedorControllerRest {
 
 	}
 
-	@PutMapping(value = "/proveedores", params = { "id", "nombre", "contacto", "telefono", "correo", "direccion",
-			"activo" })
-	public ResponseEntity actualizarProveedor(@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "contacto", required = false) String contacto,
-			@RequestParam(value = "telefono", required = false) String telefono,
-			@RequestParam(value = "correo", required = false) String correo,
-			@RequestParam(value = "direccion", required = false) String direccion,
-			@RequestParam(value = "activo", required = false) Integer activo)
+	@PutMapping(value = "/proveedores/{id}")
+	public ResponseEntity actualizarProveedor(@PathVariable("id") Integer id,@RequestBody ProveedorEntity proveedor)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		proveedoresService.actualizarProveedores(id.toString(), nombre, contacto, telefono, correo, direccion,
-				activo.toString());
+		proveedoresService.actualizarProveedores(id.toString(), proveedor.getNombre(), proveedor.getContacto(), proveedor.getTelefono(), proveedor.getCorreoElectronico(), proveedor.getDireccion(),
+				proveedor.getActivo().toString());
 
 		return ResponseEntity.ok("Proveedor actualizado correctamente");
 

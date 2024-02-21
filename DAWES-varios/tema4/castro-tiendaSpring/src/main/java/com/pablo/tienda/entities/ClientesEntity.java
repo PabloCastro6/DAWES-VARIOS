@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,7 +42,7 @@ public class ClientesEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Poblacion")
-	@JsonBackReference
+	@JsonBackReference (value="cliente-poblacion")
 	private PoblacionEntity poblacion;
 
 	@Column(name = "activo")
@@ -52,9 +53,11 @@ public class ClientesEntity {
 	// ...otros campos...
 
 	@OneToMany(mappedBy = "cliente")
+	@JsonManagedReference
 	private Set<PedidoEntity> pedidos;
 
 	@OneToMany(mappedBy = "cliente")
+	@JsonManagedReference
 	private Set<PeticionEntity> peticiones;
 
 // Getters y setters...

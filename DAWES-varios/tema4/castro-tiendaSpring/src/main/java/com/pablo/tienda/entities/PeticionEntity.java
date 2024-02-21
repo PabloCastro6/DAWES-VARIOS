@@ -24,12 +24,12 @@ public class PeticionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Cliente")
-	@JsonBackReference
+	@JsonBackReference(value="peticion-cliente")
 	private ClientesEntity cliente;
 
 	@ManyToOne
 	@JoinColumn(name = "ID_Producto")
-	@JsonBackReference
+	@JsonBackReference(value="peticion-producto")
 	private ProductoEntity producto;
 
 	@Column(name = "FechaAñadido", insertable = false)
@@ -41,7 +41,7 @@ public class PeticionEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "Estado")
-	@JsonBackReference
+	@JsonBackReference(value="peticion-estado")
 	private EstadoPedidoEntity estado;
 
 	public PeticionEntity(Integer peticionID, ClientesEntity cliente, ProductoEntity producto, String fecha,

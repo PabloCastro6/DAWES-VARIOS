@@ -95,7 +95,7 @@ public class PeticionesControllerRest {
 
 		peticionesService.borrarPeticiones(id.toString());
 
-		return ResponseEntity.ok("Petición borrada correctamente");
+		return ResponseEntity.ok("Petición cancelada correctamente");
 
 	}
 

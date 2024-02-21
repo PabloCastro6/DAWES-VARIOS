@@ -33,7 +33,7 @@ public class CategoriasEntity {
 	private Integer activo;
 
 	@OneToMany(mappedBy = "categoriaEntity")
-	@JsonBackReference
+	@JsonBackReference (value="categorias-producto")
 	private Set<ProductoEntity> productos;
 
 	public Set<ProductoEntity> getProductos() {

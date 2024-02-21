@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,24 +72,21 @@ public class ProductoControllerRest {
 
 		productosService.insertarProducto(productos.getNombre(), productos.getDescripcion(),
 				productos.getPrecio().toString(), productos.getCantidadEnStock().toString(),
-				productos.getCategoria().getId().toString(), productos.getProveedorEntity().getId().toString());
+				null, null);
 
 		return ResponseEntity.ok("Producto insertado correctamente");
 	}
 
-	@PutMapping(value = "/productos", params = { "id", "nombre", "descripcion", "precio", "cantidadEnStock" })
-	public ResponseEntity actualizarProducto(@RequestParam(value = "id", required = false) Integer id,
-			@RequestParam(value = "nombre", required = false) String nombre,
-			@RequestParam(value = "descripcion", required = false) String descripcion,
-			@RequestParam(value = "precio", required = false) Double precio,
-			@RequestParam(value = "cantidadEnStock", required = false) Integer cantidadEnStock)
+	@PutMapping(value = "/productos/{id}")
+	public ResponseEntity actualizarProducto(@PathVariable(value = "id") Integer id ,@RequestBody ProductoEntity productos)
 			throws ClassNotFoundException, SQLException, NamingException {
 
-		productosService.modificarProducto(id.toString(), nombre, descripcion, precio.toString(),
-				cantidadEnStock.toString(), null, null);
+		productosService.modificarProducto(id.toString(), productos.getNombre(), productos.getDescripcion(), productos.getPrecio().toString(),
+				productos.getCantidadEnStock().toString(), null, null);
 
 		return ResponseEntity.ok("Producto actualizado correctamente");
 
 	}
+	
 
 }
